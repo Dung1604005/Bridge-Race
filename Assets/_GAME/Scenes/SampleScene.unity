@@ -1019,6 +1019,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Male_emotion_angry_003
       objectReference: {fileID: 0}
+    - target: {fileID: 5866666021909216657, guid: 2fe4b0e4b60c489c9b9e8c9ba491c82f, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 3f9995eb84f84691b9c0e8d1859be3d0, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1558,7 +1562,7 @@ Transform:
   m_GameObject: {fileID: 410087039}
   serializedVersion: 2
   m_LocalRotation: {x: 0.40821788, y: -0.23456968, z: 0.10938163, w: 0.8754261}
-  m_LocalPosition: {x: 0, y: 3, z: 0}
+  m_LocalPosition: {x: -0.00000008940697, y: 3, z: 0.00000013411045}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2381,6 +2385,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 917712441}
+  - component: {fileID: 917712442}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -2404,6 +2409,20 @@ Transform:
   - {fileID: 356736487}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &917712442
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 917712440}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 072fae867b3b3cc47889caa3aae5270f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerController
+  meshRenderer: {fileID: 1829299011}
+  colorDataSO: {fileID: 11400000, guid: 46a64e50ba6c797418fcfc07b1a54092, type: 2}
 --- !u!1 &935121183
 GameObject:
   m_ObjectHideFlags: 0
@@ -2636,6 +2655,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Glasses_006
       objectReference: {fileID: 0}
+    - target: {fileID: 5866666021909216657, guid: 031b9791be8a4424820a6d57f00ec252, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 3f9995eb84f84691b9c0e8d1859be3d0, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -4290,6 +4313,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Body_010
       objectReference: {fileID: 0}
+    - target: {fileID: 1962317565584964006, guid: 39ca3f5f903246e79dac11707013e4e8, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: cbb7ea0a65ebda543b2425c83b2b61f2, type: 2}
     - target: {fileID: 5866666021909216657, guid: 39ca3f5f903246e79dac11707013e4e8, type: 3}
       propertyPath: m_Controller
       value: 
@@ -4928,6 +4955,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Pants_009
       objectReference: {fileID: 0}
+    - target: {fileID: 5866666021909216657, guid: edb7369940854ad1bd9cef9adb83ab37, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 3f9995eb84f84691b9c0e8d1859be3d0, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -4937,6 +4968,11 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: edb7369940854ad1bd9cef9adb83ab37, type: 3}
   m_PrefabInstance: {fileID: 1828458774}
+  m_PrefabAsset: {fileID: 0}
+--- !u!137 &1829299011 stripped
+SkinnedMeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 1962317565584964006, guid: 39ca3f5f903246e79dac11707013e4e8, type: 3}
+  m_PrefabInstance: {fileID: 1591885233}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1830672892
 GameObject:
@@ -5846,6 +5882,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Hairstyle_Male_001
       objectReference: {fileID: 0}
+    - target: {fileID: 5866666021909216657, guid: cd46cdfa74f74f319fbedcf83332655a, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 3f9995eb84f84691b9c0e8d1859be3d0, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
