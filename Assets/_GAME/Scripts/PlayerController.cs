@@ -1,21 +1,55 @@
 using UnityEngine;
 
-public class PlayerController : MonoBehaviour
+public class PlayerController : Character
 {
-    [SerializeField] Renderer meshRenderer;
+    [SerializeField] private float rotationSpeed;
+    private float moveX;
 
-    [SerializeField] ColorDataSO colorDataSO;
+    private float moveZ;
 
-    private ColorType colorType;
+    private Quaternion targetRotation;
 
-    public ColorType ColorType => colorType;
-
-    void Start()
+    public void GetInputMove()
     {
-        ChangeColor(ColorType.YELLOW);
+        moveX = Input.GetAxisRaw("Horizontal");
+        moveZ = Input.GetAxisRaw("Vertical");
     }
-    public void ChangeColor(ColorType colorType)
+
+    public void ChangeRotation()
     {
-        meshRenderer.material = colorDataSO.GetColorMaterial(colorType);
+        if(tf == null)
+        {
+            Debug.LogError("PLAYER HAVENT SET TRANSFORM");
+        }
+
+        targetRotation = Quaternion.LookRotation(new Vector3(moveX, 0f, moveZ));
+        tf.rotation= Quaternion.Slerp(tf.rotation, targetRotation, rotationSpeed*Time.fixedDeltaTime);
+        
+    }
+    public void Move()
+    {
+        rb.linearVelocity = new Vector3(moveX,0f, moveZ).normalized*speed;
+
+        if((new Vector3(moveX, 0f, moveZ).sqrMagnitude <= 0.05)){
+            ChangeAnim(GameData.Instance.ANIM_IDLE);
+        }
+        else
+        {
+            ChangeAnim(GameData.Instance.ANIM_RUN);
+            ChangeRotation();
+        }
+        
+    }
+    void Awake()
+    {
+        tf = this.transform;
+    }
+    void FixedUpdate()
+    {
+        Move();
+    }
+    void Update()
+    {
+        GetInputMove();
     }
 }
