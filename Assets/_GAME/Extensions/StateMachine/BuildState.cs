@@ -2,19 +2,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BuildState : IState<Character>
+public class BuildState : IState
 {
-    public void OnEnter(Character t)
+    public void OnEnter(Enemy t)
     {
 
     }
 
-    public void OnExecute(Character t)
+    public void OnExecute(Enemy t)
     {
 
     }
 
-    public void OnExit(Character t)
+    public void OnExit(Enemy t)
     {
 
     }

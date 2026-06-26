@@ -11,5 +11,6 @@ public class GameUnit : MonoBehaviour
 
 
 public enum PoolType{
-    BrickPool = 0
+    BrickPool = 0,
+    BrickEffectPool = 1
 }

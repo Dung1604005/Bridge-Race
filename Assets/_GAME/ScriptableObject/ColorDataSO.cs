@@ -17,8 +17,15 @@ public class ColorDataSO : ScriptableObject
 {
     [SerializeField] private Material[] materials;
 
+    [SerializeField] private Material[] particalMaterials;
+
     public Material GetColorMaterial(ColorType colorType)
     {
         return materials[(int)colorType];
+    }
+
+    public Material GetColorParticalMaterial(ColorType colorType)
+    {
+        return particalMaterials[(int)colorType];
     }
 }

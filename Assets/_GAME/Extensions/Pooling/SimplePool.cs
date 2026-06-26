@@ -142,6 +142,7 @@ public class Pool
             actives.Remove(gameUnit);
             inactives.Enqueue(gameUnit);
             gameUnit.gameObject.SetActive(false);
+            
         }
     }
 
