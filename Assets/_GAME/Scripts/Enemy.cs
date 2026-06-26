@@ -15,6 +15,15 @@ public class Enemy : Character
         currentState.OnEnter(this);
     }
 
+    public override bool CharacterIsGoingDown()
+    {
+        if(agent.velocity.z < -0.01f)
+        {
+            return true;
+        }
+        return false;
+    }
+
     public bool IsAgentStop()
     {
         if(agent.pathPending)return false;
@@ -31,8 +40,11 @@ public class Enemy : Character
         
     }
 
-    void Update()
+    protected override void Update()
     {
+        base.Update();
+        CheckStairForward();
+        
         currentState.OnExecute(this);
 
     }

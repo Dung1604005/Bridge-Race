@@ -14,23 +14,23 @@ public class Stair : MonoBehaviour
 
     public void SetColor(ColorType _colorType)
     {
-        if(colorType == ColorType.NONE)
-        {
-            ChangeColorEffect(GameData.Instance.ColorDataSO.GetColorMaterial(colorType).color, GameData.Instance.ColorDataSO.GetColorMaterial(_colorType).color, 0.5f);
-        }
-        else
-        {
-            renderer.material = GameData.Instance.ColorDataSO.GetColorMaterial(colorType);
-        }
+        ColorType oldColor = colorType;
         colorType = _colorType;
+        if (oldColor == ColorType.NONE)
+        {
+            renderer.enabled = true;
+        }
+        ChangeColorEffect(GameData.Instance.ColorDataSO.GetColorMaterial(oldColor).color, GameData.Instance.ColorDataSO.GetColorMaterial(_colorType).color, 0.5f);
+
         
-        
+
+
 
     }
 
     public void ChangeColorEffect(Color startColor, Color targetColor, float duration)
     {
-        if(changeColorCoroutine != null)
+        if (changeColorCoroutine != null)
         {
             StopCoroutine(changeColorCoroutine);
         }
@@ -40,13 +40,13 @@ public class Stair : MonoBehaviour
 
     private IEnumerator IEChangeColorEffect(Color startColor, Color targetColor, float duration)
     {
-        
+
         float timer = 0f;
-        while(timer < duration)
+        while (timer < duration)
         {
             timer += Time.deltaTime;
 
-            float p = timer/duration;
+            float p = timer / duration;
 
             renderer.material.color = Color.Lerp(startColor, targetColor, p);
 
@@ -55,34 +55,21 @@ public class Stair : MonoBehaviour
         renderer.material.color = targetColor;
     }
 
-    public void OnTriggerEnter(Collider collider)
+    public void TakeStair(Character character)
     {
-        Debug.Log("Va cham stair");
-        if (collider.CompareTag(GameData.Instance.CHARACTER_TAG))
+        if (character.ColorType == colorType)
         {
-            
-            Character character = ColliderCache<Character>.GetComponent(collider);
-            if (character == null)
-            {
-                character = collider.gameObject.GetComponent<Character>();
-                ColliderCache<Character>.AddComponent(collider, character);
-            }
+            return;
+        }
 
-            if(character.ColorType == colorType)
-            {
-                return;
-            }
-
-            
-            if (character.GetAmountBrick() > 0)
-            {
-                character.RemoveBrick();
-                SetColor(character.ColorType);
-            }
-            
+        if (character.GetAmountBrick() > 0)
+        {
+            character.RemoveBrick();
+            SetColor(character.ColorType);
         }
     }
-    
+
+
 
 
 }

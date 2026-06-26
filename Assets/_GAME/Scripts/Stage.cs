@@ -12,12 +12,16 @@ public class Stage : MonoBehaviour
 
     [SerializeField] private Vector3 sizeStage;
 
-    private Dictionary<ColorType, List<Brick>> bricks = new Dictionary<ColorType, List<Brick>>();
-    private Dictionary<Brick, int> flyingBricks = new Dictionary<Brick, int>();
-
     [SerializeField] private Vector3 distanceBrick;
 
     [SerializeField] private List<Character> characters;
+
+    [SerializeField] private List<Bridge> bridges;
+
+
+    private Dictionary<ColorType, List<Brick>>bricks = new Dictionary<ColorType, List<Brick>>();
+
+    private Dictionary<Brick, int> flyingBricks = new Dictionary<Brick, int>();
 
     private Transform tf;
 
@@ -43,28 +47,47 @@ public class Stage : MonoBehaviour
         float minDis = 1000000000f;
         Vector3 ans = pos;
 
-         foreach (Brick brick in bricks[colorType])
+        foreach (Brick brick in bricks[colorType])
         {
-            if(brick.gameObject.activeSelf && !flyingBricks.ContainsKey(brick) && (brick.TF.position - pos).sqrMagnitude < minDis)
+            if (brick.gameObject.activeSelf && !flyingBricks.ContainsKey(brick) && (brick.TF.position - pos).sqrMagnitude < minDis)
             {
-                minDis = (brick.TF.position - pos).sqrMagnitude ;
+                minDis = (brick.TF.position - pos).sqrMagnitude;
                 ans = brick.TF.position;
             }
         }
         return ans;
     }
 
+
     public int GetAmountActiveBrick(ColorType colorType)
     {
         int amount = 0;
-         foreach (Brick brick in bricks[colorType])
+        if (!bricks.ContainsKey(colorType))
         {
-            if (brick.gameObject.activeSelf)
+            return 0;
+        }
+        foreach(Brick brick in bricks[colorType])
+        {
+            amount += 1;
+        }
+
+        return amount;
+    }
+
+    public void ReSpawnBrick(ColorType colorType)
+    {
+       if (!bricks.ContainsKey(colorType))
+        {
+            return;
+        }
+        foreach(Brick brick in bricks[colorType])
+        {
+            if (!brick.gameObject.activeSelf)
             {
-                amount+= 1;
+                brick.OnInit();
+                return;
             }
         }
-        return amount;
     }
 
     public void SpawnBrick(List<ColorType> colorTypes)
@@ -97,7 +120,8 @@ public class Stage : MonoBehaviour
                 tf.position.y + sizeStage.y + GameData.Instance.BRICK_SIZE.y / 2,
                 (z + 1) * distanceBrick.z + z * GameData.Instance.BRICK_SIZE.z + leftBottomPos.z + GameData.Instance.BRICK_SIZE.z / 2);
                 Brick brick = SimplePool.Spawn<Brick>(PoolType.BrickPool, pos, Quaternion.identity);
-                brick.OnInit(this, pos);
+                brick.SetInfor(this, pos);
+                brick.OnInit();
                 for (int timer = 0; timer <= 100; timer++)
                 {
                     int colorRand = Random.Range(0, 4);
@@ -123,15 +147,42 @@ public class Stage : MonoBehaviour
 
     }
 
+
+    public Bridge GetBestBridge(ColorType colorType)
+    {
+        int maxColorStair = 0;
+        List<Bridge> possibleAns = new List<Bridge>();
+        for(int i = 0; i < bridges.Count; i++)
+        {
+            int amountColorStair = bridges[i].GetAmountColorStair(colorType);
+            if(amountColorStair > maxColorStair)
+            {
+                maxColorStair = amountColorStair;
+                possibleAns.Clear();
+                possibleAns.Add(bridges[i]);
+            }
+            else if(amountColorStair == maxColorStair)
+            {
+                possibleAns.Add(bridges[i]);
+            }
+        }
+        if(possibleAns.Count == 1)
+        {
+            return possibleAns[0];
+        }
+        else
+        {
+            int rad = Random.Range(0, possibleAns.Count);
+            return possibleAns[rad];
+        }
+
+    }
+
     void Awake()
     {
         tf = this.transform;
         OnInit();
         SpawnBrick(new List<ColorType>() { ColorType.RED, ColorType.BLUE, ColorType.VIOLET, ColorType.GREEN });
-    }
-    void Start()
-    {
-        
     }
 
     void Update()
@@ -152,7 +203,7 @@ public class Stage : MonoBehaviour
                             brick.SetCollected(true);
                             if (!flyingBricks.ContainsKey(brick))
                             {
-                                flyingBricks.Add(brick, character.GetBrickIndex());
+                                flyingBricks.Add(brick, character.GetNextBrickIndex());
                             }
                         }
                     }

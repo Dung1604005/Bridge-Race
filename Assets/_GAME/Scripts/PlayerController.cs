@@ -61,8 +61,9 @@ public class PlayerController : Character
         Move();
         
     }
-    void Update()
+    protected override void Update()
     {
+        base.Update();
         GetInputMove();
     }
 }

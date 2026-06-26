@@ -19,6 +19,10 @@ public class Brick : GameUnit
 
     [SerializeField] private float rotationSpeed;
 
+    [SerializeField] private float maxAngleShake;
+
+    [SerializeField] private float speedShake;
+
     private Vector3 spawnPos;
     private Stage stage;
 
@@ -33,18 +37,27 @@ public class Brick : GameUnit
     public bool IsCollected => isCollected;
     public ColorType ColorType => colorType;
 
-
-    public void OnInit(Stage _stage, Vector3 _spawnPos)
+    public void SetInfor(Stage _stage, Vector3 _spawnPos)
     {
         stage = _stage;
         spawnPos = _spawnPos;
+    }
+    public void OnInit()
+    {
+        SetActive(true);
+        tf.position = spawnPos;
+        tf.rotation = Quaternion.identity;
         isCollected = false;
         reachBehind = false;
         flyTimer = 0f;
+        foreach(TrailRenderer trail in trailRenderers)
+        {
+            trail.Clear();
+        }
     }
 
     public void OnDespawn()
-    {
+    {        
         stage = null;
         SimplePool.Despawn(this);
     }
@@ -113,10 +126,18 @@ public class Brick : GameUnit
                 character.AddBrick();
                 flyTimer = 0f;
                 SetActive(false);
+                
+                
             }
 
 
         }
+    }
+
+    public void Shake()
+    {
+        float y = Mathf.Sin(Time.time*speedShake)*maxAngleShake;
+        tf.localRotation = Quaternion.Euler(new Vector3(0f, y, 0f));
     }
 
     void Awake()

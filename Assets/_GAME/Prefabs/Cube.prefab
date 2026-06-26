@@ -436,3 +436,5 @@ MonoBehaviour:
   moveSpeed: 12
   accelerate: 5
   rotationSpeed: 15
+  maxAngleShake: 15
+  speedShake: 1.5

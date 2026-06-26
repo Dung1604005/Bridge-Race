@@ -18,7 +18,7 @@ public class Character : MonoBehaviour
 
     [SerializeField] protected Rigidbody rb;
 
-    [SerializeField] protected Queue<Brick> characterBricks = new Queue<Brick>();
+    [SerializeField] protected Stack<Brick> characterBricks = new Stack<Brick>();
 
     [SerializeField] protected Stage currentStage;
 
@@ -79,11 +79,27 @@ public class Character : MonoBehaviour
         
     }
 
+    public virtual bool CharacterIsGoingDown()
+    {
+        
+        if(rb.linearVelocity.z < -0.01f)
+        {
+            return true;
+        }
+        return false;
+    }
+
     public void CheckStairForward()
     {
-        Debug.DrawRay(tf.position, tf.forward * rangeDetect, Color.red);
+       
+        if (CharacterIsGoingDown())
+        {
+            return;
+        }
+      
         if(Physics.Raycast(tf.position, tf.forward, out RaycastHit hit,rangeDetect,1<<6))
         {
+            
             Collider col = hit.collider;
 
             
@@ -93,7 +109,7 @@ public class Character : MonoBehaviour
                 stair = col.gameObject.GetComponent<Stair>();
                 ColliderCache<Stair>.AddComponent(col, stair);
             }
-            
+            stair.TakeStair(this);
             if(stair.ColorType == colorType)
             {
                 blockMoveForward = false;
@@ -101,17 +117,17 @@ public class Character : MonoBehaviour
             else
             {
                 blockMoveForward = true;
-            }
+            }                      
         }
         else
         {
-            Debug.Log("Ray cast miss");
+            
             blockMoveForward = false;
         }
 
     }
 
-    public int GetBrickIndex()
+    public int GetNextBrickIndex()
     {
         int assignedIndex = visualBrickId;
         visualBrickId += 1;
@@ -120,7 +136,7 @@ public class Character : MonoBehaviour
     public Vector3 GetNextBrickPosition(int index)
     {
         
-       return startCharacterBrickPos + new Vector3(0f, index*(GameData.Instance.BRICK_SIZE.y + 0.08f), 0f) + tf.position;
+       return startCharacterBrickPos + new Vector3(0f, index*(GameData.Instance.BRICK_SIZE.y + 0.07f), 0f) + tf.position;
     }
     public int GetAmountBrick()
     {
@@ -132,11 +148,11 @@ public class Character : MonoBehaviour
         Brick brick = SimplePool.Spawn<Brick>(PoolType.BrickPool,Vector3.zero, Quaternion.identity );
         
         brick.transform.SetParent(tf, true);
+        brick.OnInit();
         brick.TF.localPosition = localPos;
         brick.TF.localRotation = Quaternion.identity;
-        brick.OnInit(null, brick.TF.position);
         brick.SetColor(colorType);
-        characterBricks.Enqueue(brick);
+        characterBricks.Push(brick);
         brick.SetActiveTrail(false);
 
         BrickEffect brickEffect = SimplePool.Spawn<BrickEffect>(PoolType.BrickEffectPool,Vector3.zero, Quaternion.identity );
@@ -145,20 +161,15 @@ public class Character : MonoBehaviour
         brickEffect.TF.localPosition = localPos;
         brickEffect.TF.localRotation = Quaternion.identity;
         brickEffect.Play();
-        
-        
-        
-        
-        
-        
+                
     }
 
     public void RemoveBrick()
     {
-        Brick brick = characterBricks.Dequeue();
+        Brick brick = characterBricks.Pop();
+        currentStage.ReSpawnBrick(brick.ColorType);
+        visualBrickId -= 1;
         brick.OnDespawn();
-        SimplePool.Despawn(brick);
-
     }
 
     void Awake()
@@ -166,5 +177,14 @@ public class Character : MonoBehaviour
         tf = this.transform;
         SetColor(colorType);
         
+    }
+
+    protected virtual void Update()
+    {
+        foreach(Brick brick in characterBricks)
+        {
+            
+            brick.Shake();
+        }
     }
 }
