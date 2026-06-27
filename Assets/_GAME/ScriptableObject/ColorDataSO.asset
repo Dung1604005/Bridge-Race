@@ -28,3 +28,11 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 639c54ae4eae1684ab99e20d1a21603d, type: 2}
   - {fileID: 2100000, guid: a27cdb1faf8bb25459ceef05f92c0a46, type: 2}
   - {fileID: 2100000, guid: 6ec3c2ee50c211b44bec9f223ebef3e3, type: 2}
+  characterMaterials:
+  - {fileID: 2100000, guid: 765f44371fc9c474ca9aff8604f7965d, type: 2}
+  - {fileID: 2100000, guid: e2ae7eb399221274cbffc1cfac8c4074, type: 2}
+  - {fileID: 2100000, guid: 278f4da3aca0a4a4c9b789946b04f1fe, type: 2}
+  - {fileID: 2100000, guid: 53153f2b7afacab4db51c18353137617, type: 2}
+  - {fileID: 2100000, guid: 7f6ee8ba3c1e087499f3f0f67edb952a, type: 2}
+  - {fileID: 2100000, guid: 30a4cbce1b8a30d458b1a5ffdfbca074, type: 2}
+  - {fileID: 2100000, guid: 4df9413c95e68e149a03b4eab7cd72a0, type: 2}

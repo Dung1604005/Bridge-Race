@@ -1,3 +1,4 @@
+
 using System.Collections.Generic;
 using UnityEditor.ShaderGraph.Internal;
 using UnityEngine;
@@ -19,7 +20,7 @@ public class Stage : MonoBehaviour
     [SerializeField] private List<Bridge> bridges;
 
 
-    private Dictionary<ColorType, List<Brick>>bricks = new Dictionary<ColorType, List<Brick>>();
+    private Dictionary<ColorType, List<Brick>> bricks = new Dictionary<ColorType, List<Brick>>();
 
     private Dictionary<Brick, int> flyingBricks = new Dictionary<Brick, int>();
 
@@ -34,12 +35,65 @@ public class Stage : MonoBehaviour
 
     }
 
+    public void AddCharacter(Character character)
+    {
+        characters.Add(character);
+        ActiveBrickByColor(character.ColorType);
+
+    }
+
+    public void RemoveCharacter(Character character)
+    {
+        for (int i = 0; i < characters.Count; i++)
+        {
+            if (characters[i] == character)
+            {
+                characters.RemoveAt(i);
+
+                return;
+            }
+        }
+    }
+
     public void RemoveFlyingBrick(Brick brick)
     {
         if (flyingBricks.ContainsKey(brick))
         {
             flyingBricks.Remove(brick);
         }
+    }
+
+    public void ActiveBrickByColor(ColorType colorType)
+    {
+        if (bricks.ContainsKey(colorType))
+        {
+            foreach (Brick brick in bricks[colorType])
+            {
+                brick.SetActive(true);
+            }
+        }
+        else
+        {
+            Debug.LogError("Color brick want to be active dont have in stage!!!");
+        }
+
+    }
+
+    public void DeActiveBrickByColor(ColorType colorType)
+    {
+        if (bricks.ContainsKey(colorType))
+        {
+            foreach (Brick brick in bricks[colorType])
+            {
+                brick.OnDespawn();
+            }
+            bricks.Remove(colorType);
+        }
+        else
+        {
+            Debug.LogError("Color brick want to be deactive dont have in stage!!!");
+        }
+
     }
 
     public Vector3 GetNearestBrick(ColorType colorType, Vector3 pos)
@@ -66,7 +120,7 @@ public class Stage : MonoBehaviour
         {
             return 0;
         }
-        foreach(Brick brick in bricks[colorType])
+        foreach (Brick brick in bricks[colorType])
         {
             amount += 1;
         }
@@ -76,11 +130,11 @@ public class Stage : MonoBehaviour
 
     public void ReSpawnBrick(ColorType colorType)
     {
-       if (!bricks.ContainsKey(colorType))
+        if (!bricks.ContainsKey(colorType))
         {
             return;
         }
-        foreach(Brick brick in bricks[colorType])
+        foreach (Brick brick in bricks[colorType])
         {
             if (!brick.gameObject.activeSelf)
             {
@@ -122,6 +176,7 @@ public class Stage : MonoBehaviour
                 Brick brick = SimplePool.Spawn<Brick>(PoolType.BrickPool, pos, Quaternion.identity);
                 brick.SetInfor(this, pos);
                 brick.OnInit();
+                brick.SetActive(false);
                 for (int timer = 0; timer <= 100; timer++)
                 {
                     int colorRand = Random.Range(0, 4);
@@ -152,21 +207,21 @@ public class Stage : MonoBehaviour
     {
         int maxColorStair = 0;
         List<Bridge> possibleAns = new List<Bridge>();
-        for(int i = 0; i < bridges.Count; i++)
+        for (int i = 0; i < bridges.Count; i++)
         {
             int amountColorStair = bridges[i].GetAmountColorStair(colorType);
-            if(amountColorStair > maxColorStair)
+            if (amountColorStair > maxColorStair)
             {
                 maxColorStair = amountColorStair;
                 possibleAns.Clear();
                 possibleAns.Add(bridges[i]);
             }
-            else if(amountColorStair == maxColorStair)
+            else if (amountColorStair == maxColorStair)
             {
                 possibleAns.Add(bridges[i]);
             }
         }
-        if(possibleAns.Count == 1)
+        if (possibleAns.Count == 1)
         {
             return possibleAns[0];
         }
@@ -182,7 +237,15 @@ public class Stage : MonoBehaviour
     {
         tf = this.transform;
         OnInit();
+
+    }
+    void Start()
+    {
         SpawnBrick(new List<ColorType>() { ColorType.RED, ColorType.BLUE, ColorType.VIOLET, ColorType.GREEN });
+        foreach(Character character in characters)
+        {
+            ActiveBrickByColor(character.ColorType);
+        }
     }
 
     void Update()
@@ -218,7 +281,7 @@ public class Stage : MonoBehaviour
                 }
             }
         }
-        
-        
+
+
     }
 }

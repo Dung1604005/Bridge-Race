@@ -5,9 +5,22 @@ public class Bridge : MonoBehaviour
 {
     [SerializeField] private List<Stair> stairs = new List<Stair>();
 
-    public void OnInit()
+    [SerializeField] private Stage ownerStage;
+
+    [SerializeField] private Stage nextStage;
+
+    public Stage NextStage => nextStage;
+
+    public List<Stair> Stairs => stairs;
+
+    public void SetOwnerStage(Stage _ownerStage)
     {
-        
+        ownerStage = _ownerStage;
+    }
+
+    public void SetNextStage(Stage _nextStage)
+    {
+        nextStage = _nextStage;
     }
 
     public int GetAmountColorStair(ColorType colorType)
@@ -25,6 +38,7 @@ public class Bridge : MonoBehaviour
 
     public StairInfo GetFarthestStairPossible(int currentStair, ColorType colorType, int number)
     {
+        Debug.Log(number);
         int farthestStair = currentStair;
         for(int i = currentStair + 1; i < stairs.Count; i++)
         {
@@ -35,6 +49,7 @@ public class Bridge : MonoBehaviour
                     return new StairInfo
                     {
                         stairId = farthestStair,
+                        isLastStair = (farthestStair == stairs.Count - 1) ? true:false,
                         position = stairs[farthestStair].transform.position
                     };
                 }
@@ -46,8 +61,17 @@ public class Bridge : MonoBehaviour
         return new StairInfo
         {
            stairId = farthestStair,
+           isLastStair = (farthestStair == stairs.Count - 1) ? true:false,
            position = stairs[farthestStair].transform.position  
         };
+    }
+
+    void Start()
+    {
+        foreach(Stair stair in stairs)
+        {
+            stair.SetBridge(this);
+        }
     }
 
 }
@@ -56,5 +80,7 @@ public class Bridge : MonoBehaviour
 public struct StairInfo
 {
     public int stairId;
+
+    public bool isLastStair;
     public Vector3 position;
 }

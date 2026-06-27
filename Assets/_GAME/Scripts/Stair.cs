@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Stair : MonoBehaviour
 {
+    [SerializeField] private Bridge bridge;
     [SerializeField] private Renderer renderer;
 
     [SerializeField] private ColorType colorType;
@@ -11,6 +12,13 @@ public class Stair : MonoBehaviour
     public ColorType ColorType => colorType;
 
     private Coroutine changeColorCoroutine;
+
+    public Bridge Bridge => bridge;
+
+    public void SetBridge(Bridge _bridge)
+    {
+        bridge = _bridge;
+    }
 
     public void SetColor(ColorType _colorType)
     {
@@ -21,11 +29,6 @@ public class Stair : MonoBehaviour
             renderer.enabled = true;
         }
         ChangeColorEffect(GameData.Instance.ColorDataSO.GetColorMaterial(oldColor).color, GameData.Instance.ColorDataSO.GetColorMaterial(_colorType).color, 0.5f);
-
-        
-
-
-
     }
 
     public void ChangeColorEffect(Color startColor, Color targetColor, float duration)
@@ -53,6 +56,15 @@ public class Stair : MonoBehaviour
             yield return null;
         }
         renderer.material.color = targetColor;
+    }
+
+    public bool IsThisLastStair()
+    {
+        if(bridge.Stairs[bridge.Stairs.Count - 1] == this)
+        {
+            return true;
+        }
+        return false;
     }
 
     public void TakeStair(Character character)

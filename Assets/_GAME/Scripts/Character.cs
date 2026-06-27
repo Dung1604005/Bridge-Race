@@ -59,11 +59,23 @@ public class Character : MonoBehaviour
         isDead = true;
     }
 
+    public void ChangeStage(Stage newStage)
+    {
+        if(newStage == null)
+        {
+            Debug.Log("New stage dont exist");
+            return;
+        }
+        currentStage.RemoveCharacter(this);
+        currentStage = newStage;
+        currentStage.AddCharacter(this);
+    }
+
     public void SetColor(ColorType colorType)
     {
         if(renderer != null)
         {
-            renderer.material = GameData.Instance.ColorDataSO.GetColorMaterial(colorType) ;
+            renderer.material = GameData.Instance.ColorDataSO.GetColorCharacterMaterial(colorType) ;
         }
         else
         {
@@ -112,6 +124,10 @@ public class Character : MonoBehaviour
             stair.TakeStair(this);
             if(stair.ColorType == colorType)
             {
+                if (stair.IsThisLastStair())
+                {
+                    ChangeStage(stair.Bridge.NextStage);
+                }
                 blockMoveForward = false;
             }
             else
@@ -136,12 +152,13 @@ public class Character : MonoBehaviour
     public Vector3 GetNextBrickPosition(int index)
     {
         
-       return startCharacterBrickPos + new Vector3(0f, index*(GameData.Instance.BRICK_SIZE.y + 0.07f), 0f) + tf.position;
+       return startCharacterBrickPos + new Vector3(0f, index*(GameData.Instance.BRICK_SIZE.y + 0.05f), 0f) + tf.position;
     }
     public int GetAmountBrick()
     {
         return characterBricks.Count;
     }
+
     public void AddBrick()
     {
         Vector3 localPos =startCharacterBrickPos + new Vector3(0f, characterBricks.Count*(GameData.Instance.BRICK_SIZE.y + 0.08f), 0f);
