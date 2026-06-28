@@ -11,6 +11,8 @@ public class Bridge : MonoBehaviour
 
     public Stage NextStage => nextStage;
 
+    public Stage OwnerStage => ownerStage;
+
     public List<Stair> Stairs => stairs;
 
     public void SetOwnerStage(Stage _ownerStage)
@@ -38,7 +40,7 @@ public class Bridge : MonoBehaviour
 
     public StairInfo GetFarthestStairPossible(int currentStair, ColorType colorType, int number)
     {
-        Debug.Log(number);
+        
         int farthestStair = currentStair;
         for(int i = currentStair + 1; i < stairs.Count; i++)
         {

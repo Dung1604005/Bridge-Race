@@ -23,8 +23,8 @@ public class Brick : GameUnit
 
     [SerializeField] private float speedShake;
 
-    private Vector3 spawnPos;
-    private Stage stage;
+    [SerializeField]private Vector3 spawnPos;
+    [SerializeField]private Stage stage;
 
     private bool isCollected = false;
 
@@ -58,7 +58,6 @@ public class Brick : GameUnit
 
     public void OnDespawn()
     {        
-        stage = null;
         SimplePool.Despawn(this);
     }
 

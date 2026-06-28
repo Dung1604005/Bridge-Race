@@ -49,7 +49,7 @@ public class BuildState : IState
 
         if (t.IsAgentStop())
         {
-            Debug.Log("Enemy stop while build");
+            
             CaculateDestination(t);
 
         }

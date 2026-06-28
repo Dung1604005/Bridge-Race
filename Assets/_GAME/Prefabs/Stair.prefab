@@ -111,8 +111,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.87370515, y: 2.0716093, z: 0.28476423}
-  m_Center: {x: 0.004049659, y: 0.5358046, z: -0.29139838}
+  m_Size: {x: 1.3471549, y: 2.7235632, z: 0.28476423}
+  m_Center: {x: -0.029783845, y: 0.8617816, z: -0.29139838}
 --- !u!114 &3586144344105855872
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -125,5 +125,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b79ce118ae7c1e44aa444a36b5bda24, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Stair
+  bridge: {fileID: 0}
   renderer: {fileID: 3266294825851850967}
   colorType: 0

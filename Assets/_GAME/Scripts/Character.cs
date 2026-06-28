@@ -32,7 +32,9 @@ public class Character : MonoBehaviour
 
     private String currentAnim;
 
-    private bool blockMoveForward;
+    protected bool blockMoveForward;
+
+    protected bool blockMoveBack;
 
     private bool isDead;
 
@@ -66,9 +68,13 @@ public class Character : MonoBehaviour
             Debug.Log("New stage dont exist");
             return;
         }
+        if(newStage.StageNumber <= currentStage.StageNumber)
+        {
+            return;
+        }
         currentStage.RemoveCharacter(this);
+        newStage.AddCharacter(this);
         currentStage = newStage;
-        currentStage.AddCharacter(this);
     }
 
     public void SetColor(ColorType colorType)
@@ -121,6 +127,7 @@ public class Character : MonoBehaviour
                 stair = col.gameObject.GetComponent<Stair>();
                 ColliderCache<Stair>.AddComponent(col, stair);
             }
+
             stair.TakeStair(this);
             if(stair.ColorType == colorType)
             {
@@ -137,7 +144,7 @@ public class Character : MonoBehaviour
         }
         else
         {
-            
+            blockMoveBack = false;
             blockMoveForward = false;
         }
 

@@ -34,7 +34,7 @@ public class PlayerController : Character
             moveY = 0f;
         }
 
-        if (BlockMoveForward)
+        if (blockMoveForward)
         {
             if(moveZ > 0.01f)
             {

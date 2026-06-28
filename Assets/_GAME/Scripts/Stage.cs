@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class Stage : MonoBehaviour
 {
+    public int StageNumber;
     [SerializeField] private float scaleX;
 
     [SerializeField] private float scaleY;
@@ -48,7 +49,9 @@ public class Stage : MonoBehaviour
         {
             if (characters[i] == character)
             {
+                DeActiveBrickByColor(character.ColorType);
                 characters.RemoveAt(i);
+               
 
                 return;
             }
@@ -85,9 +88,9 @@ public class Stage : MonoBehaviour
         {
             foreach (Brick brick in bricks[colorType])
             {
-                brick.OnDespawn();
+                SimplePool.Despawn(brick);
             }
-            bricks.Remove(colorType);
+            
         }
         else
         {
