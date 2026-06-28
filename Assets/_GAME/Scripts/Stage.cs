@@ -16,6 +16,8 @@ public class Stage : MonoBehaviour
 
     [SerializeField] private Vector3 distanceBrick;
 
+    [SerializeField] private List<Vector3> spawnPos = new List<Vector3>();
+
     [SerializeField] private List<Character> characters;
 
     [SerializeField] private List<Bridge> bridges;
@@ -34,6 +36,20 @@ public class Stage : MonoBehaviour
         //Vi size goc la 2 don vi nen *2
         sizeStage = (new Vector3(scaleX, scaleY, scaleZ)) * 2;
 
+    }
+
+    public Vector3 GetSpawnPosCharacter(Character character)
+    {
+        for(int i = 0; i < characters.Count; i++)
+        {
+            if(character == characters[i])
+            {
+                return spawnPos[i];
+
+            }
+        }
+        
+        return spawnPos[0];
     }
 
     public void AddCharacter(Character character)

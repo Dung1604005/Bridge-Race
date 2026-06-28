@@ -7,7 +7,7 @@ public class BuildState : IState
 
     private Bridge bestBridge;
 
-    private int stairId;
+    private int stairId = -1;
 
     private bool canReachLastStair;
 
@@ -17,7 +17,7 @@ public class BuildState : IState
         
         if (amountBrick > 0)
         {
-            StairInfo stairInfo = bestBridge.GetFarthestStairPossible(-1, t.ColorType, amountBrick);
+            StairInfo stairInfo = bestBridge.GetFarthestStairPossible(stairId, t.ColorType, amountBrick);
             if (stairId == stairInfo.stairId)
             {
                 OnExit(t);
@@ -49,7 +49,7 @@ public class BuildState : IState
 
         if (t.IsAgentStop())
         {
-            
+            Debug.Log(t.GetAmountBrick());
             CaculateDestination(t);
 
         }

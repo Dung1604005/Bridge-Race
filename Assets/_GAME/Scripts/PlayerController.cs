@@ -63,7 +63,18 @@ public class PlayerController : Character
     }
     protected override void Update()
     {
-        base.Update();
-        GetInputMove();
+        if (!IsDead)
+        {
+            
+            if (CharacterIsFalling())
+            {
+                OnDespawn();
+                Invoke(nameof(ReSpawn), 0.5f);
+                return;
+            }
+            base.Update();
+            GetInputMove();
+        }
+       
     }
 }

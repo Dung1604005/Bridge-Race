@@ -113,7 +113,7 @@ public class Brick : GameUnit
         
         tf.position = Vector3.MoveTowards(tf.position, targetPosition, (moveSpeed + accelerate*flyTimer) * Time.deltaTime);
         
-        if ((tf.position - targetPosition).sqrMagnitude <= 0.01f)
+        if ((tf.position - targetPosition).sqrMagnitude <= 0.01f || character.IsDead)
         {
             if (!reachBehind)
             {

@@ -47,13 +47,20 @@ public class Character : MonoBehaviour
 
     public bool BlockMoveForward => blockMoveForward;
 
+    public void ReSpawn()
+    {
+        tf.position = currentStage.GetSpawnPosCharacter(this);
+        OnInit();
+    }
     
     public void OnInit()
     {
         
         blockMoveForward = false;
-        anim.applyRootMotion = false;
+        
         isDead = false;
+        ClearBrick();
+        visualBrickId = 0;
     }
     public void OnDespawn()
     {
@@ -101,6 +108,15 @@ public class Character : MonoBehaviour
     {
         
         if(rb.linearVelocity.z < -0.01f)
+        {
+            return true;
+        }
+        return false;
+    }
+
+    public virtual bool CharacterIsFalling()
+    {
+        if(rb.linearVelocity.y < -5f && !Physics.Raycast(tf.position, -tf.up,3f, 1<<7 ))
         {
             return true;
         }
@@ -163,7 +179,7 @@ public class Character : MonoBehaviour
     }
     public int GetAmountBrick()
     {
-        return characterBricks.Count;
+        return visualBrickId ;
     }
 
     public void AddBrick()
@@ -196,8 +212,17 @@ public class Character : MonoBehaviour
         brick.OnDespawn();
     }
 
+    public void ClearBrick()
+    {
+        while(characterBricks.Count > 0)
+        {
+            RemoveBrick();
+        }
+    }
+
     void Awake()
     {
+        anim.applyRootMotion = false;
         tf = this.transform;
         SetColor(colorType);
         
