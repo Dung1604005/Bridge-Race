@@ -37,7 +37,9 @@ public static class ColliderCache<T> where T: MonoBehaviour
     {
         if(collider == null || !colliderDict.ContainsKey(collider))
         {
-            return null;
+            T component = collider.GetComponent<T>();
+
+            AddComponent(collider, component);
         }
 
         return colliderDict[collider];

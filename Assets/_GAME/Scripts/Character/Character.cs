@@ -6,6 +6,8 @@ using UnityEngine.SocialPlatforms;
 public class Character : MonoBehaviour
 {
     //Thong so
+
+    [SerializeField] protected int characterId;
     [SerializeField] protected float speed;
 
     [SerializeField] protected float rangeDetect;
@@ -34,7 +36,8 @@ public class Character : MonoBehaviour
 
     protected bool blockMoveForward;
 
-    protected bool blockMoveBack;
+    protected bool canMove;
+
 
     private bool isDead;
 
@@ -47,22 +50,46 @@ public class Character : MonoBehaviour
 
     public bool BlockMoveForward => blockMoveForward;
 
+    public int CharacterId => characterId;
+
+
+    public virtual void OnEnable()
+    {
+        EventBus<OnWin>.Subcribe(OnWin);
+    }
+    public virtual void OnDisable()
+    {
+        EventBus<OnWin>.UnSubcribe(OnWin);
+    }
+    public virtual void OnWin(OnWin onWin)
+    {
+        BlockMove();
+        Quaternion targetRotation = Quaternion.LookRotation(-tf.forward);
+        tf.rotation = targetRotation;
+        ClearBrick();
+        ChangeAnim(GameData.Instance.ANIM_IDLE);
+        
+    }
+    public void SetSpawn(Vector3 pos)
+    {
+        tf.position = pos;
+    }
     public void ReSpawn()
     {
-        tf.position = currentStage.GetSpawnPosCharacter(this);
+        SetSpawn(currentStage.GetSpawnPosCharacter(this));
         OnInit();
     }
     
-    public void OnInit()
+    public virtual void OnInit()
     {
         
         blockMoveForward = false;
-        
+        canMove = true;
         isDead = false;
         ClearBrick();
         visualBrickId = 0;
     }
-    public void OnDespawn()
+    public virtual void OnDespawn()
     {
         blockMoveForward = false;
         isDead = true;
@@ -82,6 +109,12 @@ public class Character : MonoBehaviour
         currentStage.RemoveCharacter(this);
         newStage.AddCharacter(this);
         currentStage = newStage;
+
+        EventBus<OnCharacterUpStage>.Raise(new OnCharacterUpStage
+        {
+           Character = this,
+           Stage = currentStage.StageNumber 
+        });
     }
 
     public void SetColor(ColorType colorType)
@@ -102,6 +135,11 @@ public class Character : MonoBehaviour
         anim.SetTrigger(newAnim);
         currentAnim = newAnim;
         
+    }
+
+    public void BlockMove()
+    {
+        canMove = true;
     }
 
     public virtual bool CharacterIsGoingDown()
@@ -138,11 +176,7 @@ public class Character : MonoBehaviour
 
             
             Stair stair = ColliderCache<Stair>.GetComponent(col);
-            if(stair == null)
-            {
-                stair = col.gameObject.GetComponent<Stair>();
-                ColliderCache<Stair>.AddComponent(col, stair);
-            }
+
 
             stair.TakeStair(this);
             if(stair.ColorType == colorType)
@@ -160,7 +194,6 @@ public class Character : MonoBehaviour
         }
         else
         {
-            blockMoveBack = false;
             blockMoveForward = false;
         }
 
@@ -225,6 +258,7 @@ public class Character : MonoBehaviour
         anim.applyRootMotion = false;
         tf = this.transform;
         SetColor(colorType);
+        OnInit();
         
     }
 
@@ -234,6 +268,11 @@ public class Character : MonoBehaviour
         {
             
             brick.Shake();
+        }
+
+        if (!canMove)
+        {
+            return;
         }
     }
 }

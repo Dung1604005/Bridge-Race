@@ -11,13 +11,18 @@ public class BuildState : IState
 
     private bool canReachLastStair;
 
+
+   
+
     public void CaculateDestination(Enemy t)
     {
         int amountBrick = t.GetAmountBrick();
         
         if (amountBrick > 0)
         {
+            
             StairInfo stairInfo = bestBridge.GetFarthestStairPossible(stairId, t.ColorType, amountBrick);
+            
             if (stairId == stairInfo.stairId)
             {
                 OnExit(t);
@@ -26,7 +31,10 @@ public class BuildState : IState
                 return;
             }
             stairId = stairInfo.stairId;
-            t.Agent.SetDestination(stairInfo.position);
+            if (t.Agent.enabled)
+            {
+                t.Agent.SetDestination(stairInfo.position);
+            }
         }
         else
         {
@@ -39,6 +47,7 @@ public class BuildState : IState
 
     public void OnEnter(Enemy t)
     {
+        
         bestBridge = t.CurrentStage.GetBestBridge(t.ColorType);
         CaculateDestination(t);
     }
@@ -47,16 +56,15 @@ public class BuildState : IState
     public void OnExecute(Enemy t)
     {
 
-        if (t.IsAgentStop())
-        {
-            Debug.Log(t.GetAmountBrick());
-            CaculateDestination(t);
+        if(t.IsAgentStop())
+        CaculateDestination(t);
 
-        }
+        
     }
 
     public void OnExit(Enemy t)
     {
+        
 
     }
 

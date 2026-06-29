@@ -135,13 +135,18 @@ public class Stage : MonoBehaviour
     public int GetAmountActiveBrick(ColorType colorType)
     {
         int amount = 0;
+        
         if (!bricks.ContainsKey(colorType))
         {
             return 0;
         }
         foreach (Brick brick in bricks[colorType])
         {
-            amount += 1;
+            if (brick.gameObject.activeSelf)
+            {
+                amount+= 1;
+            }
+        
         }
 
         return amount;
@@ -210,6 +215,7 @@ public class Stage : MonoBehaviour
                         }
                         else
                         {
+                            
                             bricks.Add(colorTypes[colorRand], new List<Brick>() { brick });
                         }
                         break;
@@ -252,23 +258,33 @@ public class Stage : MonoBehaviour
 
     }
 
-    void Awake()
-    {
-        tf = this.transform;
-        OnInit();
-
-    }
-    void Start()
+    public void LoadData()
     {
         SpawnBrick(new List<ColorType>() { ColorType.RED, ColorType.BLUE, ColorType.VIOLET, ColorType.GREEN });
         foreach(Character character in characters)
         {
             ActiveBrickByColor(character.ColorType);
         }
+        EventBus<OnMapLoadComplete>.Raise(new OnMapLoadComplete{});
+    }
+
+    void Awake()
+    {
+        tf = this.transform;
+        OnInit();
+
+    }
+
+    void Start()
+    {
+        LoadData();
+
+        
     }
 
     void Update()
     {
+        
         for (int i = 0; i < characters.Count; i++)
         {
             Character character = characters[i];
