@@ -15,6 +15,17 @@ public class BrickEffect : GameUnit
 
     }
 
+    public void SetLocal(Vector3 position, Quaternion quaternion, Transform parent = null)
+    {
+        if(parent != null)
+        {
+            tf.SetParent(parent, true);
+        }
+
+        tf.localPosition = position;
+        tf.localRotation = quaternion;
+    }
+
     public void OnDespawn()
     {
         SimplePool.Despawn(this);

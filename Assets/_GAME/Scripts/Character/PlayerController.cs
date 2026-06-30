@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class PlayerController : Character
 {
@@ -7,12 +8,36 @@ public class PlayerController : Character
 
     private float moveZ;
 
+    private PlayerInputAction inputActions;
+
     private Quaternion targetRotation;
 
-    public void GetInputMove()
+    public override void OnEnable()
     {
-        moveX = Input.GetAxisRaw("Horizontal");
-        moveZ = Input.GetAxisRaw("Vertical");
+        base.OnEnable();
+        inputActions.Enable();
+        inputActions.Player.Movement.performed +=GetInputMove;
+        inputActions.Player.Movement.canceled += EndInputMove;
+    }
+
+    public override void OnDisable()
+    {
+        base.OnDisable();
+        inputActions.Disable();
+        inputActions.Player.Movement.performed -= GetInputMove;
+        inputActions.Player.Movement.canceled -= EndInputMove;
+    }
+
+    public void GetInputMove(InputAction.CallbackContext context )
+    {
+        moveX = context.ReadValue<Vector2>().x;
+        moveZ = context.ReadValue<Vector2>().y;
+    }
+
+    public void EndInputMove(InputAction.CallbackContext context)
+    {
+        moveX = 0f;
+        moveZ = 0f;
     }
 
     public void ChangeRotation()
@@ -32,6 +57,14 @@ public class PlayerController : Character
         if(moveY > 0.01f)
         {
             moveY = 0f;
+        }
+
+        if (blockMoveDown)
+        {
+            if(moveZ < -0.01f)
+            {
+                moveZ = 0f;
+            }
         }
 
         if (blockMoveForward)
@@ -54,10 +87,20 @@ public class PlayerController : Character
         }
         
     }
+
+    protected override void Awake()
+    {
+        inputActions = new PlayerInputAction();
+        base.Awake();
+    }
     
     void FixedUpdate()
     {
-        CheckStairForward();
+        if (!canMove)
+        {
+            return;
+        }
+        CheckForward();
         Move();
         
     }
@@ -73,7 +116,7 @@ public class PlayerController : Character
                 return;
             }
             base.Update();
-            GetInputMove();
+            
         }
        
     }

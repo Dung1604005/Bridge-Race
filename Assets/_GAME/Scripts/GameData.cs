@@ -7,6 +7,8 @@ public class GameData : Singleton<GameData>
 
     public String ANIM_IDLE = "Idle";
 
+    public String ANIM_KNOCKBACK = "KnockBack";
+
     public Vector3 BRICK_SIZE = new Vector3(1, 0.2f, 0.5f);
 
     public String CHARACTER_TAG = "Character";

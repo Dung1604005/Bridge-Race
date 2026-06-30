@@ -38,6 +38,18 @@ public class Bridge : MonoBehaviour
         return ans;
     }
 
+    public int GetStairId(Stair stair)
+    {
+        for(int i = 0; i < stairs.Count; i++)
+        {
+            if(stairs[i] == stair)
+            {
+                return i;
+            }
+        }
+        return -1;
+    }
+
     public StairInfo GetFarthestStairPossible(int currentStair, ColorType colorType, int number)
     {
         

@@ -11,60 +11,84 @@ public class BuildState : IState
 
     private bool canReachLastStair;
 
+    private Enemy enemy;
 
-   
-
-    public void CaculateDestination(Enemy t)
+    public void ReCaculate(OnStairChange onStairChange)
     {
-        int amountBrick = t.GetAmountBrick();
-        
+        if(enemy.CharacterId == onStairChange.CharacterId)
+        {
+           stairId = onStairChange.StairId;
+
+           CaculateDestination();
+
+        }
+    }
+
+    public void CaculateDestination()
+    {
+        int amountBrick = enemy.GetAmountBrick();
+        StairInfo stairInfo = bestBridge.GetFarthestStairPossible(stairId, enemy.ColorType, amountBrick);
+
+        if (stairId == stairInfo.stairId)
+        {
+            OnExit(enemy);
+            if (stairInfo.isLastStair)
+            {
+
+
+                if (bestBridge.OwnerStage.IsLastStage)
+                {
+
+                    enemy.ChangeState(new WiningChaseState());
+                    return;
+                }
+                else
+                {
+                    
+                    enemy.ChangeStage(bestBridge.NextStage);
+                }
+            }
+            enemy.ChangeState(new PatrolState());
+            return;
+        }
         if (amountBrick > 0)
         {
-            
-            StairInfo stairInfo = bestBridge.GetFarthestStairPossible(stairId, t.ColorType, amountBrick);
-            
-            if (stairId == stairInfo.stairId)
-            {
-                OnExit(t);
-                
-                t.ChangeState(new PatrolState());
-                return;
-            }
             stairId = stairInfo.stairId;
-            if (t.Agent.enabled)
+            if (enemy.Agent.enabled && enemy.Agent.isOnNavMesh)
             {
-                t.Agent.SetDestination(stairInfo.position);
+                enemy.Agent.SetDestination(stairInfo.position);
             }
         }
         else
         {
 
-            OnExit(t);
-            t.ChangeState(new PatrolState());
-            
+            OnExit(enemy);
+            enemy.ChangeState(new PatrolState());
+
         }
     }
 
     public void OnEnter(Enemy t)
     {
-        
+        EventBus<OnStairChange>.Subcribe(ReCaculate);
+        enemy = t;
         bestBridge = t.CurrentStage.GetBestBridge(t.ColorType);
-        CaculateDestination(t);
+        CaculateDestination();
     }
 
 
     public void OnExecute(Enemy t)
     {
 
-        if(t.IsAgentStop())
-        CaculateDestination(t);
+        if (t.IsAgentStop())
+            CaculateDestination();
 
-        
+
     }
 
     public void OnExit(Enemy t)
     {
-        
+        EventBus<OnStairChange>.UnSubcribe(ReCaculate);
 
     }
 

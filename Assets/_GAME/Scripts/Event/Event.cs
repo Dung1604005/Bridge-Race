@@ -22,3 +22,10 @@ public struct OnMapLoadComplete: IEvent
 {
     
 }
+
+public struct OnStairChange: IEvent
+{
+    public int CharacterId;
+
+    public int StairId;
+}

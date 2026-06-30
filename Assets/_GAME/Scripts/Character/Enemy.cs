@@ -22,9 +22,13 @@ public class Enemy : Character
 
     public override void OnWin(OnWin onWin)
     {
-        base.OnWin(onWin);
         agent.enabled = false;
+        ChangeState(new IdleState());
+        base.OnWin(onWin);
+
+
     }
+
 
 
 
@@ -41,7 +45,7 @@ public class Enemy : Character
     }
 
 
-    
+
     public void OnStart(OnMapLoadComplete onMapLoadComplete)
     {
         ChangeState(new PatrolState());
@@ -53,32 +57,75 @@ public class Enemy : Character
         currentState.OnEnter(this);
     }
 
+
+
     public override bool CharacterIsGoingDown()
     {
-        if(agent.velocity.z < -0.01f)
+        if (agent.velocity.z < -0.01f)
         {
             return true;
         }
         return false;
+    }
+
+    public bool IsAgentValid()
+    {
+        if (agent.enabled == false) return false;
+
+        if (agent.isOnNavMesh == false) return false;
+
+        return true;
     }
 
     public bool IsAgentStop()
     {
-        if(agent.enabled == false) return true;
-        if(agent.pathPending)return false;
-        if(agent.remainingDistance <= agent.stoppingDistance )
+
+        if (IsAgentValid() == false) return true;
+        if (agent.pathPending) return false;
+        if (agent.remainingDistance <= agent.stoppingDistance)
         {
             return true;
         }
         return false;
     }
 
+    public override void Knockback()
+    {
+        rb.isKinematic = false;
+        agent.enabled = false;
+        base.Knockback();
+    }
+
+    public override void StandUp()
+    {
+
+        base.StandUp();
+        TurnOnAgent();
+        ChangeState(new PatrolState());
+    }
+
+    public void TurnOnAgent()
+    {
+        rb.isKinematic = true;
+        
+        agent.enabled = true;
+    }
+
     protected override void Update()
     {
+        if (CharacterIsFalling())
+        {
+            ChangeState(new IdleState());
+            OnDespawn();
+            Invoke(nameof(ReSpawn), 0.5f);
+            return;
+        }
+        if (!IsAgentValid()) return;
+
         base.Update();
-        
-        CheckStairForward();
-        
+
+        CheckForward();
+
         currentState.OnExecute(this);
 
     }

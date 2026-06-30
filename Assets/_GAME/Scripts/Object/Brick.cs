@@ -1,13 +1,11 @@
 
+using System.Collections;
 using UnityEngine;
 
 public class Brick : GameUnit
 {
+    [Header("STAT")]
     [SerializeField] private ColorType colorType;
-
-    [SerializeField] private Renderer renderer;
-
-    [SerializeField] private TrailRenderer[] trailRenderers;
 
     [SerializeField] private float radCollect;
 
@@ -24,6 +22,13 @@ public class Brick : GameUnit
     [SerializeField] private float speedShake;
 
     [SerializeField]private Vector3 spawnPos;
+
+    [Header("REFERENCE")]
+
+    [SerializeField] private Renderer renderer;
+
+    [SerializeField] private TrailRenderer[] trailRenderers;
+
     [SerializeField]private Stage stage;
 
     private bool isCollected = false;
@@ -36,6 +41,41 @@ public class Brick : GameUnit
 
     public bool IsCollected => isCollected;
     public ColorType ColorType => colorType;
+
+    public void OnEnable()
+    {
+        EventBus<OnWin>.Subcribe(OnWin);
+    }
+
+    public void OnDisable()
+    {
+        EventBus<OnWin>.UnSubcribe(OnWin);
+    }
+    public void OnWin(OnWin onWin)
+    {
+        EndFlying();
+        SetActive(false);
+    }
+
+    public void EndFlying()
+    {
+        if(stage != null)
+        {
+            stage.RemoveFlyingBrick(this);
+        }  
+        flyTimer = 0f;
+    }
+
+    public void SetLocal(Vector3 position, Quaternion quaternion, Transform parent = null)
+    {
+        if(parent != null)
+        {
+            tf.SetParent(parent, true);
+        }
+
+        tf.localPosition = position;
+        tf.localRotation = quaternion;
+    }
 
     public void SetInfor(Stage _stage, Vector3 _spawnPos)
     {
@@ -85,10 +125,29 @@ public class Brick : GameUnit
         
     }
 
-    public void SetActive(bool active)
+    IEnumerator IEFadeOut(float duration)
+    {
+        float timer = 0f;
+        renderer.material.color = new Color(renderer.material.color.r, renderer.material.color.b, renderer.material.color.g, 0f);
+        Color target = new Color(renderer.material.color.r, renderer.material.color.b, renderer.material.color.g, 255f);
+        while(timer +0.01f < duration)
+        {
+            timer += Time.deltaTime;
+
+            renderer.material.color = Color.Lerp(renderer.material.color, target, timer/duration);
+            yield return null;
+        }
+
+    }
+
+    public void SetActive(bool active, bool haveTransition = false)
     {
 
         tf.gameObject.SetActive(active);
+        if (haveTransition)
+        {
+            StartCoroutine(IEFadeOut(1f));
+        }
     }
 
 
@@ -100,6 +159,7 @@ public class Brick : GameUnit
 
     public void Move(Character character, Vector3 targetPosition)
     {
+        
         flyTimer += Time.deltaTime;
         tf.rotation = Quaternion.Slerp(tf.rotation, character.TF.rotation, rotationSpeed * Time.deltaTime);
         
@@ -113,7 +173,7 @@ public class Brick : GameUnit
         
         tf.position = Vector3.MoveTowards(tf.position, targetPosition, (moveSpeed + accelerate*flyTimer) * Time.deltaTime);
         
-        if ((tf.position - targetPosition).sqrMagnitude <= 0.01f || character.IsDead)
+        if ((tf.position - targetPosition).sqrMagnitude <= 0.01f)
         {
             if (!reachBehind)
             {
@@ -121,11 +181,9 @@ public class Brick : GameUnit
             }
             else
             {
-                stage.RemoveFlyingBrick(this);
+                EndFlying();
                 character.AddBrick();
-                flyTimer = 0f;
                 SetActive(false);
-                
                 
             }
 

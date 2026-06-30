@@ -6,6 +6,8 @@ using UnityEngine;
 public class Stage : MonoBehaviour
 {
     public int StageNumber;
+
+    public bool IsLastStage;
     [SerializeField] private float scaleX;
 
     [SerializeField] private float scaleY;
@@ -31,8 +33,6 @@ public class Stage : MonoBehaviour
 
     public void OnInit()
     {
-        tf.localScale = new Vector3(scaleX, scaleY, scaleZ);
-
         //Vi size goc la 2 don vi nen *2
         sizeStage = (new Vector3(scaleX, scaleY, scaleZ)) * 2;
 
@@ -79,6 +79,7 @@ public class Stage : MonoBehaviour
         if (flyingBricks.ContainsKey(brick))
         {
             flyingBricks.Remove(brick);
+            brick.SetCollected(false);
         }
     }
 
@@ -88,7 +89,7 @@ public class Stage : MonoBehaviour
         {
             foreach (Brick brick in bricks[colorType])
             {
-                brick.SetActive(true);
+                brick.SetActive(true, true);
             }
         }
         else
@@ -288,6 +289,7 @@ public class Stage : MonoBehaviour
         for (int i = 0; i < characters.Count; i++)
         {
             Character character = characters[i];
+           
             foreach (Brick brick in bricks[character.ColorType])
             {
                 if (brick.gameObject.activeSelf)
@@ -307,7 +309,7 @@ public class Stage : MonoBehaviour
                     }
                     if (brick.IsCollected)
                     {
-
+                        
                         brick.Move(character, character.GetNextBrickPosition(flyingBricks[brick]));
 
                     }

@@ -7,6 +7,8 @@ public class Character : MonoBehaviour
 {
     //Thong so
 
+    [Header("THONG SO")]
+
     [SerializeField] protected int characterId;
     [SerializeField] protected float speed;
 
@@ -14,7 +16,12 @@ public class Character : MonoBehaviour
 
     [SerializeField] private ColorType colorType;
 
-    [SerializeField] private Renderer renderer;
+    [SerializeField] private float knockForce;
+    
+
+    [Header("REFERENCE")]
+
+    [SerializeField] protected Stage currentStage;
 
     [SerializeField] protected Animator anim;
 
@@ -22,21 +29,29 @@ public class Character : MonoBehaviour
 
     [SerializeField] protected Stack<Brick> characterBricks = new Stack<Brick>();
 
-    [SerializeField] protected Stage currentStage;
+    [SerializeField] private int visualBrickId = 0;
+
+    [SerializeField] private Renderer renderer;
 
     [SerializeField] private Vector3 startCharacterBrickPos;
 
-    [SerializeField]private int visualBrickId = 0;
+    private int layerGround;
 
-    
+    private int layerStair;
+
+    private int layerGate;
+
+
 
     protected Transform tf;
 
-    private String currentAnim;
+    private String currentAnim = "";
 
     protected bool blockMoveForward;
 
-    protected bool canMove;
+    protected bool blockMoveDown;
+
+    [SerializeField]protected bool canMove;
 
 
     private bool isDead;
@@ -49,6 +64,8 @@ public class Character : MonoBehaviour
     public Stage CurrentStage => currentStage;
 
     public bool BlockMoveForward => blockMoveForward;
+
+    public bool BlockMoveDown => blockMoveDown;
 
     public int CharacterId => characterId;
 
@@ -64,25 +81,25 @@ public class Character : MonoBehaviour
     public virtual void OnWin(OnWin onWin)
     {
         BlockMove();
-        Quaternion targetRotation = Quaternion.LookRotation(-tf.forward);
+        Quaternion targetRotation = Quaternion.Euler(new Vector3(0f, 180f, 0f));
         tf.rotation = targetRotation;
         ClearBrick();
         ChangeAnim(GameData.Instance.ANIM_IDLE);
-        
+
     }
     public void SetSpawn(Vector3 pos)
     {
         tf.position = pos;
     }
-    public void ReSpawn()
+    public virtual void ReSpawn()
     {
         SetSpawn(currentStage.GetSpawnPosCharacter(this));
         OnInit();
     }
-    
+
     public virtual void OnInit()
     {
-        
+
         blockMoveForward = false;
         canMove = true;
         isDead = false;
@@ -95,14 +112,14 @@ public class Character : MonoBehaviour
         isDead = true;
     }
 
-    public void ChangeStage(Stage newStage)
+    public virtual void ChangeStage(Stage newStage)
     {
-        if(newStage == null)
+        if (newStage == null)
         {
             Debug.Log("New stage dont exist");
             return;
         }
-        if(newStage.StageNumber <= currentStage.StageNumber)
+        if (newStage.StageNumber <= currentStage.StageNumber)
         {
             return;
         }
@@ -112,16 +129,16 @@ public class Character : MonoBehaviour
 
         EventBus<OnCharacterUpStage>.Raise(new OnCharacterUpStage
         {
-           Character = this,
-           Stage = currentStage.StageNumber 
+            Character = this,
+            Stage = currentStage.StageNumber
         });
     }
 
     public void SetColor(ColorType colorType)
     {
-        if(renderer != null)
+        if (renderer != null)
         {
-            renderer.material = GameData.Instance.ColorDataSO.GetColorCharacterMaterial(colorType) ;
+            renderer.material = GameData.Instance.ColorDataSO.GetColorCharacterMaterial(colorType);
         }
         else
         {
@@ -131,21 +148,25 @@ public class Character : MonoBehaviour
 
     public void ChangeAnim(String newAnim)
     {
-        
+        if (!string.IsNullOrEmpty(currentAnim))
+        {
+            anim.ResetTrigger(currentAnim);
+        }
         anim.SetTrigger(newAnim);
         currentAnim = newAnim;
-        
+
     }
 
     public void BlockMove()
     {
-        canMove = true;
+        canMove = false;
+        rb.linearVelocity = Vector3.zero;
     }
 
     public virtual bool CharacterIsGoingDown()
     {
-        
-        if(rb.linearVelocity.z < -0.01f)
+
+        if (rb.linearVelocity.z < -0.01f)
         {
             return true;
         }
@@ -154,43 +175,63 @@ public class Character : MonoBehaviour
 
     public virtual bool CharacterIsFalling()
     {
-        if(rb.linearVelocity.y < -5f && !Physics.Raycast(tf.position, -tf.up,3f, 1<<7 ))
+        if (rb.linearVelocity.y < -5f && !Physics.Raycast(tf.position, -tf.up, 5f, layerGround))
         {
             return true;
         }
         return false;
     }
 
-    public void CheckStairForward()
+    public void CheckForward()
     {
-       
+
+
+        //Check Gate
+        if (Physics.Raycast(tf.position, tf.forward, out RaycastHit hitGate, rangeDetect, layerGate))
+        {
+            Collider col = hitGate.collider;
+
+
+            GateCtrl gate = ColliderCache<GateCtrl>.GetComponent(col);
+
+
+
+            if (gate.NextStage == currentStage || gate.NextStage == null)
+            {
+                blockMoveDown = true;
+            }
+            else
+            {
+                blockMoveDown = false;
+            }
+        }
+        else
+        {
+            blockMoveDown = false;
+        }
+        //Check stair
         if (CharacterIsGoingDown())
         {
             return;
         }
-      
-        if(Physics.Raycast(tf.position, tf.forward, out RaycastHit hit,rangeDetect,1<<6))
+        if (Physics.Raycast(tf.position, tf.forward, out RaycastHit hit, rangeDetect, layerStair))
         {
-            
+
             Collider col = hit.collider;
 
-            
+
             Stair stair = ColliderCache<Stair>.GetComponent(col);
 
 
             stair.TakeStair(this);
-            if(stair.ColorType == colorType)
+            if (stair.ColorType == colorType)
             {
-                if (stair.IsThisLastStair())
-                {
-                    ChangeStage(stair.Bridge.NextStage);
-                }
                 blockMoveForward = false;
             }
             else
             {
                 blockMoveForward = true;
-            }                      
+            }
         }
         else
         {
@@ -207,66 +248,127 @@ public class Character : MonoBehaviour
     }
     public Vector3 GetNextBrickPosition(int index)
     {
-        
-       return startCharacterBrickPos + new Vector3(0f, index*(GameData.Instance.BRICK_SIZE.y + 0.05f), 0f) + tf.position;
+
+        return startCharacterBrickPos + new Vector3(0f, index * (GameData.Instance.BRICK_SIZE.y + 0.05f), 0f) + tf.position;
     }
     public int GetAmountBrick()
     {
-        return visualBrickId ;
+        return visualBrickId;
     }
 
     public void AddBrick()
     {
-        Vector3 localPos =startCharacterBrickPos + new Vector3(0f, characterBricks.Count*(GameData.Instance.BRICK_SIZE.y + 0.08f), 0f);
-        Brick brick = SimplePool.Spawn<Brick>(PoolType.BrickPool,Vector3.zero, Quaternion.identity );
-        
-        brick.transform.SetParent(tf, true);
+        Vector3 localPos = startCharacterBrickPos + new Vector3(0f, characterBricks.Count * (GameData.Instance.BRICK_SIZE.y + 0.08f), 0f);
+        Brick brick = SimplePool.Spawn<Brick>(PoolType.BrickPool, Vector3.zero, Quaternion.identity);
+
         brick.OnInit();
-        brick.TF.localPosition = localPos;
-        brick.TF.localRotation = Quaternion.identity;
+        brick.SetLocal(localPos, Quaternion.identity, tf);
         brick.SetColor(colorType);
-        characterBricks.Push(brick);
         brick.SetActiveTrail(false);
 
-        BrickEffect brickEffect = SimplePool.Spawn<BrickEffect>(PoolType.BrickEffectPool,Vector3.zero, Quaternion.identity );
+        characterBricks.Push(brick);
+        
+
+        BrickEffect brickEffect = SimplePool.Spawn<BrickEffect>(PoolType.BrickEffectPool, Vector3.zero, Quaternion.identity);
         brickEffect.SetColor(colorType);
-        brickEffect.transform.SetParent(tf, true);
-        brickEffect.TF.localPosition = localPos;
-        brickEffect.TF.localRotation = Quaternion.identity;
+        brickEffect.SetLocal(localPos, Quaternion.identity, tf);
         brickEffect.Play();
-                
     }
 
     public void RemoveBrick()
     {
+        if (characterBricks.Count == 0)
+        {
+            Debug.Log("BRICK IS EMPTY BUT TRY TO POP");
+            return;
+        }
         Brick brick = characterBricks.Pop();
         currentStage.ReSpawnBrick(brick.ColorType);
         visualBrickId -= 1;
         brick.OnDespawn();
     }
 
-    public void ClearBrick()
+    public  void ClearBrick()
     {
-        while(characterBricks.Count > 0)
+        
+        while (characterBricks.Count > 0)
         {
             RemoveBrick();
         }
+        
     }
 
-    void Awake()
+    public virtual void Knockback()
     {
+        isDead = true;
+        gameObject.layer = LayerMask.NameToLayer("DeadPlayer");
+        BlockMove();
+        Vector3 knockbackDirection = -tf.forward;
+        rb.AddForce(knockbackDirection * knockForce, ForceMode.Impulse);
+        ClearBrick();
+        ChangeAnim(GameData.Instance.ANIM_KNOCKBACK);
+
+        
+        Invoke(nameof(StandUp), 2f);
+        
+    }
+
+    public virtual void StandUp()
+    {
+        isDead = false;
+        canMove = true;
+        gameObject.layer = LayerMask.NameToLayer("Player");
+    }
+    
+
+    public void OnCollisionEnter(Collision collision)
+    {
+        if (!canMove)
+        {
+            return;
+        }
+        
+        Collider collider = collision.collider;
+        if (collider.CompareTag(GameData.Instance.CHARACTER_TAG))
+        {
+            
+            Character character = ColliderCache<Character>.GetComponent(collider);
+
+            if(!character.canMove)return;
+            if(character.GetAmountBrick() < GetAmountBrick())
+            {
+                character.Knockback();
+            }
+            else if(character.GetAmountBrick() > GetAmountBrick())
+            {
+                Knockback();
+            }
+            else
+            {
+                Knockback();
+                character.Knockback();
+            }
+
+        }
+    }
+
+    protected virtual void Awake()
+    {
+        layerGround = LayerMask.GetMask("Ground", "Stair");
+        layerStair = LayerMask.GetMask("Stair");
+        layerGate = LayerMask.GetMask("Gate");
         anim.applyRootMotion = false;
         tf = this.transform;
         SetColor(colorType);
         OnInit();
-        
+
     }
 
     protected virtual void Update()
     {
-        foreach(Brick brick in characterBricks)
+        foreach (Brick brick in characterBricks)
         {
-            
+
             brick.Shake();
         }
 

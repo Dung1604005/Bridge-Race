@@ -27,11 +27,15 @@ public class PatrolState : IState
             return;
         }
         numbTargetBrick -= 1;
-        t.Agent.SetDestination(t.CurrentStage.GetNearestBrick(t.ColorType, t.TF.position));
-        t.ChangeAnim(GameData.Instance.ANIM_RUN);
+        if (t.Agent.isOnNavMesh && t.Agent.enabled)
+        {
+            t.Agent.SetDestination(t.CurrentStage.GetNearestBrick(t.ColorType, t.TF.position));
+        }
+        
     }
     public void OnEnter(Enemy t)
     {
+        t.ChangeAnim(GameData.Instance.ANIM_RUN);
         SetDestination(t);
 
     }

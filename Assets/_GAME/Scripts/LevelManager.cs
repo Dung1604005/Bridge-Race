@@ -5,6 +5,9 @@ public class LevelManager : Singleton<LevelManager>
 {
    [SerializeField] private List<Character> rankedCharacters = new List<Character>();
 
+   [SerializeField] private WinArea winArea;
+
+
    public void OnEnable()
     {
         EventBus<OnCharacterUpStage>.Subcribe(SortRankCharacter);
@@ -12,6 +15,11 @@ public class LevelManager : Singleton<LevelManager>
     public void OnDisable()
     {
         EventBus<OnCharacterUpStage>.UnSubcribe(SortRankCharacter);
+    }
+
+    public Vector3 GetWinAreaPosition()
+    {
+        return winArea.TF.position;
     }
    public List<Character> GetRankedList()
     {
