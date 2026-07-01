@@ -22,9 +22,9 @@ public class WinArea : MonoBehaviour
             
             character.SetSpawn(rankPositions[0].position);
 
-            LevelManager.Instance.GetCharacterRank(2).SetSpawn(rankPositions[1].position);
-            LevelManager.Instance.GetCharacterRank(3).SetSpawn(rankPositions[2].position);
-            LevelManager.Instance.GetCharacterRank(4).SetSpawn(rankPositions[3].position);
+            LevelManager.Instance.RankManager.GetCharacterRank(2).SetSpawn(rankPositions[1].position);
+            LevelManager.Instance.RankManager.GetCharacterRank(3).SetSpawn(rankPositions[2].position);
+            LevelManager.Instance.RankManager.GetCharacterRank(4).SetSpawn(rankPositions[3].position);
             
         }
     }

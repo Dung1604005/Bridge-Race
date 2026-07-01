@@ -1,16 +1,18 @@
+using System.Collections.Generic;
 using UnityEngine;
 
-public class CanvasGamePlay : MonoBehaviour
+public class CanvasGamePlay : UICanvas
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
+    [SerializeField] private List<LeaderBoardEntryUI> leaderBoard = new List<LeaderBoardEntryUI>();
 
-    // Update is called once per frame
-    void Update()
+
+
+    public void SetRankUI(List<Character> characters)
     {
-        
+        Debug.Log(leaderBoard.Count);
+        for(int i = 0; i < leaderBoard.Count; i++)
+        {
+            leaderBoard[i].SetInfo(i + 1, characters[i].CharacterName, characters[i].CharacterId);
+        }
     }
 }

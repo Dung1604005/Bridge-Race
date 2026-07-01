@@ -10,6 +10,8 @@ public class Character : MonoBehaviour
     [Header("THONG SO")]
 
     [SerializeField] protected int characterId;
+
+    [SerializeField] protected string characterName;
     [SerializeField] protected float speed;
 
     [SerializeField] protected float rangeDetect;
@@ -17,6 +19,8 @@ public class Character : MonoBehaviour
     [SerializeField] private ColorType colorType;
 
     [SerializeField] private float knockForce;
+
+    public bool IsBot;
 
 
     [Header("REFERENCE")]
@@ -61,6 +65,8 @@ public class Character : MonoBehaviour
     public Stage CurrentStage => currentStage;
 
     public int CharacterId => characterId;
+
+    public String CharacterName => characterName;
 
 
     public virtual void OnEnable()
@@ -167,7 +173,7 @@ public class Character : MonoBehaviour
 
     public virtual bool CharacterIsFalling()
     {
-        Debug.DrawLine(tf.position, -tf.up*10f);
+        Debug.DrawLine(tf.position, -tf.up * 10f);
         if (rb.linearVelocity.y < -5f && !Physics.Raycast(tf.position, -tf.up, 10f, layerGround))
         {
             return true;
@@ -300,7 +306,7 @@ public class Character : MonoBehaviour
         rb.AddForce(knockbackDirection * knockForce, ForceMode.Impulse);
         tf.rotation = Quaternion.LookRotation(-knockbackDirection);
         ClearBrick();
-        breakBrickEffect.transform.position = GetBrickPosition(visualBrickId/2);
+        breakBrickEffect.transform.position = GetBrickPosition(visualBrickId / 2);
         breakBrickEffect.Play();
         ChangeAnim(GameData.Instance.ANIM_KNOCKBACK);
 
@@ -337,7 +343,7 @@ public class Character : MonoBehaviour
             if (character.IsInActive) return;
             Vector3 knockbackDirBA = character.tf.position - tf.position;
             Vector3 knockbackDirAB = tf.position - character.tf.position;
-            knockbackDirAB.y = 0.8f; 
+            knockbackDirAB.y = 0.8f;
             knockbackDirBA.y = 0.8f;
             knockbackDirAB.Normalize();
             knockbackDirBA.Normalize();

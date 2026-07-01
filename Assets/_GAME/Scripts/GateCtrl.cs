@@ -21,39 +21,44 @@ public class GateCtrl : MonoBehaviour
 
     public void OnTriggerEnter(Collider collider)
     {
-        
+
         if (collider.CompareTag(GameData.Instance.CHARACTER_TAG))
         {
             Character character = ColliderCache<Character>.GetComponent(collider);
             ColorType charColor = character.ColorType;
 
-            if (character.IsInActive)
-            {
-                return;
-            }
-            if (character.CharacterIsGoingDown())
-            {
-                return;
-            }
+            if(!CanGoThroughGate(character))return;
             
             character.ChangeStage(nextStage);
-            if (opened) return;
+            
             opened = true;
             StartCoroutine(IEOpenDoor(durationEffect));
             StartCoroutine(IEChangeColor(durationEffect, GameData.Instance.ColorDataSO.GetColorMaterial(charColor).color));
         }
     }
 
+    public bool CanGoThroughGate(Character character)
+    {
+        if (nextStage == null) return true;
+
+        if (character.IsInActive || character.CharacterIsGoingDown() ||
+        (character.CurrentStage.StageNumber >= nextStage.StageNumber && !character.IsBot) || opened)
+        {
+            return false;
+        }
+        return true;
+    }
+
     IEnumerator IEOpenDoor(float duration)
     {
         float timer = 0f;
         Vector3 targetScale = new Vector3(0f, tf.localScale.y, tf.localScale.z);
-        while (timer+0.01f < duration )
+        while (timer + 0.01f < duration)
         {
             timer += Time.deltaTime;
-            transformDoor.localScale = Vector3.Lerp(tf.localScale, targetScale, timer/duration);
-            
-            
+            transformDoor.localScale = Vector3.Lerp(tf.localScale, targetScale, timer / duration);
+
+
             yield return null;
         }
     }
@@ -61,7 +66,7 @@ public class GateCtrl : MonoBehaviour
     {
         float timer = 0f;
 
-        while (timer+0.01f < duration )
+        while (timer + 0.01f < duration)
         {
             timer += Time.deltaTime;
             foreach (Renderer renderer in gateObjRenderers)

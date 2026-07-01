@@ -3,69 +3,22 @@ using UnityEngine;
 
 public class LevelManager : Singleton<LevelManager>
 {
-   [SerializeField] private List<Character> rankedCharacters = new List<Character>();
+   [SerializeField] private RankManager rankManager;
 
    [SerializeField] private WinArea winArea;
 
-
-   public void OnEnable()
-    {
-        EventBus<OnCharacterUpStage>.Subcribe(SortRankCharacter);
-    }
-    public void OnDisable()
-    {
-        EventBus<OnCharacterUpStage>.UnSubcribe(SortRankCharacter);
-    }
-
+   public RankManager RankManager => rankManager;
     public Vector3 GetWinAreaPosition()
     {
         return winArea.TF.position;
     }
-   public List<Character> GetRankedList()
+
+    void Start()
     {
-        return rankedCharacters;
+        List<Character> characters = rankManager.GetRankedList();
+        UIManager.Instance.GetUI<CanvasGamePlay>().SetRankUI(characters);
+
     }
-
-    public void SortRankCharacter(OnCharacterUpStage onCharacterUpStage)
-    {
-        List<Character> newRank = new List<Character>();
-        bool newRankAdded = false;
-        for(int i = 0; i <rankedCharacters.Count; i++)
-        {
-            if(onCharacterUpStage.Stage <= rankedCharacters[i].CurrentStage.StageNumber && 
-            onCharacterUpStage.Character.CharacterId != rankedCharacters[i].CharacterId)
-            {
-                newRank.Add(rankedCharacters[i]);
-            }
-            else
-            {
-                if (!newRankAdded)
-                {
-                    newRank.Add(onCharacterUpStage.Character);
-                    newRankAdded = true;
-                }
-                
-                if(onCharacterUpStage.Character.CharacterId == rankedCharacters[i].CharacterId)
-                {
-                    continue;
-                }
-                else
-                {
-                    newRank.Add(rankedCharacters[i]);
-                }
-            }
-        }
-
-        rankedCharacters = newRank;
-    }
-
-    public Character GetCharacterRank(int rank)
-    {
-        return rankedCharacters[rank-1];
-    }
-
-
-
-
+  
 }
 
