@@ -31,6 +31,8 @@ public class Brick : GameUnit
 
     [SerializeField]private Stage stage;
 
+    [SerializeField] private int targetCharacterId;
+
     private bool isCollected = false;
 
     private bool reachBehind = false;
@@ -45,11 +47,13 @@ public class Brick : GameUnit
     public void OnEnable()
     {
         EventBus<OnWin>.Subcribe(OnWin);
+        EventBus<OnCharacterInActive>.Subcribe(ReSpawn);
     }
 
     public void OnDisable()
     {
         EventBus<OnWin>.UnSubcribe(OnWin);
+        EventBus<OnCharacterInActive>.UnSubcribe(ReSpawn);
     }
     public void OnWin(OnWin onWin)
     {
@@ -84,6 +88,7 @@ public class Brick : GameUnit
     }
     public void OnInit()
     {
+        targetCharacterId = -1;
         SetActive(true);
         tf.position = spawnPos;
         tf.rotation = Quaternion.identity;
@@ -97,7 +102,7 @@ public class Brick : GameUnit
     }
 
     public void OnDespawn()
-    {        
+    {   
         SimplePool.Despawn(this);
     }
 
@@ -123,6 +128,15 @@ public class Brick : GameUnit
             trail.enabled = active;
         }
         
+    }
+
+    public void ReSpawn(OnCharacterInActive onCharacterInActive)
+    {
+        if(targetCharacterId == onCharacterInActive.CharacterId && flyTimer > 0.01f)
+        {
+            EndFlying();
+            OnInit();
+        }
     }
 
     IEnumerator IEFadeOut(float duration)
@@ -159,10 +173,15 @@ public class Brick : GameUnit
 
     public void Move(Character character, Vector3 targetPosition)
     {
-        
+        if (character.IsInActive)
+        {
+            EndFlying();
+            OnInit();
+            return;
+        }
         flyTimer += Time.deltaTime;
         tf.rotation = Quaternion.Slerp(tf.rotation, character.TF.rotation, rotationSpeed * Time.deltaTime);
-        
+        targetCharacterId = character.CharacterId;
         if (!reachBehind)
         {
             //Bay ve 1 diem phia sau lung cua player truoc

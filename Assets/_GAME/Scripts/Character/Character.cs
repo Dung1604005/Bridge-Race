@@ -17,9 +17,11 @@ public class Character : MonoBehaviour
     [SerializeField] private ColorType colorType;
 
     [SerializeField] private float knockForce;
-    
+
 
     [Header("REFERENCE")]
+
+    [SerializeField] protected ParticleSystem breakBrickEffect;
 
     [SerializeField] protected Stage currentStage;
 
@@ -41,8 +43,6 @@ public class Character : MonoBehaviour
 
     private int layerGate;
 
-
-
     protected Transform tf;
 
     private String currentAnim = "";
@@ -51,21 +51,14 @@ public class Character : MonoBehaviour
 
     protected bool blockMoveDown;
 
-    [SerializeField]protected bool canMove;
+    private bool isInActive;
 
-
-    private bool isDead;
-
-    public bool IsDead => isDead;
+    public bool IsInActive => isInActive;
 
     public Transform TF => tf;
     public ColorType ColorType => colorType;
 
     public Stage CurrentStage => currentStage;
-
-    public bool BlockMoveForward => blockMoveForward;
-
-    public bool BlockMoveDown => blockMoveDown;
 
     public int CharacterId => characterId;
 
@@ -101,15 +94,14 @@ public class Character : MonoBehaviour
     {
 
         blockMoveForward = false;
-        canMove = true;
-        isDead = false;
+        isInActive = false;
         ClearBrick();
         visualBrickId = 0;
     }
     public virtual void OnDespawn()
     {
         blockMoveForward = false;
-        isDead = true;
+        isInActive = true;
     }
 
     public virtual void ChangeStage(Stage newStage)
@@ -159,7 +151,7 @@ public class Character : MonoBehaviour
 
     public void BlockMove()
     {
-        canMove = false;
+        isInActive = true;
         rb.linearVelocity = Vector3.zero;
     }
 
@@ -175,7 +167,8 @@ public class Character : MonoBehaviour
 
     public virtual bool CharacterIsFalling()
     {
-        if (rb.linearVelocity.y < -5f && !Physics.Raycast(tf.position, -tf.up, 5f, layerGround))
+        Debug.DrawLine(tf.position, -tf.up*10f);
+        if (rb.linearVelocity.y < -5f && !Physics.Raycast(tf.position, -tf.up, 10f, layerGround))
         {
             return true;
         }
@@ -246,7 +239,7 @@ public class Character : MonoBehaviour
         visualBrickId += 1;
         return assignedIndex;
     }
-    public Vector3 GetNextBrickPosition(int index)
+    public Vector3 GetBrickPosition(int index)
     {
 
         return startCharacterBrickPos + new Vector3(0f, index * (GameData.Instance.BRICK_SIZE.y + 0.05f), 0f) + tf.position;
@@ -258,7 +251,7 @@ public class Character : MonoBehaviour
 
     public void AddBrick()
     {
-        Vector3 localPos = startCharacterBrickPos + new Vector3(0f, characterBricks.Count * (GameData.Instance.BRICK_SIZE.y + 0.08f), 0f);
+        Vector3 localPos = startCharacterBrickPos + new Vector3(0f, characterBricks.Count * (GameData.Instance.BRICK_SIZE.y + 0.05f), 0f);
         Brick brick = SimplePool.Spawn<Brick>(PoolType.BrickPool, Vector3.zero, Quaternion.identity);
 
         brick.OnInit();
@@ -267,7 +260,7 @@ public class Character : MonoBehaviour
         brick.SetActiveTrail(false);
 
         characterBricks.Push(brick);
-        
+
 
         BrickEffect brickEffect = SimplePool.Spawn<BrickEffect>(PoolType.BrickEffectPool, Vector3.zero, Quaternion.identity);
         brickEffect.SetColor(colorType);
@@ -288,65 +281,78 @@ public class Character : MonoBehaviour
         brick.OnDespawn();
     }
 
-    public  void ClearBrick()
+    public void ClearBrick()
     {
-        
+
         while (characterBricks.Count > 0)
         {
             RemoveBrick();
         }
-        
+        visualBrickId = 0;
+
     }
 
-    public virtual void Knockback()
+    public virtual void Knockback(Vector3 knockbackDirection)
     {
-        isDead = true;
+        isInActive = true;
         gameObject.layer = LayerMask.NameToLayer("DeadPlayer");
         BlockMove();
-        Vector3 knockbackDirection = -tf.forward;
         rb.AddForce(knockbackDirection * knockForce, ForceMode.Impulse);
+        tf.rotation = Quaternion.LookRotation(-knockbackDirection);
         ClearBrick();
+        breakBrickEffect.transform.position = GetBrickPosition(visualBrickId/2);
+        breakBrickEffect.Play();
         ChangeAnim(GameData.Instance.ANIM_KNOCKBACK);
 
-        
+        EventBus<OnCharacterInActive>.Raise(new OnCharacterInActive
+        {
+            CharacterId = CharacterId
+        });
+
+
         Invoke(nameof(StandUp), 2f);
-        
+
     }
 
     public virtual void StandUp()
     {
-        isDead = false;
-        canMove = true;
+        isInActive = false;
         gameObject.layer = LayerMask.NameToLayer("Player");
     }
-    
+
 
     public void OnCollisionEnter(Collision collision)
     {
-        if (!canMove)
+        if (IsInActive)
         {
             return;
         }
-        
+
         Collider collider = collision.collider;
         if (collider.CompareTag(GameData.Instance.CHARACTER_TAG))
         {
-            
+
             Character character = ColliderCache<Character>.GetComponent(collider);
 
-            if(!character.canMove)return;
-            if(character.GetAmountBrick() < GetAmountBrick())
+            if (character.IsInActive) return;
+            Vector3 knockbackDirBA = character.tf.position - tf.position;
+            Vector3 knockbackDirAB = tf.position - character.tf.position;
+            knockbackDirAB.y = 0.8f; 
+            knockbackDirBA.y = 0.8f;
+            knockbackDirAB.Normalize();
+            knockbackDirBA.Normalize();
+            if (character.GetAmountBrick() < GetAmountBrick())
             {
-                character.Knockback();
+                character.Knockback(knockbackDirBA);
             }
-            else if(character.GetAmountBrick() > GetAmountBrick())
+            else if (character.GetAmountBrick() > GetAmountBrick())
             {
-                Knockback();
+                Knockback(knockbackDirAB);
             }
             else
             {
-                Knockback();
-                character.Knockback();
+                Knockback(knockbackDirAB);
+                character.Knockback(knockbackDirBA);
             }
 
         }
@@ -372,7 +378,7 @@ public class Character : MonoBehaviour
             brick.Shake();
         }
 
-        if (!canMove)
+        if (IsInActive)
         {
             return;
         }

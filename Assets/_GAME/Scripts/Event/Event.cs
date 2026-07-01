@@ -29,3 +29,8 @@ public struct OnStairChange: IEvent
 
     public int StairId;
 }
+
+public struct OnCharacterInActive: IEvent
+{
+    public int CharacterId;
+}

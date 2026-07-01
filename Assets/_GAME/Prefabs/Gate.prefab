@@ -338,7 +338,7 @@ GameObject:
   - component: {fileID: 4465999345331752019}
   - component: {fileID: 8303480991880278676}
   - component: {fileID: 2950848630070595610}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Gate
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -382,7 +382,7 @@ MonoBehaviour:
   - {fileID: 7267154660561768186}
   transformDoor: {fileID: 62757339068364411}
   nextStage: {fileID: 0}
-  durationEffect: 0.5
+  durationEffect: 1
 --- !u!65 &8303480991880278676
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -402,8 +402,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 2.8500562, y: 1.6092091, z: 0.23295403}
-  m_Center: {x: -0.031091452, y: 1.0456543, z: 0.024912834}
+  m_Size: {x: 2.8500562, y: 2.536479, z: 0.23295403}
+  m_Center: {x: -0.031091452, y: 0.7682395, z: 0.024912834}
 --- !u!114 &2950848630070595610
 MonoBehaviour:
   m_ObjectHideFlags: 0

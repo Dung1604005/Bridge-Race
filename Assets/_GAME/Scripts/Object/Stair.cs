@@ -88,7 +88,7 @@ public class Stair : MonoBehaviour
 
     public void TakeStair(Character character)
     {
-        if (character.CharacterIsGoingDown())
+        if (character.CharacterIsGoingDown() || character.IsInActive)
         {
             return;
         }

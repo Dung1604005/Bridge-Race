@@ -289,7 +289,7 @@ public class Stage : MonoBehaviour
         for (int i = 0; i < characters.Count; i++)
         {
             Character character = characters[i];
-           
+            if(character.IsInActive)return;
             foreach (Brick brick in bricks[character.ColorType])
             {
                 if (brick.gameObject.activeSelf)
@@ -310,7 +310,7 @@ public class Stage : MonoBehaviour
                     if (brick.IsCollected)
                     {
                         
-                        brick.Move(character, character.GetNextBrickPosition(flyingBricks[brick]));
+                        brick.Move(character, character.GetBrickPosition(flyingBricks[brick]));
 
                     }
 

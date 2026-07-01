@@ -89,11 +89,11 @@ public class Enemy : Character
         return false;
     }
 
-    public override void Knockback()
+    public override void Knockback(Vector3 dir)
     {
         rb.isKinematic = false;
         agent.enabled = false;
-        base.Knockback();
+        base.Knockback(dir);
     }
 
     public override void StandUp()
@@ -115,9 +115,15 @@ public class Enemy : Character
     {
         if (CharacterIsFalling())
         {
+            EventBus<OnCharacterInActive>.Raise(new OnCharacterInActive
+            {
+                CharacterId = CharacterId
+            });
             ChangeState(new IdleState());
             OnDespawn();
             Invoke(nameof(ReSpawn), 0.5f);
+
+            
             return;
         }
         if (!IsAgentValid()) return;

@@ -16,7 +16,7 @@ public class PlayerController : Character
     {
         base.OnEnable();
         inputActions.Enable();
-        inputActions.Player.Movement.performed +=GetInputMove;
+        inputActions.Player.Movement.performed += GetInputMove;
         inputActions.Player.Movement.canceled += EndInputMove;
     }
 
@@ -28,7 +28,7 @@ public class PlayerController : Character
         inputActions.Player.Movement.canceled -= EndInputMove;
     }
 
-    public void GetInputMove(InputAction.CallbackContext context )
+    public void GetInputMove(InputAction.CallbackContext context)
     {
         moveX = context.ReadValue<Vector2>().x;
         moveZ = context.ReadValue<Vector2>().y;
@@ -42,26 +42,26 @@ public class PlayerController : Character
 
     public void ChangeRotation()
     {
-        if(tf == null)
+        if (tf == null)
         {
             Debug.LogError("PLAYER HAVENT SET TRANSFORM");
         }
 
         targetRotation = Quaternion.LookRotation(new Vector3(moveX, 0f, moveZ).normalized);
-        tf.rotation= Quaternion.Slerp(tf.rotation, targetRotation, rotationSpeed*Time.fixedDeltaTime);
-        
+        tf.rotation = Quaternion.Slerp(tf.rotation, targetRotation, rotationSpeed * Time.fixedDeltaTime);
+
     }
     public void Move()
     {
         float moveY = rb.linearVelocity.y;
-        if(moveY > 0.01f)
+        if (moveY > 0.01f)
         {
             moveY = 0f;
         }
 
         if (blockMoveDown)
         {
-            if(moveZ < -0.01f)
+            if (moveZ < -0.01f)
             {
                 moveZ = 0f;
             }
@@ -69,15 +69,16 @@ public class PlayerController : Character
 
         if (blockMoveForward)
         {
-            if(moveZ > 0.01f)
+            if (moveZ > 0.01f)
             {
                 moveZ = 0f;
             }
-            
+
         }
-        rb.linearVelocity = new Vector3(moveX,moveY, moveZ).normalized*speed;
-        
-        if((new Vector3(moveX, 0f, moveZ).sqrMagnitude <= 0.05)){
+        rb.linearVelocity = new Vector3(moveX, moveY, moveZ).normalized * speed;
+
+        if ((new Vector3(moveX, 0f, moveZ).sqrMagnitude <= 0.05))
+        {
             ChangeAnim(GameData.Instance.ANIM_IDLE);
         }
         else
@@ -85,7 +86,7 @@ public class PlayerController : Character
             ChangeAnim(GameData.Instance.ANIM_RUN);
             ChangeRotation();
         }
-        
+
     }
 
     protected override void Awake()
@@ -93,31 +94,35 @@ public class PlayerController : Character
         inputActions = new PlayerInputAction();
         base.Awake();
     }
-    
+
     void FixedUpdate()
     {
-        if (!canMove)
+        if (IsInActive)
         {
             return;
         }
         CheckForward();
         Move();
-        
+
     }
     protected override void Update()
     {
-        if (!IsDead)
+        if (!IsInActive)
         {
-            
+
             if (CharacterIsFalling())
             {
+                EventBus<OnCharacterInActive>.Raise(new OnCharacterInActive
+                {
+                    CharacterId = CharacterId
+                });
                 OnDespawn();
                 Invoke(nameof(ReSpawn), 0.5f);
                 return;
             }
             base.Update();
-            
+
         }
-       
+
     }
 }

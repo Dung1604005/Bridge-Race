@@ -27,6 +27,10 @@ public class GateCtrl : MonoBehaviour
             Character character = ColliderCache<Character>.GetComponent(collider);
             ColorType charColor = character.ColorType;
 
+            if (character.IsInActive)
+            {
+                return;
+            }
             if (character.CharacterIsGoingDown())
             {
                 return;
