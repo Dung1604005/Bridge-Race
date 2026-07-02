@@ -57,7 +57,7 @@ public class LeaderBoardEntryUI : MonoBehaviour
            
             SetRankText(onRankChange.NewRank);
             Vector3 target = lowestPos + (4 - onRankChange.NewRank)*distance;
-            Debug.Log(onRankChange.CharacterId + " " + onRankChange.NewRank + " " + target);
+            
             StartCoroutine(IEMovePosition(timeMove, target));
         }
     }

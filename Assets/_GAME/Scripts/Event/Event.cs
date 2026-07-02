@@ -13,16 +13,6 @@ public struct OnCharacterUpStage: IEvent
     public int Stage;
 }
 
-public struct OnWin: IEvent
-{
-    
-}
-
-public struct OnMapLoadComplete: IEvent
-{
-    
-}
-
 public struct OnStairChange: IEvent
 {
     public int CharacterId;

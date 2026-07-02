@@ -46,16 +46,14 @@ public class Brick : GameUnit
 
     public void OnEnable()
     {
-        EventBus<OnWin>.Subcribe(OnWin);
         EventBus<OnCharacterInActive>.Subcribe(ReSpawn);
     }
 
     public void OnDisable()
     {
-        EventBus<OnWin>.UnSubcribe(OnWin);
         EventBus<OnCharacterInActive>.UnSubcribe(ReSpawn);
     }
-    public void OnWin(OnWin onWin)
+    public void OnWin()
     {
         EndFlying();
         SetActive(false);
@@ -132,6 +130,7 @@ public class Brick : GameUnit
 
     public void ReSpawn(OnCharacterInActive onCharacterInActive)
     {
+        
         if(targetCharacterId == onCharacterInActive.CharacterId && flyTimer > 0.01f)
         {
             EndFlying();

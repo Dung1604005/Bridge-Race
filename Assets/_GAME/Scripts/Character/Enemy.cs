@@ -9,22 +9,11 @@ public class Enemy : Character
 
     public NavMeshAgent Agent => agent;
 
-    public override void OnEnable()
-    {
-        base.OnEnable();
-        EventBus<OnMapLoadComplete>.Subcribe(OnStart);
-    }
-    public override void OnDisable()
-    {
-        base.OnDisable();
-        EventBus<OnMapLoadComplete>.UnSubcribe(OnStart);
-    }
-
-    public override void OnWin(OnWin onWin)
+    public override void OnWin()
     {
         agent.enabled = false;
         ChangeState(new IdleState());
-        base.OnWin(onWin);
+        base.OnWin();
 
 
     }
@@ -34,21 +23,17 @@ public class Enemy : Character
 
     public override void OnInit()
     {
-        base.OnInit();
+        ChangeState(new PatrolState());
         agent.enabled = true;
+        base.OnInit();
+        
+        
     }
 
     public override void OnDespawn()
     {
         base.OnDespawn();
         agent.enabled = false;
-    }
-
-
-
-    public void OnStart(OnMapLoadComplete onMapLoadComplete)
-    {
-        ChangeState(new PatrolState());
     }
 
     public void ChangeState(IState newState)
@@ -131,8 +116,10 @@ public class Enemy : Character
         base.Update();
 
         CheckForward();
-
-        currentState.OnExecute(this);
+        if(currentState != null)
+        {
+            currentState.OnExecute(this);
+        }
 
     }
 

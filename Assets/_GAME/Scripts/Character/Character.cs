@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SocialPlatforms;
@@ -41,13 +42,13 @@ public class Character : MonoBehaviour
 
     [SerializeField] private Vector3 startCharacterBrickPos;
 
+    [SerializeField]protected Transform tf;
+
     private int layerGround;
 
     private int layerStair;
 
     private int layerGate;
-
-    protected Transform tf;
 
     private String currentAnim = "";
 
@@ -59,6 +60,10 @@ public class Character : MonoBehaviour
 
     public bool IsInActive => isInActive;
 
+    private bool isOnStair;
+
+    public bool IsOnStair => isOnStair;
+
     public Transform TF => tf;
     public ColorType ColorType => colorType;
 
@@ -67,19 +72,18 @@ public class Character : MonoBehaviour
     public int CharacterId => characterId;
 
     public String CharacterName => characterName;
-
-
-    public virtual void OnEnable()
+     public virtual void OnEnable()
     {
-        EventBus<OnWin>.Subcribe(OnWin);
+        
     }
+
     public virtual void OnDisable()
     {
-        EventBus<OnWin>.UnSubcribe(OnWin);
+    
     }
-    public virtual void OnWin(OnWin onWin)
+    public virtual void OnWin()
     {
-        BlockMove();
+        SetInActive();
         Quaternion targetRotation = Quaternion.Euler(new Vector3(0f, 180f, 0f));
         tf.rotation = targetRotation;
         ClearBrick();
@@ -98,7 +102,7 @@ public class Character : MonoBehaviour
 
     public virtual void OnInit()
     {
-
+        SetColor(colorType);
         blockMoveForward = false;
         isInActive = false;
         ClearBrick();
@@ -107,7 +111,7 @@ public class Character : MonoBehaviour
     public virtual void OnDespawn()
     {
         blockMoveForward = false;
-        isInActive = true;
+        SetInActive();
     }
 
     public virtual void ChangeStage(Stage newStage)
@@ -117,11 +121,15 @@ public class Character : MonoBehaviour
             Debug.Log("New stage dont exist");
             return;
         }
-        if (newStage.StageNumber <= currentStage.StageNumber)
+        if (currentStage != null && newStage.StageNumber <= currentStage.StageNumber)
         {
             return;
         }
-        currentStage.RemoveCharacter(this);
+        if(currentStage != null)
+        {
+            
+           currentStage.RemoveCharacter(this);
+        }
         newStage.AddCharacter(this);
         currentStage = newStage;
 
@@ -155,10 +163,23 @@ public class Character : MonoBehaviour
 
     }
 
-    public void BlockMove()
+    public void SetInActive(float duration = 0f)
     {
         isInActive = true;
         rb.linearVelocity = Vector3.zero;
+
+        if (duration > 0.01f)
+        {
+            StartCoroutine(IESetActive(duration));
+        }
+    }
+
+    IEnumerator IESetActive(float duration)
+    {
+        yield return new WaitForSeconds(duration);
+
+        isInActive = false;
+
     }
 
     public virtual bool CharacterIsGoingDown()
@@ -179,6 +200,12 @@ public class Character : MonoBehaviour
             return true;
         }
         return false;
+    }
+
+    public void CheckOnStair()
+    {
+        
+        isOnStair = Physics.OverlapSphere(tf.position, -3f, layerStair).Length > 0 ? true: false;
     }
 
     public void CheckForward()
@@ -300,14 +327,18 @@ public class Character : MonoBehaviour
 
     public virtual void Knockback(Vector3 knockbackDirection)
     {
-        isInActive = true;
-        gameObject.layer = LayerMask.NameToLayer("DeadPlayer");
-        BlockMove();
+
+        SetInActive();
+        //gameObject.layer = LayerMask.NameToLayer("DeadPlayer");
+        SetInActive();
         rb.AddForce(knockbackDirection * knockForce, ForceMode.Impulse);
         tf.rotation = Quaternion.LookRotation(-knockbackDirection);
+        if (characterBricks.Count > 0)
+        {
+            breakBrickEffect.transform.position = GetBrickPosition(visualBrickId / 2);
+            breakBrickEffect.Play();
+        }
         ClearBrick();
-        breakBrickEffect.transform.position = GetBrickPosition(visualBrickId / 2);
-        breakBrickEffect.Play();
         ChangeAnim(GameData.Instance.ANIM_KNOCKBACK);
 
         EventBus<OnCharacterInActive>.Raise(new OnCharacterInActive
@@ -323,7 +354,7 @@ public class Character : MonoBehaviour
     public virtual void StandUp()
     {
         isInActive = false;
-        gameObject.layer = LayerMask.NameToLayer("Player");
+        //gameObject.layer = LayerMask.NameToLayer("Player");
     }
 
 
@@ -350,10 +381,12 @@ public class Character : MonoBehaviour
             if (character.GetAmountBrick() < GetAmountBrick())
             {
                 character.Knockback(knockbackDirBA);
+                
             }
             else if (character.GetAmountBrick() > GetAmountBrick())
             {
                 Knockback(knockbackDirAB);
+                
             }
             else
             {
@@ -371,9 +404,6 @@ public class Character : MonoBehaviour
         layerGate = LayerMask.GetMask("Gate");
         anim.applyRootMotion = false;
         tf = this.transform;
-        SetColor(colorType);
-        OnInit();
-
     }
 
     protected virtual void Update()

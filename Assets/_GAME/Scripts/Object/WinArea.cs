@@ -5,6 +5,8 @@ public class WinArea : MonoBehaviour
 {
    [SerializeField] private List<Transform> rankPositions = new List<Transform>();
 
+   [SerializeField] private List<ParticleSystem> particleSystems = new List<ParticleSystem>();
+
    public Transform TF {get; private set;}
 
 
@@ -18,13 +20,18 @@ public class WinArea : MonoBehaviour
                 Character = character,
                 Stage = 10
             });
-            EventBus<OnWin>.Raise(new OnWin{});
+            LevelManager.Instance.OnWin();
             
             character.SetSpawn(rankPositions[0].position);
 
             LevelManager.Instance.RankManager.GetCharacterRank(2).SetSpawn(rankPositions[1].position);
             LevelManager.Instance.RankManager.GetCharacterRank(3).SetSpawn(rankPositions[2].position);
             LevelManager.Instance.RankManager.GetCharacterRank(4).SetSpawn(rankPositions[3].position);
+
+            foreach(ParticleSystem particleSystem in particleSystems)
+            {
+                particleSystem.Play();
+            }
             
         }
     }

@@ -30,7 +30,7 @@ public class GateCtrl : MonoBehaviour
             if(!CanGoThroughGate(character))return;
             
             character.ChangeStage(nextStage);
-            
+            if(opened)return;
             opened = true;
             StartCoroutine(IEOpenDoor(durationEffect));
             StartCoroutine(IEChangeColor(durationEffect, GameData.Instance.ColorDataSO.GetColorMaterial(charColor).color));
@@ -42,7 +42,7 @@ public class GateCtrl : MonoBehaviour
         if (nextStage == null) return true;
 
         if (character.IsInActive || character.CharacterIsGoingDown() ||
-        (character.CurrentStage.StageNumber >= nextStage.StageNumber && !character.IsBot) || opened)
+        (character.CurrentStage.StageNumber >= nextStage.StageNumber && !character.IsBot))
         {
             return false;
         }

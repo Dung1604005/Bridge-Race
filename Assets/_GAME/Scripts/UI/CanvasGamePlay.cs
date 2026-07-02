@@ -9,7 +9,7 @@ public class CanvasGamePlay : UICanvas
 
     public void SetRankUI(List<Character> characters)
     {
-        Debug.Log(leaderBoard.Count);
+     
         for(int i = 0; i < leaderBoard.Count; i++)
         {
             leaderBoard[i].SetInfo(i + 1, characters[i].CharacterName, characters[i].CharacterId);

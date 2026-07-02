@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEditor.ShaderGraph.Internal;
 using UnityEngine;
+using UnityEngine.Rendering;
 
 public class Stage : MonoBehaviour
 {
@@ -24,18 +25,31 @@ public class Stage : MonoBehaviour
 
     [SerializeField] private List<Bridge> bridges;
 
+    [SerializeField] private Transform tf;
 
     private Dictionary<ColorType, List<Brick>> bricks = new Dictionary<ColorType, List<Brick>>();
 
     private Dictionary<Brick, int> flyingBricks = new Dictionary<Brick, int>();
 
-    private Transform tf;
+    
 
     public void OnInit()
     {
         //Vi size goc la 2 don vi nen *2
         sizeStage = (new Vector3(scaleX, scaleY, scaleZ)) * 2;
 
+        SpawnBrick(LevelManager.Instance.ListColors);
+    }
+
+    public void OnWin()
+    {
+        foreach(List<Brick> listBrick in bricks.Values)
+        {
+            foreach(Brick brick in listBrick)
+            {
+                brick.OnWin();
+            }
+        }
     }
 
     public Vector3 GetSpawnPosCharacter(Character character)
@@ -171,6 +185,7 @@ public class Stage : MonoBehaviour
 
     public void SpawnBrick(List<ColorType> colorTypes)
     {
+        Debug.Log("SPAWN BRICK " + StageNumber );
         if (colorTypes.Count != 4)
         {
             Debug.LogError("STAGE DONT HAVE ENOUGH COLOR");
@@ -259,28 +274,12 @@ public class Stage : MonoBehaviour
 
     }
 
-    public void LoadData()
-    {
-        SpawnBrick(new List<ColorType>() { ColorType.RED, ColorType.BLUE, ColorType.VIOLET, ColorType.GREEN });
-        foreach(Character character in characters)
-        {
-            ActiveBrickByColor(character.ColorType);
-        }
-        EventBus<OnMapLoadComplete>.Raise(new OnMapLoadComplete{});
-    }
+    
 
     void Awake()
     {
         tf = this.transform;
-        OnInit();
 
-    }
-
-    void Start()
-    {
-        LoadData();
-
-        
     }
 
     void Update()
@@ -289,7 +288,7 @@ public class Stage : MonoBehaviour
         for (int i = 0; i < characters.Count; i++)
         {
             Character character = characters[i];
-            if(character.IsInActive)return;
+            if(character.IsInActive)continue;
             foreach (Brick brick in bricks[character.ColorType])
             {
                 if (brick.gameObject.activeSelf)
