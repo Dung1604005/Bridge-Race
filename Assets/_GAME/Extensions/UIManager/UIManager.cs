@@ -21,6 +21,7 @@ public class UIManager : Singleton<UIManager>
     }
     public T OpenUI<T>()where T: UICanvas
     {
+        
         T canvas = GetUI<T>();
 
         canvas.SetUp();

@@ -103,7 +103,7 @@ public class Stage : MonoBehaviour
         {
             foreach (Brick brick in bricks[colorType])
             {
-                brick.SetActive(true, true);
+                brick.SetActive(true);
             }
         }
         else
@@ -119,8 +119,12 @@ public class Stage : MonoBehaviour
         {
             foreach (Brick brick in bricks[colorType])
             {
-                SimplePool.Despawn(brick);
+                // Khong despawn do co the dan den brick cua nhan vat dung brick cua stage => bug
+                //brick.SetActive(false);
+                brick.OnDespawn();
             }
+            
+            bricks[colorType].Clear();
             
         }
         else
@@ -185,7 +189,7 @@ public class Stage : MonoBehaviour
 
     public void SpawnBrick(List<ColorType> colorTypes)
     {
-        Debug.Log("SPAWN BRICK " + StageNumber );
+       
         if (colorTypes.Count != 4)
         {
             Debug.LogError("STAGE DONT HAVE ENOUGH COLOR");

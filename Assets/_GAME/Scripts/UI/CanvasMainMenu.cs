@@ -1,16 +1,46 @@
+using System;
+using TMPro;
 using UnityEngine;
 
-public class CanvasMainMenu : MonoBehaviour
+public class CanvasMainMenu : UICanvas
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+   [SerializeField] private TextMeshProUGUI goldText;
+
+   [SerializeField] private TMP_InputField nameInputField;
+
+   [SerializeField] private LevelSelectUI levelSelectUI;
+
+   public void SettingButton()
     {
-        
+        UIManager.Instance.CloseAll();
+        UIManager.Instance.OpenUI<CanvasSettings>();
     }
 
-    // Update is called once per frame
-    void Update()
+    public void SkinButton()
     {
-        
+        UIManager.Instance.CloseAll();
+        UIManager.Instance.OpenUI<CanvasSkin>();
+    }
+
+    public void ShopButton()
+    {
+        UIManager.Instance.CloseAll();
+        UIManager.Instance.OpenUI<CanvasSkin>();
+    }
+
+    public void SelectLevelButton()
+    {
+        UIManager.Instance.OpenUI<LevelSelectUI>();
+    }
+
+    public void SetGoldText(int goldAmount)
+    {
+        // Dua so ve dang string nhu 999,999
+        goldText.text = goldAmount.ToString("N0");
+    }
+
+    public String GetNameInputField()
+    {
+        return nameInputField.text;
     }
 }

@@ -34,7 +34,7 @@ public class Character : MonoBehaviour
 
     [SerializeField] protected Rigidbody rb;
 
-    [SerializeField] protected Stack<Brick> characterBricks = new Stack<Brick>();
+    [SerializeField] protected List<Brick> characterBricks = new List<Brick>();
 
     [SerializeField] private int visualBrickId = 0;
 
@@ -43,6 +43,10 @@ public class Character : MonoBehaviour
     [SerializeField] private Vector3 startCharacterBrickPos;
 
     [SerializeField]protected Transform tf;
+
+    [SerializeField] private bool isInActive;
+
+    [SerializeField] private bool isOnGround;
 
     private int layerGround;
 
@@ -56,13 +60,8 @@ public class Character : MonoBehaviour
 
     protected bool blockMoveDown;
 
-    private bool isInActive;
-
     public bool IsInActive => isInActive;
 
-    private bool isOnStair;
-
-    public bool IsOnStair => isOnStair;
 
     public Transform TF => tf;
     public ColorType ColorType => colorType;
@@ -194,18 +193,14 @@ public class Character : MonoBehaviour
 
     public virtual bool CharacterIsFalling()
     {
-        Debug.DrawLine(tf.position, -tf.up * 10f);
+        
         if (rb.linearVelocity.y < -5f && !Physics.Raycast(tf.position, -tf.up, 10f, layerGround))
         {
+            isOnGround = false;
             return true;
         }
+        isOnGround = true;
         return false;
-    }
-
-    public void CheckOnStair()
-    {
-        
-        isOnStair = Physics.OverlapSphere(tf.position, -3f, layerStair).Length > 0 ? true: false;
     }
 
     public void CheckForward()
@@ -272,10 +267,16 @@ public class Character : MonoBehaviour
         visualBrickId += 1;
         return assignedIndex;
     }
+
+    public void RemoveBrickIndex()
+    {
+        
+        visualBrickId = Math.Max(0, visualBrickId - 1);
+    }
     public Vector3 GetBrickPosition(int index)
     {
 
-        return startCharacterBrickPos + new Vector3(0f, index * (GameData.Instance.BRICK_SIZE.y + 0.05f), 0f) + tf.position;
+        return startCharacterBrickPos + new Vector3(0f, index * (GameData.Instance.BRICK_SIZE.y/2 +0.05f), 0f) + tf.position;
     }
     public int GetAmountBrick()
     {
@@ -284,15 +285,16 @@ public class Character : MonoBehaviour
 
     public void AddBrick()
     {
-        Vector3 localPos = startCharacterBrickPos + new Vector3(0f, characterBricks.Count * (GameData.Instance.BRICK_SIZE.y + 0.05f), 0f);
+        Vector3 localPos = startCharacterBrickPos + new Vector3(0f, characterBricks.Count * (GameData.Instance.BRICK_SIZE.y/2 +0.05f), 0f);
         Brick brick = SimplePool.Spawn<Brick>(PoolType.BrickPool, Vector3.zero, Quaternion.identity);
 
         brick.OnInit();
+        
         brick.SetLocal(localPos, Quaternion.identity, tf);
         brick.SetColor(colorType);
         brick.SetActiveTrail(false);
 
-        characterBricks.Push(brick);
+        characterBricks.Add(brick);
 
 
         BrickEffect brickEffect = SimplePool.Spawn<BrickEffect>(PoolType.BrickEffectPool, Vector3.zero, Quaternion.identity);
@@ -308,7 +310,8 @@ public class Character : MonoBehaviour
             Debug.Log("BRICK IS EMPTY BUT TRY TO POP");
             return;
         }
-        Brick brick = characterBricks.Pop();
+        Brick brick = characterBricks[characterBricks.Count - 1];
+        characterBricks.RemoveAt(characterBricks.Count - 1);
         currentStage.ReSpawnBrick(brick.ColorType);
         visualBrickId -= 1;
         brick.OnDespawn();
@@ -330,7 +333,6 @@ public class Character : MonoBehaviour
 
         SetInActive();
         //gameObject.layer = LayerMask.NameToLayer("DeadPlayer");
-        SetInActive();
         rb.AddForce(knockbackDirection * knockForce, ForceMode.Impulse);
         tf.rotation = Quaternion.LookRotation(-knockbackDirection);
         if (characterBricks.Count > 0)
@@ -381,11 +383,14 @@ public class Character : MonoBehaviour
             if (character.GetAmountBrick() < GetAmountBrick())
             {
                 character.Knockback(knockbackDirBA);
+                SetInActive(0.1f);
+                
                 
             }
             else if (character.GetAmountBrick() > GetAmountBrick())
             {
                 Knockback(knockbackDirAB);
+                character.SetInActive(0.1f);
                 
             }
             else

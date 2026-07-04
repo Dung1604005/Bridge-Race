@@ -30,6 +30,7 @@ public class PlayerController : Character
 
     public void GetInputMove(InputAction.CallbackContext context)
     {
+        if(IsInActive)return;
         moveX = context.ReadValue<Vector2>().x;
         moveZ = context.ReadValue<Vector2>().y;
     }
@@ -53,11 +54,12 @@ public class PlayerController : Character
     }
     public void Move()
     {
-        float moveY = rb.linearVelocity.y;
-        if (moveY > 0.01f)
-        {
-            moveY = 0f;
-        }
+        
+        // float moveY = rb.linearVelocity.y;
+        // if (moveY > 0.01f)
+        // {
+        //     moveY = 0f;
+        // }
 
         if (blockMoveDown)
         {
@@ -75,7 +77,7 @@ public class PlayerController : Character
             }
 
         }
-        rb.linearVelocity = new Vector3(moveX, moveY, moveZ).normalized * speed;
+        tf.position = Vector3.MoveTowards(tf.position, tf.position + new Vector3(moveX, 0f, moveZ).normalized, speed*Time.deltaTime);
 
         if ((new Vector3(moveX, 0f, moveZ).sqrMagnitude <= 0.05))
         {
