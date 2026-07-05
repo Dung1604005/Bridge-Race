@@ -4,7 +4,7 @@ public class GameUnit : MonoBehaviour
 {
     public PoolType PoolType;
 
-    protected Transform tf;
+    [SerializeField]protected Transform tf;
 
     public Transform TF => tf;
 }

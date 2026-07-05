@@ -121,10 +121,14 @@ public class Bridge : GameUnit
 
         StairData[] stairDataArr = new StairData[stairs.Count];
 
+        data.BanisterTFDataArr = banisterTFDataArr;
+
         for(int i = 0; i < stairs.Count; i++)
         {
             stairDataArr[i].TFData = Helper.CreateDataFromTransform(stairs[i].TF);
         }
+
+        data.stairDataArr = stairDataArr;
 
         dataSO.bridgeDatas.Add(data);
 

@@ -19,4 +19,284 @@ MonoBehaviour:
       Position: {x: 4.87, y: -0.3800001, z: 1.0476933}
       EulerAngles: {x: 0, y: 0, z: 0}
       Scale: {x: 17.5, y: 1, z: 16}
-  bridgeDatas: []
+  bridgeDatas:
+  - OwnerStageNumber: 1
+    NextStageNumber: 2
+    bridgeTFData:
+      Position: {x: 11.33, y: 9.88, z: 17.4}
+      EulerAngles: {x: -0, y: 0, z: 0}
+      Scale: {x: 1, y: 1, z: 1}
+    BanisterTFDataArr:
+    - Position: {x: -3.38, y: 1.4406, z: 6.0853}
+      EulerAngles: {x: 334, y: 0, z: 0}
+      Scale: {x: 0.2, y: 0.2, z: 16.831417}
+    - Position: {x: -1.1, y: 1.4694, z: 6.0381}
+      EulerAngles: {x: 334, y: 0, z: 0}
+      Scale: {x: 0.2, y: 0.2, z: 16.831417}
+    stairDataArr:
+    - TFData:
+        Position: {x: -2.25, y: -2.0219994, z: 0.14000034}
+        EulerAngles: {x: -0, y: 0, z: 0}
+        Scale: {x: 2, y: 0.5, z: 1}
+    - TFData:
+        Position: {x: -2.25, y: -1.5219994, z: 1.1400003}
+        EulerAngles: {x: -0, y: 0, z: 0}
+        Scale: {x: 2, y: 0.5, z: 1}
+    - TFData:
+        Position: {x: -2.25, y: -1.0219994, z: 2.1400003}
+        EulerAngles: {x: -0, y: 0, z: 0}
+        Scale: {x: 2, y: 0.5, z: 1}
+    - TFData:
+        Position: {x: -2.25, y: -0.52199936, z: 3.1400003}
+        EulerAngles: {x: -0, y: 0, z: 0}
+        Scale: {x: 2, y: 0.5, z: 1}
+    - TFData:
+        Position: {x: -2.25, y: -0.041999817, z: 4.1309996}
+        EulerAngles: {x: -0, y: 0, z: 0}
+        Scale: {x: 2, y: 0.5, z: 1}
+    - TFData:
+        Position: {x: -2.25, y: 0.45800018, z: 5.1309996}
+        EulerAngles: {x: -0, y: 0, z: 0}
+        Scale: {x: 2, y: 0.5, z: 1}
+    - TFData:
+        Position: {x: -2.25, y: 0.9580002, z: 6.1309996}
+        EulerAngles: {x: -0, y: 0, z: 0}
+        Scale: {x: 2, y: 0.5, z: 1}
+    - TFData:
+        Position: {x: -2.25, y: 1.4580002, z: 7.1309996}
+        EulerAngles: {x: -0, y: 0, z: 0}
+        Scale: {x: 2, y: 0.5, z: 1}
+    - TFData:
+        Position: {x: -2.25, y: 1.950001, z: 8.127001}
+        EulerAngles: {x: -0, y: 0, z: 0}
+        Scale: {x: 2, y: 0.5, z: 1}
+    - TFData:
+        Position: {x: -2.25, y: 2.4500008, z: 9.127002}
+        EulerAngles: {x: -0, y: 0, z: 0}
+        Scale: {x: 2, y: 0.5, z: 1}
+    - TFData:
+        Position: {x: -2.25, y: 2.9500003, z: 10.127002}
+        EulerAngles: {x: -0, y: 0, z: 0}
+        Scale: {x: 2, y: 0.5, z: 1}
+    - TFData:
+        Position: {x: -2.25, y: 3.4400008, z: 11.124998}
+        EulerAngles: {x: -0, y: 0, z: 0}
+        Scale: {x: 2, y: 0.5, z: 1}
+    - TFData:
+        Position: {x: -2.25, y: 3.9400005, z: 12.124998}
+        EulerAngles: {x: -0, y: 0, z: 0}
+        Scale: {x: 2, y: 0.5, z: 1}
+    - TFData:
+        Position: {x: -2.25, y: 4.44, z: 13.125}
+        EulerAngles: {x: -0, y: 0, z: 0}
+        Scale: {x: 2, y: 0.5, z: 1}
+  - OwnerStageNumber: 1
+    NextStageNumber: 2
+    bridgeTFData:
+      Position: {x: 0, y: 0, z: 0}
+      EulerAngles: {x: 0, y: 0, z: 0}
+      Scale: {x: 0, y: 0, z: 0}
+    BanisterTFDataArr:
+    - Position: {x: -3.38, y: 1.4077, z: 6.0149}
+      EulerAngles: {x: 334, y: 0, z: 0}
+      Scale: {x: 0.2, y: 0.2, z: 16.986387}
+    - Position: {x: -1.1, y: 1.4364, z: 5.9674}
+      EulerAngles: {x: 334, y: 0, z: 0}
+      Scale: {x: 0.2, y: 0.2, z: 16.986387}
+    stairDataArr:
+    - TFData:
+        Position: {x: -2.25, y: -2.0219994, z: 0.14000034}
+        EulerAngles: {x: -0, y: 0, z: 0}
+        Scale: {x: 2, y: 0.5, z: 1}
+    - TFData:
+        Position: {x: -2.25, y: -1.5219994, z: 1.1400003}
+        EulerAngles: {x: -0, y: 0, z: 0}
+        Scale: {x: 2, y: 0.5, z: 1}
+    - TFData:
+        Position: {x: -2.25, y: -1.0219994, z: 2.1400003}
+        EulerAngles: {x: -0, y: 0, z: 0}
+        Scale: {x: 2, y: 0.5, z: 1}
+    - TFData:
+        Position: {x: -2.25, y: -0.52199936, z: 3.1400003}
+        EulerAngles: {x: -0, y: 0, z: 0}
+        Scale: {x: 2, y: 0.5, z: 1}
+    - TFData:
+        Position: {x: -2.25, y: -0.041999817, z: 4.1309996}
+        EulerAngles: {x: -0, y: 0, z: 0}
+        Scale: {x: 2, y: 0.5, z: 1}
+    - TFData:
+        Position: {x: -2.25, y: 0.45800018, z: 5.1309996}
+        EulerAngles: {x: -0, y: 0, z: 0}
+        Scale: {x: 2, y: 0.5, z: 1}
+    - TFData:
+        Position: {x: -2.25, y: 0.9580002, z: 6.1309996}
+        EulerAngles: {x: -0, y: 0, z: 0}
+        Scale: {x: 2, y: 0.5, z: 1}
+    - TFData:
+        Position: {x: -2.25, y: 1.4580002, z: 7.1309996}
+        EulerAngles: {x: -0, y: 0, z: 0}
+        Scale: {x: 2, y: 0.5, z: 1}
+    - TFData:
+        Position: {x: -2.25, y: 1.950001, z: 8.127001}
+        EulerAngles: {x: -0, y: 0, z: 0}
+        Scale: {x: 2, y: 0.5, z: 1}
+    - TFData:
+        Position: {x: -2.25, y: 2.4500008, z: 9.127002}
+        EulerAngles: {x: -0, y: 0, z: 0}
+        Scale: {x: 2, y: 0.5, z: 1}
+    - TFData:
+        Position: {x: -2.25, y: 2.9500003, z: 10.127002}
+        EulerAngles: {x: -0, y: 0, z: 0}
+        Scale: {x: 2, y: 0.5, z: 1}
+    - TFData:
+        Position: {x: -2.25, y: 3.4400008, z: 11.124998}
+        EulerAngles: {x: -0, y: 0, z: 0}
+        Scale: {x: 2, y: 0.5, z: 1}
+    - TFData:
+        Position: {x: -2.25, y: 3.9400005, z: 12.124998}
+        EulerAngles: {x: -0, y: 0, z: 0}
+        Scale: {x: 2, y: 0.5, z: 1}
+    - TFData:
+        Position: {x: -2.25, y: 4.44, z: 13.125}
+        EulerAngles: {x: -0, y: 0, z: 0}
+        Scale: {x: 2, y: 0.5, z: 1}
+  - OwnerStageNumber: 1
+    NextStageNumber: 2
+    bridgeTFData:
+      Position: {x: 0, y: 0, z: 0}
+      EulerAngles: {x: 0, y: 0, z: 0}
+      Scale: {x: 0, y: 0, z: 0}
+    BanisterTFDataArr:
+    - Position: {x: -3.38, y: 1.4534, z: 6.1126}
+      EulerAngles: {x: 334, y: 0, z: 0}
+      Scale: {x: 0.2, y: 0.2, z: 16.769848}
+    - Position: {x: -1.1, y: 1.4822, z: 6.0655}
+      EulerAngles: {x: 334, y: 0, z: 0}
+      Scale: {x: 0.2, y: 0.2, z: 16.769848}
+    stairDataArr:
+    - TFData:
+        Position: {x: -2.25, y: -2.0219994, z: 0.14000034}
+        EulerAngles: {x: -0, y: 0, z: 0}
+        Scale: {x: 2, y: 0.5, z: 1}
+    - TFData:
+        Position: {x: -2.25, y: -1.5219994, z: 1.1400003}
+        EulerAngles: {x: -0, y: 0, z: 0}
+        Scale: {x: 2, y: 0.5, z: 1}
+    - TFData:
+        Position: {x: -2.25, y: -1.0219994, z: 2.1400003}
+        EulerAngles: {x: -0, y: 0, z: 0}
+        Scale: {x: 2, y: 0.5, z: 1}
+    - TFData:
+        Position: {x: -2.25, y: -0.52199936, z: 3.1400003}
+        EulerAngles: {x: -0, y: 0, z: 0}
+        Scale: {x: 2, y: 0.5, z: 1}
+    - TFData:
+        Position: {x: -2.25, y: -0.041999817, z: 4.1309996}
+        EulerAngles: {x: -0, y: 0, z: 0}
+        Scale: {x: 2, y: 0.5, z: 1}
+    - TFData:
+        Position: {x: -2.25, y: 0.45800018, z: 5.1309996}
+        EulerAngles: {x: -0, y: 0, z: 0}
+        Scale: {x: 2, y: 0.5, z: 1}
+    - TFData:
+        Position: {x: -2.25, y: 0.9580002, z: 6.1309996}
+        EulerAngles: {x: -0, y: 0, z: 0}
+        Scale: {x: 2, y: 0.5, z: 1}
+    - TFData:
+        Position: {x: -2.25, y: 1.4580002, z: 7.1309996}
+        EulerAngles: {x: -0, y: 0, z: 0}
+        Scale: {x: 2, y: 0.5, z: 1}
+    - TFData:
+        Position: {x: -2.25, y: 1.950001, z: 8.127001}
+        EulerAngles: {x: -0, y: 0, z: 0}
+        Scale: {x: 2, y: 0.5, z: 1}
+    - TFData:
+        Position: {x: -2.25, y: 2.4500008, z: 9.127002}
+        EulerAngles: {x: -0, y: 0, z: 0}
+        Scale: {x: 2, y: 0.5, z: 1}
+    - TFData:
+        Position: {x: -2.25, y: 2.9500003, z: 10.127002}
+        EulerAngles: {x: -0, y: 0, z: 0}
+        Scale: {x: 2, y: 0.5, z: 1}
+    - TFData:
+        Position: {x: -2.25, y: 3.4400008, z: 11.124998}
+        EulerAngles: {x: -0, y: 0, z: 0}
+        Scale: {x: 2, y: 0.5, z: 1}
+    - TFData:
+        Position: {x: -2.25, y: 3.9400005, z: 12.124998}
+        EulerAngles: {x: -0, y: 0, z: 0}
+        Scale: {x: 2, y: 0.5, z: 1}
+    - TFData:
+        Position: {x: -2.25, y: 4.44, z: 13.125}
+        EulerAngles: {x: -0, y: 0, z: 0}
+        Scale: {x: 2, y: 0.5, z: 1}
+  - OwnerStageNumber: 1
+    NextStageNumber: 2
+    bridgeTFData:
+      Position: {x: 0, y: 0, z: 0}
+      EulerAngles: {x: 0, y: 0, z: 0}
+      Scale: {x: 0, y: 0, z: 0}
+    BanisterTFDataArr:
+    - Position: {x: -3.38, y: 1.4406, z: 6.0853}
+      EulerAngles: {x: 334, y: 0, z: 0}
+      Scale: {x: 0.2, y: 0.2, z: 16.831417}
+    - Position: {x: -1.1, y: 1.4694, z: 6.0381}
+      EulerAngles: {x: 334, y: 0, z: 0}
+      Scale: {x: 0.2, y: 0.2, z: 16.831417}
+    stairDataArr:
+    - TFData:
+        Position: {x: -2.25, y: -2.0219994, z: 0.14000034}
+        EulerAngles: {x: -0, y: 0, z: 0}
+        Scale: {x: 2, y: 0.5, z: 1}
+    - TFData:
+        Position: {x: -2.25, y: -1.5219994, z: 1.1400003}
+        EulerAngles: {x: -0, y: 0, z: 0}
+        Scale: {x: 2, y: 0.5, z: 1}
+    - TFData:
+        Position: {x: -2.25, y: -1.0219994, z: 2.1400003}
+        EulerAngles: {x: -0, y: 0, z: 0}
+        Scale: {x: 2, y: 0.5, z: 1}
+    - TFData:
+        Position: {x: -2.25, y: -0.52199936, z: 3.1400003}
+        EulerAngles: {x: -0, y: 0, z: 0}
+        Scale: {x: 2, y: 0.5, z: 1}
+    - TFData:
+        Position: {x: -2.25, y: -0.041999817, z: 4.1309996}
+        EulerAngles: {x: -0, y: 0, z: 0}
+        Scale: {x: 2, y: 0.5, z: 1}
+    - TFData:
+        Position: {x: -2.25, y: 0.45800018, z: 5.1309996}
+        EulerAngles: {x: -0, y: 0, z: 0}
+        Scale: {x: 2, y: 0.5, z: 1}
+    - TFData:
+        Position: {x: -2.25, y: 0.9580002, z: 6.1309996}
+        EulerAngles: {x: -0, y: 0, z: 0}
+        Scale: {x: 2, y: 0.5, z: 1}
+    - TFData:
+        Position: {x: -2.25, y: 1.4580002, z: 7.1309996}
+        EulerAngles: {x: -0, y: 0, z: 0}
+        Scale: {x: 2, y: 0.5, z: 1}
+    - TFData:
+        Position: {x: -2.25, y: 1.950001, z: 8.127001}
+        EulerAngles: {x: -0, y: 0, z: 0}
+        Scale: {x: 2, y: 0.5, z: 1}
+    - TFData:
+        Position: {x: -2.25, y: 2.4500008, z: 9.127002}
+        EulerAngles: {x: -0, y: 0, z: 0}
+        Scale: {x: 2, y: 0.5, z: 1}
+    - TFData:
+        Position: {x: -2.25, y: 2.9500003, z: 10.127002}
+        EulerAngles: {x: -0, y: 0, z: 0}
+        Scale: {x: 2, y: 0.5, z: 1}
+    - TFData:
+        Position: {x: -2.25, y: 3.4400008, z: 11.124998}
+        EulerAngles: {x: -0, y: 0, z: 0}
+        Scale: {x: 2, y: 0.5, z: 1}
+    - TFData:
+        Position: {x: -2.25, y: 3.9400005, z: 12.124998}
+        EulerAngles: {x: -0, y: 0, z: 0}
+        Scale: {x: 2, y: 0.5, z: 1}
+    - TFData:
+        Position: {x: -2.25, y: 4.44, z: 13.125}
+        EulerAngles: {x: -0, y: 0, z: 0}
+        Scale: {x: 2, y: 0.5, z: 1}
