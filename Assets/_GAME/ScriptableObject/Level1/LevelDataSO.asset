@@ -1,0 +1,44 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51b7a8665e69d7e4597033813af332fa, type: 3}
+  m_Name: LevelDataSO
+  m_EditorClassIdentifier: Assembly-CSharp::LevelDataSO
+  stageDatas:
+  - StageNumber: 1
+    IsLastStage: 0
+    TFData:
+      Position: {x: 0, y: 0, z: 0}
+      EulerAngles: {x: 0, y: 0, z: 0}
+      Scale: {x: 0, y: 0, z: 0}
+    bridgeDatas: []
+  - StageNumber: 2
+    IsLastStage: 0
+    TFData:
+      Position: {x: 0, y: 0, z: 0}
+      EulerAngles: {x: 0, y: 0, z: 0}
+      Scale: {x: 0, y: 0, z: 0}
+    bridgeDatas:
+    - OwnerStageNumber: 0
+      NextStageNumber: 0
+      bridgeTFData:
+        Position: {x: 0, y: 0, z: 0}
+        EulerAngles: {x: 0, y: 0, z: 0}
+        Scale: {x: 0, y: 0, z: 0}
+      BanisterTFDataArr: []
+      stairDataArr: []
+  - StageNumber: 3
+    IsLastStage: 1
+    TFData:
+      Position: {x: 0, y: 0, z: 0}
+      EulerAngles: {x: 0, y: 0, z: 0}
+      Scale: {x: 0, y: 0, z: 0}
+    bridgeDatas: []

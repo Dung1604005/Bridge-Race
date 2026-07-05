@@ -1,19 +1,43 @@
+using System;
 using System.Collections.Generic;
+using UnityEditor;
+using UnityEditor.UIElements;
 using UnityEngine;
 
-public class Bridge : MonoBehaviour
+public class Bridge : GameUnit
 {
+    [SerializeField] private StageDataSO dataSO;
     [SerializeField] private List<Stair> stairs = new List<Stair>();
 
     [SerializeField] private Stage ownerStage;
 
     [SerializeField] private Stage nextStage;
 
+    //Luu tranform lan can cua bridge :D
+    [SerializeField] private List<Transform> banisters = new List<Transform>();
+
     public Stage NextStage => nextStage;
 
     public Stage OwnerStage => ownerStage;
 
     public List<Stair> Stairs => stairs;
+
+    public void LoadData(BridgeData bridgeData)
+    {
+        Helper.LoadTransformData(tf, bridgeData.bridgeTFData);
+        if(banisters.Count != bridgeData.BanisterTFDataArr.Length)
+        {
+            Debug.LogError("BRIDGE DATA DONT HAVE ENOUGH BANISTER DATA");
+        }
+
+        for(int i = 0; i < banisters.Count; i++)
+        {
+            Helper.LoadTransformData(banisters[i], bridgeData.BanisterTFDataArr[i]);
+        }
+        SetOwnerStage(StageManager.Instance.GetStage(bridgeData.OwnerStageNumber));
+
+        SetNextStage(StageManager.Instance.GetStage(bridgeData.NextStageNumber));
+    }
 
     public void SetOwnerStage(Stage _ownerStage)
     {
@@ -80,6 +104,36 @@ public class Bridge : MonoBehaviour
         };
     }
 
+    [ContextMenu("CREATE DATA")]
+
+    public void ExtractDataToSO()
+    {
+        BridgeData data = new BridgeData();
+
+        data.OwnerStageNumber = ownerStage.StageNumber;
+        data.NextStageNumber = nextStage.StageNumber;
+
+        data.bridgeTFData = Helper.CreateDataFromTransform(tf);
+        TransformData[] banisterTFDataArr = new TransformData[2];
+
+        banisterTFDataArr[0] = Helper.CreateDataFromTransform(banisters[0].transform);
+        banisterTFDataArr[1] = Helper.CreateDataFromTransform(banisters[1].transform);
+
+        StairData[] stairDataArr = new StairData[stairs.Count];
+
+        for(int i = 0; i < stairs.Count; i++)
+        {
+            stairDataArr[i].TFData = Helper.CreateDataFromTransform(stairs[i].TF);
+        }
+
+        dataSO.bridgeDatas.Add(data);
+
+
+        EditorUtility.SetDirty(dataSO);
+        AssetDatabase.SaveAssets();
+
+    }
+
     void Start()
     {
         foreach(Stair stair in stairs)
@@ -98,3 +152,28 @@ public struct StairInfo
     public bool isLastStair;
     public Vector3 position;
 }
+[Serializable]
+public struct BridgeData
+{
+    public int OwnerStageNumber;
+
+    public int NextStageNumber;
+
+    public TransformData bridgeTFData;
+
+    public TransformData[] BanisterTFDataArr;
+
+    public StairData[] stairDataArr;
+}
+
+[Serializable]
+
+public struct TransformData
+{
+    public Vector3 Position;
+
+    public Vector3 EulerAngles;
+
+    public Vector3 Scale;
+}
+

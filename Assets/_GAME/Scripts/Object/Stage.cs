@@ -1,10 +1,12 @@
 
+
+using System;
 using System.Collections.Generic;
 using UnityEditor.ShaderGraph.Internal;
 using UnityEngine;
 using UnityEngine.Rendering;
 
-public class Stage : MonoBehaviour
+public class Stage : GameUnit
 {
     public int StageNumber;
 
@@ -25,14 +27,19 @@ public class Stage : MonoBehaviour
 
     [SerializeField] private List<Bridge> bridges;
 
-    [SerializeField] private Transform tf;
-
     private Dictionary<ColorType, List<Brick>> bricks = new Dictionary<ColorType, List<Brick>>();
 
     private Dictionary<Brick, int> flyingBricks = new Dictionary<Brick, int>();
 
-    
 
+    public void LoadData(StageData stageData)
+    {
+        Helper.LoadTransformData(tf, stageData.TFData);
+
+        IsLastStage = stageData.IsLastStage;
+
+        StageNumber = stageData.StageNumber;
+    }
     public void OnInit()
     {
         //Vi size goc la 2 don vi nen *2
@@ -223,7 +230,7 @@ public class Stage : MonoBehaviour
                 brick.SetActive(false);
                 for (int timer = 0; timer <= 100; timer++)
                 {
-                    int colorRand = Random.Range(0, 4);
+                    int colorRand =  UnityEngine.Random.Range(0, 4);
                     if (numbColorBrick[colorRand] > 0)
                     {
                         numbColorBrick[colorRand] -= 1;
@@ -272,7 +279,7 @@ public class Stage : MonoBehaviour
         }
         else
         {
-            int rad = Random.Range(0, possibleAns.Count);
+            int rad = UnityEngine.Random.Range(0, possibleAns.Count);
             return possibleAns[rad];
         }
 
@@ -324,4 +331,14 @@ public class Stage : MonoBehaviour
 
 
     }
+}
+
+
+[Serializable]
+public struct StageData
+{
+    public int StageNumber;
+
+    public bool IsLastStage;
+    public TransformData TFData;
 }

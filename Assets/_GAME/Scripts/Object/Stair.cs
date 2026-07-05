@@ -2,7 +2,7 @@ using System;
 using System.Collections;
 using UnityEngine;
 
-public class Stair : MonoBehaviour
+public class Stair : GameUnit
 {
     [SerializeField] private Bridge bridge;
     [SerializeField] private Renderer renderer;
@@ -109,10 +109,9 @@ public class Stair : MonoBehaviour
             });
         }
     }
-
-   
-
-
-
-
+}
+[Serializable]
+public struct StairData
+{
+    public TransformData TFData;
 }
