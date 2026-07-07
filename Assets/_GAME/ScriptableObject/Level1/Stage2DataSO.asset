@@ -43,9 +43,9 @@ MonoBehaviour:
       EulerAngles: {x: -0, y: 0, z: 0}
       Scale: {x: 1, y: 1, z: 1}
     TFPlane:
-      Position: {x: 15.33, y: 16.64, z: 49.27}
-      EulerAngles: {x: -0, y: 0, z: 0}
-      Scale: {x: 1, y: 1, z: 1}
+      Position: {x: -2.27, y: 2.5599, z: 10.1201}
+      EulerAngles: {x: -26, y: 0, z: 0}
+      Scale: {x: 1.8, y: 1, z: 23.94812}
     BanisterTFDataArr:
     - Position: {x: -3.38, y: 3.4071, z: 10.156}
       EulerAngles: {x: 334, y: 0, z: 0}
@@ -145,9 +145,9 @@ MonoBehaviour:
       EulerAngles: {x: -0, y: 0, z: 0}
       Scale: {x: 1, y: 1, z: 1}
     TFPlane:
-      Position: {x: -1.33, y: 16.64, z: 49.27}
-      EulerAngles: {x: -0, y: 0, z: 0}
-      Scale: {x: 1, y: 1, z: 1}
+      Position: {x: -2.27, y: 2.5599, z: 10.1201}
+      EulerAngles: {x: -26, y: 0, z: 0}
+      Scale: {x: 1.8, y: 1, z: 23.94812}
     BanisterTFDataArr:
     - Position: {x: -3.38, y: 3.3554, z: 10.05}
       EulerAngles: {x: 334, y: 0, z: 0}

@@ -43,9 +43,9 @@ MonoBehaviour:
       EulerAngles: {x: -0, y: 0, z: 0}
       Scale: {x: 1, y: 1, z: 1}
     TFPlane:
-      Position: {x: 7.29, y: 27.01, z: 82.22}
-      EulerAngles: {x: -0, y: 0, z: 0}
-      Scale: {x: 1, y: 1, z: 1}
+      Position: {x: -2.27, y: 0.1171, z: 5.1129}
+      EulerAngles: {x: -26, y: 0, z: 0}
+      Scale: {x: 1.8, y: 1, z: 12.80495}
     BanisterTFDataArr:
     - Position: {x: -3.38, y: 0.8756, z: 4.9371}
       EulerAngles: {x: 334, y: 0, z: 0}
