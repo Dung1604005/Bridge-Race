@@ -75,10 +75,8 @@ public class LevelManager : Singleton<LevelManager>
         InitDecorObject();
         InitGate();
         InitWinArea();
+        stageManager.BakeNavMeshSurface();
         InitCharacter();
-
-
-
     }
 
     public void InitWinArea()
@@ -119,10 +117,8 @@ public class LevelManager : Singleton<LevelManager>
             GameObject decor = Instantiate(GameData.Instance.listDecorObject[decorData.DecorId]);
 
             decor.transform.SetParent(decorRoot, true);
-
             Helper.LoadTransformData(decor.transform, decorData.TFData);
         }
-        
     }
 
     public void OnWin()

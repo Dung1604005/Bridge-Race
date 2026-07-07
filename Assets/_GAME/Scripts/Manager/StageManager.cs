@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Unity.AI.Navigation;
 using UnityEngine;
 
 public class StageManager : Singleton<StageManager>
@@ -6,6 +7,8 @@ public class StageManager : Singleton<StageManager>
     [SerializeField] private List<Stage> stages = new List<Stage>();
 
     [SerializeField] private Transform stageRoot;
+
+    [SerializeField] private NavMeshSurface navMeshSurface;
 
     public List<Stage> Stages => stages;
 
@@ -21,6 +24,11 @@ public class StageManager : Singleton<StageManager>
             stage.OnInit();
             stage.LoadData(datas[i]);
         }
+    }
+
+    public void BakeNavMeshSurface()
+    {
+        navMeshSurface.BuildNavMesh();
     }
 
     public Stage GetStage(int stageNumber)
