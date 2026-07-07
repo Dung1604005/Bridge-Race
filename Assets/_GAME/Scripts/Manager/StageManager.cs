@@ -12,23 +12,34 @@ public class StageManager : Singleton<StageManager>
 
     public List<Stage> Stages => stages;
 
-    
-
-    public void LoadStage(List<StageDataSO> datas)
+    public void OnInit()
     {
         stages.Clear();
+    }
+    public void LoadStage(List<StageDataSO> datas)
+    {
+        
         for(int i = 0; i < datas.Count; i++)
         {
             Stage stage = SimplePool.Spawn<Stage>(PoolType.StagePool, Vector3.zero, Quaternion.identity);
             stage.TF.SetParent(LevelManager.Instance.StageRoot, true);
-            stage.OnInit();
-            stage.LoadData(datas[i]);
+            stages.Add(stage);
+            stages[i].OnInit();
+            stages[i].LoadData(datas[i]);
+
+            
+        }
+
+        for(int i = 0; i < datas.Count; i++)
+        {
+            stages[i].LoadDataBridge(datas[i]);
         }
     }
 
-    public void BakeNavMeshSurface()
+    public void BakeNavMeshSurface(LevelDataSO levelDataSO)
     {
-        navMeshSurface.BuildNavMesh();
+        navMeshSurface.navMeshData = levelDataSO.navMeshData;   
+        navMeshSurface.AddData();
     }
 
     public Stage GetStage(int stageNumber)
@@ -40,7 +51,7 @@ public class StageManager : Singleton<StageManager>
                 return stages[i];
             }
         }
-        Debug.LogError("STAGE " + stageNumber + " DONT EXIST IN STAGE MANAGER");
+        Debug.Log("STAGE " + stageNumber + " DONT EXIST IN STAGE MANAGER");
         return null;
     }
 }

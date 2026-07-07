@@ -125,7 +125,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b79ce118ae7c1e44aa444a36b5bda24, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Stair
-  PoolType: 0
+  PoolType: 3
   tf: {fileID: 3781860541263375168}
   bridge: {fileID: 0}
   renderer: {fileID: 3266294825851850967}

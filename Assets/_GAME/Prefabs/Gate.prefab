@@ -374,9 +374,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af6520ff04a831e4a82164d04aae5898, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GateCtrl
-  PoolType: 0
+  PoolType: 5
   tf: {fileID: 133544976733639824}
-  stageDataSO: {fileID: 0}
+  levelDataSO: {fileID: 0}
   gateObjRenderers:
   - {fileID: 129282762289505722}
   - {fileID: 6286923937610481997}

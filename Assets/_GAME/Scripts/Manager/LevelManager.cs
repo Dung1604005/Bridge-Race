@@ -71,11 +71,12 @@ public class LevelManager : Singleton<LevelManager>
 
     public void InitLevel()
     {
+        stageManager.OnInit();
         stageManager.LoadStage(levelDataSO.stageDatas);
         InitDecorObject();
         InitGate();
         InitWinArea();
-        stageManager.BakeNavMeshSurface();
+        stageManager.BakeNavMeshSurface(levelDataSO);
         InitCharacter();
     }
 

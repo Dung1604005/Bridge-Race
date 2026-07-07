@@ -72,11 +72,16 @@ public class Stage : GameUnit
 
         StageNumber = stageDataSO.StageData.StageNumber;
 
+        Debug.Log(spawnPos.Count + " " + stageDataSO.StageData.SpawnPos.Length);
         for(int i = 0; i < stageDataSO.StageData.SpawnPos.Length; i++)
         {
             Helper.LoadTransformData(spawnPos[i], stageDataSO.StageData.SpawnPos[i]);
         }
+        SpawnBrick(LevelManager.Instance.ListColors);
+    }
 
+    public void LoadDataBridge(StageDataSO stageDataSO)
+    {
         for(int i = 0; i < stageDataSO.BridgeDatas.Count; i++)
         {
             TransformData tfData = stageDataSO.BridgeDatas[i].bridgeTFData;
@@ -88,17 +93,11 @@ public class Stage : GameUnit
             bridges.Add(newBridge);
             
         }
-
-
-        SpawnBrick(LevelManager.Instance.ListColors);
-
-
     }
     public void OnInit()
     {
         //Vi size goc la 2 don vi nen *2
         sizeStage = (new Vector3(scaleX, scaleY, scaleZ)) * 2;        
-        spawnPos.Clear();
         characters.Clear();
         bridges.Clear();
         ClearAllBrick();

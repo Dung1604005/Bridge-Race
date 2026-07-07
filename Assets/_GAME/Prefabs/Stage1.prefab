@@ -261,7 +261,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d7633cfa47f6c294088581430cf96e63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Stage
-  PoolType: 0
+  PoolType: 4
   tf: {fileID: 9046135003327672321}
   stageDataSO: {fileID: 11400000, guid: f554761f30eba994986dac01480aa777, type: 2}
   StageNumber: 1

@@ -91,6 +91,7 @@ public class Bridge : GameUnit
             StairData stairData = bridgeData.stairDataArr[i];
 
             Stair stair = SimplePool.Spawn<Stair>(PoolType.StairPool, Vector3.zero, Quaternion.identity);
+            stair.TF.SetParent(tf, true);
             stair.OnInit();
             stair.LoadData(stairData);
 
