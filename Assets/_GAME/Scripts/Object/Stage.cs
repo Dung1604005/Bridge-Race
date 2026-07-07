@@ -47,6 +47,10 @@ public class Stage : GameUnit
         stageData.StageNumber = StageNumber;
 
         stageData.IsLastStage = IsLastStage;
+        stageData.ScaleX=scaleX;
+        stageData.ScaleY = scaleY;
+        stageData.ScaleZ = scaleZ;
+
 
         TransformData[] SpawnPos = new TransformData[spawnPos.Count];
         for(int i = 0; i < SpawnPos.Length; i++)
@@ -72,6 +76,13 @@ public class Stage : GameUnit
 
         StageNumber = stageDataSO.StageData.StageNumber;
 
+        scaleX = stageDataSO.StageData.ScaleX;
+        scaleY = stageDataSO.StageData.ScaleY;
+        scaleZ = stageDataSO.StageData.ScaleZ;
+
+        //Vi size goc la 2 don vi nen *2
+        sizeStage = (new Vector3(scaleX, scaleY, scaleZ)) * 2;  
+
         Debug.Log(spawnPos.Count + " " + stageDataSO.StageData.SpawnPos.Length);
         for(int i = 0; i < stageDataSO.StageData.SpawnPos.Length; i++)
         {
@@ -95,9 +106,7 @@ public class Stage : GameUnit
         }
     }
     public void OnInit()
-    {
-        //Vi size goc la 2 don vi nen *2
-        sizeStage = (new Vector3(scaleX, scaleY, scaleZ)) * 2;        
+    {      
         characters.Clear();
         bridges.Clear();
         ClearAllBrick();
@@ -422,6 +431,12 @@ public struct StageData
     public int StageNumber;
 
     public bool IsLastStage;
+
+    public float ScaleX;
+
+    public float ScaleY;
+
+    public float ScaleZ;
 
     public TransformData[] SpawnPos;
     public TransformData TFData;
