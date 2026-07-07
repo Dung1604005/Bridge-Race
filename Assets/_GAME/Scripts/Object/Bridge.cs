@@ -13,6 +13,8 @@ public class Bridge : GameUnit
 
     [SerializeField] private Stage nextStage;
 
+    [SerializeField] private Transform plane;
+
     //Luu tranform lan can cua bridge :D
     [SerializeField] private List<Transform> banisters = new List<Transform>();
 
@@ -21,6 +23,50 @@ public class Bridge : GameUnit
     public Stage OwnerStage => ownerStage;
 
     public List<Stair> Stairs => stairs;
+
+    [ContextMenu("CREATE DATA")]
+
+    public void ExtractDataToSO()
+    {
+        BridgeData data = new BridgeData();
+
+        data.OwnerStageNumber = ownerStage.StageNumber;
+
+        if(nextStage == null)
+        {
+            data.NextStageNumber = -1;
+        }
+        else
+        {
+            data.NextStageNumber = nextStage.StageNumber;
+        }
+
+        data.TFPlane = Helper.CreateDataFromTransform(plane);
+
+        data.bridgeTFData = Helper.CreateDataFromTransform(tf);
+        TransformData[] banisterTFDataArr = new TransformData[2];
+
+        banisterTFDataArr[0] = Helper.CreateDataFromTransform(banisters[0].transform);
+        banisterTFDataArr[1] = Helper.CreateDataFromTransform(banisters[1].transform);
+
+        StairData[] stairDataArr = new StairData[stairs.Count];
+
+        data.BanisterTFDataArr = banisterTFDataArr;
+
+        for(int i = 0; i < stairs.Count; i++)
+        {
+            stairDataArr[i].TFData = Helper.CreateDataFromTransform(stairs[i].TF);
+        }
+
+        data.stairDataArr = stairDataArr;
+
+        dataSO.BridgeDatas.Add(data);
+
+
+        EditorUtility.SetDirty(dataSO);
+        AssetDatabase.SaveAssets();
+
+    }
 
     public void LoadData(BridgeData bridgeData)
     {
@@ -34,9 +80,44 @@ public class Bridge : GameUnit
         {
             Helper.LoadTransformData(banisters[i], bridgeData.BanisterTFDataArr[i]);
         }
-        SetOwnerStage(StageManager.Instance.GetStage(bridgeData.OwnerStageNumber));
 
+        Helper.LoadTransformData(plane, bridgeData.TFPlane);
+
+        SetOwnerStage(StageManager.Instance.GetStage(bridgeData.OwnerStageNumber));
         SetNextStage(StageManager.Instance.GetStage(bridgeData.NextStageNumber));
+
+        for(int i = 0; i < bridgeData.stairDataArr.Length; i++)
+        {
+            StairData stairData = bridgeData.stairDataArr[i];
+
+            Stair stair = SimplePool.Spawn<Stair>(PoolType.StairPool, Vector3.zero, Quaternion.identity);
+            stair.OnInit();
+            stair.LoadData(stairData);
+
+            stairs.Add(stair);
+        }
+
+        foreach(Stair stair in stairs)
+        {
+            stair.SetBridge(this);
+        }
+
+
+    }
+
+    public void OnInit()
+    {
+        stairs.Clear();
+        ownerStage = null;
+        nextStage = null;
+
+    }
+
+    public void OnDespawn()
+    {
+        stairs.Clear();
+        ownerStage = null;
+        nextStage = null;
     }
 
     public void SetOwnerStage(Stage _ownerStage)
@@ -104,47 +185,7 @@ public class Bridge : GameUnit
         };
     }
 
-    [ContextMenu("CREATE DATA")]
-
-    public void ExtractDataToSO()
-    {
-        BridgeData data = new BridgeData();
-
-        data.OwnerStageNumber = ownerStage.StageNumber;
-        data.NextStageNumber = nextStage.StageNumber;
-
-        data.bridgeTFData = Helper.CreateDataFromTransform(tf);
-        TransformData[] banisterTFDataArr = new TransformData[2];
-
-        banisterTFDataArr[0] = Helper.CreateDataFromTransform(banisters[0].transform);
-        banisterTFDataArr[1] = Helper.CreateDataFromTransform(banisters[1].transform);
-
-        StairData[] stairDataArr = new StairData[stairs.Count];
-
-        data.BanisterTFDataArr = banisterTFDataArr;
-
-        for(int i = 0; i < stairs.Count; i++)
-        {
-            stairDataArr[i].TFData = Helper.CreateDataFromTransform(stairs[i].TF);
-        }
-
-        data.stairDataArr = stairDataArr;
-
-        dataSO.bridgeDatas.Add(data);
-
-
-        EditorUtility.SetDirty(dataSO);
-        AssetDatabase.SaveAssets();
-
-    }
-
-    void Start()
-    {
-        foreach(Stair stair in stairs)
-        {
-            stair.SetBridge(this);
-        }
-    }
+    
 
 }
 
@@ -164,6 +205,8 @@ public struct BridgeData
     public int NextStageNumber;
 
     public TransformData bridgeTFData;
+
+    public TransformData TFPlane;
 
     public TransformData[] BanisterTFDataArr;
 

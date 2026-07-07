@@ -17,6 +17,15 @@ public class Stair : GameUnit
 
     public Bridge Bridge => bridge;
 
+    public void LoadData(StairData stairData)
+    {
+        Helper.LoadTransformData(tf, stairData.TFData);
+    }
+    public void OnInit()
+    {
+        colorType = ColorType.NONE;
+    }
+
     public void SetBridge(Bridge _bridge)
     {
         bridge = _bridge;

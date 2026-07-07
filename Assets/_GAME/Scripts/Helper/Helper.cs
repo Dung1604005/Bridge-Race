@@ -35,4 +35,19 @@ public static class Helper
 
         return data;
     }
+
+    public static Transform CreateTransformFromData(TransformData data, Transform parent = null)
+    {
+        GameObject emptyObj = new GameObject();
+
+        emptyObj.transform.SetParent(parent, true);
+
+        emptyObj.transform.localPosition = data.Position;
+
+        emptyObj.transform.eulerAngles = data.EulerAngles;
+
+         emptyObj.transform.localScale = data.Scale;
+
+        return emptyObj.transform;
+    }
 }

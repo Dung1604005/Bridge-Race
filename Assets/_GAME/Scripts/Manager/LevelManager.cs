@@ -3,17 +3,25 @@ using UnityEngine;
 
 public class LevelManager : Singleton<LevelManager>
 {
+    [SerializeField] private LevelDataSO levelDataSO;
+
+    [SerializeField] private Transform stageRoot;
+    [SerializeField] private Transform levelRoot;
     [SerializeField] private List<ColorType> listColors = new List<ColorType>(){ColorType.RED, ColorType.BLUE, ColorType.VIOLET, ColorType.GREEN};
 
     [SerializeField] private List<Character> listCharacter = new List<Character>();
 
-    [SerializeField] private List<Stage> listStage = new List<Stage>();
+    [SerializeField] private StageManager stageManager;
 
     [SerializeField] private RankManager rankManager;
 
     [SerializeField] private CameraFollow cam;
 
     [SerializeField] private WinArea winArea;
+
+    public Transform LevelRoot => levelRoot;
+
+    public Transform StageRoot => stageRoot;
 
     public RankManager RankManager => rankManager;
 
@@ -23,13 +31,10 @@ public class LevelManager : Singleton<LevelManager>
         return winArea.TF.position;
     }
 
-    public void InitStage()
+    public void InitLevel()
     {
-        foreach (Stage stage in listStage)
-        {
-            stage.OnInit();
-
-        }
+        stageManager.LoadStage(levelDataSO.stageDatas);
+        InitCharacter();
 
         
     }
@@ -38,7 +43,7 @@ public class LevelManager : Singleton<LevelManager>
     {
         foreach (Character character in listCharacter)
         {
-            character.ChangeStage(listStage[0]);
+            character.ChangeStage(stageManager.GetStage(1));
             character.ReSpawn();
         }
 
@@ -52,7 +57,7 @@ public class LevelManager : Singleton<LevelManager>
             character.OnWin();
         }
 
-        foreach(Stage stage in listStage)
+        foreach(Stage stage in stageManager.Stages)
         {
             stage.OnWin();
         }
@@ -61,8 +66,7 @@ public class LevelManager : Singleton<LevelManager>
     void Awake()
     {
         rankManager.LoadRankedList(listCharacter);
-        InitStage();
-        InitCharacter();
+        InitLevel();
     }
 
     void Start()

@@ -12,5 +12,12 @@ public class GameUnit : MonoBehaviour
 
 public enum PoolType{
     BrickPool = 0,
-    BrickEffectPool = 1
+    BrickEffectPool = 1,
+
+    BridgePool = 2,
+
+    StairPool = 3,
+    StagePool = 4,
+
+    GatePool = 5
 }

@@ -3,9 +3,25 @@ using UnityEngine;
 
 public class StageManager : Singleton<StageManager>
 {
-    [SerializeField] private List<Stage> stages;
+    [SerializeField] private List<Stage> stages = new List<Stage>();
 
+    [SerializeField] private Transform stageRoot;
 
+    public List<Stage> Stages => stages;
+
+    
+
+    public void LoadStage(List<StageDataSO> datas)
+    {
+        stages.Clear();
+        for(int i = 0; i < datas.Count; i++)
+        {
+            Stage stage = SimplePool.Spawn<Stage>(PoolType.StagePool, Vector3.zero, Quaternion.identity);
+            stage.TF.SetParent(LevelManager.Instance.StageRoot, true);
+            stage.OnInit();
+            stage.LoadData(datas[i]);
+        }
+    }
 
     public Stage GetStage(int stageNumber)
     {

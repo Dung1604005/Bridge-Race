@@ -4,7 +4,8 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "StageDataSO", menuName = "Scriptable Objects/StageDataSO")]
 public class StageDataSO : ScriptableObject
 {
-    public StageData stageData;
+    public StageData StageData;
 
-    public List<BridgeData> bridgeDatas = new List<BridgeData>();
+    public List<BridgeData> BridgeDatas = new List<BridgeData>();
+
 }

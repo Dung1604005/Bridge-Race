@@ -4,5 +4,8 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "LevelDataSO", menuName = "Scriptable Objects/LevelDataSO")]
 public class LevelDataSO : ScriptableObject
 {
-    [SerializeField] private List<StageDataSO> stageDatas;
+    
+    [SerializeField] public List<StageDataSO> stageDatas;
+
+    public List<GateData> gateDatas = new List<GateData>();
 }

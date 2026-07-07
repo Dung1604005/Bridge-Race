@@ -160,10 +160,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Bridge
   PoolType: 0
+  tf: {fileID: 3168841101508225171}
   dataSO: {fileID: 0}
   stairs: []
   ownerStage: {fileID: 0}
   nextStage: {fileID: 0}
+  plane: {fileID: 7172039684311266868}
   banisters:
   - {fileID: 1581487071950870749}
   - {fileID: 1738640104543614359}

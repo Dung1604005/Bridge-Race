@@ -13,32 +13,42 @@ MonoBehaviour:
   m_Name: LevelDataSO
   m_EditorClassIdentifier: Assembly-CSharp::LevelDataSO
   stageDatas:
-  - StageNumber: 1
-    IsLastStage: 0
-    TFData:
-      Position: {x: 0, y: 0, z: 0}
-      EulerAngles: {x: 0, y: 0, z: 0}
-      Scale: {x: 0, y: 0, z: 0}
-    bridgeDatas: []
-  - StageNumber: 2
-    IsLastStage: 0
-    TFData:
-      Position: {x: 0, y: 0, z: 0}
-      EulerAngles: {x: 0, y: 0, z: 0}
-      Scale: {x: 0, y: 0, z: 0}
-    bridgeDatas:
-    - OwnerStageNumber: 0
-      NextStageNumber: 0
-      bridgeTFData:
-        Position: {x: 0, y: 0, z: 0}
-        EulerAngles: {x: 0, y: 0, z: 0}
-        Scale: {x: 0, y: 0, z: 0}
-      BanisterTFDataArr: []
-      stairDataArr: []
-  - StageNumber: 3
-    IsLastStage: 1
-    TFData:
-      Position: {x: 0, y: 0, z: 0}
-      EulerAngles: {x: 0, y: 0, z: 0}
-      Scale: {x: 0, y: 0, z: 0}
-    bridgeDatas: []
+  - {fileID: 11400000, guid: f554761f30eba994986dac01480aa777, type: 2}
+  - {fileID: 11400000, guid: cf0030110451db845b412e4446ef8ef2, type: 2}
+  - {fileID: 11400000, guid: fa74571ba2a36ed4c9e27e41153d5319, type: 2}
+  gateDatas:
+  - TFData:
+      Position: {x: 0.75455, y: 10.350001, z: 28.665997}
+      EulerAngles: {x: -0, y: 0, z: 0}
+      Scale: {x: 1, y: 1, z: 1}
+    NextStageNumber: 3
+  - TFData:
+      Position: {x: -3.3054504, y: 0, z: -10.284}
+      EulerAngles: {x: -0, y: 0, z: 0}
+      Scale: {x: 1, y: 1, z: 1}
+    NextStageNumber: 2
+  - TFData:
+      Position: {x: -20.26545, y: 0, z: -10.284}
+      EulerAngles: {x: -0, y: 0, z: 0}
+      Scale: {x: 1, y: 1, z: 1}
+    NextStageNumber: 2
+  - TFData:
+      Position: {x: -11.315451, y: 0, z: -10.284}
+      EulerAngles: {x: -0, y: 0, z: 0}
+      Scale: {x: 1, y: 1, z: 1}
+    NextStageNumber: 2
+  - TFData:
+      Position: {x: 4.9045506, y: 0, z: -10.284}
+      EulerAngles: {x: -0, y: 0, z: 0}
+      Scale: {x: 1, y: 1, z: 1}
+    NextStageNumber: 2
+  - TFData:
+      Position: {x: -7.3054504, y: 15.7699995, z: 51.466}
+      EulerAngles: {x: -0, y: 0, z: 0}
+      Scale: {x: 1, y: 1, z: 1}
+    NextStageNumber: -1
+  - TFData:
+      Position: {x: -15.935451, y: 10.350001, z: 28.665997}
+      EulerAngles: {x: -0, y: 0, z: 0}
+      Scale: {x: 1, y: 1, z: 1}
+    NextStageNumber: 3

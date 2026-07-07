@@ -2,12 +2,15 @@
 
 using System;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEditor.ShaderGraph.Internal;
 using UnityEngine;
 using UnityEngine.Rendering;
 
 public class Stage : GameUnit
 {
+
+    [SerializeField] private StageDataSO stageDataSO;
     public int StageNumber;
 
     public bool IsLastStage;
@@ -21,31 +24,92 @@ public class Stage : GameUnit
 
     [SerializeField] private Vector3 distanceBrick;
 
-    [SerializeField] private List<Vector3> spawnPos = new List<Vector3>();
+    [SerializeField] private List<Transform> spawnPos = new List<Transform>();
 
-    [SerializeField] private List<Character> characters;
+    [SerializeField] private List<Character> characters = new List<Character>();
 
-    [SerializeField] private List<Bridge> bridges;
+    [SerializeField] private List<Bridge> bridges = new List<Bridge>();
 
     private Dictionary<ColorType, List<Brick>> bricks = new Dictionary<ColorType, List<Brick>>();
 
     private Dictionary<Brick, int> flyingBricks = new Dictionary<Brick, int>();
 
+    [ContextMenu("Create Data")]
 
-    public void LoadData(StageData stageData)
+    public void CreateData()
     {
-        Helper.LoadTransformData(tf, stageData.TFData);
+        StageData stageData = new StageData();
 
-        IsLastStage = stageData.IsLastStage;
+        stageData.TFData = Helper.CreateDataFromTransform(tf);
 
-        StageNumber = stageData.StageNumber;
+        Debug.Log(stageData.TFData.EulerAngles);
+
+        stageData.StageNumber = StageNumber;
+
+        stageData.IsLastStage = IsLastStage;
+
+        TransformData[] SpawnPos = new TransformData[spawnPos.Count];
+        for(int i = 0; i < SpawnPos.Length; i++)
+        {
+            SpawnPos[i] = Helper.CreateDataFromTransform(spawnPos[i]);
+        }
+
+        stageData.SpawnPos = SpawnPos;
+
+        stageDataSO.StageData = stageData;
+
+         EditorUtility.SetDirty(stageDataSO);
+        AssetDatabase.SaveAssets();
+
+        
+    }
+
+    public void LoadData(StageDataSO stageDataSO)
+    {
+        Helper.LoadTransformData(tf, stageDataSO.StageData.TFData);
+
+        IsLastStage = stageDataSO.StageData.IsLastStage;
+
+        StageNumber = stageDataSO.StageData.StageNumber;
+
+        for(int i = 0; i < stageDataSO.StageData.SpawnPos.Length; i++)
+        {
+            Helper.LoadTransformData(spawnPos[i], stageDataSO.StageData.SpawnPos[i]);
+        }
+
+        for(int i = 0; i < stageDataSO.BridgeDatas.Count; i++)
+        {
+            TransformData tfData = stageDataSO.BridgeDatas[i].bridgeTFData;
+
+            Bridge newBridge= SimplePool.Spawn<Bridge>(PoolType.BridgePool, tfData.Position, Quaternion.identity);
+            newBridge.TF.SetParent(LevelManager.Instance.LevelRoot, true);
+            newBridge.OnInit();
+            newBridge.LoadData(stageDataSO.BridgeDatas[i]);
+            bridges.Add(newBridge);
+            
+        }
+
+
+        SpawnBrick(LevelManager.Instance.ListColors);
+
+
     }
     public void OnInit()
     {
         //Vi size goc la 2 don vi nen *2
-        sizeStage = (new Vector3(scaleX, scaleY, scaleZ)) * 2;
+        sizeStage = (new Vector3(scaleX, scaleY, scaleZ)) * 2;        
+        spawnPos.Clear();
+        characters.Clear();
+        bridges.Clear();
+        ClearAllBrick();
+    }
 
-        SpawnBrick(LevelManager.Instance.ListColors);
+    public void OnDespawn()
+    {
+        spawnPos.Clear();
+        characters.Clear();
+        bridges.Clear();
+        ClearAllBrick();
     }
 
     public void OnWin()
@@ -65,12 +129,12 @@ public class Stage : GameUnit
         {
             if(character == characters[i])
             {
-                return spawnPos[i];
+                return spawnPos[i].position;
 
             }
         }
         
-        return spawnPos[0];
+        return spawnPos[0].position;
     }
 
     public void AddCharacter(Character character)
@@ -139,6 +203,25 @@ public class Stage : GameUnit
             Debug.LogError("Color brick want to be deactive dont have in stage!!!");
         }
 
+    }
+
+    public void ClearAllBrick()
+    {
+        foreach(ColorType colorType in bricks.Keys)
+        {
+            for(int i = 0; i < bricks[colorType].Count; i++)
+            {
+                bricks[colorType][i].OnDespawn();
+            }
+        }
+
+        foreach(Brick brick in flyingBricks.Keys)
+        {
+            brick.OnDespawn();
+        }
+
+        flyingBricks.Clear();
+        bricks.Clear();
     }
 
     public Vector3 GetNearestBrick(ColorType colorType, Vector3 pos)
@@ -340,5 +423,7 @@ public struct StageData
     public int StageNumber;
 
     public bool IsLastStage;
+
+    public TransformData[] SpawnPos;
     public TransformData TFData;
 }

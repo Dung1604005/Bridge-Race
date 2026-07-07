@@ -1,10 +1,13 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.Collections;
+using UnityEditor;
 using UnityEngine;
 
-public class GateCtrl : MonoBehaviour
+public class GateCtrl : GameUnit
 {
+    [SerializeField] private LevelDataSO levelDataSO;
     [SerializeField] List<Renderer> gateObjRenderers = new List<Renderer>();
 
     [SerializeField] Transform transformDoor;
@@ -13,11 +16,38 @@ public class GateCtrl : MonoBehaviour
 
     [SerializeField] float durationEffect;
 
-    private Transform tf;
-
     private bool opened;
 
     public Stage NextStage => nextStage;
+
+    [ContextMenu("CREATE DATA")]
+    public void CreateData()
+    {
+        GateData data = new GateData();
+
+        data.TFData = Helper.CreateDataFromTransform(tf);
+
+        if(nextStage == null)
+        {
+            data.NextStageNumber = -1;
+        }
+        else
+        {
+            data.NextStageNumber = nextStage.StageNumber;
+        }
+        
+
+        levelDataSO.gateDatas.Add(data);
+         EditorUtility.SetDirty(levelDataSO);
+        AssetDatabase.SaveAssets();
+    }
+
+    public void LoadData(GateData gateData)
+    {
+        Helper.LoadTransformData(tf, gateData.TFData);
+
+        nextStage = StageManager.Instance.GetStage(gateData.NextStageNumber);
+    }
 
     public void OnTriggerEnter(Collider collider)
     {
@@ -83,4 +113,15 @@ public class GateCtrl : MonoBehaviour
     {
         tf = transform;
     }
+}
+
+[Serializable]
+public struct GateData
+{
+    
+    public TransformData TFData;
+
+    public int NextStageNumber;
+
+
 }
