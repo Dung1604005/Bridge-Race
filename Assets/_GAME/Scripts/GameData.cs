@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class GameData : Singleton<GameData>
@@ -14,6 +15,8 @@ public class GameData : Singleton<GameData>
     public String CHARACTER_TAG = "Character";
 
     public int LAYER_STAIR = 1<<6;
+
+    public List<GameObject> listDecorObject = new List<GameObject>();
    [SerializeField] private ColorDataSO colorDataSO;
 
    public ColorDataSO ColorDataSO => colorDataSO;

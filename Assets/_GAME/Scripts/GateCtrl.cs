@@ -49,6 +49,12 @@ public class GateCtrl : GameUnit
         nextStage = StageManager.Instance.GetStage(gateData.NextStageNumber);
     }
 
+    public void OnInit()
+    {
+        opened = false;
+        nextStage = null;
+    }
+
     public void OnTriggerEnter(Collider collider)
     {
 

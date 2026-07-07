@@ -1,4 +1,6 @@
+using System;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 
 public class LevelManager : Singleton<LevelManager>
@@ -7,7 +9,11 @@ public class LevelManager : Singleton<LevelManager>
 
     [SerializeField] private Transform stageRoot;
     [SerializeField] private Transform levelRoot;
-    [SerializeField] private List<ColorType> listColors = new List<ColorType>(){ColorType.RED, ColorType.BLUE, ColorType.VIOLET, ColorType.GREEN};
+
+    [SerializeField] private Transform gateRoot;
+
+    [SerializeField] private Transform decorRoot;
+    [SerializeField] private List<ColorType> listColors = new List<ColorType>() { ColorType.RED, ColorType.BLUE, ColorType.VIOLET, ColorType.GREEN };
 
     [SerializeField] private List<Character> listCharacter = new List<Character>();
 
@@ -26,17 +32,51 @@ public class LevelManager : Singleton<LevelManager>
     public RankManager RankManager => rankManager;
 
     public List<ColorType> ListColors => listColors;
-    public Vector3 GetWinAreaPosition()
+
+    [ContextMenu("CREATE DECOR DATA")]
+    public void CreateDecorData()
     {
-        return winArea.TF.position;
+        List<DecorData> decorObjectDatas = new List<DecorData>();
+        foreach(Transform child in decorRoot)
+        {
+            DecorData decorData = new DecorData();
+            decorData.TFData = Helper.CreateDataFromTransform(child);
+            decorObjectDatas.Add(decorData);
+            
+        }
+
+        levelDataSO.decorObjectDatas = decorObjectDatas;
+        EditorUtility.SetDirty(levelDataSO);
+        AssetDatabase.SaveAssets();
+    }
+
+    public void LoadData(LevelDataSO levelDataSO)
+    {
+        this.levelDataSO = levelDataSO;
     }
 
     public void InitLevel()
     {
         stageManager.LoadStage(levelDataSO.stageDatas);
+        InitDecorObject();
+        InitGate();
         InitCharacter();
 
-        
+
+
+    }
+
+    public void InitGate()
+    {
+        for (int i = 0; i < levelDataSO.gateDatas.Count; i++)
+        {
+            GateCtrl gate = SimplePool.Spawn<GateCtrl>(PoolType.GatePool, Vector3.zero, Quaternion.identity);
+
+            gate.TF.SetParent(gateRoot, true);
+            gate.OnInit();
+            gate.LoadData(levelDataSO.gateDatas[i]);
+        }
+
     }
 
     public void InitCharacter()
@@ -50,18 +90,37 @@ public class LevelManager : Singleton<LevelManager>
 
     }
 
+    public void InitDecorObject(){
+
+        for(int i = 0; i < levelDataSO.decorObjectDatas.Count; i++)
+        {
+            DecorData decorData = levelDataSO.decorObjectDatas[i];
+            GameObject decor = Instantiate(GameData.Instance.listDecorObject[decorData.DecorId]);
+
+            decor.transform.SetParent(decorRoot, true);
+
+            Helper.LoadTransformData(decor.transform, decorData.TFData);
+        }
+        
+    }
+
     public void OnWin()
     {
-        foreach(Character character in listCharacter)
+        foreach (Character character in listCharacter)
         {
             character.OnWin();
         }
 
-        foreach(Stage stage in stageManager.Stages)
+        foreach (Stage stage in stageManager.Stages)
         {
             stage.OnWin();
         }
         cam.OnWin();
+    }
+
+    public Vector3 GetWinAreaPosition()
+    {
+        return winArea.TF.position;
     }
     void Awake()
     {
@@ -74,5 +133,14 @@ public class LevelManager : Singleton<LevelManager>
         UIManager.Instance.GetUI<CanvasGamePlay>().SetRankUI(rankManager.GetRankedList());
     }
 
+}
+
+[Serializable]
+
+public struct DecorData
+{
+    public TransformData TFData;
+
+    public int DecorId;
 }
 

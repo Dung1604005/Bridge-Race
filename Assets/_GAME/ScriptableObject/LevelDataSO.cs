@@ -5,7 +5,9 @@ using UnityEngine;
 public class LevelDataSO : ScriptableObject
 {
     
-    [SerializeField] public List<StageDataSO> stageDatas;
+    public List<StageDataSO> stageDatas;
 
     public List<GateData> gateDatas = new List<GateData>();
+
+    public List<DecorData> decorObjectDatas = new List<DecorData>();
 }
