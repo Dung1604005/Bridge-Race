@@ -413,6 +413,10 @@ public class Character : MonoBehaviour
 
     protected virtual void Update()
     {
+         if(GameManager.Instance.GameState != GameState.PLAYING)
+        {
+            return;
+        }
         foreach (Brick brick in characterBricks)
         {
 

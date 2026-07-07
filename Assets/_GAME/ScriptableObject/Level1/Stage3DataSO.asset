@@ -15,6 +15,9 @@ MonoBehaviour:
   StageData:
     StageNumber: 3
     IsLastStage: 1
+    ScaleX: 11.5
+    ScaleY: 1
+    ScaleZ: 6
     SpawnPos:
     - Position: {x: -0.736, y: 2.48, z: -0.594}
       EulerAngles: {x: 0.000009334668, y: -0, z: -0}

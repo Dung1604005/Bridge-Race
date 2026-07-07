@@ -386,7 +386,10 @@ public class Stage : GameUnit
 
     void Update()
     {
-        
+        if(GameManager.Instance.GameState != GameState.PLAYING)
+        {
+            return;
+        }
         for (int i = 0; i < characters.Count; i++)
         {
             Character character = characters[i];
