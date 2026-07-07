@@ -16,6 +16,10 @@ MonoBehaviour:
   - {fileID: 11400000, guid: f554761f30eba994986dac01480aa777, type: 2}
   - {fileID: 11400000, guid: cf0030110451db845b412e4446ef8ef2, type: 2}
   - {fileID: 11400000, guid: fa74571ba2a36ed4c9e27e41153d5319, type: 2}
+  WinAreaTF:
+    Position: {x: 4.1, y: 30.57, z: 99.53}
+    EulerAngles: {x: -0, y: 0, z: 0}
+    Scale: {x: 1, y: 1, z: 1}
   gateDatas:
   - TFData:
       Position: {x: 0.75455, y: 10.350001, z: 28.665997}
@@ -67,99 +71,304 @@ MonoBehaviour:
       Position: {x: 12.662472, y: 10.36, z: 43.90242}
       EulerAngles: {x: -0, y: 180, z: -0}
       Scale: {x: 1, y: 1, z: 1}
-    DecorId: 0
+    DecorId: 1
   - TFData:
       Position: {x: 3.2786994, y: -6.942, z: -21.98}
       EulerAngles: {x: 0, y: 270, z: 0}
       Scale: {x: 1, y: 1, z: 1}
-    DecorId: 0
+    DecorId: 2
   - TFData:
       Position: {x: 12.208699, y: -6.942, z: -21.98}
       EulerAngles: {x: 0, y: 270, z: 0}
       Scale: {x: 1, y: 1, z: 1}
-    DecorId: 0
+    DecorId: 2
   - TFData:
       Position: {x: 20.2787, y: -6.942, z: -21.98}
       EulerAngles: {x: 0, y: 270, z: 0}
       Scale: {x: 1, y: 1, z: 1}
-    DecorId: 0
+    DecorId: 2
   - TFData:
       Position: {x: 28.4887, y: -6.942, z: -21.98}
       EulerAngles: {x: 0, y: 270, z: 0}
       Scale: {x: 1, y: 1, z: 1}
-    DecorId: 0
+    DecorId: 2
   - TFData:
       Position: {x: -0.15000153, y: -6.942, z: -21.98}
       EulerAngles: {x: -0, y: 180, z: -0}
       Scale: {x: 1, y: 1, z: 1}
-    DecorId: 0
+    DecorId: 3
   - TFData:
       Position: {x: 8.76, y: -6.942, z: -21.98}
       EulerAngles: {x: -0, y: 180, z: -0}
       Scale: {x: 1, y: 1, z: 1}
-    DecorId: 0
+    DecorId: 3
   - TFData:
       Position: {x: 16.81, y: -6.942, z: -21.98}
       EulerAngles: {x: -0, y: 180, z: -0}
       Scale: {x: 1, y: 1, z: 1}
-    DecorId: 0
+    DecorId: 3
   - TFData:
       Position: {x: 25.01, y: -6.942, z: -21.98}
       EulerAngles: {x: -0, y: 180, z: -0}
       Scale: {x: 1, y: 1, z: 1}
-    DecorId: 0
+    DecorId: 3
   - TFData:
       Position: {x: 7.5986996, y: 0, z: 10.598419}
       EulerAngles: {x: 0, y: 270, z: 0}
       Scale: {x: 1, y: 1, z: 1}
-    DecorId: 0
+    DecorId: 4
   - TFData:
       Position: {x: 24.3087, y: 0, z: 10.598419}
       EulerAngles: {x: 0, y: 270, z: 0}
       Scale: {x: 1, y: 1, z: 1}
-    DecorId: 0
+    DecorId: 4
   - TFData:
       Position: {x: 16.253849, y: 10.350001, z: 43.590904}
       EulerAngles: {x: 0, y: 270, z: 0}
       Scale: {x: 1, y: 1, z: 1}
-    DecorId: 0
+    DecorId: 5
   - TFData:
       Position: {x: 6.2286997, y: 1.3999996, z: -14.18}
       EulerAngles: {x: -0, y: 180, z: -0}
       Scale: {x: 1, y: 1, z: 1}
-    DecorId: 0
+    DecorId: 6
   - TFData:
       Position: {x: 14.82, y: 1.3999996, z: -14.18}
       EulerAngles: {x: -0, y: 180, z: -0}
       Scale: {x: 1, y: 1, z: 1}
-    DecorId: 0
+    DecorId: 6
   - TFData:
       Position: {x: 22.7, y: 1.3999996, z: -14.18}
       EulerAngles: {x: -0, y: 180, z: -0}
       Scale: {x: 1, y: 1, z: 1}
-    DecorId: 0
+    DecorId: 6
   - TFData:
       Position: {x: 13.588699, y: 25.259998, z: 79.048416}
       EulerAngles: {x: -0, y: 90, z: -0}
       Scale: {x: 1, y: 1, z: 1}
-    DecorId: 0
+    DecorId: 7
   - TFData:
       Position: {x: 14.588699, y: 0.2, z: 18.6}
       EulerAngles: {x: -0, y: 0, z: 0}
       Scale: {x: 1, y: 1, z: 1}
-    DecorId: 0
+    DecorId: 8
   - TFData:
-      Position: {x: 0, y: 0, z: 0}
+      Position: {x: -2.7913008, y: -6.9, z: -47.42158}
+      EulerAngles: {x: -0, y: 90, z: -0}
+      Scale: {x: 1.5000002, y: 1.5, z: 1.5000002}
+    DecorId: 9
+  - TFData:
+      Position: {x: 31.3987, y: -6.9, z: -47.42158}
+      EulerAngles: {x: -0, y: 90, z: -0}
+      Scale: {x: 1.5000002, y: 1.5, z: 1.5000002}
+    DecorId: 9
+  - TFData:
+      Position: {x: -2.7913008, y: -6.9, z: -38.49158}
+      EulerAngles: {x: -0, y: 90, z: -0}
+      Scale: {x: 1.5000002, y: 1.5, z: 1.5000002}
+    DecorId: 9
+  - TFData:
+      Position: {x: 31.3987, y: -6.9, z: -38.49158}
+      EulerAngles: {x: -0, y: 90, z: -0}
+      Scale: {x: 1.5000002, y: 1.5, z: 1.5000002}
+    DecorId: 9
+  - TFData:
+      Position: {x: -2.7913008, y: -6.9, z: -29.43158}
+      EulerAngles: {x: -0, y: 90, z: -0}
+      Scale: {x: 1.5000002, y: 1.5, z: 1.5000002}
+    DecorId: 9
+  - TFData:
+      Position: {x: 31.3987, y: -6.9, z: -29.43158}
+      EulerAngles: {x: -0, y: 90, z: -0}
+      Scale: {x: 1.5000002, y: 1.5, z: 1.5000002}
+    DecorId: 9
+  - TFData:
+      Position: {x: -2.7913008, y: -6.9, z: -23.11158}
+      EulerAngles: {x: -0, y: 90, z: -0}
+      Scale: {x: 0.80000013, y: 1.5, z: 1.5000002}
+    DecorId: 9
+  - TFData:
+      Position: {x: -1.5199995, y: -6.9, z: -21.11}
+      EulerAngles: {x: -0, y: 0, z: 0}
+      Scale: {x: 0.55, y: 1.5, z: 1.5000001}
+    DecorId: 9
+  - TFData:
+      Position: {x: 29.96, y: -6.9, z: -21.11}
+      EulerAngles: {x: -0, y: 0, z: 0}
+      Scale: {x: 0.6, y: 1.5, z: 1.5000001}
+    DecorId: 9
+  - TFData:
+      Position: {x: 22.59, y: -6.9, z: -21.11}
+      EulerAngles: {x: -0, y: 0, z: 0}
+      Scale: {x: 0.9, y: 1.5, z: 1.5000001}
+    DecorId: 9
+  - TFData:
+      Position: {x: 14.44, y: -6.9, z: -21.11}
+      EulerAngles: {x: -0, y: 0, z: 0}
+      Scale: {x: 0.9, y: 1.5, z: 1.5000001}
+    DecorId: 9
+  - TFData:
+      Position: {x: 5.94, y: -6.9, z: -21.11}
+      EulerAngles: {x: -0, y: 0, z: 0}
+      Scale: {x: 1, y: 1.5, z: 1.5000001}
+    DecorId: 9
+  - TFData:
+      Position: {x: 31.3987, y: -6.9, z: -23.11158}
+      EulerAngles: {x: -0, y: 90, z: -0}
+      Scale: {x: 0.80000013, y: 1.5, z: 1.5000002}
+    DecorId: 9
+  - TFData:
+      Position: {x: 1.7686996, y: -6.9, z: -52.28158}
+      EulerAngles: {x: -0, y: 0, z: 0}
+      Scale: {x: 1.5, y: 1.5, z: 1.5}
+    DecorId: 9
+  - TFData:
+      Position: {x: 10.708699, y: -6.9, z: -52.28158}
+      EulerAngles: {x: -0, y: 0, z: 0}
+      Scale: {x: 1.5, y: 1.5, z: 1.5}
+    DecorId: 9
+  - TFData:
+      Position: {x: 19.618698, y: -6.9, z: -52.28158}
+      EulerAngles: {x: -0, y: 0, z: 0}
+      Scale: {x: 1.5, y: 1.5, z: 1.5}
+    DecorId: 9
+  - TFData:
+      Position: {x: 26.7387, y: -6.9, z: -52.28158}
+      EulerAngles: {x: -0, y: 0, z: 0}
+      Scale: {x: 1.5, y: 1.5, z: 1.5}
+    DecorId: 9
+  - TFData:
+      Position: {x: 22.5287, y: -0.038999557, z: -6.2615814}
+      EulerAngles: {x: -0, y: 0, z: 0}
+      Scale: {x: 0.8, y: 1, z: 1}
+    DecorId: 9
+  - TFData:
+      Position: {x: 14.4387, y: -0.038999557, z: -6.2615814}
+      EulerAngles: {x: -0, y: 0, z: 0}
+      Scale: {x: 0.8, y: 1, z: 1}
+    DecorId: 9
+  - TFData:
+      Position: {x: 5.9786997, y: -0.038999557, z: -6.2615814}
+      EulerAngles: {x: -0, y: 0, z: 0}
+      Scale: {x: 0.9, y: 1, z: 1}
+    DecorId: 9
+  - TFData:
+      Position: {x: -1.6773005, y: -0.010000229, z: -3.3515816}
+      EulerAngles: {x: -0, y: 90, z: -0}
+      Scale: {x: 1, y: 1, z: 1}
+    DecorId: 9
+  - TFData:
+      Position: {x: 30.0587, y: -0.010000229, z: -3.3515816}
+      EulerAngles: {x: -0, y: 90, z: -0}
+      Scale: {x: 1, y: 1, z: 1}
+    DecorId: 9
+  - TFData:
+      Position: {x: 25.194002, y: 10.313001, z: 35.461}
+      EulerAngles: {x: -0, y: 90, z: -0}
+      Scale: {x: 1, y: 1, z: 1}
+    DecorId: 9
+  - TFData:
+      Position: {x: 3.15, y: 10.313001, z: 35.461}
+      EulerAngles: {x: -0, y: 90, z: -0}
+      Scale: {x: 1, y: 1, z: 1}
+    DecorId: 9
+  - TFData:
+      Position: {x: -1.6813002, y: -0.010000229, z: 2.6984177}
+      EulerAngles: {x: -0, y: 90, z: -0}
+      Scale: {x: 1, y: 1, z: 1}
+    DecorId: 9
+  - TFData:
+      Position: {x: 30.054699, y: -0.010000229, z: 2.6984177}
+      EulerAngles: {x: -0, y: 90, z: -0}
+      Scale: {x: 1, y: 1, z: 1}
+    DecorId: 9
+  - TFData:
+      Position: {x: 25.19, y: 10.313001, z: 40.92}
+      EulerAngles: {x: -0, y: 90, z: -0}
+      Scale: {x: 1, y: 1, z: 1}
+    DecorId: 9
+  - TFData:
+      Position: {x: 3.1459994, y: 10.313001, z: 40.92}
+      EulerAngles: {x: -0, y: 90, z: -0}
+      Scale: {x: 1, y: 1, z: 1}
+    DecorId: 9
+  - TFData:
+      Position: {x: 21.06, y: 10.313001, z: 43.92}
+      EulerAngles: {x: -0, y: 0, z: 0}
+      Scale: {x: 1.3, y: 1, z: 1}
+    DecorId: 9
+  - TFData:
+      Position: {x: 7.77, y: 10.313001, z: 43.92}
+      EulerAngles: {x: -0, y: 0, z: 0}
+      Scale: {x: 1.45, y: 1, z: 1}
+    DecorId: 9
+  - TFData:
+      Position: {x: 10.8, y: 10.313001, z: 32.92}
+      EulerAngles: {x: -0, y: 0, z: 0}
+      Scale: {x: 1.1, y: 1, z: 1}
+    DecorId: 9
+  - TFData:
+      Position: {x: 17.57, y: 10.313001, z: 32.92}
+      EulerAngles: {x: -0, y: 0, z: 0}
+      Scale: {x: 1.1, y: 1, z: 1}
+    DecorId: 9
+  - TFData:
+      Position: {x: -1.6813002, y: -0.010000229, z: 7.9384193}
+      EulerAngles: {x: -0, y: 90, z: -0}
+      Scale: {x: 1, y: 1, z: 1}
+    DecorId: 9
+  - TFData:
+      Position: {x: 30.054699, y: -0.010000229, z: 7.9384193}
+      EulerAngles: {x: -0, y: 90, z: -0}
+      Scale: {x: 1, y: 1, z: 1}
+    DecorId: 9
+  - TFData:
+      Position: {x: 27.548, y: -0.010000229, z: 10.797001}
+      EulerAngles: {x: -0, y: 0, z: 0}
+      Scale: {x: 0.8, y: 1, z: 1}
+    DecorId: 9
+  - TFData:
+      Position: {x: 0.99699974, y: -0.010000229, z: 10.797001}
+      EulerAngles: {x: -0, y: 0, z: 0}
+      Scale: {x: 0.8, y: 1, z: 1}
+    DecorId: 9
+  - TFData:
+      Position: {x: 16.94, y: -0.010000229, z: 10.797001}
       EulerAngles: {x: -0, y: 0, z: 0}
       Scale: {x: 1, y: 1, z: 1}
-    DecorId: 0
+    DecorId: 9
+  - TFData:
+      Position: {x: 10.92, y: -0.010000229, z: 10.797001}
+      EulerAngles: {x: -0, y: 0, z: 0}
+      Scale: {x: 1, y: 1, z: 1}
+    DecorId: 9
+  - TFData:
+      Position: {x: -0.77929974, y: 0, z: -6.060486}
+      EulerAngles: {x: -0, y: 0, z: 0}
+      Scale: {x: 1.5, y: 1.5, z: 1.5}
+    DecorId: 10
+  - TFData:
+      Position: {x: 29.0187, y: 0, z: -6.060486}
+      EulerAngles: {x: -0, y: 0, z: 0}
+      Scale: {x: 1.7, y: 1.7, z: 1.7}
+    DecorId: 10
+  - TFData:
+      Position: {x: 3.8516989, y: 10.349999, z: 32.63633}
+      EulerAngles: {x: -0, y: 0, z: 0}
+      Scale: {x: 1, y: 1.5, z: 1}
+    DecorId: 10
+  - TFData:
+      Position: {x: 24.5537, y: 10.349999, z: 32.63633}
+      EulerAngles: {x: -0, y: 0, z: 0}
+      Scale: {x: 1, y: 1.5, z: 1}
+    DecorId: 10
   - TFData:
       Position: {x: 7.51, y: 14.400001, z: 51.368416}
       EulerAngles: {x: -0, y: 90, z: -0}
       Scale: {x: 1, y: 1, z: 1}
-    DecorId: 0
+    DecorId: 6
   - TFData:
       Position: {x: 21.5187, y: 14.400001, z: 51.368416}
       EulerAngles: {x: 0, y: 270, z: 0}
       Scale: {x: 1, y: 1, z: 1}
-    DecorId: 0
+    DecorId: 6

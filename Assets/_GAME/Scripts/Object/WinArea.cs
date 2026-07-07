@@ -7,7 +7,21 @@ public class WinArea : MonoBehaviour
 
    [SerializeField] private List<ParticleSystem> particleSystems = new List<ParticleSystem>();
 
-   public Transform TF {get; private set;}
+   public Transform TF ;
+
+
+   public void OnInit()
+    {
+        foreach(ParticleSystem particle in particleSystems)
+        {
+            particle.Stop();
+        }
+    }
+
+    public void LoadData(TransformData data)
+    {
+        Helper.LoadTransformData(TF, data);
+    }
 
 
    public void OnTriggerEnter(Collider collider)

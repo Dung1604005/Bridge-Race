@@ -1,0 +1,111 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &3935330898845664472
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: cad7f8d72411d684faac2c1e5d37459a, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 16.253849
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: cad7f8d72411d684faac2c1e5d37459a, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 10.350001
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: cad7f8d72411d684faac2c1e5d37459a, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 43.590904
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: cad7f8d72411d684faac2c1e5d37459a, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: -0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: cad7f8d72411d684faac2c1e5d37459a, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: cad7f8d72411d684faac2c1e5d37459a, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: cad7f8d72411d684faac2c1e5d37459a, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: cad7f8d72411d684faac2c1e5d37459a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: cad7f8d72411d684faac2c1e5d37459a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 270
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: cad7f8d72411d684faac2c1e5d37459a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: cad7f8d72411d684faac2c1e5d37459a, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: cad7f8d72411d684faac2c1e5d37459a, type: 3}
+      propertyPath: m_Name
+      value: flag_B_red
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: cad7f8d72411d684faac2c1e5d37459a, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: cad7f8d72411d684faac2c1e5d37459a, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3865154770504421449}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: cad7f8d72411d684faac2c1e5d37459a, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1690859024991090025}
+  m_SourcePrefab: {fileID: 100100000, guid: cad7f8d72411d684faac2c1e5d37459a, type: 3}
+--- !u!1 &4205362921495968137 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: cad7f8d72411d684faac2c1e5d37459a, type: 3}
+  m_PrefabInstance: {fileID: 3935330898845664472}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &3865154770504421449
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4205362921495968137}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.AI.Navigation::Unity.AI.Navigation.NavMeshModifier
+  m_SerializedVersion: 0
+  m_OverrideArea: 1
+  m_Area: 1
+  m_OverrideGenerateLinks: 0
+  m_GenerateLinks: 0
+  m_IgnoreFromBuild: 0
+  m_ApplyToChildren: 1
+  m_AffectedAgents: ffffffff
+--- !u!114 &1690859024991090025
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4205362921495968137}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36532776fc2814b45a1deaa988d1a20a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DecorObject
+  decorId: 5

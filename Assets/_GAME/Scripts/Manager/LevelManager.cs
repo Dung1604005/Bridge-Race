@@ -33,7 +33,7 @@ public class LevelManager : Singleton<LevelManager>
 
     public List<ColorType> ListColors => listColors;
 
-    [ContextMenu("CREATE DECOR DATA")]
+    [ContextMenu("CREATE DECOR + WinArea DATA")]
     public void CreateDecorData()
     {
         List<DecorData> decorObjectDatas = new List<DecorData>();
@@ -41,14 +41,28 @@ public class LevelManager : Singleton<LevelManager>
         {
             DecorData decorData = new DecorData();
             decorData.TFData = Helper.CreateDataFromTransform(child);
+            int decorId = child.GetComponent<DecorObject>().DecorId;
+            
+            decorData.DecorId = decorId;
             decorObjectDatas.Add(decorData);
+
+            
             
         }
 
         levelDataSO.decorObjectDatas = decorObjectDatas;
+
+        TransformData winAreaTFData = Helper.CreateDataFromTransform(winArea.TF);
+        levelDataSO.WinAreaTF = winAreaTFData;
+
+
         EditorUtility.SetDirty(levelDataSO);
         AssetDatabase.SaveAssets();
     }
+
+
+
+
 
     public void LoadData(LevelDataSO levelDataSO)
     {
@@ -60,10 +74,17 @@ public class LevelManager : Singleton<LevelManager>
         stageManager.LoadStage(levelDataSO.stageDatas);
         InitDecorObject();
         InitGate();
+        InitWinArea();
         InitCharacter();
 
 
 
+    }
+
+    public void InitWinArea()
+    {
+        winArea.OnInit();
+        winArea.LoadData(levelDataSO.WinAreaTF);
     }
 
     public void InitGate()
