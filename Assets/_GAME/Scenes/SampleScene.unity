@@ -266,6 +266,18 @@ MonoBehaviour:
   - prefab: {fileID: 3781850388604178654, guid: 4ee9664fea5018446954477e2db4cb95, type: 3}
     parent: {fileID: 1945958}
     amount: 10
+  - prefab: {fileID: 4465999345331752019, guid: 941cac72a43f28d4f935008ccd9237fa, type: 3}
+    parent: {fileID: 1945958}
+    amount: 10
+  - prefab: {fileID: 4290632834541109875, guid: 4ecf23b828dc2284894706f1331466c2, type: 3}
+    parent: {fileID: 1945958}
+    amount: 10
+  - prefab: {fileID: 6146876005843604006, guid: edb22569436f00d45b73608b466bb249, type: 3}
+    parent: {fileID: 1945958}
+    amount: 10
+  - prefab: {fileID: 3586144344105855872, guid: f3834e7fbbbd9b041ababf93ffc0b9c7, type: 3}
+    parent: {fileID: 1945958}
+    amount: 100
 --- !u!4 &1945958
 Transform:
   m_ObjectHideFlags: 0
