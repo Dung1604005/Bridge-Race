@@ -119,8 +119,3 @@ public class Stair : GameUnit
         }
     }
 }
-[Serializable]
-public struct StairData
-{
-    public TransformData TFData;
-}

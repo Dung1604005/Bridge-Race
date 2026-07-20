@@ -46,7 +46,7 @@ public class GateCtrl : GameUnit
     {
         Helper.LoadTransformData(tf, gateData.TFData);
 
-        nextStage = StageManager.Instance.GetStage(gateData.NextStageNumber);
+        nextStage = LevelManager.Instance.StageManager.GetStage(gateData.NextStageNumber);
     }
 
     public void OnInit()
@@ -121,13 +121,3 @@ public class GateCtrl : GameUnit
     }
 }
 
-[Serializable]
-public struct GateData
-{
-    
-    public TransformData TFData;
-
-    public int NextStageNumber;
-
-
-}

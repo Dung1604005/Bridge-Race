@@ -5,7 +5,7 @@ using UnityEngine.AI;
 [CreateAssetMenu(fileName = "LevelDataSO", menuName = "Scriptable Objects/LevelDataSO")]
 public class LevelDataSO : ScriptableObject
 {
-    
+    public int LevelId;
     public List<StageDataSO> stageDatas;
 
     public TransformData WinAreaTF;

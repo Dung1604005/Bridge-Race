@@ -31,6 +31,8 @@ public class LevelManager : Singleton<LevelManager>
 
     public RankManager RankManager => rankManager;
 
+    public StageManager StageManager => stageManager;
+
     public List<ColorType> ListColors => listColors;
 
     [ContextMenu("CREATE DECOR + WinArea DATA")]
@@ -69,8 +71,18 @@ public class LevelManager : Singleton<LevelManager>
         this.levelDataSO = levelDataSO;
     }
 
+    public void StartGame()
+    {
+        for(int i = 0; i < listCharacter.Count; i++)
+        {
+            listCharacter[i].OnStart();
+        }
+    }
+
     public void InitLevel()
     {
+        rankManager.LoadRankedList(listCharacter);
+
         stageManager.OnInit();
         stageManager.LoadStage(levelDataSO.stageDatas);
         InitDecorObject();
@@ -142,7 +154,7 @@ public class LevelManager : Singleton<LevelManager>
     }
     void Awake()
     {
-        rankManager.LoadRankedList(listCharacter);
+        
         InitLevel();
     }
 
@@ -153,12 +165,4 @@ public class LevelManager : Singleton<LevelManager>
 
 }
 
-[Serializable]
-
-public struct DecorData
-{
-    public TransformData TFData;
-
-    public int DecorId;
-}
 

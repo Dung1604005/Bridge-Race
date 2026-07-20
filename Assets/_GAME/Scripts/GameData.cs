@@ -14,12 +14,82 @@ public class GameData : Singleton<GameData>
 
     public String CHARACTER_TAG = "Character";
 
-    public int LAYER_STAIR = 1<<6;
+    public int LAYER_STAIR = 6;
 
     public List<GameObject> listDecorObject = new List<GameObject>();
-   [SerializeField] private ColorDataSO colorDataSO;
+   [SerializeField] public ColorDataSO ColorDataSO ;
 
-   public ColorDataSO ColorDataSO => colorDataSO;
+   public List<LevelDataSO> LevelDatas = new List<LevelDataSO>();
+
+   public int TotalGold => totalGold;
+
+   public AllLevelData AllLevelSaveData => allLevelSaveData;
+   private int totalLevel;
+
+   private int totalGold;
+
+   [SerializeField] private AllLevelData allLevelSaveData;
+
+
+
+   public void SaveGold(int amountGold)
+    {
+        totalGold = amountGold;
+
+        PlayerPrefs.SetInt("gold", totalGold);
+
+        PlayerPrefs.Save();
+    }
+   public void SaveLevel(LevelData levelData)
+    {
+        bool levelExist = false;
+        for(int i = 0; i < allLevelSaveData.LevelDatas.Count; i++)
+        {
+            if(allLevelSaveData.LevelDatas[i].LevelId == levelData.LevelId)
+            {
+                levelExist = true;
+                allLevelSaveData.LevelDatas[i] = levelData;
+            }
+        }
+        if (!levelExist)
+        {
+            allLevelSaveData.LevelDatas.Add(levelData);
+        }
+        SaveAllLevel();
+    }
+    
+
+    public void SaveAllLevel()
+    {
+        string jsonSave = JsonUtility.ToJson(allLevelSaveData);
+
+        PlayerPrefs.SetString("levelSave", jsonSave);
+
+        PlayerPrefs.Save();
+
+        Debug.Log("SAvE SUCCESSFUL");
+    }
+
+    public void LoadData()
+    {
+        string jsonLevelData = PlayerPrefs.GetString("levelSave");
+
+        if (!string.IsNullOrEmpty(jsonLevelData))
+        {
+            allLevelSaveData = JsonUtility.FromJson<AllLevelData>(jsonLevelData);
+
+            Debug.Log("LoAd SUCCESSFUL");
+        }
+        else
+        {
+            allLevelSaveData = new AllLevelData();
+            allLevelSaveData.LevelDatas = new List<LevelData>();
+            SaveAllLevel();
+
+        }
+        totalGold = PlayerPrefs.GetInt("gold");
+
+    }
 
 
 }

@@ -10,8 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 51b7a8665e69d7e4597033813af332fa, type: 3}
-  m_Name: LevelDataSO
+  m_Name: Level1DataSO
   m_EditorClassIdentifier: Assembly-CSharp::LevelDataSO
+  LevelId: 0
   stageDatas:
   - {fileID: 11400000, guid: f554761f30eba994986dac01480aa777, type: 2}
   - {fileID: 11400000, guid: cf0030110451db845b412e4446ef8ef2, type: 2}
@@ -59,17 +60,17 @@ MonoBehaviour:
   decorObjectDatas:
   - TFData:
       Position: {x: 4.04, y: 0.03900051, z: 10.8}
-      EulerAngles: {x: -0, y: 180, z: -0}
+      EulerAngles: {x: 0, y: 180, z: 0}
       Scale: {x: 1, y: 1, z: 1}
     DecorId: 0
   - TFData:
       Position: {x: 20.719475, y: -0.03999996, z: 10.799999}
-      EulerAngles: {x: -0, y: 180, z: -0}
+      EulerAngles: {x: 0, y: 180, z: 0}
       Scale: {x: 1, y: 1, z: 1}
     DecorId: 0
   - TFData:
       Position: {x: 12.662472, y: 10.36, z: 43.90242}
-      EulerAngles: {x: -0, y: 180, z: -0}
+      EulerAngles: {x: 0, y: 180, z: 0}
       Scale: {x: 1, y: 1, z: 1}
     DecorId: 1
   - TFData:
@@ -94,22 +95,22 @@ MonoBehaviour:
     DecorId: 2
   - TFData:
       Position: {x: -0.15000153, y: -6.942, z: -21.98}
-      EulerAngles: {x: -0, y: 180, z: -0}
+      EulerAngles: {x: 0, y: 180, z: 0}
       Scale: {x: 1, y: 1, z: 1}
     DecorId: 3
   - TFData:
       Position: {x: 8.76, y: -6.942, z: -21.98}
-      EulerAngles: {x: -0, y: 180, z: -0}
+      EulerAngles: {x: 0, y: 180, z: 0}
       Scale: {x: 1, y: 1, z: 1}
     DecorId: 3
   - TFData:
       Position: {x: 16.81, y: -6.942, z: -21.98}
-      EulerAngles: {x: -0, y: 180, z: -0}
+      EulerAngles: {x: 0, y: 180, z: 0}
       Scale: {x: 1, y: 1, z: 1}
     DecorId: 3
   - TFData:
       Position: {x: 25.01, y: -6.942, z: -21.98}
-      EulerAngles: {x: -0, y: 180, z: -0}
+      EulerAngles: {x: 0, y: 180, z: 0}
       Scale: {x: 1, y: 1, z: 1}
     DecorId: 3
   - TFData:
@@ -129,17 +130,17 @@ MonoBehaviour:
     DecorId: 5
   - TFData:
       Position: {x: 6.2286997, y: 1.3999996, z: -14.18}
-      EulerAngles: {x: -0, y: 180, z: -0}
+      EulerAngles: {x: 0, y: 180, z: 0}
       Scale: {x: 1, y: 1, z: 1}
     DecorId: 6
   - TFData:
       Position: {x: 14.82, y: 1.3999996, z: -14.18}
-      EulerAngles: {x: -0, y: 180, z: -0}
+      EulerAngles: {x: 0, y: 180, z: 0}
       Scale: {x: 1, y: 1, z: 1}
     DecorId: 6
   - TFData:
       Position: {x: 22.7, y: 1.3999996, z: -14.18}
-      EulerAngles: {x: -0, y: 180, z: -0}
+      EulerAngles: {x: 0, y: 180, z: 0}
       Scale: {x: 1, y: 1, z: 1}
     DecorId: 6
   - TFData:

@@ -1,3 +1,5 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public static class Helper
@@ -50,4 +52,47 @@ public static class Helper
 
         return emptyObj.transform;
     }
+
+    public static IEnumerator IEDoScale(Transform tf, Vector3 scale, float duration)
+    {
+        float elapseTime = 0f;
+
+        while(elapseTime + 0.001f < duration)
+        {
+            elapseTime += Time.deltaTime;
+            tf.localScale = Vector3.Lerp(tf.localScale, scale, elapseTime/duration);
+            yield return null;
+        }
+    }
+
+
+    public static IEnumerator IEPopUp(RectTransform tf, Vector2 target ,float duration1, float duration2)
+    {
+        float timer = 0f;
+        Vector2 startPos = tf.anchoredPosition;
+        while(timer + 0.0001f < duration1 + duration2)
+        {
+            timer += Time.deltaTime;
+
+            tf.anchoredPosition = Vector2.LerpUnclamped(startPos,target, timer/duration1 );
+            yield return null;
+        }
+
+        timer = 0f;
+        startPos = tf.anchoredPosition;
+
+          while(timer + 0.0001f < duration2)
+        {
+            timer += Time.deltaTime;
+
+            tf.anchoredPosition = Vector2.Lerp(startPos,target, timer/duration2 );
+            yield return null;
+        }
+
+
+        
+        
+    }
+
+
 }

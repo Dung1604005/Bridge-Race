@@ -99,6 +99,10 @@ public class PlayerController : Character
 
     void FixedUpdate()
     {
+         if(GameManager.Instance.GameState != GameState.PLAYING)
+        {
+            return;
+        }
         if (IsInActive)
         {
             return;

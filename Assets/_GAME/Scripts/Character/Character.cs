@@ -98,6 +98,10 @@ public class Character : MonoBehaviour
         SetSpawn(currentStage.GetSpawnPosCharacter(this));
         OnInit();
     }
+    public virtual void OnStart()
+    {
+        
+    }
 
     public virtual void OnInit()
     {

@@ -83,7 +83,7 @@ public class Stage : GameUnit
         //Vi size goc la 2 don vi nen *2
         sizeStage = (new Vector3(scaleX, scaleY, scaleZ)) * 2;  
 
-        Debug.Log(spawnPos.Count + " " + stageDataSO.StageData.SpawnPos.Length);
+       
         for(int i = 0; i < stageDataSO.StageData.SpawnPos.Length; i++)
         {
             Helper.LoadTransformData(spawnPos[i], stageDataSO.StageData.SpawnPos[i]);
@@ -428,19 +428,3 @@ public class Stage : GameUnit
 }
 
 
-[Serializable]
-public struct StageData
-{
-    public int StageNumber;
-
-    public bool IsLastStage;
-
-    public float ScaleX;
-
-    public float ScaleY;
-
-    public float ScaleZ;
-
-    public TransformData[] SpawnPos;
-    public TransformData TFData;
-}

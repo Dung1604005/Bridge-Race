@@ -83,8 +83,8 @@ public class Bridge : GameUnit
 
         Helper.LoadTransformData(plane, bridgeData.TFPlane);
 
-        SetOwnerStage(StageManager.Instance.GetStage(bridgeData.OwnerStageNumber));
-        SetNextStage(StageManager.Instance.GetStage(bridgeData.NextStageNumber));
+        SetOwnerStage(LevelManager.Instance.StageManager.GetStage(bridgeData.OwnerStageNumber));
+        SetNextStage(LevelManager.Instance.StageManager.GetStage(bridgeData.NextStageNumber));
 
         for(int i = 0; i < bridgeData.stairDataArr.Length; i++)
         {
@@ -190,7 +190,6 @@ public class Bridge : GameUnit
 
 }
 
-
 public struct StairInfo
 {
     public int stairId;
@@ -198,30 +197,3 @@ public struct StairInfo
     public bool isLastStair;
     public Vector3 position;
 }
-[Serializable]
-public struct BridgeData
-{
-    public int OwnerStageNumber;
-
-    public int NextStageNumber;
-
-    public TransformData bridgeTFData;
-
-    public TransformData TFPlane;
-
-    public TransformData[] BanisterTFDataArr;
-
-    public StairData[] stairDataArr;
-}
-
-[Serializable]
-
-public struct TransformData
-{
-    public Vector3 Position;
-
-    public Vector3 EulerAngles;
-
-    public Vector3 Scale;
-}
-

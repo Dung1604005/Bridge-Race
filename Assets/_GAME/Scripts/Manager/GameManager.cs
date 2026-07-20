@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class GameManager :Singleton<GameManager>
@@ -10,6 +11,11 @@ public class GameManager :Singleton<GameManager>
     public void ChangeGameState(GameState newGameState)
     {
         gameState = newGameState;
+
+        if(gameState == GameState.PLAYING)
+        {
+            LevelManager.Instance.StartGame();
+        }
     }
 
     public void StartGame()

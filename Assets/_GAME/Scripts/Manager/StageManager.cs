@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using Unity.AI.Navigation;
 using UnityEngine;
 
-public class StageManager : Singleton<StageManager>
+public class StageManager : MonoBehaviour
 {
     [SerializeField] private List<Stage> stages = new List<Stage>();
 

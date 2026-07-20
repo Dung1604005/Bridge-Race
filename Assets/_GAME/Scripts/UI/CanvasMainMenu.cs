@@ -8,8 +8,6 @@ public class CanvasMainMenu : UICanvas
 
    [SerializeField] private TMP_InputField nameInputField;
 
-   [SerializeField] private LevelSelectUI levelSelectUI;
-
    public void SettingButton()
     {
         UIManager.Instance.CloseAll();
@@ -30,7 +28,7 @@ public class CanvasMainMenu : UICanvas
 
     public void SelectLevelButton()
     {
-        UIManager.Instance.OpenUI<LevelSelectUI>();
+        UIManager.Instance.OpenUI<CanvasLevelSelect>();
     }
 
     public void SetGoldText(int goldAmount)

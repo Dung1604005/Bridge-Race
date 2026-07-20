@@ -9,25 +9,22 @@ public class Enemy : Character
 
     public NavMeshAgent Agent => agent;
 
+    public override void OnStart()
+    {
+        base.OnStart();
+        agent.enabled = true;
+        ChangeState(new PatrolState());
+    }
     public override void OnWin()
     {
         agent.enabled = false;
         ChangeState(new IdleState());
         base.OnWin();
-
-
     }
-
-
-
 
     public override void OnInit()
     {
-        ChangeState(new PatrolState());
-        agent.enabled = true;
         base.OnInit();
-        
-        
     }
 
     public override void OnDespawn()
