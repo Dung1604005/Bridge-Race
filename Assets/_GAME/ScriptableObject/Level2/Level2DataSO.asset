@@ -14,9 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::LevelDataSO
   LevelId: 1
   stageDatas:
-  - {fileID: 11400000, guid: f554761f30eba994986dac01480aa777, type: 2}
-  - {fileID: 11400000, guid: cf0030110451db845b412e4446ef8ef2, type: 2}
-  - {fileID: 11400000, guid: fa74571ba2a36ed4c9e27e41153d5319, type: 2}
+  - {fileID: 11400000, guid: 538b02038396f9d4a950d2ee058d3d78, type: 2}
+  - {fileID: 11400000, guid: 6a3ae26b805ffb442929fd8d41290888, type: 2}
+  - {fileID: 11400000, guid: 6ad08438c65c10349861184cdbf962e1, type: 2}
   WinAreaTF:
     Position: {x: 4.1, y: 30.57, z: 99.53}
     EulerAngles: {x: -0, y: 0, z: 0}

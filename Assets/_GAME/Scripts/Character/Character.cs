@@ -42,7 +42,7 @@ public class Character : MonoBehaviour
 
     [SerializeField] private Vector3 startCharacterBrickPos;
 
-    [SerializeField]protected Transform tf;
+    [SerializeField] protected Transform tf;
 
     [SerializeField] private bool isInActive;
 
@@ -71,14 +71,14 @@ public class Character : MonoBehaviour
     public int CharacterId => characterId;
 
     public String CharacterName => characterName;
-     public virtual void OnEnable()
+    public virtual void OnEnable()
     {
-        
+
     }
 
     public virtual void OnDisable()
     {
-    
+
     }
     public virtual void OnWin()
     {
@@ -100,7 +100,7 @@ public class Character : MonoBehaviour
     }
     public virtual void OnStart()
     {
-        
+        rb.useGravity = true;
     }
 
     public virtual void OnInit()
@@ -114,10 +114,11 @@ public class Character : MonoBehaviour
     public virtual void OnDespawn()
     {
         blockMoveForward = false;
+        rb.useGravity = false;
         SetInActive();
     }
 
-    public virtual void ChangeStage(Stage newStage)
+    public virtual void ChangeStage(Stage newStage, bool raiseEvent = true)
     {
         if (newStage == null)
         {
@@ -128,19 +129,23 @@ public class Character : MonoBehaviour
         {
             return;
         }
-        if(currentStage != null)
+        if (currentStage != null)
         {
-            
-           currentStage.RemoveCharacter(this);
+
+            currentStage.RemoveCharacter(this);
         }
         newStage.AddCharacter(this);
         currentStage = newStage;
-
-        EventBus<OnCharacterUpStage>.Raise(new OnCharacterUpStage
+        if (raiseEvent)
         {
-            Character = this,
-            Stage = currentStage.StageNumber
-        });
+            EventBus<OnCharacterUpStage>.Raise(new OnCharacterUpStage
+            {
+                Character = this,
+                Stage = currentStage.StageNumber
+            });
+        }
+
+
     }
 
     public void SetColor(ColorType colorType)
@@ -197,7 +202,7 @@ public class Character : MonoBehaviour
 
     public virtual bool CharacterIsFalling()
     {
-        
+
         if (rb.linearVelocity.y < -5f && !Physics.Raycast(tf.position, -tf.up, 10f, layerGround))
         {
             isOnGround = false;
@@ -274,13 +279,13 @@ public class Character : MonoBehaviour
 
     public void RemoveBrickIndex()
     {
-        
+
         visualBrickId = Math.Max(0, visualBrickId - 1);
     }
     public Vector3 GetBrickPosition(int index)
     {
 
-        return startCharacterBrickPos + new Vector3(0f, index * (GameData.Instance.BRICK_SIZE.y/2 +0.05f), 0f) + tf.position;
+        return startCharacterBrickPos + new Vector3(0f, index * (GameData.Instance.BRICK_SIZE.y / 2 + 0.05f), 0f) + tf.position;
     }
     public int GetAmountBrick()
     {
@@ -289,11 +294,11 @@ public class Character : MonoBehaviour
 
     public void AddBrick()
     {
-        Vector3 localPos = startCharacterBrickPos + new Vector3(0f, characterBricks.Count * (GameData.Instance.BRICK_SIZE.y/2 +0.05f), 0f);
+        Vector3 localPos = startCharacterBrickPos + new Vector3(0f, characterBricks.Count * (GameData.Instance.BRICK_SIZE.y / 2 + 0.05f), 0f);
         Brick brick = SimplePool.Spawn<Brick>(PoolType.BrickPool, Vector3.zero, Quaternion.identity);
 
         brick.OnInit();
-        
+
         brick.SetLocal(localPos, Quaternion.identity, tf);
         brick.SetColor(colorType);
         brick.SetActiveTrail(false);
@@ -388,14 +393,14 @@ public class Character : MonoBehaviour
             {
                 character.Knockback(knockbackDirBA);
                 SetInActive(0.1f);
-                
-                
+
+
             }
             else if (character.GetAmountBrick() > GetAmountBrick())
             {
                 Knockback(knockbackDirAB);
                 character.SetInActive(0.1f);
-                
+
             }
             else
             {
@@ -417,7 +422,7 @@ public class Character : MonoBehaviour
 
     protected virtual void Update()
     {
-         if(GameManager.Instance.GameState != GameState.PLAYING)
+        if (GameManager.Instance.GameState != GameState.PLAYING)
         {
             return;
         }

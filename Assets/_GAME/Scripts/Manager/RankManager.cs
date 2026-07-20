@@ -27,10 +27,14 @@ public class RankManager : MonoBehaviour
     public void SortRankCharacter(OnCharacterUpStage onCharacterUpStage)
     {
         List<Character> newRank = new List<Character>();
-
+        
         bool newRankAdded = false;
         for (int i = 0; i < rankedCharacters.Count; i++)
         {
+            if(rankedCharacters[i].CurrentStage == null)
+            {
+                Debug.Log("BUG HERE");
+            }
             if (onCharacterUpStage.Stage <= rankedCharacters[i].CurrentStage.StageNumber &&
             onCharacterUpStage.Character.CharacterId != rankedCharacters[i].CharacterId)
             {

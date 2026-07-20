@@ -23,6 +23,8 @@ public class LevelUI : UIElement
 
     [SerializeField] private bool isUnlocked;
 
+    [SerializeField] private int levelIndex;
+
 
     public override void SetUp()
     {
@@ -42,7 +44,7 @@ public class LevelUI : UIElement
     public void SetUp(LevelData prevLevel, LevelData levelData)
     {
         levelText.text = (levelData.LevelId + 1).ToString();
-
+        levelIndex = levelData.LevelId;
         if(levelData.LevelId != 0 && prevLevel.TotalStar == 0)
         {
             return;
@@ -66,7 +68,7 @@ public class LevelUI : UIElement
     {
         isSelected = true;
         selectEffect.SetActive(true);
-        EventBus<OnLevelSelect>.Raise(new OnLevelSelect{});
+        EventBus<OnLevelSelect>.Raise(new OnLevelSelect{LevelId = levelIndex});
         StartCoroutine(IEPlayEffectClick(durationEffect));
     }
 

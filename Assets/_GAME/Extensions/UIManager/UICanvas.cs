@@ -43,6 +43,11 @@ public class UICanvas:MonoBehaviour, IUIOpenable
         gameObject.SetActive(true);
     }
 
+    public virtual void Open(UICanvas uICanvas)
+    {
+        gameObject.SetActive(true);
+    }
+
 
     /// <summary>
     /// Close canvas after time(s)

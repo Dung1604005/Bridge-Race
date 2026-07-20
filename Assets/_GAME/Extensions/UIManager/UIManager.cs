@@ -30,10 +30,14 @@ public class UIManager : Singleton<UIManager>
         return canvas;
     }
 
-    public void OpenUI<T>(T ui) where T: IUIOpenable
+    public T OpenUI<T>(UICanvas ui) where T: UICanvas
     {
-        ui.SetUp();
-        ui.Open();
+         T canvas = GetUI<T>();
+
+        canvas.SetUp();
+        canvas.Open(ui);
+
+        return canvas;
     }
 
     public void CloseUI<T>(float time) where T: UICanvas
@@ -43,10 +47,7 @@ public class UIManager : Singleton<UIManager>
             canvasActives[typeof(T)].Close(time);
         }
     }
-    public void ClostUI<T>(T ui, float time) where T: IUIOpenable
-    {
-        ui.Close(time);
-    }
+    
 
     public void CloseUIDirectly<T>() where T: UICanvas
     {

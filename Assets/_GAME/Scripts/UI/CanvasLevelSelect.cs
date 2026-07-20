@@ -14,7 +14,7 @@ public class CanvasLevelSelect : UICanvas
 
     [SerializeField] private List<LevelUI> listLevelUI = new List<LevelUI>();
 
-    [SerializeField] private int selectedLevelId;
+    [SerializeField] private int selectedLevelId = -1;
 
     public void OnDespawn()
     {
@@ -62,15 +62,21 @@ public class CanvasLevelSelect : UICanvas
         base.Close(time);
     }
 
-    public override void CloseDirectly()
-    {
-        EventBus<OnLevelSelect>.UnSubcribe(OnChangeLevelSelect);
-        OnDespawn();
-        base.CloseDirectly();
-    }
     public void OnChangeLevelSelect(OnLevelSelect onLevelSelect)
     {
         selectedLevelId = onLevelSelect.LevelId;
+    }
+
+    public void PlayGame()
+    {
+        if(selectedLevelId == -1)
+        {
+            return;
+        }
+        LevelManager.Instance.LoadData(GameData.Instance.LevelDatas[selectedLevelId]);
+        LevelManager.Instance.InitLevel();
+
+        UIManager.Instance.OpenUI<CanvasLoading>(this);
     }
 
     

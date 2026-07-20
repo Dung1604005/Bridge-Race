@@ -18,9 +18,9 @@ public class GameManager :Singleton<GameManager>
         }
     }
 
-    public void StartGame()
+    void Start()
     {
-        ChangeGameState(GameState.PLAYING);
+        UIManager.Instance.OpenUI<CanvasMainMenu>();
     }
 }
 

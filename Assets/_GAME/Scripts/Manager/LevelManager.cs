@@ -82,7 +82,6 @@ public class LevelManager : Singleton<LevelManager>
     public void InitLevel()
     {
         rankManager.LoadRankedList(listCharacter);
-
         stageManager.OnInit();
         stageManager.LoadStage(levelDataSO.stageDatas);
         InitDecorObject();
@@ -90,6 +89,8 @@ public class LevelManager : Singleton<LevelManager>
         InitWinArea();
         stageManager.BakeNavMeshSurface(levelDataSO);
         InitCharacter();
+
+       
     }
 
     public void InitWinArea()
@@ -115,7 +116,7 @@ public class LevelManager : Singleton<LevelManager>
     {
         foreach (Character character in listCharacter)
         {
-            character.ChangeStage(stageManager.GetStage(1));
+            character.ChangeStage(stageManager.GetStage(1), false);
             character.ReSpawn();
         }
 
@@ -155,12 +156,12 @@ public class LevelManager : Singleton<LevelManager>
     void Awake()
     {
         
-        InitLevel();
+        //InitLevel();
     }
 
     void Start()
     {
-        UIManager.Instance.GetUI<CanvasGamePlay>().SetRankUI(rankManager.GetRankedList());
+        
     }
 
 }
