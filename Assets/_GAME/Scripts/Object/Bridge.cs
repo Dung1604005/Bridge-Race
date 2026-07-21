@@ -116,6 +116,11 @@ public class Bridge : GameUnit
 
     public void OnDespawn()
     {
+        for(int i = 0; i < stairs.Count; i++)
+        {
+            stairs[i].OnDeSpawn();
+            SimplePool.Despawn(stairs[i]);
+        }
         stairs.Clear();
         ownerStage = null;
         nextStage = null;

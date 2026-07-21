@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 8389150842981277423}
   - component: {fileID: 8925558606741962157}
   - component: {fileID: 8517199948027327029}
+  - component: {fileID: 8330236278286004043}
   m_Layer: 0
   m_Name: Hammer
   m_TagString: Untagged
@@ -86,6 +87,22 @@ CapsuleCollider:
   m_Height: 2.2849815
   m_Direction: 1
   m_Center: {x: -0.005908966, y: -3.9737267, z: 0}
+--- !u!208 &8330236278286004043
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2172106479482929838}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 0
+  m_Extents: {x: 1.26, y: 1.195, z: 1.26}
+  m_MoveThreshold: 0.1
+  m_Carve: 0
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: -3.98, z: 0}
+  m_TimeToStationary: 0.5
 --- !u!1001 &498915333344458509
 PrefabInstance:
   m_ObjectHideFlags: 0

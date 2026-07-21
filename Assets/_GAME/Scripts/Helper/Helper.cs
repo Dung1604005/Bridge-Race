@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public static class Helper
@@ -63,6 +64,30 @@ public static class Helper
             tf.localScale = Vector3.Lerp(tf.localScale, scale, elapseTime/duration);
             yield return null;
         }
+    }
+
+    public static IEnumerator IEDoScaleOutBack(Transform tf, Vector3 scale, float duration1, float duration2)
+    {
+        float elapseTime = 0f;
+
+        Vector3 startScale = tf.localScale;
+
+        while(elapseTime + 0.001f < duration1 + duration2)
+        {
+            elapseTime += Time.deltaTime;
+            tf.localScale = Vector3.LerpUnclamped(startScale, scale, elapseTime/duration1);
+            yield return null;
+        }
+
+        elapseTime = 0f;
+        startScale = tf.localScale;
+        while(elapseTime + 0.01f < duration2)
+        {
+            elapseTime += Time.deltaTime;
+            tf.localScale = Vector3.Lerp(startScale, scale, elapseTime/duration2);
+            yield return null;
+        }
+
     }
 
 

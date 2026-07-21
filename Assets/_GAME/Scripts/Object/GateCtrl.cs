@@ -55,6 +55,17 @@ public class GateCtrl : GameUnit
         nextStage = null;
     }
 
+    public void OnDespawn()
+    {
+        opened  = false;
+        nextStage = null;
+        for(int i = 0; i < gateObjRenderers.Count; i++)
+        {
+            gateObjRenderers[i].material = GameData.Instance.ColorDataSO.GetColorMaterial(ColorType.NONE);
+        }
+        transformDoor.localScale = Vector3.one;
+    }
+
     public void OnTriggerEnter(Collider collider)
     {
 

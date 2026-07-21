@@ -337,6 +337,7 @@ GameObject:
   - component: {fileID: 133544976733639824}
   - component: {fileID: 4465999345331752019}
   - component: {fileID: 8303480991880278676}
+  - component: {fileID: 4212071665259372229}
   m_Layer: 8
   m_Name: Gate
   m_TagString: Untagged
@@ -406,6 +407,26 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 2.8500562, y: 2.536479, z: 0.23295403}
   m_Center: {x: -0.031091452, y: 0.7682395, z: 0.024912834}
+--- !u!114 &4212071665259372229
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7590528691365465909}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.AI.Navigation::Unity.AI.Navigation.NavMeshModifier
+  m_SerializedVersion: 0
+  m_OverrideArea: 1
+  m_Area: 0
+  m_OverrideGenerateLinks: 0
+  m_GenerateLinks: 0
+  m_IgnoreFromBuild: 0
+  m_ApplyToChildren: 1
+  m_AffectedAgents: ffffffff
 --- !u!1 &7924390907357377388
 GameObject:
   m_ObjectHideFlags: 0

@@ -18,6 +18,14 @@ public class WinArea : MonoBehaviour
         }
     }
 
+    public void OnDespawn()
+    {
+        foreach(ParticleSystem particle in particleSystems)
+        {
+            particle.Stop();
+        }
+    }
+
     public void LoadData(TransformData data)
     {
         Helper.LoadTransformData(TF, data);

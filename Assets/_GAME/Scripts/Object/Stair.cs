@@ -23,7 +23,16 @@ public class Stair : GameUnit
     }
     public void OnInit()
     {
+        stairId = -1;
         colorType = ColorType.NONE;
+    }
+
+    public void OnDeSpawn()
+    {
+        stairId = -1;
+        bridge = null;
+        colorType = ColorType.NONE;
+        renderer.material = GameData.Instance.ColorDataSO.GetColorMaterial(ColorType.NONE);
     }
 
     public void SetBridge(Bridge _bridge)

@@ -15,4 +15,8 @@ public class LevelDataSO : ScriptableObject
     public List<DecorData> decorObjectDatas = new List<DecorData>();
 
     public NavMeshData navMeshData;
+
+    public float SpeedBot;
+
+    public float SpeedPlayer;
 }

@@ -48,9 +48,13 @@ public class Character : MonoBehaviour
 
     [SerializeField] private bool isOnGround;
 
+    [SerializeField] private bool isOnStair;
+
     private int layerGround;
 
     private int layerStair;
+
+    private LayerMask layerStairGround;
 
     private int layerGate;
 
@@ -59,6 +63,8 @@ public class Character : MonoBehaviour
     protected bool blockMoveForward;
 
     protected bool blockMoveDown;
+
+    public bool IsOnStair => isOnStair;
 
     public bool IsInActive => isInActive;
 
@@ -107,15 +113,42 @@ public class Character : MonoBehaviour
     {
         SetColor(colorType);
         blockMoveForward = false;
+        blockMoveDown = false;
         isInActive = false;
+        rb.useGravity = true;
         ClearBrick();
         visualBrickId = 0;
+        isOnGround = true;
+        isOnStair = false;
     }
     public virtual void OnDespawn()
     {
+        
+        SetColor(ColorType.NONE);
         blockMoveForward = false;
+        blockMoveDown = false;
         rb.useGravity = false;
         SetInActive();
+        ClearBrick();
+        visualBrickId = 0;
+        isOnGround = true;
+        currentStage = null;
+        isOnStair = false;
+    }
+
+    public virtual void OnPause()
+    {
+        rb.useGravity = false;
+        blockMoveForward = true;
+        blockMoveDown = true;
+
+    }
+
+    public virtual void OnContinue()
+    {
+        rb.useGravity = true;
+        blockMoveForward = false;
+        blockMoveDown = false;
     }
 
     public virtual void ChangeStage(Stage newStage, bool raiseEvent = true)
@@ -158,6 +191,11 @@ public class Character : MonoBehaviour
         {
             Debug.LogError("DONT HAVE COLOR MATERIAL");
         }
+    }
+
+    public virtual void SetSpeed(float speed)
+    {
+        this.speed = speed;
     }
 
     public void ChangeAnim(String newAnim)
@@ -212,9 +250,14 @@ public class Character : MonoBehaviour
         return false;
     }
 
+    public virtual bool CheckCharacterOnStair()
+    {
+       
+        return Physics.Raycast(tf.position, -tf.up, 10f, layerStairGround);
+    }
+
     public void CheckForward()
     {
-
 
         //Check Gate
         if (Physics.Raycast(tf.position, tf.forward, out RaycastHit hitGate, rangeDetect, layerGate))
@@ -371,6 +414,8 @@ public class Character : MonoBehaviour
 
     public void OnCollisionEnter(Collision collision)
     {
+        if(isOnStair)return;
+
         if (IsInActive)
         {
             return;
@@ -383,6 +428,10 @@ public class Character : MonoBehaviour
             Character character = ColliderCache<Character>.GetComponent(collider);
 
             if (character.IsInActive) return;
+            if(character.IsOnStair)return;
+
+            Debug.Log(isOnStair + " " + character.IsOnStair);
+
             Vector3 knockbackDirBA = character.tf.position - tf.position;
             Vector3 knockbackDirAB = tf.position - character.tf.position;
             knockbackDirAB.y = 0.8f;
@@ -416,6 +465,7 @@ public class Character : MonoBehaviour
         layerGround = LayerMask.GetMask("Ground", "Stair");
         layerStair = LayerMask.GetMask("Stair");
         layerGate = LayerMask.GetMask("Gate");
+        layerStairGround = LayerMask.GetMask("StairGround");
         anim.applyRootMotion = false;
         tf = this.transform;
     }
@@ -432,9 +482,12 @@ public class Character : MonoBehaviour
             brick.Shake();
         }
 
+        
+
         if (IsInActive)
         {
             return;
         }
+        isOnStair = CheckCharacterOnStair();
     }
 }

@@ -10,12 +10,34 @@ public class GameManager :Singleton<GameManager>
 
     public void ChangeGameState(GameState newGameState)
     {
+        GameState prevState = gameState;
         gameState = newGameState;
 
-        if(gameState == GameState.PLAYING)
+        if(gameState == GameState.PLAYING && prevState == GameState.COUNTDOWN)
         {
-            LevelManager.Instance.StartGame();
+            OnStart();
         }
+        else if(gameState == GameState.PLAYING && prevState == GameState.PAUSED)
+        {
+            OnContinue();
+        }
+        else if(gameState == GameState.PAUSED)
+        {
+            OnPaused();
+        }
+    }
+
+    public void OnStart()
+    {
+        LevelManager.Instance.StartGame();   
+    }
+    public void OnContinue()
+    {
+        LevelManager.Instance.OnContinue();
+    }
+    public void OnPaused()
+    {
+        LevelManager.Instance.OnPause();
     }
 
     void Start()
@@ -38,6 +60,7 @@ public enum GameState
 
     DEFEATED = 4,
 
-    LOADING = 5
+    
+    COUNTDOWN = 6
     
 }

@@ -33,6 +33,24 @@ public class Enemy : Character
         agent.enabled = false;
     }
 
+    public override void OnPause()
+    {
+        base.OnPause();
+       agent.enabled = false;
+
+    }
+    public override void OnContinue()
+    {
+        base.OnContinue();
+       agent.enabled = true;
+    }
+
+    public override void SetSpeed(float speed)
+    {
+        base.SetSpeed(speed);
+        agent.speed = speed;
+    }
+
     public void ChangeState(IState newState)
     {
         currentState = newState;
@@ -102,7 +120,7 @@ public class Enemy : Character
                 CharacterId = CharacterId
             });
             ChangeState(new IdleState());
-            OnDespawn();
+            //OnDespawn();
             Invoke(nameof(ReSpawn), 0.5f);
 
             

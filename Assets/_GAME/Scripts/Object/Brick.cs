@@ -186,6 +186,10 @@ public class Brick : GameUnit
 
     public void Move(Character character, Vector3 targetPosition)
     {
+        if(GameManager.Instance.GameState != GameState.PLAYING)
+        {
+            return;
+        }
         if (character.IsInActive)
         {
             EndFlying();

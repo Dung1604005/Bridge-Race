@@ -27,6 +27,15 @@ public class PlayerController : Character
         inputActions.Player.Movement.performed -= GetInputMove;
         inputActions.Player.Movement.canceled -= EndInputMove;
     }
+    public override bool CharacterIsGoingDown()
+    {
+
+        if (moveZ < -0.01f)
+        {
+            return true;
+        }
+        return false;
+    }
 
     public void GetInputMove(InputAction.CallbackContext context)
     {
@@ -122,7 +131,7 @@ public class PlayerController : Character
                 {
                     CharacterId = CharacterId
                 });
-                OnDespawn();
+                //OnDespawn();
                 Invoke(nameof(ReSpawn), 0.5f);
                 return;
             }

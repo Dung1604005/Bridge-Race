@@ -18,6 +18,7 @@ public class CanvasLoading : UICanvas
     {
         parentCanvas = uICanvas;
         base.Open(uICanvas);
+        
         StartCoroutine(IELoading());
     }
 
@@ -35,12 +36,15 @@ public class CanvasLoading : UICanvas
             yield return null;
         }
 
-        if(parentCanvas is CanvasLevelSelect)
+        if(parentCanvas is CanvasLevelSelect || parentCanvas is CanvasSettings)
         {
-            UIManager.Instance.CloseAll();
-            UIManager.Instance.OpenUI<CanvasGamePlay>();
             
-            GameManager.Instance.ChangeGameState(GameState.PLAYING);
+            UIManager.Instance.CloseUIDirectly<CanvasLoading>();
+            CanvasGamePlay canvasGamePlay = UIManager.Instance.OpenUI<CanvasGamePlay>();
+
+            
+            canvasGamePlay.StartCountDown();
+            
             UIManager.Instance.GetUI<CanvasGamePlay>().SetRankUI(LevelManager.Instance.RankManager.GetRankedList());
         }
     }

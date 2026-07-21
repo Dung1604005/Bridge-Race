@@ -18,7 +18,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: cf0030110451db845b412e4446ef8ef2, type: 2}
   - {fileID: 11400000, guid: fa74571ba2a36ed4c9e27e41153d5319, type: 2}
   WinAreaTF:
-    Position: {x: 4.1, y: 30.57, z: 99.53}
+    Position: {x: 5.02, y: 30.57, z: 99.53}
     EulerAngles: {x: -0, y: 0, z: 0}
     Scale: {x: 1, y: 1, z: 1}
   gateDatas:
@@ -373,4 +373,6 @@ MonoBehaviour:
       EulerAngles: {x: 0, y: 270, z: 0}
       Scale: {x: 1, y: 1, z: 1}
     DecorId: 6
-  navMeshData: {fileID: 23800000, guid: 6c1c64ae322feef45b826295e9382614, type: 2}
+  navMeshData: {fileID: 23800000, guid: 0486df93cf01bae42b768d1be4c1246d, type: 2}
+  SpeedBot: 3
+  SpeedPlayer: 5

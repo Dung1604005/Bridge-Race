@@ -16,6 +16,15 @@ public class StageManager : MonoBehaviour
     {
         stages.Clear();
     }
+    public void OnDespawn()
+    {
+        for(int i = 0; i < stages.Count; i++)
+        {
+            stages[i].OnDespawn();
+            SimplePool.Despawn(stages[i]);
+        }
+        stages.Clear();
+    }
     public void LoadStage(List<StageDataSO> datas)
     {
         

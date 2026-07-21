@@ -12,7 +12,11 @@ public class LevelManager : Singleton<LevelManager>
 
     [SerializeField] private Transform gateRoot;
 
+    [SerializeField] private List<GateCtrl> listGateCtrl = new List<GateCtrl>(); 
+
     [SerializeField] private Transform decorRoot;
+
+    [SerializeField] private List<GameObject> decorList = new List<GameObject>();
     [SerializeField] private List<ColorType> listColors = new List<ColorType>() { ColorType.RED, ColorType.BLUE, ColorType.VIOLET, ColorType.GREEN };
 
     [SerializeField] private List<Character> listCharacter = new List<Character>();
@@ -88,19 +92,32 @@ public class LevelManager : Singleton<LevelManager>
         InitGate();
         InitWinArea();
         stageManager.BakeNavMeshSurface(levelDataSO);
-        InitCharacter();
-
-       
+        InitCharacter();      
+    }
+    public void DeSpawnLevel()
+    {
+        DeSpawnCharacter();
+        DeSpawnWinArea();
+        DeSpawnGate();
+        DespawnDecorObject();
+        stageManager.OnDespawn();
     }
 
     public void InitWinArea()
     {
         winArea.OnInit();
         winArea.LoadData(levelDataSO.WinAreaTF);
+
+    }
+
+    public void DeSpawnWinArea()
+    {
+        winArea.OnDespawn();
     }
 
     public void InitGate()
     {
+        listGateCtrl.Clear();
         for (int i = 0; i < levelDataSO.gateDatas.Count; i++)
         {
             GateCtrl gate = SimplePool.Spawn<GateCtrl>(PoolType.GatePool, Vector3.zero, Quaternion.identity);
@@ -108,8 +125,20 @@ public class LevelManager : Singleton<LevelManager>
             gate.TF.SetParent(gateRoot, true);
             gate.OnInit();
             gate.LoadData(levelDataSO.gateDatas[i]);
+
+            listGateCtrl.Add(gate);
         }
 
+    }
+
+    public void DeSpawnGate()
+    {
+        for(int i = 0; i < listGateCtrl.Count; i++)
+        {
+            listGateCtrl[i].OnDespawn();
+            SimplePool.Despawn(listGateCtrl[i]);
+        }
+        
     }
 
     public void InitCharacter()
@@ -118,9 +147,23 @@ public class LevelManager : Singleton<LevelManager>
         {
             character.ChangeStage(stageManager.GetStage(1), false);
             character.ReSpawn();
+            if(character is PlayerController)
+            {
+                character.SetSpeed(levelDataSO.SpeedPlayer);
+            }
+            else
+            {
+                character.SetSpeed(levelDataSO.SpeedBot);
+            }
         }
+    }
 
-
+    public void DeSpawnCharacter()
+    {
+         foreach (Character character in listCharacter)
+        {
+            character.OnDespawn();
+        }
     }
 
     public void InitDecorObject(){
@@ -132,6 +175,34 @@ public class LevelManager : Singleton<LevelManager>
 
             decor.transform.SetParent(decorRoot, true);
             Helper.LoadTransformData(decor.transform, decorData.TFData);
+
+            decorList.Add(decor);
+
+
+        }
+    }
+
+    public void DespawnDecorObject()
+    {
+        for(int i = 0; i < decorList.Count; i++)
+        {
+            Destroy(decorList[i]);
+        }
+    }
+
+    public void OnPause()
+    {
+        foreach(Character character in listCharacter)
+        {
+            character.OnPause();
+        }
+    }
+
+    public void OnContinue()
+    {
+        foreach(Character character in listCharacter)
+        {
+            character.OnContinue();
         }
     }
 

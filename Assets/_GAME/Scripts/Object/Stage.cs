@@ -114,8 +114,12 @@ public class Stage : GameUnit
 
     public void OnDespawn()
     {
-        spawnPos.Clear();
         characters.Clear();
+        for(int i = 0; i < bridges.Count; i++)
+        {
+            bridges[i].OnDespawn();
+            SimplePool.Despawn(bridges[i]);
+        }
         bridges.Clear();
         ClearAllBrick();
     }
