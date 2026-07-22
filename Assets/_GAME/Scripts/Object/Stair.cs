@@ -106,7 +106,7 @@ public class Stair : GameUnit
 
     public void TakeStair(Character character)
     {
-        if (character.CharacterIsGoingDown() || character.IsInActive)
+        if (character.CharacterIsGoingDown() || character.CharacterState.IsInactive)
         {
             return;
         }
@@ -115,9 +115,9 @@ public class Stair : GameUnit
             return;
         }
 
-        if (character.GetAmountBrick() > 0)
+        if (character.BrickCharacterManager.GetAmountVisualBrick() > 0)
         {
-            character.RemoveBrick();
+            character.BrickCharacterManager.RemoveBrick();
             SetColor(character.ColorType);
 
             EventBus<OnStairChange>.Raise(new OnStairChange

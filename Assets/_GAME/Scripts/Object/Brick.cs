@@ -146,7 +146,7 @@ public class Brick : GameUnit
             EndFlying();
             if (targetCharacter != null)
             {
-                targetCharacter.RemoveBrickIndex();
+                targetCharacter.BrickCharacterManager.RemoveBrickIndex();
             }
             OnInit();
         }
@@ -190,7 +190,7 @@ public class Brick : GameUnit
         {
             return;
         }
-        if (character.IsInActive)
+        if (character.CharacterState.IsInactive)
         {
             EndFlying();
             OnInit();
@@ -219,7 +219,7 @@ public class Brick : GameUnit
             {
                 SetActive(false);
                 EndFlying();
-                character.AddBrick();
+                character.BrickCharacterManager.AddBrick();
                 
 
             }

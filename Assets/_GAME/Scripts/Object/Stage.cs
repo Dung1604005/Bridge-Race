@@ -397,7 +397,7 @@ public class Stage : GameUnit
         for (int i = 0; i < characters.Count; i++)
         {
             Character character = characters[i];
-            if(character.IsInActive)continue;
+            if(character.CharacterState.IsInactive)continue;
             foreach (Brick brick in bricks[character.ColorType])
             {
                 if (brick.gameObject.activeSelf)
@@ -411,14 +411,14 @@ public class Stage : GameUnit
                             brick.SetCollected(true);
                             if (!flyingBricks.ContainsKey(brick))
                             {
-                                flyingBricks.Add(brick, character.GetNextBrickIndex());
+                                flyingBricks.Add(brick, character.BrickCharacterManager.GetNextBrickIndex());
                             }
                         }
                     }
                     if (brick.IsCollected)
                     {
                         
-                        brick.Move(character, character.GetBrickPosition(flyingBricks[brick]));
+                        brick.Move(character, character.BrickCharacterManager.GetBrickPosition(flyingBricks[brick]));
 
                     }
 

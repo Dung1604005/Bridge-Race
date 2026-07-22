@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
@@ -91,8 +92,9 @@ public static class Helper
     }
 
 
-    public static IEnumerator IEPopUp(RectTransform tf, Vector2 target ,float duration1, float duration2)
+    public static IEnumerator IEPopUp(RectTransform tf, Vector2 target ,float duration1, float duration2, Action callBack = null)
     {
+        Debug.Log("START POP uP");
         float timer = 0f;
         Vector2 startPos = tf.anchoredPosition;
         while(timer + 0.0001f < duration1 + duration2)
@@ -113,6 +115,8 @@ public static class Helper
             tf.anchoredPosition = Vector2.Lerp(startPos,target, timer/duration2 );
             yield return null;
         }
+        
+        callBack?.Invoke();
 
 
         

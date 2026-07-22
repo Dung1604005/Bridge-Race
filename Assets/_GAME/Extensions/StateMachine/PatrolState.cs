@@ -49,7 +49,7 @@ public class PatrolState : IState
             {
                OnExit(t);
 
-               if(t.GetAmountBrick() > 0)
+               if(t.BrickCharacterManager.GetAmountVisualBrick() > 0)
                 {
                     t.ChangeState(new BuildState()); 
                 }

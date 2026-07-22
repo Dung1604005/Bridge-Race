@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class UICanvas:MonoBehaviour, IUIOpenable
+public class UICanvas:MonoBehaviour
 {
     [SerializeField] bool IsDestroyOnClose = false;
 

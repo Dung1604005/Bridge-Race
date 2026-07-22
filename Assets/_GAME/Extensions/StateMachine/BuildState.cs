@@ -26,7 +26,7 @@ public class BuildState : IState
 
     public void CaculateDestination()
     {
-        int amountBrick = enemy.GetAmountBrick();
+        int amountBrick = enemy.BrickCharacterManager.GetAmountVisualBrick();
         StairInfo stairInfo = bestBridge.GetFarthestStairPossible(stairId, enemy.ColorType, amountBrick);
 
         if (stairId == stairInfo.stairId)

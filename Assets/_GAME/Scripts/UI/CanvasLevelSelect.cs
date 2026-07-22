@@ -18,11 +18,14 @@ public class CanvasLevelSelect : UICanvas
 
     [SerializeField] private int selectedLevelId = -1;
 
-    private bool isSetUp = false;
 
     public void OnDespawn()
     {
-        
+        for(int i = 0; i < listLevelUI.Count; i++)
+        {
+            Destroy(listLevelUI[i].gameObject);
+        }
+        listLevelUI.Clear();
     }
     public override void SetUp()
     {
@@ -30,8 +33,6 @@ public class CanvasLevelSelect : UICanvas
         Debug.Log(panelRoot.anchoredPosition);
         base.SetUp();
         EventBus<OnLevelSelect>.Subcribe(OnChangeLevelSelect);
-        if(isSetUp)return;
-        isSetUp = true;
         List<LevelData> levelDatas = GameData.Instance.AllLevelSaveData.LevelDatas;
 
         for(int i = 0; i < levelDatas.Count; i++)
@@ -62,7 +63,12 @@ public class CanvasLevelSelect : UICanvas
     {
         EventBus<OnLevelSelect>.UnSubcribe(OnChangeLevelSelect);
         OnDespawn();
-        base.Close(time);
+
+        StartCoroutine(Helper.IEPopUp(panelRoot,startPosition, popUpDuration, 0.05f, () =>
+        {
+            base.Close(time);
+        } ));
+        
     }
 
     public void OnChangeLevelSelect(OnLevelSelect onLevelSelect)

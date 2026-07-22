@@ -48,7 +48,7 @@ public class SwingingObject : MonoBehaviour
 
             Character character = ColliderCache<Character>.GetComponent(collider);
 
-            if (character.IsInActive) return;
+            if (character.CharacterState.IsInactive) return;
             
             Vector3 knockbackDirAB = -tf.position + character.TF.position;
             knockbackDirAB.y = 1.8f;

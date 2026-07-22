@@ -88,7 +88,7 @@ public class GateCtrl : GameUnit
     {
         if (nextStage == null) return true;
 
-        if (character.IsInActive || character.CharacterIsGoingDown() ||
+        if (character.CharacterState.IsInactive || character.CharacterIsGoingDown() ||
         (character.CurrentStage.StageNumber >= nextStage.StageNumber && !character.IsBot))
         {
             return false;

@@ -39,7 +39,7 @@ public class PlayerController : Character
 
     public void GetInputMove(InputAction.CallbackContext context)
     {
-        if(IsInActive)return;
+        if(characterState.IsInactive)return;
         moveX = context.ReadValue<Vector2>().x;
         moveZ = context.ReadValue<Vector2>().y;
     }
@@ -70,7 +70,7 @@ public class PlayerController : Character
         //     moveY = 0f;
         // }
 
-        if (blockMoveDown)
+        if (characterState.BlockDown)
         {
             if (moveZ < -0.01f)
             {
@@ -78,7 +78,7 @@ public class PlayerController : Character
             }
         }
 
-        if (blockMoveForward)
+        if (characterState.BlockForward)
         {
             if (moveZ > 0.01f)
             {
@@ -112,7 +112,7 @@ public class PlayerController : Character
         {
             return;
         }
-        if (IsInActive)
+        if (characterState.IsInactive)
         {
             return;
         }
@@ -122,7 +122,7 @@ public class PlayerController : Character
     }
     protected override void Update()
     {
-        if (!IsInActive)
+        if (!characterState.IsInactive)
         {
 
             if (CharacterIsFalling())
