@@ -8,6 +8,8 @@ public class CanvasLevelSelect : UICanvas
 
     [SerializeField] private RectTransform panelRoot;
 
+    [SerializeField] private Vector2 startPosition;
+
     [SerializeField] private Vector2 targetPosition;
 
     [SerializeField] private float popUpDuration;
@@ -20,13 +22,11 @@ public class CanvasLevelSelect : UICanvas
 
     public void OnDespawn()
     {
-        for(int i = 0; i < listLevelUI.Count; i++)
-        {
-            Destroy(listLevelUI[i].gameObject);
-        }
+        
     }
     public override void SetUp()
     {
+        panelRoot.anchoredPosition = startPosition;
         Debug.Log(panelRoot.anchoredPosition);
         base.SetUp();
         EventBus<OnLevelSelect>.Subcribe(OnChangeLevelSelect);
@@ -68,6 +68,14 @@ public class CanvasLevelSelect : UICanvas
     public void OnChangeLevelSelect(OnLevelSelect onLevelSelect)
     {
         selectedLevelId = onLevelSelect.LevelId;
+    }
+
+    public void OnCloseButton()
+    {
+        UIManager.Instance.CloseUI<CanvasLevelSelect>(0f);
+
+
+        
     }
 
     public void PlayGame()

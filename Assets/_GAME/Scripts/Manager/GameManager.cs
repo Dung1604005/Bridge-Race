@@ -4,9 +4,12 @@ using UnityEngine;
 
 public class GameManager :Singleton<GameManager>
 {
+    [SerializeField] private PlayerController player;
     [SerializeField]private GameState gameState;
 
     public GameState GameState => gameState;
+
+    public PlayerController Player => player;
 
     public void ChangeGameState(GameState newGameState)
     {
@@ -38,6 +41,10 @@ public class GameManager :Singleton<GameManager>
     public void OnPaused()
     {
         LevelManager.Instance.OnPause();
+    }
+    void Awake()
+    {
+        GameData.Instance.LoadPlayerData();
     }
 
     void Start()

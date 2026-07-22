@@ -8,6 +8,11 @@ public class CanvasMainMenu : UICanvas
 
    [SerializeField] private TMP_InputField nameInputField;
 
+    public override void SetUp()
+    {
+        base.SetUp();
+        SetNameInputField(GameManager.Instance.Player.CharacterName);
+    }
    public void SettingButton()
     {
         UIManager.Instance.CloseAll();
@@ -37,8 +42,13 @@ public class CanvasMainMenu : UICanvas
         goldText.text = goldAmount.ToString("N0");
     }
 
-    public String GetNameInputField()
+    public void OnNameInputFieldChange(String namePlayer)
     {
-        return nameInputField.text;
+        GameManager.Instance.Player.SetName(namePlayer);
+    }
+
+    public void SetNameInputField(String namePlayer)
+    {
+        nameInputField.text = namePlayer;
     }
 }

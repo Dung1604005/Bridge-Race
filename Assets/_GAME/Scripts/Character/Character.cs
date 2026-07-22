@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SocialPlatforms;
 
@@ -13,6 +14,7 @@ public class Character : MonoBehaviour
     [SerializeField] protected int characterId;
 
     [SerializeField] protected string characterName;
+
     [SerializeField] protected float speed;
 
     [SerializeField] protected float rangeDetect;
@@ -25,6 +27,8 @@ public class Character : MonoBehaviour
 
 
     [Header("REFERENCE")]
+
+    [SerializeField] protected TextMeshProUGUI textName;
 
     [SerializeField] protected ParticleSystem breakBrickEffect;
 
@@ -149,6 +153,12 @@ public class Character : MonoBehaviour
         rb.useGravity = true;
         blockMoveForward = false;
         blockMoveDown = false;
+    }
+
+    public void SetName(String characterName)
+    {
+        this.characterName = characterName;
+        textName.text = characterName;
     }
 
     public virtual void ChangeStage(Stage newStage, bool raiseEvent = true)
@@ -376,7 +386,7 @@ public class Character : MonoBehaviour
         {
             RemoveBrick();
         }
-        visualBrickId = 0;
+        
 
     }
 

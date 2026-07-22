@@ -85,3 +85,10 @@ public struct DecorData
 
     public int DecorId;
 }
+
+[Serializable]
+
+public struct PlayerData
+{
+    public String PlayerName;
+}

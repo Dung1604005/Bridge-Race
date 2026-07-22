@@ -24,7 +24,7 @@ public class CameraFollow : MonoBehaviour
     public void OnWin()
     {
         target = tfWin;
-        offSet = Vector3.zero;
+        offSet = Vector3.zero + new Vector3(0, 10f, 0f);
         tf.rotation = Quaternion.Euler(new Vector3(5f, 0f, 0f));
         cam.fieldOfView = 0f;
 

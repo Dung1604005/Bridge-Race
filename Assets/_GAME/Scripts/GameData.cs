@@ -10,6 +10,8 @@ public class GameData : Singleton<GameData>
 
     public String ANIM_KNOCKBACK = "KnockBack";
 
+    public String ANIM_WIN = "Win";
+
     public Vector3 BRICK_SIZE = new Vector3(1, 0.2f, 0.5f);
 
     public String CHARACTER_TAG = "Character";
@@ -27,6 +29,8 @@ public class GameData : Singleton<GameData>
    private int totalLevel;
 
    private int totalGold;
+
+   [SerializeField] private String playerName;
 
    [SerializeField] private AllLevelData allLevelSaveData;
 
@@ -68,6 +72,38 @@ public class GameData : Singleton<GameData>
         PlayerPrefs.Save();
 
         Debug.Log("SAvE SUCCESSFUL");
+    }
+
+    public void SavePlayerData()
+    {
+        String playerName = GameManager.Instance.Player.CharacterName;
+
+        PlayerData playerData = new PlayerData();
+
+        playerData.PlayerName = playerName;
+        string jsonSave = JsonUtility.ToJson(playerData);
+
+        PlayerPrefs.SetString("namePlayer", jsonSave);
+
+        PlayerPrefs.Save();
+
+
+    }
+
+    public void LoadPlayerData()
+    {
+        string jsonPlayerData = PlayerPrefs.GetString("namePlayer");
+
+        if (!string.IsNullOrEmpty(jsonPlayerData))
+        {
+            PlayerData playerData = JsonUtility.FromJson<PlayerData>(jsonPlayerData);
+            GameManager.Instance.Player.SetName(playerData.PlayerName);
+        }
+        else
+        {
+            Debug.Log("DONT HAVE PLAYERDATA");
+        }
+        
     }
 
     public void LoadData()
