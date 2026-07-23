@@ -202,7 +202,7 @@ public class Brick : GameUnit
         if (!reachBehind)
         {
             //Bay ve 1 diem phia sau lung cua player truoc
-            Vector3 characterBehind = -character.TF.forward * distanceBehind + character.TF.position;
+            Vector3 characterBehind = -character.TF.forward * distanceBehind + character.TF.position + Vector3.up*2f;
             targetPosition.x = characterBehind.x;
             targetPosition.z = characterBehind.z;
         }
@@ -227,13 +227,6 @@ public class Brick : GameUnit
 
         }
     }
-
-    public void Shake()
-    {
-        float y = Mathf.Sin(Time.time * speedShake) * maxAngleShake;
-        tf.localRotation = Quaternion.Euler(new Vector3(0f, y, 0f));
-    }
-
     void Awake()
     {
         tf = this.transform;

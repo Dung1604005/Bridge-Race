@@ -94,7 +94,7 @@ public static class Helper
 
     public static IEnumerator IEPopUp(RectTransform tf, Vector2 target ,float duration1, float duration2, Action callBack = null)
     {
-        Debug.Log("START POP uP");
+      
         float timer = 0f;
         Vector2 startPos = tf.anchoredPosition;
         while(timer + 0.0001f < duration1 + duration2)

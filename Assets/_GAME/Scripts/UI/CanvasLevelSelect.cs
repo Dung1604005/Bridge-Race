@@ -30,10 +30,10 @@ public class CanvasLevelSelect : UICanvas
     public override void SetUp()
     {
         panelRoot.anchoredPosition = startPosition;
-        Debug.Log(panelRoot.anchoredPosition);
+        
         base.SetUp();
         EventBus<OnLevelSelect>.Subcribe(OnChangeLevelSelect);
-        List<LevelData> levelDatas = GameData.Instance.AllLevelSaveData.LevelDatas;
+        List<LevelDataSave> levelDatas = GameData.Instance.AllLevelSaveData.LevelDatas;
 
         for(int i = 0; i < levelDatas.Count; i++)
         {
@@ -44,7 +44,7 @@ public class CanvasLevelSelect : UICanvas
             }
             else
             {
-                levelUI.SetUp(new LevelData{}, levelDatas[i]);
+                levelUI.SetUp(new LevelDataSave{}, levelDatas[i]);
             }
 
             listLevelUI.Add(levelUI);

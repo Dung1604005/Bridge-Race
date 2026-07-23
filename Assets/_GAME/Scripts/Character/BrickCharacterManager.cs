@@ -5,6 +5,8 @@ using UnityEngine;
 public class BrickCharacterManager : MonoBehaviour
 {
     [SerializeField] private Character character;
+
+    [SerializeField] private Transform brickRoot;
     [SerializeField] protected List<Brick> characterBricks = new List<Brick>();
 
     [SerializeField] private Vector3 startCharacterBrickPos;
@@ -25,7 +27,7 @@ public class BrickCharacterManager : MonoBehaviour
     public Vector3 GetBrickPosition(int index)
     {
 
-        return startCharacterBrickPos + new Vector3(0f, index * (GameData.Instance.BRICK_SIZE.y / 2 + 0.05f), 0f) + character.TF.position;
+        return startCharacterBrickPos + new Vector3(0f, index * (GameData.Instance.BRICK_SIZE.y / 2 + 0.05f), 0f) + brickRoot.position;
     }
     public int GetAmountVisualBrick()
     {
@@ -44,7 +46,7 @@ public class BrickCharacterManager : MonoBehaviour
 
         brick.OnInit();
 
-        brick.SetLocal(localPos, Quaternion.identity, character.TF);
+        brick.SetLocal(localPos, Quaternion.identity, brickRoot);
         brick.SetColor(character.ColorType);
         brick.SetActiveTrail(false);
 
@@ -53,7 +55,7 @@ public class BrickCharacterManager : MonoBehaviour
 
         BrickEffect brickEffect = SimplePool.Spawn<BrickEffect>(PoolType.BrickEffectPool, Vector3.zero, Quaternion.identity);
         brickEffect.SetColor(character.ColorType);
-        brickEffect.SetLocal(localPos, Quaternion.identity, character.TF);
+        brickEffect.SetLocal(localPos, Quaternion.identity, brickRoot);
         brickEffect.Play();
     }
 

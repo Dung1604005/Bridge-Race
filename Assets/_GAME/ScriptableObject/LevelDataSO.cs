@@ -1,3 +1,4 @@
+
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
@@ -19,4 +20,8 @@ public class LevelDataSO : ScriptableObject
     public float SpeedBot;
 
     public float SpeedPlayer;
+
+    public int GoldPerStar;
+
+    public LevelDataSO NextLevelData;
 }

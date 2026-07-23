@@ -12,6 +12,7 @@ public class CanvasMainMenu : UICanvas
     {
         base.SetUp();
         SetNameInputField(GameManager.Instance.Player.CharacterName);
+        SetGoldText(GameData.Instance.PlayerData.Gold);
     }
    public void SettingButton()
     {

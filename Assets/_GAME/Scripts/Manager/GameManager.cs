@@ -11,6 +11,7 @@ public class GameManager :Singleton<GameManager>
 
     public PlayerController Player => player;
 
+
     public void ChangeGameState(GameState newGameState)
     {
         GameState prevState = gameState;
@@ -28,6 +29,10 @@ public class GameManager :Singleton<GameManager>
         {
             OnPaused();
         }
+        else if(gameState == GameState.VICTORY)
+        {
+            Invoke(nameof(OnVictory), 5f);
+        }
     }
 
     public void OnStart()
@@ -41,6 +46,11 @@ public class GameManager :Singleton<GameManager>
     public void OnPaused()
     {
         LevelManager.Instance.OnPause();
+    }
+    public void OnVictory()
+    {
+        UIManager.Instance.CloseAllDirectly();
+        UIManager.Instance.OpenUI<CanvasVictory>();
     }
     void Awake()
     {

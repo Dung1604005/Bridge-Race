@@ -36,7 +36,7 @@ public class CanvasLoading : UICanvas
             yield return null;
         }
 
-        if(parentCanvas is CanvasLevelSelect || parentCanvas is CanvasSettings)
+        if(parentCanvas is CanvasLevelSelect || parentCanvas is CanvasSettings || parentCanvas is CanvasVictory)
         {
             
             UIManager.Instance.CloseUIDirectly<CanvasLoading>();

@@ -81,4 +81,27 @@ public class RankManager : MonoBehaviour
         return rankedCharacters[rank - 1];
     }
 
+    public int CaculateStarPlayer()
+    {
+        int starExpect = 3;
+        for(int i = 0; i < rankedCharacters.Count; i++)
+        {
+            if (rankedCharacters[i].IsBot)
+            {
+                starExpect -= 1;
+            }
+            else
+            {
+                return starExpect;
+            }
+        }
+        return 0;
+    }
+
+    public int GetGoldAward()
+    {
+        int totalStar = CaculateStarPlayer();
+        return totalStar *LevelManager.Instance.LevelDataSO.GoldPerStar;
+    }
+
 }

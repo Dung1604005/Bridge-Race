@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class GameData : Singleton<GameData>
 {
+    [SerializeField] private AllLevelDataSave allLevelSaveData;
+
+    [SerializeField] private PlayerData playerData;
     public String ANIM_RUN = "Run";
 
     public String ANIM_IDLE = "Idle";
@@ -19,32 +22,16 @@ public class GameData : Singleton<GameData>
     public int LAYER_STAIR = 6;
 
     public List<GameObject> listDecorObject = new List<GameObject>();
-   [SerializeField] public ColorDataSO ColorDataSO ;
-
+   public ColorDataSO ColorDataSO ;
    public List<LevelDataSO> LevelDatas = new List<LevelDataSO>();
 
-   public int TotalGold => totalGold;
+   public AllLevelDataSave AllLevelSaveData => allLevelSaveData;
 
-   public AllLevelData AllLevelSaveData => allLevelSaveData;
-   private int totalLevel;
+   public PlayerData PlayerData => playerData;
 
-   private int totalGold;
+  
 
-   [SerializeField] private String playerName;
-
-   [SerializeField] private AllLevelData allLevelSaveData;
-
-
-
-   public void SaveGold(int amountGold)
-    {
-        totalGold = amountGold;
-
-        PlayerPrefs.SetInt("gold", totalGold);
-
-        PlayerPrefs.Save();
-    }
-   public void SaveLevel(LevelData levelData)
+   public void SaveLevel(LevelDataSave levelData)
     {
         bool levelExist = false;
         for(int i = 0; i < allLevelSaveData.LevelDatas.Count; i++)
@@ -74,16 +61,11 @@ public class GameData : Singleton<GameData>
         Debug.Log("SAvE SUCCESSFUL");
     }
 
-    public void SavePlayerData()
+    public void SavePlayerData(PlayerData playerData)
     {
-        String playerName = GameManager.Instance.Player.CharacterName;
-
-        PlayerData playerData = new PlayerData();
-
-        playerData.PlayerName = playerName;
         string jsonSave = JsonUtility.ToJson(playerData);
 
-        PlayerPrefs.SetString("namePlayer", jsonSave);
+        PlayerPrefs.SetString("playerData", jsonSave);
 
         PlayerPrefs.Save();
 
@@ -92,38 +74,39 @@ public class GameData : Singleton<GameData>
 
     public void LoadPlayerData()
     {
-        string jsonPlayerData = PlayerPrefs.GetString("namePlayer");
+        string jsonPlayerData = PlayerPrefs.GetString("playerData");
 
         if (!string.IsNullOrEmpty(jsonPlayerData))
         {
-            PlayerData playerData = JsonUtility.FromJson<PlayerData>(jsonPlayerData);
-            GameManager.Instance.Player.SetName(playerData.PlayerName);
         }
         else
         {
-            Debug.Log("DONT HAVE PLAYERDATA");
+            SavePlayerData(new PlayerData{});
+            jsonPlayerData = PlayerPrefs.GetString("playerData");
         }
+
+        PlayerData playerData = JsonUtility.FromJson<PlayerData>(jsonPlayerData);
+            GameManager.Instance.Player.SetName(playerData.PlayerName);
         
     }
 
-    public void LoadData()
+    public void LoadLevelData()
     {
         string jsonLevelData = PlayerPrefs.GetString("levelSave");
 
         if (!string.IsNullOrEmpty(jsonLevelData))
         {
-            allLevelSaveData = JsonUtility.FromJson<AllLevelData>(jsonLevelData);
+            allLevelSaveData = JsonUtility.FromJson<AllLevelDataSave>(jsonLevelData);
 
             Debug.Log("LoAd SUCCESSFUL");
         }
         else
         {
-            allLevelSaveData = new AllLevelData();
-            allLevelSaveData.LevelDatas = new List<LevelData>();
+            allLevelSaveData = new AllLevelDataSave();
+            allLevelSaveData.LevelDatas = new List<LevelDataSave>();
             SaveAllLevel();
 
         }
-        totalGold = PlayerPrefs.GetInt("gold");
 
     }
 

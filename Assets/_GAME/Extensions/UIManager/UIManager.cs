@@ -106,4 +106,15 @@ public class UIManager : Singleton<UIManager>
             }
         }
     }
+
+    public void CloseAllDirectly()
+    {
+        foreach(var canvas in canvasActives)
+        {
+            if(canvas.Value != null && canvas.Value.gameObject.activeSelf)
+            {
+                canvas.Value.CloseDirectly();
+            }
+        }
+    }
 }

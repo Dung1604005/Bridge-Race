@@ -41,7 +41,7 @@ public class LevelUI : UIElement
         
     }
 
-    public void SetUp(LevelData prevLevel, LevelData levelData)
+    public void SetUp(LevelDataSave prevLevel, LevelDataSave levelData)
     {
         levelText.text = (levelData.LevelId + 1).ToString();
         levelIndex = levelData.LevelId;

@@ -1958,7 +1958,7 @@ MonoBehaviour:
   characterId: 2
   characterName: Huy
   speed: 10
-  rangeDetect: 0.4
+  rangeDetect: 2
   colorType: 2
   knockForce: 10
   IsBot: 1
@@ -1973,9 +1973,12 @@ MonoBehaviour:
   renderer: {fileID: 489062565}
   startCharacterBrickPos: {x: 0, y: 0.9, z: -0.65}
   tf: {fileID: 409400427}
-  isInActive: 0
-  isOnGround: 0
-  isOnStair: 0
+  characterState:
+    IsInactive: 0
+    IsOnGround: 1
+    IsOnStair: 0
+    BlockForward: 0
+    BlockDown: 0
   agent: {fileID: 409400424}
 --- !u!136 &409400426
 CapsuleCollider:
@@ -2057,8 +2060,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BrickCharacterManager
   character: {fileID: 409400425}
+  brickRoot: {fileID: 1486502826}
   characterBricks: []
-  startCharacterBrickPos: {x: 0, y: 0.9, z: -0.65}
+  startCharacterBrickPos: {x: 0, y: 0, z: -0.6}
   visualBrickId: 0
 --- !u!1 &410087039
 GameObject:
@@ -2249,7 +2253,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 541790055}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -0.418}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.005, y: 0.005, z: 0.005}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -2257,7 +2261,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 3}
+  m_AnchoredPosition: {x: 0, y: 2.5}
   m_SizeDelta: {x: 250, y: 90}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &541790057
@@ -2932,7 +2936,7 @@ MonoBehaviour:
   characterId: 3
   characterName: Chuong
   speed: 10
-  rangeDetect: 0.4
+  rangeDetect: 2
   colorType: 4
   knockForce: 10
   IsBot: 1
@@ -2945,11 +2949,14 @@ MonoBehaviour:
   characterBricks: []
   visualBrickId: 0
   renderer: {fileID: 1005523266}
-  startCharacterBrickPos: {x: 0, y: 0.9, z: -0.65}
+  startCharacterBrickPos: {x: 0, y: 0, z: -0.2}
   tf: {fileID: 737381557}
-  isInActive: 0
-  isOnGround: 0
-  isOnStair: 0
+  characterState:
+    IsInactive: 0
+    IsOnGround: 1
+    IsOnStair: 0
+    BlockForward: 0
+    BlockDown: 0
   agent: {fileID: 737381554}
 --- !u!136 &737381556
 CapsuleCollider:
@@ -3031,8 +3038,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BrickCharacterManager
   character: {fileID: 737381555}
+  brickRoot: {fileID: 1513521511}
   characterBricks: []
-  startCharacterBrickPos: {x: 0, y: 0.9, z: -0.65}
+  startCharacterBrickPos: {x: 0, y: 0, z: -0.6}
   visualBrickId: 0
 --- !u!1001 &740508910
 PrefabInstance:
@@ -3302,7 +3310,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1176681271702099883, guid: bc91f8aba3da7474da2dbb393b3313f5, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -73
+      value: -76.99998
       objectReference: {fileID: 0}
     - target: {fileID: 1176681271702099883, guid: bc91f8aba3da7474da2dbb393b3313f5, type: 3}
       propertyPath: m_LocalPosition.z
@@ -3310,19 +3318,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1176681271702099883, guid: bc91f8aba3da7474da2dbb393b3313f5, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.7071079
+      value: 0.7067857
       objectReference: {fileID: 0}
     - target: {fileID: 1176681271702099883, guid: bc91f8aba3da7474da2dbb393b3313f5, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0
+      value: -0.021343373
       objectReference: {fileID: 0}
     - target: {fileID: 1176681271702099883, guid: bc91f8aba3da7474da2dbb393b3313f5, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.70710576
+      value: 0.70678353
       objectReference: {fileID: 0}
     - target: {fileID: 1176681271702099883, guid: bc91f8aba3da7474da2dbb393b3313f5, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: -0.021343434
       objectReference: {fileID: 0}
     - target: {fileID: 1176681271702099883, guid: bc91f8aba3da7474da2dbb393b3313f5, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -3334,7 +3342,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1176681271702099883, guid: bc91f8aba3da7474da2dbb393b3313f5, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
+      value: -3.459
       objectReference: {fileID: 0}
     - target: {fileID: 8539412884994769397, guid: bc91f8aba3da7474da2dbb393b3313f5, type: 3}
       propertyPath: m_Name
@@ -3414,8 +3422,8 @@ MonoBehaviour:
   stageRoot: {fileID: 543450653538175952}
   levelRoot: {fileID: 683986225}
   gateRoot: {fileID: 44428299}
-  listGateCtrl: []
   decorRoot: {fileID: 458904482}
+  listGateCtrl: []
   decorList: []
   listColors: 01000000020000000400000006000000
   listCharacter:
@@ -3740,7 +3748,7 @@ MonoBehaviour:
   characterId: 0
   characterName: Dung
   speed: 5
-  rangeDetect: 0.4
+  rangeDetect: 2
   colorType: 6
   knockForce: 10
   IsBot: 0
@@ -3755,9 +3763,12 @@ MonoBehaviour:
   renderer: {fileID: 722170063}
   startCharacterBrickPos: {x: 0, y: 0.9, z: -0.65}
   tf: {fileID: 917712441}
-  isInActive: 0
-  isOnGround: 0
-  isOnStair: 0
+  characterState:
+    IsInactive: 0
+    IsOnGround: 1
+    IsOnStair: 0
+    BlockForward: 0
+    BlockDown: 0
   rotationSpeed: 5
 --- !u!54 &917712443
 Rigidbody:
@@ -3793,7 +3804,7 @@ CapsuleCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 917712440}
-  m_Material: {fileID: 13400000, guid: d63fe4acbc4801744b62ac72344ead12, type: 2}
+  m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -3822,8 +3833,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BrickCharacterManager
   character: {fileID: 917712442}
+  brickRoot: {fileID: 1655607698}
   characterBricks: []
-  startCharacterBrickPos: {x: 0, y: 0.9, z: -0.65}
+  startCharacterBrickPos: {x: 0, y: 0, z: -0.6}
   visualBrickId: 0
 --- !u!1 &929405050
 GameObject:
@@ -4943,7 +4955,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1303386673}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -0.418}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.005, y: 0.005, z: 0.005}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -4951,7 +4963,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 3}
+  m_AnchoredPosition: {x: 0, y: 2.5}
   m_SizeDelta: {x: 250, y: 90}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1303386675
@@ -5663,6 +5675,11 @@ MeshRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!4 &1486502826 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4775236014409002442, guid: 6e44c5502a8b6dd438f0f141b663a187, type: 3}
+  m_PrefabInstance: {fileID: 1796059487}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1503680114 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8022053978967707146, guid: ba93915fd7bb355489fa8f36ac487ef6, type: 3}
@@ -5672,6 +5689,11 @@ Transform:
 ParticleSystem:
   m_CorrespondingSourceObject: {fileID: 316682015325656839, guid: ba93915fd7bb355489fa8f36ac487ef6, type: 3}
   m_PrefabInstance: {fileID: 638116799}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1513521511 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6466789153508765165, guid: b56542f78059c4244a7a8f5906ceeca3, type: 3}
+  m_PrefabInstance: {fileID: 740508910}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &1515454354 stripped
 Transform:
@@ -6261,7 +6283,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1619420266}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -0.418}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.005, y: 0.005, z: 0.005}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -6269,7 +6291,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 3}
+  m_AnchoredPosition: {x: 0, y: 2.5}
   m_SizeDelta: {x: 250, y: 90}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1619420268
@@ -6372,6 +6394,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1619420266}
   m_CullTransparentMesh: 1
+--- !u!4 &1655607698 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4775236014409002442, guid: 6e44c5502a8b6dd438f0f141b663a187, type: 3}
+  m_PrefabInstance: {fileID: 722170060}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1658344415
 GameObject:
   m_ObjectHideFlags: 0
@@ -6868,6 +6895,11 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 2, y: 2.0000005, z: 2.0000005}
   m_Center: {x: 0, y: 1, z: -0.00000017881393}
+--- !u!4 &1727948407 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4775236014409002442, guid: 6e44c5502a8b6dd438f0f141b663a187, type: 3}
+  m_PrefabInstance: {fileID: 1406904689}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1742675257
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7177,7 +7209,7 @@ MonoBehaviour:
   characterId: 1
   characterName: Tan
   speed: 10
-  rangeDetect: 0.4
+  rangeDetect: 2
   colorType: 1
   knockForce: 10
   IsBot: 1
@@ -7192,9 +7224,12 @@ MonoBehaviour:
   renderer: {fileID: 1406904692}
   startCharacterBrickPos: {x: 0, y: 0.9, z: -0.65}
   tf: {fileID: 1760249472}
-  isInActive: 0
-  isOnGround: 0
-  isOnStair: 0
+  characterState:
+    IsInactive: 0
+    IsOnGround: 1
+    IsOnStair: 0
+    BlockForward: 0
+    BlockDown: 0
   agent: {fileID: 1760249468}
 --- !u!136 &1760249470
 CapsuleCollider:
@@ -7276,8 +7311,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BrickCharacterManager
   character: {fileID: 1760249469}
+  brickRoot: {fileID: 1727948407}
   characterBricks: []
-  startCharacterBrickPos: {x: 0, y: 0.9, z: -0.65}
+  startCharacterBrickPos: {x: 0, y: 0, z: -0.6}
   visualBrickId: 0
 --- !u!1 &1769587806
 GameObject:
@@ -8200,6 +8236,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee5101b5d39775249a0a7fea2da0c664, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameData
+  allLevelSaveData:
+    LevelDatas:
+    - LevelId: 0
+      TotalStar: 2
+    - LevelId: 1
+      TotalStar: 0
+    - LevelId: 2
+      TotalStar: 0
+  playerData:
+    PlayerName: 
+    Gold: 0
   ANIM_RUN: Run
   ANIM_IDLE: Idle
   ANIM_KNOCKBACK: KnockBack
@@ -8224,15 +8271,6 @@ MonoBehaviour:
   LevelDatas:
   - {fileID: 11400000, guid: c3075d0c0122b8643b39880023f994b6, type: 2}
   - {fileID: 11400000, guid: fec68bca6bca1de4da601db5af20bdc8, type: 2}
-  playerName: 
-  allLevelSaveData:
-    LevelDatas:
-    - LevelId: 0
-      TotalStar: 2
-    - LevelId: 1
-      TotalStar: 0
-    - LevelId: 2
-      TotalStar: 0
 --- !u!4 &2021675206
 Transform:
   m_ObjectHideFlags: 0
@@ -8472,7 +8510,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2110086706}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -0.418}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.005, y: 0.005, z: 0.005}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -8480,7 +8518,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 3}
+  m_AnchoredPosition: {x: 0, y: 2.5}
   m_SizeDelta: {x: 250, y: 90}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2110086708

@@ -3,16 +3,16 @@ using UnityEngine;
 
 public class WinArea : MonoBehaviour
 {
-   [SerializeField] private List<Transform> rankPositions = new List<Transform>();
+    [SerializeField] private List<Transform> rankPositions = new List<Transform>();
 
-   [SerializeField] private List<ParticleSystem> particleSystems = new List<ParticleSystem>();
+    [SerializeField] private List<ParticleSystem> particleSystems = new List<ParticleSystem>();
 
-   public Transform TF ;
+    public Transform TF;
 
 
-   public void OnInit()
+    public void OnInit()
     {
-        foreach(ParticleSystem particle in particleSystems)
+        foreach (ParticleSystem particle in particleSystems)
         {
             particle.Stop();
         }
@@ -20,7 +20,7 @@ public class WinArea : MonoBehaviour
 
     public void OnDespawn()
     {
-        foreach(ParticleSystem particle in particleSystems)
+        foreach (ParticleSystem particle in particleSystems)
         {
             particle.Stop();
         }
@@ -31,8 +31,20 @@ public class WinArea : MonoBehaviour
         Helper.LoadTransformData(TF, data);
     }
 
+    public void OnWin()
+    {
+        for(int i = 0; i < 4; i++)
+        {
+            LevelManager.Instance.RankManager.GetCharacterRank(i + 1).SetSpawn(rankPositions[i].position);
+        }
+        foreach (ParticleSystem particleSystem in particleSystems)
+        {
+            particleSystem.Play();
+        }
+    }
 
-   public void OnTriggerEnter(Collider collider)
+
+    public void OnTriggerEnter(Collider collider)
     {
         if (collider.CompareTag(GameData.Instance.CHARACTER_TAG))
         {
@@ -43,24 +55,17 @@ public class WinArea : MonoBehaviour
                 Stage = 10
             });
             LevelManager.Instance.OnWin();
-            
-            character.SetSpawn(rankPositions[0].position);
 
-            LevelManager.Instance.RankManager.GetCharacterRank(2).SetSpawn(rankPositions[1].position);
-            LevelManager.Instance.RankManager.GetCharacterRank(3).SetSpawn(rankPositions[2].position);
-            LevelManager.Instance.RankManager.GetCharacterRank(4).SetSpawn(rankPositions[3].position);
+            OnWin();
 
-            foreach(ParticleSystem particleSystem in particleSystems)
-            {
-                particleSystem.Play();
-            }
-            
+            GameManager.Instance.ChangeGameState(GameState.VICTORY);
+
         }
     }
 
     void Awake()
     {
-        TF= transform;
+        TF = transform;
     }
 
 

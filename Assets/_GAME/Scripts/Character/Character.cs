@@ -111,7 +111,7 @@ public class Character : MonoBehaviour
     {
         SetColor(colorType);
         characterState = new CharacterState();
-        rb.useGravity = true;
+        rb.useGravity = false;
         brickCharacterManager.ClearBrick();
         visualBrickId = 0;
         
@@ -138,7 +138,7 @@ public class Character : MonoBehaviour
     public virtual void OnContinue()
     {
         rb.useGravity = true;
-        characterState.IsInactive = true;
+        characterState.IsInactive = false;
     }
 
     public void SetName(String characterName)
@@ -237,9 +237,10 @@ public class Character : MonoBehaviour
     public virtual bool CharacterIsFalling()
     {
 
-        if (rb.linearVelocity.y < -5f && !Physics.Raycast(tf.position, -tf.up, 10f, layerGround))
+        if (rb.linearVelocity.y < -5f && !Physics.Raycast(tf.position, -tf.up, 10f, layerGround|layerStairGround))
         {
             characterState.IsOnGround = false;
+            rb.useGravity = true;
             return true;
         }
         characterState.IsOnGround = true;
@@ -251,11 +252,8 @@ public class Character : MonoBehaviour
        
         return Physics.Raycast(tf.position, -tf.up, 10f, layerStairGround);
     }
-
-    public void CheckForward()
+    public void CheckGate()
     {
-
-        //Check Gate
         if (Physics.Raycast(tf.position, tf.forward, out RaycastHit hitGate, rangeDetect, layerGate))
         {
             Collider col = hitGate.collider;
@@ -278,11 +276,17 @@ public class Character : MonoBehaviour
         {
             characterState.BlockDown = false;
         }
-        //Check stair
-        if (CharacterIsGoingDown())
+    }
+
+    public void CheckStair()
+    {
+         if (CharacterIsGoingDown())
         {
             return;
         }
+        
+
+        Debug.DrawLine(tf.position, tf.position + tf.forward*rangeDetect);
         if (Physics.Raycast(tf.position, tf.forward, out RaycastHit hit, rangeDetect, layerStair))
         {
 
@@ -306,6 +310,15 @@ public class Character : MonoBehaviour
         {
            characterState.BlockForward = false;
         }
+    }
+
+    public void CheckForward()
+    {
+
+        //Check Gate
+        CheckGate();
+        //Check stair
+        CheckStair();
 
     }
     public virtual void Knockback(Vector3 knockbackDirection)
@@ -336,6 +349,9 @@ public class Character : MonoBehaviour
     public virtual void StandUp()
     {
         characterState.IsInactive = false;
+
+        characterState.BlockForward = false;
+        characterState.BlockForward = false;
         
     }
 
@@ -402,13 +418,7 @@ public class Character : MonoBehaviour
         {
             return;
         }
-        foreach (Brick brick in characterBricks)
-        {
 
-            brick.Shake();
-        }
-
-        
 
         if (characterState.IsInactive)
         {

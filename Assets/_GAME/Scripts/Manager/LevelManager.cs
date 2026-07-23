@@ -12,9 +12,9 @@ public class LevelManager : Singleton<LevelManager>
 
     [SerializeField] private Transform gateRoot;
 
-    [SerializeField] private List<GateCtrl> listGateCtrl = new List<GateCtrl>(); 
-
     [SerializeField] private Transform decorRoot;
+
+    [SerializeField] private List<GateCtrl> listGateCtrl = new List<GateCtrl>(); 
 
     [SerializeField] private List<GameObject> decorList = new List<GameObject>();
     [SerializeField] private List<ColorType> listColors = new List<ColorType>() { ColorType.RED, ColorType.BLUE, ColorType.VIOLET, ColorType.GREEN };
@@ -30,6 +30,8 @@ public class LevelManager : Singleton<LevelManager>
     [SerializeField] private WinArea winArea;
 
     public Transform LevelRoot => levelRoot;
+
+    public LevelDataSO LevelDataSO => levelDataSO;
 
     public Transform StageRoot => stageRoot;
 
@@ -47,28 +49,18 @@ public class LevelManager : Singleton<LevelManager>
         {
             DecorData decorData = new DecorData();
             decorData.TFData = Helper.CreateDataFromTransform(child);
-            int decorId = child.GetComponent<DecorObject>().DecorId;
-            
+            int decorId = child.GetComponent<DecorObject>().DecorId;      
             decorData.DecorId = decorId;
-            decorObjectDatas.Add(decorData);
-
-            
-            
+            decorObjectDatas.Add(decorData);            
         }
 
         levelDataSO.decorObjectDatas = decorObjectDatas;
 
         TransformData winAreaTFData = Helper.CreateDataFromTransform(winArea.TF);
         levelDataSO.WinAreaTF = winAreaTFData;
-
-
         EditorUtility.SetDirty(levelDataSO);
         AssetDatabase.SaveAssets();
     }
-
-
-
-
 
     public void LoadData(LevelDataSO levelDataSO)
     {
@@ -93,6 +85,7 @@ public class LevelManager : Singleton<LevelManager>
         InitWinArea();
         stageManager.BakeNavMeshSurface(levelDataSO);
         InitCharacter();      
+        cam.OnInit();
     }
     public void DeSpawnLevel()
     {
@@ -224,17 +217,6 @@ public class LevelManager : Singleton<LevelManager>
     {
         return winArea.TF.position;
     }
-    void Awake()
-    {
-        
-        //InitLevel();
-    }
-
-    void Start()
-    {
-        
-    }
-
 }
 
 

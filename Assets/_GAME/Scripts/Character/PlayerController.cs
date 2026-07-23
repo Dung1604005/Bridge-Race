@@ -16,7 +16,7 @@ public class PlayerController : Character
     {
         base.OnEnable();
         inputActions.Enable();
-        inputActions.Player.Movement.performed += GetInputMove;
+        inputActions.Player.Movement.performed += OnMove;
         inputActions.Player.Movement.canceled += EndInputMove;
     }
 
@@ -24,7 +24,7 @@ public class PlayerController : Character
     {
         base.OnDisable();
         inputActions.Disable();
-        inputActions.Player.Movement.performed -= GetInputMove;
+        inputActions.Player.Movement.performed -= OnMove;
         inputActions.Player.Movement.canceled -= EndInputMove;
     }
     public override bool CharacterIsGoingDown()
@@ -37,9 +37,10 @@ public class PlayerController : Character
         return false;
     }
 
-    public void GetInputMove(InputAction.CallbackContext context)
+    public void OnMove(InputAction.CallbackContext context)
     {
-        if(characterState.IsInactive)return;
+        
+
         moveX = context.ReadValue<Vector2>().x;
         moveZ = context.ReadValue<Vector2>().y;
     }
@@ -70,6 +71,16 @@ public class PlayerController : Character
         //     moveY = 0f;
         // }
 
+        
+        if (new Vector3(moveX, 0f, moveZ).sqrMagnitude <= 0.00001)
+        {
+            ChangeAnim(GameData.Instance.ANIM_IDLE);
+        }
+        else
+        {
+            ChangeAnim(GameData.Instance.ANIM_RUN);
+            ChangeRotation();
+        }
         if (characterState.BlockDown)
         {
             if (moveZ < -0.01f)
@@ -86,17 +97,14 @@ public class PlayerController : Character
             }
 
         }
-        tf.position = Vector3.MoveTowards(tf.position, tf.position + new Vector3(moveX, 0f, moveZ).normalized, speed*Time.deltaTime);
+        Vector3 dir = new Vector3(moveX, 0f, moveZ);
+        if(dir.sqrMagnitude > 1)
+        {
+           dir = dir.normalized; 
+        }
 
-        if ((new Vector3(moveX, 0f, moveZ).sqrMagnitude <= 0.05))
-        {
-            ChangeAnim(GameData.Instance.ANIM_IDLE);
-        }
-        else
-        {
-            ChangeAnim(GameData.Instance.ANIM_RUN);
-            ChangeRotation();
-        }
+
+        tf.position = Vector3.MoveTowards(tf.position, tf.position + dir, speed*Time.fixedDeltaTime);
 
     }
 

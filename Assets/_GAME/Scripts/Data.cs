@@ -65,7 +65,7 @@ public struct StairData
 
 [Serializable]
 
-public struct LevelData
+public struct LevelDataSave
 {
     public int LevelId;
 
@@ -73,9 +73,9 @@ public struct LevelData
 }
 
 [Serializable]
-public struct AllLevelData
+public struct AllLevelDataSave
 {
-    public List<LevelData> LevelDatas;
+    public List<LevelDataSave> LevelDatas;
 }
 [Serializable]
 
@@ -91,4 +91,6 @@ public struct DecorData
 public struct PlayerData
 {
     public String PlayerName;
+
+    public int Gold;
 }

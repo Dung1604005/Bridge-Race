@@ -3,7 +3,9 @@ using UnityEngine;
 
 public class CameraFollow : MonoBehaviour
 {
-    [SerializeField] private Vector3 offSet;
+    [SerializeField] private Vector3 offSetPlaying;
+
+    [SerializeField] private Vector3 offSetOnWin;
 
     [SerializeField] private Camera cam;
 
@@ -20,15 +22,25 @@ public class CameraFollow : MonoBehaviour
 
     private Transform target;
 
+    private Vector3 offSet;
+
    
     public void OnWin()
     {
         target = tfWin;
-        offSet = Vector3.zero + new Vector3(0, 5f, 0f);
+        offSet = offSetOnWin;
         tf.rotation = Quaternion.Euler(new Vector3(10f, 0f, 0f));
         cam.fieldOfView = 0f;
 
         StartCoroutine(IEZoomOut(0.5f, fieldOfView));
+    }
+
+    public void OnInit()
+    {
+        offSet = offSetPlaying;
+        target = tfPlayer;
+        cam.fieldOfView = 60f;
+        tf.rotation = Quaternion.Euler(new Vector3(35f, 0f, 0f));
 
 
     }
@@ -50,7 +62,7 @@ public class CameraFollow : MonoBehaviour
     void Awake()
     {
         tf = this.transform;
-        target = tfPlayer;
+        
     }
 
 
