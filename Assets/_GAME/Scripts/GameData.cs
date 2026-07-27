@@ -25,6 +25,8 @@ public class GameData : Singleton<GameData>
    public ColorDataSO ColorDataSO ;
    public List<LevelDataSO> LevelDatas = new List<LevelDataSO>();
 
+   public List<SkinSO> SkinDatas = new List<SkinSO>();
+
    public AllLevelDataSave AllLevelSaveData => allLevelSaveData;
 
    public PlayerData PlayerData => playerData;
@@ -63,6 +65,7 @@ public class GameData : Singleton<GameData>
 
     public void SavePlayerData(PlayerData playerData)
     {
+        this.playerData = playerData;
         string jsonSave = JsonUtility.ToJson(playerData);
 
         PlayerPrefs.SetString("playerData", jsonSave);
@@ -78,6 +81,7 @@ public class GameData : Singleton<GameData>
 
         if (!string.IsNullOrEmpty(jsonPlayerData))
         {
+            
         }
         else
         {
@@ -85,8 +89,8 @@ public class GameData : Singleton<GameData>
             jsonPlayerData = PlayerPrefs.GetString("playerData");
         }
 
-        PlayerData playerData = JsonUtility.FromJson<PlayerData>(jsonPlayerData);
-            GameManager.Instance.Player.SetName(playerData.PlayerName);
+        this.playerData = JsonUtility.FromJson<PlayerData>(jsonPlayerData);
+        GameManager.Instance.Player.SetName(playerData.PlayerName);
         
     }
 

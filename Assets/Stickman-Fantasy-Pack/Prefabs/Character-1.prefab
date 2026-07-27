@@ -1524,6 +1524,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6181959200555183214}
   - component: {fileID: 228161819061089812}
+  - component: {fileID: 4898537371197798584}
   m_Layer: 0
   m_Name: Character-1
   m_TagString: Untagged
@@ -1559,7 +1560,7 @@ Animator:
   m_GameObject: {fileID: 6809842374286309076}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: 7034a260c15bef845bbe4d46150ce991, type: 3}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d03183cdd836f30479600b9c320d0dd1, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
   m_ApplyRootMotion: 1
@@ -1571,6 +1572,21 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &4898537371197798584
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6809842374286309076}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a98994b924cc144f9dad4207d751699, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SkinController
+  anim: {fileID: 228161819061089812}
+  skinRenderer: {fileID: 2738737543444520004}
+  brickRoot: {fileID: 4775236014409002442}
 --- !u!1 &6899669777454603971
 GameObject:
   m_ObjectHideFlags: 0

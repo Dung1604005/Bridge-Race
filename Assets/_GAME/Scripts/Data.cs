@@ -90,7 +90,12 @@ public struct DecorData
 
 public struct PlayerData
 {
+    
     public String PlayerName;
 
     public int Gold;
+
+    public List<int> collectedSkin; 
+
+    public int CurrentSkinId;
 }

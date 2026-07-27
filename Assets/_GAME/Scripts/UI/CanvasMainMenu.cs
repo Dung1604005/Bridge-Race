@@ -46,6 +46,9 @@ public class CanvasMainMenu : UICanvas
     public void OnNameInputFieldChange(String namePlayer)
     {
         GameManager.Instance.Player.SetName(namePlayer);
+        PlayerData playerData = GameData.Instance.PlayerData;
+        playerData.PlayerName = namePlayer;
+        GameData.Instance.SavePlayerData(playerData);
     }
 
     public void SetNameInputField(String namePlayer)

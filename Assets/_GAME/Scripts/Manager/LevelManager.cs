@@ -27,6 +27,8 @@ public class LevelManager : Singleton<LevelManager>
 
     [SerializeField] private CameraFollow cam;
 
+    [SerializeField] private CameraFollow camUIObject;
+
     [SerializeField] private WinArea winArea;
 
     public Transform LevelRoot => levelRoot;
@@ -86,6 +88,7 @@ public class LevelManager : Singleton<LevelManager>
         stageManager.BakeNavMeshSurface(levelDataSO);
         InitCharacter();      
         cam.OnInit();
+        camUIObject.OnInit();
     }
     public void DeSpawnLevel()
     {
@@ -211,6 +214,7 @@ public class LevelManager : Singleton<LevelManager>
             stage.OnWin();
         }
         cam.OnWin();
+        camUIObject.OnWin();
     }
 
     public Vector3 GetWinAreaPosition()

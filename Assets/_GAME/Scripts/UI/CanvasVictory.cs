@@ -26,11 +26,16 @@ public class CanvasVictory : UICanvas
     {
         base.SetUp();
 
-        SetGoldText(GameData.Instance.PlayerData.Gold,  currentGoldText);
+        PlayerData playerData = GameData.Instance.PlayerData;
+        SetGoldText(playerData.Gold,  currentGoldText);
 
         int goldAward = LevelManager.Instance.RankManager.GetGoldAward();
         StartCoroutine(IEUpdateGoldAnim(0, goldAward, goldAwardText));
 
+        playerData.Gold += goldAward;
+        
+        GameData.Instance.SavePlayerData(playerData);
+        
         int star = LevelManager.Instance.RankManager.CaculateStarPlayer();
 
         if(star == 0)
@@ -47,7 +52,7 @@ public class CanvasVictory : UICanvas
         
         for(int i = 0; i < star; i++)
         {
-            StartCoroutine(IESlideAnim(0.5f, starList[i]));
+            StartCoroutine(IESlideAnim(1f, starList[i]));
         }
 
     }
@@ -102,14 +107,10 @@ public class CanvasVictory : UICanvas
             {
                 break;
             }
-
-
             currentGold += stepAmount;
             SetGoldText(currentGold, text);
             text.text = currentGold.ToString();
             yield return new WaitForSeconds(stepInterval);
-
-
         }
     }
 
@@ -120,7 +121,7 @@ public class CanvasVictory : UICanvas
         float timer = 0f;
         while(timer + 0.0001f < duration)
         {
-            timer += 0.0001f;
+            timer += Time.deltaTime;
             image.fillAmount = Mathf.Lerp(0f, 1f, timer/duration);
             yield return null;
         }

@@ -31,6 +31,7 @@ public class Stair : GameUnit
     {
         stairId = -1;
         bridge = null;
+        renderer.enabled = false;
         colorType = ColorType.NONE;
         renderer.material = GameData.Instance.ColorDataSO.GetColorMaterial(ColorType.NONE);
     }

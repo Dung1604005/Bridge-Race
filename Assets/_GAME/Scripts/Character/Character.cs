@@ -40,13 +40,7 @@ public class Character : MonoBehaviour
 
     [SerializeField] protected BrickCharacterManager brickCharacterManager;
 
-    [SerializeField] protected List<Brick> characterBricks = new List<Brick>();
-
-    [SerializeField] private int visualBrickId = 0;
-
     [SerializeField] private Renderer renderer;
-
-    [SerializeField] private Vector3 startCharacterBrickPos;
 
     [SerializeField] protected Transform tf;
 
@@ -111,10 +105,7 @@ public class Character : MonoBehaviour
     {
         SetColor(colorType);
         characterState = new CharacterState();
-        rb.useGravity = false;
-        brickCharacterManager.ClearBrick();
-        visualBrickId = 0;
-        
+        brickCharacterManager.ClearBrick(); 
     }
     public virtual void OnDespawn()
     {
@@ -124,7 +115,6 @@ public class Character : MonoBehaviour
         rb.useGravity = false;
         SetInActive();
         brickCharacterManager.ClearBrick();
-        visualBrickId = 0;
         currentStage = null;
         
     }
@@ -240,7 +230,6 @@ public class Character : MonoBehaviour
         if (rb.linearVelocity.y < -5f && !Physics.Raycast(tf.position, -tf.up, 10f, layerGround|layerStairGround))
         {
             characterState.IsOnGround = false;
-            rb.useGravity = true;
             return true;
         }
         characterState.IsOnGround = true;
@@ -330,7 +319,7 @@ public class Character : MonoBehaviour
         tf.rotation = Quaternion.LookRotation(-knockbackDirection);
         if (brickCharacterManager.GetAmountRealBrick() > 0)
         {
-            breakBrickEffect.transform.position = brickCharacterManager.GetBrickPosition(visualBrickId / 2);
+            breakBrickEffect.transform.position = brickCharacterManager.GetBrickPosition(brickCharacterManager.VisualBrickId / 2);
             breakBrickEffect.Play();
         }
         brickCharacterManager.ClearBrick();

@@ -430,7 +430,7 @@ MonoBehaviour:
   colorType: 0
   radCollect: 8
   distanceBehind: 2
-  moveSpeed: 12
+  moveSpeed: 16
   accelerate: 5
   rotationSpeed: 15
   maxAngleShake: 15

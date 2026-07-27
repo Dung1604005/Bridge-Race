@@ -18,11 +18,12 @@ public class CameraFollow : MonoBehaviour
 
     [SerializeField] private float fieldOfView;
 
-    private Transform tf;
 
-    private Transform target;
+    [SerializeField]private Transform tf;
 
-    private Vector3 offSet;
+    [SerializeField]private Transform target;
+
+    private Vector3 offSet = Vector3.zero;
 
    
     public void OnWin()
@@ -68,6 +69,10 @@ public class CameraFollow : MonoBehaviour
 
     void LateUpdate()
     {
+        if(target == null)
+        {
+            return;
+        }
         tf.position = offSet + target.position;
     }
 }

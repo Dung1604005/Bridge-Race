@@ -12,6 +12,8 @@ public class BrickCharacterManager : MonoBehaviour
     [SerializeField] private Vector3 startCharacterBrickPos;
 
     [SerializeField] private int visualBrickId = 0;
+
+    public int VisualBrickId => visualBrickId;
      public int GetNextBrickIndex()
     {
         int assignedIndex = visualBrickId;
@@ -75,12 +77,9 @@ public class BrickCharacterManager : MonoBehaviour
 
     public void ClearBrick()
     {
-
         while (characterBricks.Count > 0)
         {
             RemoveBrick();
         }
-        
-
     }
 }

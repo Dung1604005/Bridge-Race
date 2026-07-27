@@ -202,7 +202,7 @@ public class Brick : GameUnit
         if (!reachBehind)
         {
             //Bay ve 1 diem phia sau lung cua player truoc
-            Vector3 characterBehind = -character.TF.forward * distanceBehind + character.TF.position + Vector3.up*2f;
+            Vector3 characterBehind = -character.TF.forward * distanceBehind + character.TF.position + Vector3.up*5f;
             targetPosition.x = characterBehind.x;
             targetPosition.z = characterBehind.z;
         }
