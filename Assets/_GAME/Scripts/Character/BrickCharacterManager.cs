@@ -14,6 +14,11 @@ public class BrickCharacterManager : MonoBehaviour
     [SerializeField] private int visualBrickId = 0;
 
     public int VisualBrickId => visualBrickId;
+
+    public void SetBrickRoot(Transform tf)
+    {
+        brickRoot = tf;
+    }
      public int GetNextBrickIndex()
     {
         int assignedIndex = visualBrickId;

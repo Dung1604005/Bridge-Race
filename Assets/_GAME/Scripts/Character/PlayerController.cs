@@ -124,8 +124,8 @@ public class PlayerController : Character
         {
             return;
         }
-        CheckForward();
         Move();
+        
 
     }
     protected override void Update()
@@ -144,6 +144,13 @@ public class PlayerController : Character
                 return;
             }
             base.Update();
+            if(timerCheck >= timeIntervalCheck)
+            {
+                timerCheck = 0f;
+                CheckForward();
+            }
+            
+            
 
         }
 

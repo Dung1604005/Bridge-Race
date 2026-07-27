@@ -118,9 +118,8 @@ public class Stair : GameUnit
 
         if (character.BrickCharacterManager.GetAmountVisualBrick() > 0)
         {
-            character.BrickCharacterManager.RemoveBrick();
             SetColor(character.ColorType);
-
+            character.BrickCharacterManager.RemoveBrick();
             EventBus<OnStairChange>.Raise(new OnStairChange
             {
                 CharacterId = character.CharacterId,

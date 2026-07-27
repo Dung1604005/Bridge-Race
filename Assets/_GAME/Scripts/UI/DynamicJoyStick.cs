@@ -54,7 +54,6 @@ public class DynamicJoyStick : OnScreenControl, IPointerDownHandler, IDragHandle
         }
 
         handle.anchoredPosition = delta;
-        Debug.Log(delta/moveRanger);
         SendValueToControl(delta/moveRanger);
     }
 

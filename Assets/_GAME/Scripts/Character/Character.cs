@@ -19,6 +19,8 @@ public class Character : MonoBehaviour
 
     [SerializeField] protected float rangeDetect;
 
+    [SerializeField] protected float timeIntervalCheck;
+
     [SerializeField] private ColorType colorType;
 
     [SerializeField] private float knockForce;
@@ -42,9 +44,15 @@ public class Character : MonoBehaviour
 
     [SerializeField] private Renderer renderer;
 
+    [SerializeField] private Collider collider;
+
     [SerializeField] protected Transform tf;
 
+    [SerializeField] protected Transform tfVisual;
+
     [SerializeField] protected CharacterState characterState;
+
+    [SerializeField] private SkinController skinPrefab;
 
     private int layerGround;
 
@@ -55,6 +63,8 @@ public class Character : MonoBehaviour
     private int layerGate;
 
     private String currentAnim = "";
+
+    protected float timerCheck = 0f;
 
     public BrickCharacterManager BrickCharacterManager => brickCharacterManager;
 
@@ -106,6 +116,7 @@ public class Character : MonoBehaviour
         SetColor(colorType);
         characterState = new CharacterState();
         brickCharacterManager.ClearBrick(); 
+        timerCheck = 0f;
     }
     public virtual void OnDespawn()
     {
@@ -179,6 +190,21 @@ public class Character : MonoBehaviour
         }
     }
 
+    public void SetSkin(SkinController skinController)
+    {
+        if(skinPrefab != null && skinPrefab.gameObject != null)
+        {
+            Destroy(skinPrefab.gameObject);
+        }
+        
+        skinPrefab = Instantiate(skinController, tfVisual);
+        renderer = skinPrefab.SkinRenderer;
+        anim = skinPrefab.Anim;
+        brickCharacterManager.SetBrickRoot(skinPrefab.BrickRoot);
+
+
+    }
+
     public virtual void SetSpeed(float speed)
     {
         this.speed = speed;
@@ -237,9 +263,12 @@ public class Character : MonoBehaviour
     }
 
     public virtual bool CheckCharacterOnStair()
-    {
-       
-        return Physics.Raycast(tf.position, -tf.up, 10f, layerStairGround);
+    {   
+        bool result = Physics.Raycast(tf.position, -tf.up, 10f, layerStairGround);
+        
+        collider.enabled = !result;
+        
+        return result;
     }
     public void CheckGate()
     {
@@ -274,8 +303,6 @@ public class Character : MonoBehaviour
             return;
         }
         
-
-        Debug.DrawLine(tf.position, tf.position + tf.forward*rangeDetect);
         if (Physics.Raycast(tf.position, tf.forward, out RaycastHit hit, rangeDetect, layerStair))
         {
 
@@ -397,7 +424,7 @@ public class Character : MonoBehaviour
         layerStair = LayerMask.GetMask("Stair");
         layerGate = LayerMask.GetMask("Gate");
         layerStairGround = LayerMask.GetMask("StairGround");
-        anim.applyRootMotion = false;
+
         tf = this.transform;
     }
 
@@ -414,5 +441,6 @@ public class Character : MonoBehaviour
             return;
         }
         characterState.IsOnStair = CheckCharacterOnStair();
+        timerCheck += Time.deltaTime;
     }
 }
