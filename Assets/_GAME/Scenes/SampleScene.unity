@@ -574,8 +574,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 130116922}
-  - component: {fileID: 130116923}
-  m_Layer: 12
+  m_Layer: 0
   m_Name: Visual
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -598,29 +597,6 @@ Transform:
   - {fileID: 1406904691}
   m_Father: {fileID: 1760249472}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!136 &130116923
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 130116921}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Height: 1.7462978
-  m_Direction: 1
-  m_Center: {x: 0, y: 0.83661556, z: 0}
 --- !u!1 &154690599
 GameObject:
   m_ObjectHideFlags: 0
@@ -1475,8 +1451,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 356736487}
-  - component: {fileID: 356736488}
-  m_Layer: 12
+  m_Layer: 0
   m_Name: Visual
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1498,29 +1473,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 917712441}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!136 &356736488
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 356736486}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Height: 2.1051412
-  m_Direction: 1
-  m_Center: {x: 0, y: 0.6571939, z: 0}
 --- !u!1001 &400339733
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3925,8 +3877,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1069653728}
-  - component: {fileID: 1069653729}
-  m_Layer: 12
+  m_Layer: 0
   m_Name: Visual
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3949,29 +3900,6 @@ Transform:
   - {fileID: 871419431}
   m_Father: {fileID: 737381557}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!136 &1069653729
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1069653727}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Height: 1.9517288
-  m_Direction: 1
-  m_Center: {x: 0, y: 0.73390007, z: 0}
 --- !u!4 &1136714040 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4898250356623815497, guid: f1b099943193f65449d0710bc83411dc, type: 3}
@@ -7294,8 +7222,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2106937355}
-  - component: {fileID: 2106937356}
-  m_Layer: 12
+  m_Layer: 0
   m_Name: Visual
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7318,29 +7245,6 @@ Transform:
   - {fileID: 71889026}
   m_Father: {fileID: 409400427}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!136 &2106937356
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2106937354}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Height: 1.9517288
-  m_Direction: 1
-  m_Center: {x: 0, y: 0.73390007, z: 0}
 --- !u!1 &2110086706
 GameObject:
   m_ObjectHideFlags: 0

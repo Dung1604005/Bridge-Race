@@ -258,8 +258,15 @@ public class Character : MonoBehaviour
         return false;
     }
 
+    public void SetCharacterOnStair( bool val)
+    {
+        characterState.IsOnStair = val;
+        if(IsBot)collider.enabled = !val;
+    }
+
     public virtual bool CheckCharacterOnStair()
     {   
+        Debug.DrawLine(tf.position, tf.position - tf.up*10);
         bool result = Physics.Raycast(tf.position, -tf.up, 10f, layerStairGround);
         if(IsBot)collider.enabled = !result;
         
@@ -436,7 +443,7 @@ public class Character : MonoBehaviour
         {
             return;
         }
-        characterState.IsOnStair = CheckCharacterOnStair();
+        //characterState.IsOnStair = CheckCharacterOnStair();
        
     }
 }
