@@ -21,7 +21,6 @@ public class Character : MonoBehaviour
 
     [SerializeField] private ColorType colorType;
 
-    [SerializeField] private float knockForce;
 
     public bool IsBot;
 
@@ -30,8 +29,6 @@ public class Character : MonoBehaviour
 
     [SerializeField] protected TextMeshProUGUI textName;
 
-    [SerializeField] protected ParticleSystem breakBrickEffect;
-
     [SerializeField] protected Stage currentStage;
 
     [SerializeField] protected Animator anim;
@@ -39,6 +36,8 @@ public class Character : MonoBehaviour
     [SerializeField] protected Rigidbody rb;
 
     [SerializeField] protected BrickCharacterManager brickCharacterManager;
+
+    [SerializeField] protected CharacterKnockBack characterKnockBack;
 
     [SerializeField] private Renderer renderer;
 
@@ -66,6 +65,8 @@ public class Character : MonoBehaviour
 
 
     public Transform TF => tf;
+
+    public Rigidbody Rb => rb;
     public ColorType ColorType => colorType;
 
     public Stage CurrentStage => currentStage;
@@ -263,16 +264,6 @@ public class Character : MonoBehaviour
         characterState.IsOnStair = val;
         if(IsBot)collider.enabled = !val;
     }
-
-    public virtual bool CheckCharacterOnStair()
-    {   
-        Debug.DrawLine(tf.position, tf.position - tf.up*10);
-        bool result = Physics.Raycast(tf.position, -tf.up, 10f, layerStairGround);
-        if(IsBot)collider.enabled = !result;
-        
-        
-        return result;
-    }
     public void CheckGate()
     {
         if (Physics.Raycast(tf.position, tf.forward, out RaycastHit hitGate, rangeDetect, layerGate))
@@ -342,85 +333,14 @@ public class Character : MonoBehaviour
     }
     public virtual void Knockback(Vector3 knockbackDirection)
     {
-
-        SetInActive();
-        //gameObject.layer = LayerMask.NameToLayer("DeadPlayer");
-        rb.AddForce(knockbackDirection * knockForce, ForceMode.Impulse);
-        tf.rotation = Quaternion.LookRotation(-knockbackDirection);
-        if (brickCharacterManager.GetAmountRealBrick() > 0)
-        {
-            breakBrickEffect.transform.position = brickCharacterManager.GetBrickPosition(brickCharacterManager.VisualBrickId / 2);
-            breakBrickEffect.Play();
-        }
-        brickCharacterManager.ClearBrick();
-        ChangeAnim(GameData.Instance.ANIM_KNOCKBACK);
-
-        EventBus<OnCharacterInActive>.Raise(new OnCharacterInActive
-        {
-            CharacterId = CharacterId
-        });
-
-
+        characterKnockBack.Knockback(knockbackDirection);
         Invoke(nameof(StandUp), 2f);
-
     }
-
     public virtual void StandUp()
     {
-        characterState.IsInactive = false;
-
-        characterState.BlockForward = false;
-        characterState.BlockForward = false;
+        characterKnockBack.StandUp();
         
     }
-
-
-    public void OnCollisionEnter(Collision collision)
-    {
-        if(characterState.IsOnStair)return;
-
-        if (characterState.IsInactive)
-        {
-            return;
-        }
-        
-        Collider collider = collision.collider;
-        if (collider.CompareTag(GameData.Instance.CHARACTER_TAG))
-        {
-
-            Character character = ColliderCache<Character>.GetComponent(collider);
-
-            if (character.CharacterState.IsInactive) return;
-            if(character.CharacterState.IsOnStair)return;
-
-            Vector3 knockbackDirBA = character.tf.position - tf.position;
-            Vector3 knockbackDirAB = tf.position - character.tf.position;
-            knockbackDirAB.y = 0.8f;
-            knockbackDirBA.y = 0.8f;
-            knockbackDirAB.Normalize();
-            knockbackDirBA.Normalize();
-            if (character.BrickCharacterManager.GetAmountVisualBrick() < brickCharacterManager.GetAmountVisualBrick())
-            {
-                character.Knockback(knockbackDirBA);
-                SetInActive(0.1f);
-
-
-            }
-            else if (character.brickCharacterManager.GetAmountVisualBrick() > brickCharacterManager.GetAmountVisualBrick())
-            {
-                Knockback(knockbackDirAB);
-                character.SetInActive(0.1f);
-
-            }
-            else
-            {
-                Knockback(knockbackDirAB);
-                character.Knockback(knockbackDirBA);
-            }
-
-        }
-    }
-
     protected virtual void Awake()
     {
         layerGround = LayerMask.GetMask("Ground", "Stair");
@@ -437,13 +357,10 @@ public class Character : MonoBehaviour
         {
             return;
         }
-
-
         if (characterState.IsInactive)
         {
             return;
         }
-        //characterState.IsOnStair = CheckCharacterOnStair();
        
     }
 }
