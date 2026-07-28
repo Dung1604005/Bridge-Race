@@ -130,11 +130,8 @@ public class Enemy : Character
 
         base.Update();
 
-        if(timerCheck >= timeIntervalCheck)
-            {
-                timerCheck = 0f;
-                CheckForward();
-            }
+        CheckForward();
+            
         if(currentState != null)
         {
             currentState.OnExecute(this);

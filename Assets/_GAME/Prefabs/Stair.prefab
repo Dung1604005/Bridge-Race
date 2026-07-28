@@ -184,3 +184,4 @@ MonoBehaviour:
   bridge: {fileID: 0}
   renderer: {fileID: 3266294825851850967}
   colorType: 0
+  paintCooldown: 0.15

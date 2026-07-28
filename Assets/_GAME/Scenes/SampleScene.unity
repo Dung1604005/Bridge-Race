@@ -1734,8 +1734,7 @@ MonoBehaviour:
   characterId: 2
   characterName: Huy
   speed: 10
-  rangeDetect: 1
-  timeIntervalCheck: 0.05
+  rangeDetect: 0.7
   colorType: 2
   knockForce: 10
   IsBot: 1
@@ -2612,8 +2611,7 @@ MonoBehaviour:
   characterId: 3
   characterName: Chuong
   speed: 10
-  rangeDetect: 1
-  timeIntervalCheck: 0.05
+  rangeDetect: 0.7
   colorType: 4
   knockForce: 10
   IsBot: 1
@@ -3426,8 +3424,7 @@ MonoBehaviour:
   characterId: 0
   characterName: Dung
   speed: 5
-  rangeDetect: 1
-  timeIntervalCheck: 0.05
+  rangeDetect: 0.7
   colorType: 6
   knockForce: 10
   IsBot: 0
@@ -6357,8 +6354,7 @@ MonoBehaviour:
   characterId: 1
   characterName: Tan
   speed: 10
-  rangeDetect: 1
-  timeIntervalCheck: 0.05
+  rangeDetect: 0.7
   colorType: 1
   knockForce: 10
   IsBot: 1

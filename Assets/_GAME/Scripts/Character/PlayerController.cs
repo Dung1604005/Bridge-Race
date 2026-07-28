@@ -144,11 +144,9 @@ public class PlayerController : Character
                 return;
             }
             base.Update();
-            if(timerCheck >= timeIntervalCheck)
-            {
-                timerCheck = 0f;
-                CheckForward();
-            }
+           
+            CheckForward();
+            
             
             
 

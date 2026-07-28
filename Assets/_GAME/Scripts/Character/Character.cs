@@ -19,8 +19,6 @@ public class Character : MonoBehaviour
 
     [SerializeField] protected float rangeDetect;
 
-    [SerializeField] protected float timeIntervalCheck;
-
     [SerializeField] private ColorType colorType;
 
     [SerializeField] private float knockForce;
@@ -63,8 +61,6 @@ public class Character : MonoBehaviour
     private int layerGate;
 
     private String currentAnim = "";
-
-    protected float timerCheck = 0f;
 
     public BrickCharacterManager BrickCharacterManager => brickCharacterManager;
 
@@ -116,7 +112,7 @@ public class Character : MonoBehaviour
         SetColor(colorType);
         characterState = new CharacterState();
         brickCharacterManager.ClearBrick(); 
-        timerCheck = 0f;
+    
     }
     public virtual void OnDespawn()
     {
@@ -265,8 +261,8 @@ public class Character : MonoBehaviour
     public virtual bool CheckCharacterOnStair()
     {   
         bool result = Physics.Raycast(tf.position, -tf.up, 10f, layerStairGround);
+        if(IsBot)collider.enabled = !result;
         
-        collider.enabled = !result;
         
         return result;
     }
@@ -441,6 +437,6 @@ public class Character : MonoBehaviour
             return;
         }
         characterState.IsOnStair = CheckCharacterOnStair();
-        timerCheck += Time.deltaTime;
+       
     }
 }

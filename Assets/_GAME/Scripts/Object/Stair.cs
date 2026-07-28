@@ -9,6 +9,10 @@ public class Stair : GameUnit
 
     [SerializeField] private ColorType colorType;
 
+    [SerializeField] private float paintCooldown;
+
+    private float lastPaintTime = -67f;
+
     private int stairId = -1;
 
     public ColorType ColorType => colorType;
@@ -25,6 +29,7 @@ public class Stair : GameUnit
     {
         stairId = -1;
         colorType = ColorType.NONE;
+        lastPaintTime = -67f;
     }
 
     public void OnDeSpawn()
@@ -115,9 +120,14 @@ public class Stair : GameUnit
         {
             return;
         }
+        if (Time.time - lastPaintTime < paintCooldown)
+        {
+            return; 
+        }
 
         if (character.BrickCharacterManager.GetAmountVisualBrick() > 0)
         {
+            lastPaintTime = Time.time;
             SetColor(character.ColorType);
             character.BrickCharacterManager.RemoveBrick();
             EventBus<OnStairChange>.Raise(new OnStairChange
