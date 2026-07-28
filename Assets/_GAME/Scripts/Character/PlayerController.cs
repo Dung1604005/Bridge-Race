@@ -130,10 +130,11 @@ public class PlayerController : Character
     }
     protected override void Update()
     {
+        base.Update();
         if (!characterState.IsInactive)
         {
 
-            if (CharacterIsFalling())
+            if (!characterState.IsOnGround)
             {
                 EventBus<OnCharacterInActive>.Raise(new OnCharacterInActive
                 {
@@ -143,9 +144,9 @@ public class PlayerController : Character
                 Invoke(nameof(ReSpawn), 0.5f);
                 return;
             }
-            base.Update();
+            
            
-            CheckForward();
+            CharacterChecker.CheckForward();
             
             
             

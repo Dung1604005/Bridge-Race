@@ -16,9 +16,6 @@ public class Character : MonoBehaviour
     [SerializeField] protected string characterName;
 
     [SerializeField] protected float speed;
-
-    [SerializeField] protected float rangeDetect;
-
     [SerializeField] private ColorType colorType;
 
 
@@ -39,9 +36,9 @@ public class Character : MonoBehaviour
 
     [SerializeField] protected CharacterKnockBack characterKnockBack;
 
-    [SerializeField] private Renderer renderer;
+    [SerializeField] protected CharacterChecker characterChecker;
 
-    [SerializeField] private Collider collider;
+    [SerializeField] private Renderer renderer;
 
     [SerializeField] protected Transform tf;
 
@@ -51,17 +48,12 @@ public class Character : MonoBehaviour
 
     [SerializeField] private SkinController skinPrefab;
 
-    private int layerGround;
-
-    private int layerStair;
-
-    private LayerMask layerStairGround;
-
-    private int layerGate;
 
     private String currentAnim = "";
 
     public BrickCharacterManager BrickCharacterManager => brickCharacterManager;
+
+    public CharacterChecker CharacterChecker => characterChecker;
 
 
     public Transform TF => tf;
@@ -239,97 +231,12 @@ public class Character : MonoBehaviour
 
     public virtual bool CharacterIsGoingDown()
     {
-
-        if (rb.linearVelocity.z < -0.01f)
-        {
-            return true;
-        }
-        return false;
+        return characterChecker.CharacterIsGoingDown();
     }
 
     public virtual bool CharacterIsFalling()
     {
-
-        if (rb.linearVelocity.y < -5f && !Physics.Raycast(tf.position, -tf.up, 10f, layerGround|layerStairGround))
-        {
-            characterState.IsOnGround = false;
-            return true;
-        }
-        characterState.IsOnGround = true;
-        return false;
-    }
-
-    public void SetCharacterOnStair( bool val)
-    {
-        characterState.IsOnStair = val;
-        if(IsBot)collider.enabled = !val;
-    }
-    public void CheckGate()
-    {
-        if (Physics.Raycast(tf.position, tf.forward, out RaycastHit hitGate, rangeDetect, layerGate))
-        {
-            Collider col = hitGate.collider;
-
-
-            GateCtrl gate = ColliderCache<GateCtrl>.GetComponent(col);
-
-
-
-            if (gate.NextStage == currentStage || gate.NextStage == null)
-            {
-                characterState.BlockDown = true;
-            }
-            else
-            {
-                characterState.BlockDown = false;
-            }
-        }
-        else
-        {
-            characterState.BlockDown = false;
-        }
-    }
-
-    public void CheckStair()
-    {
-         if (CharacterIsGoingDown())
-        {
-            return;
-        }
-        
-        if (Physics.Raycast(tf.position, tf.forward, out RaycastHit hit, rangeDetect, layerStair))
-        {
-
-            Collider col = hit.collider;
-
-
-            Stair stair = ColliderCache<Stair>.GetComponent(col);
-
-
-            stair.TakeStair(this);
-            if (stair.ColorType == colorType)
-            {
-                characterState.BlockForward = false;
-            }
-            else
-            {
-                characterState.BlockForward = true;
-            }
-        }
-        else
-        {
-           characterState.BlockForward = false;
-        }
-    }
-
-    public void CheckForward()
-    {
-
-        //Check Gate
-        CheckGate();
-        //Check stair
-        CheckStair();
-
+        return characterChecker.CharacterIsFalling();
     }
     public virtual void Knockback(Vector3 knockbackDirection)
     {
@@ -343,11 +250,7 @@ public class Character : MonoBehaviour
     }
     protected virtual void Awake()
     {
-        layerGround = LayerMask.GetMask("Ground", "Stair");
-        layerStair = LayerMask.GetMask("Stair");
-        layerGate = LayerMask.GetMask("Gate");
-        layerStairGround = LayerMask.GetMask("StairGround");
-
+        characterChecker.OnInit();
         tf = this.transform;
     }
 
@@ -361,6 +264,7 @@ public class Character : MonoBehaviour
         {
             return;
         }
+        characterChecker.CharacterIsFalling();
        
     }
 }

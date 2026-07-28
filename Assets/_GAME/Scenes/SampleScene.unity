@@ -1643,6 +1643,7 @@ GameObject:
   - component: {fileID: 409400428}
   - component: {fileID: 409400429}
   - component: {fileID: 409400430}
+  - component: {fileID: 409400431}
   m_Layer: 3
   m_Name: Bot (1)
   m_TagString: Character
@@ -1687,7 +1688,6 @@ MonoBehaviour:
   characterId: 2
   characterName: Huy
   speed: 10
-  rangeDetect: 0.7
   colorType: 2
   IsBot: 1
   textName: {fileID: 1303386675}
@@ -1696,8 +1696,8 @@ MonoBehaviour:
   rb: {fileID: 409400428}
   brickCharacterManager: {fileID: 409400429}
   characterKnockBack: {fileID: 409400430}
+  characterChecker: {fileID: 409400431}
   renderer: {fileID: 489062565}
-  collider: {fileID: 409400426}
   tf: {fileID: 409400427}
   tfVisual: {fileID: 2106937355}
   characterState:
@@ -1770,7 +1770,7 @@ Rigidbody:
     m_Bits: 0
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
-  m_UseGravity: 0
+  m_UseGravity: 1
   m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 112
@@ -1807,6 +1807,21 @@ MonoBehaviour:
   character: {fileID: 409400425}
   knockForce: 10
   breakBrickEffect: {fileID: 1867062130}
+--- !u!114 &409400431
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 409400423}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 94d808757eebd5944b1ac9971dd3e907, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CharacterChecker
+  character: {fileID: 409400425}
+  collider: {fileID: 409400426}
+  rangeDetect: 0.7
 --- !u!1 &410087039
 GameObject:
   m_ObjectHideFlags: 0
@@ -2535,6 +2550,7 @@ GameObject:
   - component: {fileID: 737381558}
   - component: {fileID: 737381559}
   - component: {fileID: 737381560}
+  - component: {fileID: 737381561}
   m_Layer: 3
   m_Name: Bot (2)
   m_TagString: Character
@@ -2579,7 +2595,6 @@ MonoBehaviour:
   characterId: 3
   characterName: Chuong
   speed: 10
-  rangeDetect: 0.7
   colorType: 4
   IsBot: 1
   textName: {fileID: 2110086708}
@@ -2588,8 +2603,8 @@ MonoBehaviour:
   rb: {fileID: 737381558}
   brickCharacterManager: {fileID: 737381559}
   characterKnockBack: {fileID: 737381560}
+  characterChecker: {fileID: 737381561}
   renderer: {fileID: 1005523266}
-  collider: {fileID: 737381556}
   tf: {fileID: 737381557}
   tfVisual: {fileID: 1069653728}
   characterState:
@@ -2662,7 +2677,7 @@ Rigidbody:
     m_Bits: 0
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
-  m_UseGravity: 0
+  m_UseGravity: 1
   m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 112
@@ -2699,6 +2714,21 @@ MonoBehaviour:
   character: {fileID: 737381555}
   knockForce: 10
   breakBrickEffect: {fileID: 1503680116}
+--- !u!114 &737381561
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 737381553}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 94d808757eebd5944b1ac9971dd3e907, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CharacterChecker
+  character: {fileID: 737381555}
+  collider: {fileID: 737381556}
+  rangeDetect: 0.7
 --- !u!1001 &740508910
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3368,6 +3398,7 @@ GameObject:
   - component: {fileID: 917712444}
   - component: {fileID: 917712445}
   - component: {fileID: 917712446}
+  - component: {fileID: 917712447}
   m_Layer: 3
   m_Name: Player
   m_TagString: Character
@@ -3407,7 +3438,6 @@ MonoBehaviour:
   characterId: 0
   characterName: Dung
   speed: 5
-  rangeDetect: 0.7
   colorType: 6
   IsBot: 0
   textName: {fileID: 541790057}
@@ -3416,8 +3446,8 @@ MonoBehaviour:
   rb: {fileID: 917712443}
   brickCharacterManager: {fileID: 917712445}
   characterKnockBack: {fileID: 917712446}
+  characterChecker: {fileID: 917712447}
   renderer: {fileID: 0}
-  collider: {fileID: 917712444}
   tf: {fileID: 917712441}
   tfVisual: {fileID: 356736487}
   characterState:
@@ -3450,7 +3480,7 @@ Rigidbody:
     m_Bits: 0
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
-  m_UseGravity: 0
+  m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 112
@@ -3510,6 +3540,21 @@ MonoBehaviour:
   character: {fileID: 917712442}
   knockForce: 10
   breakBrickEffect: {fileID: 1037094378}
+--- !u!114 &917712447
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 917712440}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 94d808757eebd5944b1ac9971dd3e907, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CharacterChecker
+  character: {fileID: 917712442}
+  collider: {fileID: 917712444}
+  rangeDetect: 0.7
 --- !u!1 &929405050
 GameObject:
   m_ObjectHideFlags: 0
@@ -6284,6 +6329,7 @@ GameObject:
   - component: {fileID: 1760249473}
   - component: {fileID: 1760249474}
   - component: {fileID: 1760249475}
+  - component: {fileID: 1760249476}
   m_Layer: 3
   m_Name: Bot
   m_TagString: Character
@@ -6328,7 +6374,6 @@ MonoBehaviour:
   characterId: 1
   characterName: Tan
   speed: 10
-  rangeDetect: 0.7
   colorType: 1
   IsBot: 1
   textName: {fileID: 1619420268}
@@ -6337,8 +6382,8 @@ MonoBehaviour:
   rb: {fileID: 1760249473}
   brickCharacterManager: {fileID: 1760249474}
   characterKnockBack: {fileID: 1760249475}
+  characterChecker: {fileID: 1760249476}
   renderer: {fileID: 1406904692}
-  collider: {fileID: 1760249470}
   tf: {fileID: 1760249472}
   tfVisual: {fileID: 130116922}
   characterState:
@@ -6411,7 +6456,7 @@ Rigidbody:
     m_Bits: 0
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
-  m_UseGravity: 0
+  m_UseGravity: 1
   m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 112
@@ -6448,6 +6493,21 @@ MonoBehaviour:
   character: {fileID: 1760249469}
   knockForce: 10
   breakBrickEffect: {fileID: 669013110}
+--- !u!114 &1760249476
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1760249467}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 94d808757eebd5944b1ac9971dd3e907, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CharacterChecker
+  character: {fileID: 1760249469}
+  collider: {fileID: 1760249470}
+  rangeDetect: 0.7
 --- !u!1 &1769587806
 GameObject:
   m_ObjectHideFlags: 0

@@ -113,7 +113,8 @@ public class Enemy : Character
 
     protected override void Update()
     {
-        if (CharacterIsFalling())
+        base.Update();
+        if (!characterState.IsOnGround)
         {
             EventBus<OnCharacterInActive>.Raise(new OnCharacterInActive
             {
@@ -128,9 +129,9 @@ public class Enemy : Character
         }
         if (!IsAgentValid()) return;
 
-        base.Update();
+        
 
-        CheckForward();
+        CharacterChecker.CheckForward();
             
         if(currentState != null)
         {
