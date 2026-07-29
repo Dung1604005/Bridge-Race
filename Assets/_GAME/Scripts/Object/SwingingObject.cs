@@ -8,13 +8,13 @@ public class SwingingObject : MonoBehaviour
 
     [SerializeField] private Transform tf;
 
-    private float currentRange = 0f;
+    private float timePassed = 0f;
 
     private float directionMulti = 1f;
 
     public void OnInit()
     {
-        currentRange = 0f;
+        timePassed = 0f;
         tf = this.transform;
     }
 
@@ -24,10 +24,10 @@ public class SwingingObject : MonoBehaviour
         {
             return;
         }
-        
-        tf.eulerAngles = Vector3.MoveTowards(tf.eulerAngles, 
-        new Vector3(tf.eulerAngles.x, tf.eulerAngles.y, directionMulti * swingRange), 
-        swingSpeed*Time.deltaTime);
+        timePassed += Time.deltaTime*swingSpeed;
+
+        float currentAngle = Mathf.Sin(timePassed) * swingRange;
+        tf.localRotation = Quaternion.Euler(tf.localEulerAngles.x, tf.localEulerAngles.y, currentAngle);
         
         if(Mathf.Abs(Mathf.Abs(tf.eulerAngles.z) - Mathf.Abs(swingRange)) <= 0.01f)
         {
@@ -49,13 +49,15 @@ public class SwingingObject : MonoBehaviour
             Character character = ColliderCache<Character>.GetComponent(collider);
 
             if (character.CharacterState.IsInactive) return;
+
+            Vector3 impactPoint = collision.GetContact(0).point;
             
-            Vector3 knockbackDirAB = -tf.position + character.TF.position;
-            knockbackDirAB.y = 1.8f;
+            Vector3 knockbackDir = (-character.TF.position + impactPoint);
+            knockbackDir.y += 1.5f;
             
-            knockbackDirAB.Normalize();
             
-            character.Knockback(knockbackDirAB);
+            
+            character.Knockback(knockbackDir);
                 
                 
                 

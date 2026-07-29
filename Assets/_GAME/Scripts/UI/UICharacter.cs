@@ -19,6 +19,8 @@ public class UICharacter : MonoBehaviour
 
     [SerializeField] private GameObject effectFocus;
 
+    private CanvasSkin canvasSkin;
+
     public void SetUp(SkinSO _skinSO, bool collected)
     {
         this.skinSO = _skinSO;
@@ -32,6 +34,7 @@ public class UICharacter : MonoBehaviour
 
     public void SetActiveSkin(bool collected)
     {
+        canvasSkin = UIManager.Instance.GetUI<CanvasSkin>();
          buyButton.gameObject.SetActive(false);
 
         selectButton.gameObject.SetActive(false);
@@ -48,6 +51,11 @@ public class UICharacter : MonoBehaviour
             priceText.text =  skinSO.Price.ToString("N0");
             buyButton.gameObject.SetActive(true);
         }
+    }
+
+    public void SetActiveFocusEffect(bool active)
+    {
+        effectFocus.SetActive(active);
     }
 
     public void OnBuyButton()
@@ -78,7 +86,10 @@ public class UICharacter : MonoBehaviour
         {
             SkinId = skinSO.IdSkin
         });
-        effectFocus.SetActive(true);
+        
+        canvasSkin.TurnOffAllFocusEffect();
+        SetActiveFocusEffect(true);
+        
         PlayerData playerData = GameData.Instance.PlayerData;
 
         playerData.CurrentSkinId = skinSO.IdSkin;
@@ -86,9 +97,7 @@ public class UICharacter : MonoBehaviour
         GameData.Instance.SavePlayerData(playerData);
 
         GameManager.Instance.Player.SetSkin(skinSO.SkinPrefab);
-
-        
-
-
     }
+
+    
 }

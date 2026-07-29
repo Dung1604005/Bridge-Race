@@ -19,8 +19,6 @@ public class GameData : Singleton<GameData>
 
     public String CHARACTER_TAG = "Character";
 
-    public int LAYER_STAIR = 6;
-
     public List<GameObject> listDecorObject = new List<GameObject>();
    public ColorDataSO ColorDataSO ;
    public List<LevelDataSO> LevelDatas = new List<LevelDataSO>();
@@ -41,7 +39,11 @@ public class GameData : Singleton<GameData>
             if(allLevelSaveData.LevelDatas[i].LevelId == levelData.LevelId)
             {
                 levelExist = true;
-                allLevelSaveData.LevelDatas[i] = levelData;
+                if(allLevelSaveData.LevelDatas[i].TotalStar < levelData.TotalStar)
+                {
+                    allLevelSaveData.LevelDatas[i] = levelData;
+                }
+                
             }
         }
         if (!levelExist)
@@ -99,6 +101,12 @@ public class GameData : Singleton<GameData>
         
     }
 
+    [ContextMenu("CLEAR LEVELDATA")]
+    public void ClearLevelData()
+    {
+        PlayerPrefs.DeleteKey("levelSave");
+    }
+
     public void LoadLevelData()
     {
         string jsonLevelData = PlayerPrefs.GetString("levelSave");
@@ -113,6 +121,14 @@ public class GameData : Singleton<GameData>
         {
             allLevelSaveData = new AllLevelDataSave();
             allLevelSaveData.LevelDatas = new List<LevelDataSave>();
+            for(int i = 0; i < LevelDatas.Count; i++)
+            {
+                allLevelSaveData.LevelDatas.Add(new LevelDataSave
+                {
+                   LevelId = LevelDatas[i].LevelId,
+                   TotalStar = 0 
+                });
+            }
             SaveAllLevel();
 
         }

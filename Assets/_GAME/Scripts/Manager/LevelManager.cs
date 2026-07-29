@@ -213,6 +213,15 @@ public class LevelManager : Singleton<LevelManager>
         {
             stage.OnWin();
         }
+        int totalStar = rankManager.CaculateStarPlayer();
+        if(totalStar > 0)
+        {
+            GameData.Instance.SaveLevel(new LevelDataSave
+            {
+                LevelId = levelDataSO.LevelId,
+                TotalStar = totalStar
+            });
+        }
         cam.OnWin();
         camUIObject.OnWin();
     }

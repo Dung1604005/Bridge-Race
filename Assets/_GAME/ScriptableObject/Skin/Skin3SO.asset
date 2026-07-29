@@ -17,4 +17,4 @@ MonoBehaviour:
   SkinPrefab: {fileID: 5225650714836829863, guid: 9499a8a288e91c04085760e020e3b6e2, type: 3}
   ModelPrefab: {fileID: 6510250577363920721, guid: d49eaa939593a8249b1a5355dbcf69fe, type: 3}
   SkinPortrait: {fileID: 21300000, guid: a93eb28c02068324fa1405eea61a0a88, type: 3}
-  Price: 2000
+  Price: 200

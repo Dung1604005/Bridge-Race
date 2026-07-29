@@ -49,7 +49,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SwingingObject
   swingRange: 67
-  swingSpeed: 100
+  swingSpeed: 2.5
   tf: {fileID: 738961592842641565}
 --- !u!114 &8925558606741962157
 MonoBehaviour:
@@ -101,7 +101,7 @@ NavMeshObstacle:
   m_MoveThreshold: 0.1
   m_Carve: 0
   m_CarveOnlyStationary: 1
-  m_Center: {x: 0, y: -3.98, z: 0}
+  m_Center: {x: 0, y: -4.57, z: 0}
   m_TimeToStationary: 0.5
 --- !u!1001 &498915333344458509
 PrefabInstance:
@@ -154,6 +154,14 @@ PrefabInstance:
     - target: {fileID: 1047177114845856589, guid: da69aa71c582846429cf350b8dfc40ca, type: 3}
       propertyPath: m_Name
       value: obstacle_4_001
+      objectReference: {fileID: 0}
+    - target: {fileID: 1551681908992238232, guid: da69aa71c582846429cf350b8dfc40ca, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7576240778126102979, guid: da69aa71c582846429cf350b8dfc40ca, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 4851826152217305693, guid: da69aa71c582846429cf350b8dfc40ca, type: 3}

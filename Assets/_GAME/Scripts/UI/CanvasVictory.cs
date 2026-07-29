@@ -25,11 +25,11 @@ public class CanvasVictory : UICanvas
     public override void SetUp()
     {
         base.SetUp();
-
+        gameObject.SetActive(true);
+        
         PlayerData playerData = GameData.Instance.PlayerData;
-        SetGoldText(playerData.Gold,  currentGoldText);
-
-        int goldAward = LevelManager.Instance.RankManager.GetGoldAward();
+         int goldAward = LevelManager.Instance.RankManager.GetGoldAward();
+        SetGoldText(playerData.Gold + goldAward,  currentGoldText);
         StartCoroutine(IEUpdateGoldAnim(0, goldAward, goldAwardText));
 
         playerData.Gold += goldAward;
@@ -47,6 +47,10 @@ public class CanvasVictory : UICanvas
         {
             nextButton.gameObject.SetActive(true);
             textResult.text = "LEVEL CLEARED!";
+        }
+        for(int i = 0; i < starList.Count; i++)
+        {
+            starList[i].fillAmount = 0f;
         }
 
         

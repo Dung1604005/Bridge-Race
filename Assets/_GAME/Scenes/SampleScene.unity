@@ -778,6 +778,72 @@ MeshRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!1001 &175149553
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2053273437578796494, guid: ba8cff43c7ca3cc4fab17cdcc999f2a8, type: 3}
+      propertyPath: m_Name
+      value: Level2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5282464972507112868, guid: ba8cff43c7ca3cc4fab17cdcc999f2a8, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5282464972507112868, guid: ba8cff43c7ca3cc4fab17cdcc999f2a8, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5282464972507112868, guid: ba8cff43c7ca3cc4fab17cdcc999f2a8, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5282464972507112868, guid: ba8cff43c7ca3cc4fab17cdcc999f2a8, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5282464972507112868, guid: ba8cff43c7ca3cc4fab17cdcc999f2a8, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5282464972507112868, guid: ba8cff43c7ca3cc4fab17cdcc999f2a8, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5282464972507112868, guid: ba8cff43c7ca3cc4fab17cdcc999f2a8, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5282464972507112868, guid: ba8cff43c7ca3cc4fab17cdcc999f2a8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5282464972507112868, guid: ba8cff43c7ca3cc4fab17cdcc999f2a8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5282464972507112868, guid: ba8cff43c7ca3cc4fab17cdcc999f2a8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 488334771202035382, guid: ba8cff43c7ca3cc4fab17cdcc999f2a8, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
+    - targetCorrespondingSourceObject: {fileID: 2888431896327963822, guid: ba8cff43c7ca3cc4fab17cdcc999f2a8, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
+    - targetCorrespondingSourceObject: {fileID: 891723655899882351, guid: ba8cff43c7ca3cc4fab17cdcc999f2a8, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
+  m_SourcePrefab: {fileID: 100100000, guid: ba8cff43c7ca3cc4fab17cdcc999f2a8, type: 3}
 --- !u!1 &176797187
 GameObject:
   m_ObjectHideFlags: 0
@@ -3105,7 +3171,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 168c7a757e65cd4409b4dfea5be98cf7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LevelManager
-  levelDataSO: {fileID: 11400000, guid: c3075d0c0122b8643b39880023f994b6, type: 2}
+  levelDataSO: {fileID: 11400000, guid: fec68bca6bca1de4da601db5af20bdc8, type: 2}
   stageRoot: {fileID: 543450653538175952}
   levelRoot: {fileID: 683986225}
   gateRoot: {fileID: 44428299}
@@ -7133,13 +7199,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameData
   allLevelSaveData:
-    LevelDatas:
-    - LevelId: 0
-      TotalStar: 2
-    - LevelId: 1
-      TotalStar: 0
-    - LevelId: 2
-      TotalStar: 0
+    LevelDatas: []
   playerData:
     PlayerName: 
     Gold: 0
@@ -7151,7 +7211,6 @@ MonoBehaviour:
   ANIM_WIN: Win
   BRICK_SIZE: {x: 1, y: 0.4, z: 0.5}
   CHARACTER_TAG: Character
-  LAYER_STAIR: 6
   listDecorObject:
   - {fileID: 6438175172513326101, guid: 771a5d0f1012e3f4b95a054b1ecfae60, type: 3}
   - {fileID: 3516593747886792658, guid: 2dcc25ceb2b93ed498c7e1307245432c, type: 3}
@@ -7623,3 +7682,4 @@ SceneRoots:
   - {fileID: 1151793074}
   - {fileID: 1680302047}
   - {fileID: 778108899}
+  - {fileID: 175149553}

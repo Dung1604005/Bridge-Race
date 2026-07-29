@@ -50,6 +50,14 @@ public class CanvasSkin : UICanvas
         goldText.text = goldAmount.ToString("N0");
     }
 
+    public void TurnOffAllFocusEffect()
+    {
+        foreach(UICharacter uICharacter in uiCharacters)
+        {
+            uICharacter.SetActiveFocusEffect(false);
+        }
+    }
+
 
 
 
