@@ -24,7 +24,7 @@ public class CharacterChecker : MonoBehaviour
         layerGate = LayerMask.GetMask("Gate");
         layerStairGround = LayerMask.GetMask("StairGround");
     }
-    public virtual bool CharacterIsGoingDown()
+    public bool CharacterIsGoingDown()
     {
 
         if (character.Rb.linearVelocity.z < -0.01f)
@@ -78,11 +78,10 @@ public class CharacterChecker : MonoBehaviour
 
     public void CheckStair()
     {
-         if (CharacterIsGoingDown())
-        {
-            return;
-        }
+       
+        if(character.CharacterIsGoingDown())return;
         
+        Debug.DrawRay(character.TF.position, character.TF.forward*rangeDetect);
         if (Physics.Raycast(character.TF.position, character.TF.forward, out RaycastHit hit, rangeDetect, layerStair))
         {
 
@@ -104,6 +103,7 @@ public class CharacterChecker : MonoBehaviour
         }
         else
         {
+            collider.enabled = true;
            character.CharacterState.SetIsOnStair(false);
            character.CharacterState.SetBlockForward(false);
         }

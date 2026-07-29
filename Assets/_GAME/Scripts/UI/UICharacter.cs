@@ -74,6 +74,10 @@ public class UICharacter : MonoBehaviour
 
     public void OnSelectButton()
     {
+        EventBus<OnLoadSkinModel>.Raise(new OnLoadSkinModel
+        {
+            SkinId = skinSO.IdSkin
+        });
         effectFocus.SetActive(true);
         PlayerData playerData = GameData.Instance.PlayerData;
 
@@ -82,6 +86,8 @@ public class UICharacter : MonoBehaviour
         GameData.Instance.SavePlayerData(playerData);
 
         GameManager.Instance.Player.SetSkin(skinSO.SkinPrefab);
+
+        
 
 
     }

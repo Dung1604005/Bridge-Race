@@ -35,3 +35,8 @@ public struct OnLevelSelect: IEvent
 {
     public int LevelId;
 }
+
+public struct OnLoadSkinModel: IEvent
+{
+    public int SkinId;
+}

@@ -45,7 +45,6 @@ public class CanvasLoading : UICanvas
             
             canvasGamePlay.StartCountDown();
             
-            UIManager.Instance.GetUI<CanvasGamePlay>().SetRankUI(LevelManager.Instance.RankManager.GetRankedList());
         }
     }
 

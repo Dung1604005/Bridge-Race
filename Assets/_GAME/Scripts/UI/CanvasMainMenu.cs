@@ -8,9 +8,14 @@ public class CanvasMainMenu : UICanvas
 
    [SerializeField] private TMP_InputField nameInputField;
 
+
     public override void SetUp()
     {
         base.SetUp();
+        EventBus<OnLoadSkinModel>.Raise(new OnLoadSkinModel
+        {
+            SkinId = GameData.Instance.PlayerData.CurrentSkinId
+        });
         SetNameInputField(GameManager.Instance.Player.CharacterName);
         SetGoldText(GameData.Instance.PlayerData.Gold);
     }

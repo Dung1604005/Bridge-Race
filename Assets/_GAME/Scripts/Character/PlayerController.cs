@@ -30,7 +30,7 @@ public class PlayerController : Character
     public override bool CharacterIsGoingDown()
     {
 
-        if (moveZ < -0.01f)
+        if (moveZ < -0.001f)
         {
             return true;
         }
@@ -83,17 +83,19 @@ public class PlayerController : Character
         }
         if (characterState.BlockDown)
         {
-            if (moveZ < -0.01f)
+            if (moveZ < -0.001f)
             {
                 moveZ = 0f;
+                moveX = 0f;
             }
         }
 
         if (characterState.BlockForward)
         {
-            if (moveZ > 0.01f)
+            if (moveZ > 0.001f)
             {
                 moveZ = 0f;
+                moveX = 0f;
             }
 
         }
@@ -102,8 +104,7 @@ public class PlayerController : Character
         {
            dir = dir.normalized; 
         }
-
-
+        
         tf.position = Vector3.MoveTowards(tf.position, tf.position + dir, speed*Time.fixedDeltaTime);
 
     }

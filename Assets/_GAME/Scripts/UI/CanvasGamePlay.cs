@@ -18,6 +18,10 @@ public class CanvasGamePlay : UICanvas
 
     [SerializeField] private List<LeaderBoardEntryUI> leaderBoard = new List<LeaderBoardEntryUI>();
 
+    [SerializeField] private TextMeshProUGUI textLevel;
+
+    private bool isSetUp = false;
+
 
 
     public void SetRankUI(List<Character> characters)
@@ -25,8 +29,36 @@ public class CanvasGamePlay : UICanvas
      
         for(int i = 0; i < leaderBoard.Count; i++)
         {
-            leaderBoard[i].SetInfo(i + 1, characters[i].CharacterName, characters[i].CharacterId);
+        
+            if (!isSetUp)
+            {
+                leaderBoard[i].SetInfo(i + 1, characters[i].CharacterName, characters[i].CharacterId);
+            }
+            EventBus<OnRankChange>.Raise(new OnRankChange
+            {
+                CharacterId = characters[i].CharacterId,
+                NewRank = i + 1
+            });
+            
         }
+    }
+
+    public void SetLevelText(int level)
+    {
+        textLevel.text = "Level "+level.ToString();
+    }
+
+    public override void SetUp()
+    {
+        base.SetUp();
+        gameObject.SetActive(true);
+        if (!isSetUp)
+        {
+            SetRankUI(LevelManager.Instance.RankManager.GetRankedList());
+            isSetUp = true;
+        }
+        
+        SetLevelText(LevelManager.Instance.LevelDataSO.LevelId + 1);
     }
 
     public void StartCountDown()

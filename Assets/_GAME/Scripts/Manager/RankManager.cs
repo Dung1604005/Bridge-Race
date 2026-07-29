@@ -19,6 +19,11 @@ public class RankManager : MonoBehaviour
         return rankedCharacters;
     }
 
+    public void OnInit()
+    {
+        
+    }
+
     public void LoadRankedList(List<Character> characters)
     {
         rankedCharacters = new List<Character>(characters);
@@ -31,10 +36,6 @@ public class RankManager : MonoBehaviour
         bool newRankAdded = false;
         for (int i = 0; i < rankedCharacters.Count; i++)
         {
-            if(rankedCharacters[i].CurrentStage == null)
-            {
-                Debug.Log("BUG HERE");
-            }
             if (onCharacterUpStage.Stage <= rankedCharacters[i].CurrentStage.StageNumber &&
             onCharacterUpStage.Character.CharacterId != rankedCharacters[i].CharacterId)
             {

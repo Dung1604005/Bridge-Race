@@ -42,6 +42,7 @@ public class CanvasSettings : UICanvas
         LevelManager.Instance.DeSpawnLevel();
         LevelManager.Instance.InitLevel();
         UIManager.Instance.CloseUI<CanvasSettings>(0f);
+        UIManager.Instance.CloseUI<CanvasGamePlay>(0f);
         UIManager.Instance.OpenUI<CanvasLoading>(this);
         
         

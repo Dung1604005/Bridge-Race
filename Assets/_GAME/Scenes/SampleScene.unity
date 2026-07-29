@@ -1821,7 +1821,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::CharacterChecker
   character: {fileID: 409400425}
   collider: {fileID: 409400426}
-  rangeDetect: 0.7
+  rangeDetect: 1
 --- !u!1 &410087039
 GameObject:
   m_ObjectHideFlags: 0
@@ -2498,7 +2498,7 @@ Canvas:
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
   m_VertexColorAlwaysGammaSpace: 0
-  m_AdditionalShaderChannelsFlag: 0
+  m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 907339843
   m_SortingOrder: 5
@@ -2728,7 +2728,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::CharacterChecker
   character: {fileID: 737381555}
   collider: {fileID: 737381556}
-  rangeDetect: 0.7
+  rangeDetect: 1
 --- !u!1001 &740508910
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3554,7 +3554,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::CharacterChecker
   character: {fileID: 917712442}
   collider: {fileID: 917712444}
-  rangeDetect: 0.7
+  rangeDetect: 1
 --- !u!1 &929405050
 GameObject:
   m_ObjectHideFlags: 0
@@ -3957,6 +3957,11 @@ Transform:
 ParticleSystem:
   m_CorrespondingSourceObject: {fileID: 316682015325656839, guid: ba93915fd7bb355489fa8f36ac487ef6, type: 3}
   m_PrefabInstance: {fileID: 945049567}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1045292976 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6809842374286309076, guid: 6e44c5502a8b6dd438f0f141b663a187, type: 3}
+  m_PrefabInstance: {fileID: 1537095377}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1069653727
 GameObject:
@@ -5939,6 +5944,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1680302047}
+  - component: {fileID: 1680302048}
   m_Layer: 0
   m_Name: ModelShowcase
   m_TagString: Untagged
@@ -5964,6 +5970,21 @@ Transform:
   - {fileID: 1537095378}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1680302048
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1680302046}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a7aebac51dcca754ca4f0db3b79b8b0d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CharacterModelUI
+  tf: {fileID: 1680302047}
+  spawnPos: {x: 0.05000305, y: -1.32, z: -1.673}
+  skinModel: {fileID: 1045292976}
 --- !u!1001 &1698607893
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6507,7 +6528,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::CharacterChecker
   character: {fileID: 1760249469}
   collider: {fileID: 1760249470}
-  rangeDetect: 0.7
+  rangeDetect: 1
 --- !u!1 &1769587806
 GameObject:
   m_ObjectHideFlags: 0

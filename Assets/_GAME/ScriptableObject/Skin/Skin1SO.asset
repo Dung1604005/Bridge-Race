@@ -15,5 +15,6 @@ MonoBehaviour:
   IdSkin: 0
   NameSkin: Chill Guy
   SkinPrefab: {fileID: 4898537371197798584, guid: 6e44c5502a8b6dd438f0f141b663a187, type: 3}
+  ModelPrefab: {fileID: 6809842374286309076, guid: 27d966c140a97c8428da094102b5db8b, type: 3}
   SkinPortrait: {fileID: 21300000, guid: b8ba521eea6f752418a55ba3eb1f647b, type: 3}
   Price: 3000

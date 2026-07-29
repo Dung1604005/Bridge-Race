@@ -93,8 +93,8 @@ public class CanvasLevelSelect : UICanvas
         LevelManager.Instance.LoadData(GameData.Instance.LevelDatas[selectedLevelId]);
         LevelManager.Instance.InitLevel();
 
-        UIManager.Instance.CloseUIDirectly<CanvasMainMenu>();
-        UIManager.Instance.CloseUIDirectly<CanvasLevelSelect>();
+        UIManager.Instance.CloseUI<CanvasMainMenu>(0f);
+        UIManager.Instance.CloseUI<CanvasLevelSelect>(0f);
 
         UIManager.Instance.OpenUI<CanvasLoading>(this);
     }
