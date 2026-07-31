@@ -84,6 +84,14 @@ PrefabInstance:
       propertyPath: m_AABB.m_Extent.z
       value: 4.7330074
       objectReference: {fileID: 0}
+    - target: {fileID: -3887185075125053422, guid: 6eb021c8c9567ca47b651e806067ddc5, type: 3}
+      propertyPath: m_DynamicOccludee
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -3887185075125053422, guid: 6eb021c8c9567ca47b651e806067ddc5, type: 3}
+      propertyPath: m_SkinnedMotionVectors
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 6eb021c8c9567ca47b651e806067ddc5, type: 3}
       propertyPath: m_Name
       value: air_balloon_001
@@ -98,9 +106,6 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 6eb021c8c9567ca47b651e806067ddc5, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 8149477643845499931}
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 6eb021c8c9567ca47b651e806067ddc5, type: 3}
-      insertIndex: -1
       addedObject: {fileID: 195130647167034767}
   m_SourcePrefab: {fileID: 100100000, guid: 6eb021c8c9567ca47b651e806067ddc5, type: 3}
 --- !u!1 &1645413020235552913 stripped
@@ -108,28 +113,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 6eb021c8c9567ca47b651e806067ddc5, type: 3}
   m_PrefabInstance: {fileID: 1879346561096115648}
   m_PrefabAsset: {fileID: 0}
---- !u!95 &8149477643845499931
-Animator:
-  serializedVersion: 7
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1645413020235552913}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: b4d0e26e0334da7469e495fd3af4ee0e, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_AnimatePhysics: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!114 &195130647167034767
 MonoBehaviour:
   m_ObjectHideFlags: 0

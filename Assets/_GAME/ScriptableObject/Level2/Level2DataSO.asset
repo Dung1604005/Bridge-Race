@@ -452,4 +452,4 @@ MonoBehaviour:
   SpeedBot: 6
   SpeedPlayer: 7
   GoldPerStar: 120
-  NextLevelData: {fileID: 0}
+  NextLevelData: {fileID: 11400000, guid: b8bfff2f9cdc78049985a50f0caa3bb4, type: 2}

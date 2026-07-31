@@ -87,7 +87,11 @@ public class GameData : Singleton<GameData>
         }
         else
         {
-            SavePlayerData(new PlayerData{});
+            SavePlayerData(new PlayerData
+            {
+                collectedSkin = new List<int>(0),
+                CurrentSkinId = 0
+            });
             jsonPlayerData = PlayerPrefs.GetString("playerData");
         }
 
@@ -105,6 +109,12 @@ public class GameData : Singleton<GameData>
     public void ClearLevelData()
     {
         PlayerPrefs.DeleteKey("levelSave");
+    }
+
+    [ContextMenu("CLEAR PLAYERDATA")]
+    public void ClearPlayerData()
+    {
+        PlayerPrefs.DeleteKey("playerData");
     }
 
     public void LoadLevelData()

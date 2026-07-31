@@ -98,4 +98,6 @@ public struct PlayerData
     public List<int> collectedSkin; 
 
     public int CurrentSkinId;
+
+    
 }

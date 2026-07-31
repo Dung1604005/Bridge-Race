@@ -169,6 +169,7 @@ public class Character : MonoBehaviour
 
     public void SetColor(ColorType colorType)
     {
+        this.colorType = colorType;
         if (renderer != null)
         {
             renderer.material = GameData.Instance.ColorDataSO.GetColorCharacterMaterial(colorType);

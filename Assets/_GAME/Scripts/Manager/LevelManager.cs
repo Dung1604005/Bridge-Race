@@ -77,8 +77,19 @@ public class LevelManager : Singleton<LevelManager>
         }
     }
 
+    public void InitColor()
+    {
+        int randomSeed = (int)Helper.GetRandomColor();
+
+        for(int i = 0; i < listColors.Count; i++)
+        {
+            listColors[i] = (ColorType)(randomSeed + i);
+        }
+    }
+
     public void InitLevel()
     {
+        InitColor();
         rankManager.LoadRankedList(listCharacter);
         stageManager.OnInit();
         stageManager.LoadStage(levelDataSO.stageDatas);
@@ -139,8 +150,10 @@ public class LevelManager : Singleton<LevelManager>
 
     public void InitCharacter()
     {
-        foreach (Character character in listCharacter)
+        for(int i = 0; i < listCharacter.Count; i++)
         {
+            Character character = listCharacter[i];
+            character.SetColor(listColors[i]);
             character.ChangeStage(stageManager.GetStage(1), false);
             character.ReSpawn();
             if(character is PlayerController)
@@ -152,6 +165,7 @@ public class LevelManager : Singleton<LevelManager>
                 character.SetSpeed(levelDataSO.SpeedBot);
             }
         }
+        
     }
 
     public void DeSpawnCharacter()

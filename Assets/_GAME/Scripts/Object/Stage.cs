@@ -191,7 +191,7 @@ public class Stage : GameUnit
         }
         else
         {
-            Debug.LogError("Color brick want to be active dont have in stage!!!");
+            Debug.LogError("Color brick want to be active dont have in stage!!! "+ colorType);
         }
 
     }
@@ -288,7 +288,22 @@ public class Stage : GameUnit
             }
         }
     }
+    [ContextMenu("CHECK VALID STAGE")]
+    public void CheckValidSize()
+    {
+         int numbCollumn = (int)((sizeStage.x - distanceBrick.x) / (GameData.Instance.BRICK_SIZE.x + distanceBrick.x));
+        int numbRow = (int)((sizeStage.z - distanceBrick.z) / (GameData.Instance.BRICK_SIZE.z + distanceBrick.z));
+        int numbBrick = numbCollumn * numbRow;
 
+        if(numbBrick % 4 == 0)
+        {
+            Debug.Log("VALID STAGE");
+        }
+        else
+        {
+            Debug.Log("UNVALID STAGE");
+        }
+    }
     public void SpawnBrick(List<ColorType> colorTypes)
     {
        

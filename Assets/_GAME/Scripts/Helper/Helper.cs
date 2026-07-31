@@ -123,5 +123,12 @@ public static class Helper
         
     }
 
+    public static ColorType GetRandomColor()
+    {
+        int randomColor = UnityEngine.Random.Range(1, 4);
+
+        return (ColorType)randomColor;
+    }
+
 
 }

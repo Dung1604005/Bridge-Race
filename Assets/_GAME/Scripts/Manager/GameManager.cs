@@ -54,6 +54,7 @@ public class GameManager :Singleton<GameManager>
     }
     void Awake()
     {
+       
         GameData.Instance.LoadPlayerData();
         GameData.Instance.LoadLevelData();
     }
