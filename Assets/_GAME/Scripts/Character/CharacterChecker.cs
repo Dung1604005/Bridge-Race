@@ -37,20 +37,20 @@ public class CharacterChecker : MonoBehaviour
     public virtual bool CharacterIsFalling()
     {
 
-        if (character.Rb.linearVelocity.y < -5f && !Physics.Raycast(character.TF.position, -character.TF.up, 10f, layerGround|layerStairGround))
+        if (character.Rb.linearVelocity.y < -5f && !Physics.Raycast(character.TF.position, -character.TF.up, 10f, layerGround | layerStairGround))
         {
             character.CharacterState.SetIsOnGround(false);
-            
+
             return true;
         }
         character.CharacterState.SetIsOnGround(true);
         return false;
     }
 
-    public void SetCharacterOnStair( bool val)
+    public void SetCharacterOnStair(bool val)
     {
         character.CharacterState.SetIsOnStair(val);
-        if(character.IsBot) collider.enabled = !val;
+        if (character.IsBot) collider.enabled = !val;
     }
     public void CheckGate()
     {
@@ -62,12 +62,12 @@ public class CharacterChecker : MonoBehaviour
             if (gate.NextStage == character.CurrentStage || gate.NextStage == null)
             {
                 character.CharacterState.SetBlockDown(true);
-                
+
             }
             else
             {
                 character.CharacterState.SetBlockDown(false);
-                
+
             }
         }
         else
@@ -78,10 +78,10 @@ public class CharacterChecker : MonoBehaviour
 
     public void CheckStair()
     {
-       
-        if(character.CharacterIsGoingDown())return;
-        
-        Debug.DrawRay(character.TF.position, character.TF.forward*rangeDetect);
+
+        if (character.CharacterIsGoingDown()) return;
+
+        Debug.DrawRay(character.TF.position, character.TF.forward * rangeDetect);
         if (Physics.Raycast(character.TF.position, character.TF.forward, out RaycastHit hit, rangeDetect, layerStair))
         {
 
@@ -92,20 +92,23 @@ public class CharacterChecker : MonoBehaviour
 
 
             stair.TakeStair(character);
-            if (stair.ColorType == character.ColorType)
+            if (stair.Bridge.OwnerStage == character.CurrentStage)
             {
-                character.CharacterState.SetBlockForward(false);
-            }
-            else
-            {
-                character.CharacterState.SetBlockForward(true);
+                if (stair.ColorType == character.ColorType)
+                {
+                    character.CharacterState.SetBlockForward(false);
+                }
+                else
+                {
+                    character.CharacterState.SetBlockForward(true);
+                }
             }
         }
         else
         {
             collider.enabled = true;
-           character.CharacterState.SetIsOnStair(false);
-           character.CharacterState.SetBlockForward(false);
+            character.CharacterState.SetIsOnStair(false);
+            character.CharacterState.SetBlockForward(false);
         }
     }
 

@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 6571215552439084183}
   - component: {fileID: 755519567162065983}
   - component: {fileID: 6514152733739566360}
+  - component: {fileID: 8485783286613772220}
   m_Layer: 0
   m_Name: wall_007
   m_TagString: Untagged
@@ -128,3 +129,23 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 6.091701, y: 1.6456518, z: 0.65928227}
   m_Center: {x: 0, y: 0.77881503, z: -0.00000005960466}
+--- !u!114 &8485783286613772220
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8206811141541955301}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.AI.Navigation::Unity.AI.Navigation.NavMeshModifier
+  m_SerializedVersion: 0
+  m_OverrideArea: 1
+  m_Area: 1
+  m_OverrideGenerateLinks: 0
+  m_GenerateLinks: 0
+  m_IgnoreFromBuild: 0
+  m_ApplyToChildren: 1
+  m_AffectedAgents: ffffffff

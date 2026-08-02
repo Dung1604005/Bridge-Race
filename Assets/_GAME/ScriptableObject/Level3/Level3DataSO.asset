@@ -413,7 +413,7 @@ MonoBehaviour:
       EulerAngles: {x: -0, y: 90, z: -0}
       Scale: {x: 1, y: 1, z: 1}
     DecorId: 6
-  navMeshData: {fileID: 23800000, guid: f95a4d1022b618544aac59f3b304767e, type: 2}
+  navMeshData: {fileID: 23800000, guid: 3a11848cef97b5043aede2814dcc9f34, type: 2}
   SpeedBot: 5
   SpeedPlayer: 6.5
   GoldPerStar: 200

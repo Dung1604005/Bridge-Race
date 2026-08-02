@@ -62,6 +62,7 @@ public class CanvasVictory : UICanvas
     }
      public void OnHomeButton()
     {
+        SoundManager.Instance.PlaySFXClick();
         LevelManager.Instance.DeSpawnLevel();
 
        
@@ -72,6 +73,7 @@ public class CanvasVictory : UICanvas
 
     public void OnRetry()
     {
+        SoundManager.Instance.PlaySFXClick();
         LevelManager.Instance.DeSpawnLevel();
         LevelManager.Instance.InitLevel();
         UIManager.Instance.CloseUI<CanvasVictory>(0f);
@@ -80,6 +82,7 @@ public class CanvasVictory : UICanvas
 
     public void OnNextLevelButton()
     {
+        SoundManager.Instance.PlaySFXClick();
         LevelManager.Instance.DeSpawnLevel();
         if(LevelManager.Instance.LevelDataSO.NextLevelData!= null)
         {

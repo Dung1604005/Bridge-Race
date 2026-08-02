@@ -121,10 +121,10 @@ public class Brick : GameUnit
         {
             Debug.LogError("BRICK HAVENT SET RENDERER");
         }
-        renderer.material = GameData.Instance.ColorDataSO.GetColorMaterial(colorType);
+        renderer.sharedMaterial = GameData.Instance.ColorDataSO.GetColorMaterial(colorType);
         foreach (TrailRenderer trail in trailRenderers)
         {
-            trail.material = GameData.Instance.ColorDataSO.GetColorParticalMaterial(colorType);
+            trail.sharedMaterial = GameData.Instance.ColorDataSO.GetColorParticalMaterial(colorType);
         }
 
     }

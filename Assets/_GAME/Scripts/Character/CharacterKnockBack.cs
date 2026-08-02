@@ -11,6 +11,7 @@ public class CharacterKnockBack : MonoBehaviour
 
     public void Knockback(Vector3 knockbackDirection)
     {
+        SoundManager.Instance.PlaySFXImpact();
 
         character.SetInActive();
         //gameObject.layer = LayerMask.NameToLayer("DeadPlayer");

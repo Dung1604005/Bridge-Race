@@ -48,6 +48,7 @@ public class BrickCharacterManager : MonoBehaviour
 
     public void AddBrick()
     {
+        SoundManager.Instance.PlaySFXCollectBrick();
         Vector3 localPos = startCharacterBrickPos + new Vector3(0f, characterBricks.Count * (GameData.Instance.BRICK_SIZE.y / 2 + 0.05f), 0f);
         Brick brick = SimplePool.Spawn<Brick>(PoolType.BrickPool, Vector3.zero, Quaternion.identity);
 

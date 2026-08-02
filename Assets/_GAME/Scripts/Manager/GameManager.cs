@@ -54,7 +54,10 @@ public class GameManager :Singleton<GameManager>
     }
     void Awake()
     {
-       
+       QualitySettings.vSyncCount = 0;
+
+    
+        Application.targetFrameRate = 60;
         GameData.Instance.LoadPlayerData();
         GameData.Instance.LoadLevelData();
     }
@@ -62,6 +65,7 @@ public class GameManager :Singleton<GameManager>
     void Start()
     {
         UIManager.Instance.OpenUI<CanvasMainMenu>();
+        SoundManager.Instance.PlayBG();
     }
 }
 

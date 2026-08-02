@@ -55,10 +55,18 @@ public class WinArea : MonoBehaviour
                 Stage = 10
             });
             LevelManager.Instance.OnWin();
-
-            OnWin();
-
+            OnWin();            
             GameManager.Instance.ChangeGameState(GameState.VICTORY);
+            int expectStar = LevelManager.Instance.RankManager.CaculateStarPlayer();
+
+            if(expectStar > 0)
+            {
+                SoundManager.Instance.PlayWinMusic();
+            }
+            else
+            {
+                SoundManager.Instance.PlayFailMusic();
+            }
 
         }
     }

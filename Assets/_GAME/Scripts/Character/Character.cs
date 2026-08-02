@@ -172,7 +172,7 @@ public class Character : MonoBehaviour
         this.colorType = colorType;
         if (renderer != null)
         {
-            renderer.material = GameData.Instance.ColorDataSO.GetColorCharacterMaterial(colorType);
+            renderer.sharedMaterial = GameData.Instance.ColorDataSO.GetColorCharacterMaterial(colorType);
         }
         else
         {

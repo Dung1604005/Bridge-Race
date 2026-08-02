@@ -38,7 +38,7 @@ public class Stair : GameUnit
         bridge = null;
         renderer.enabled = false;
         colorType = ColorType.NONE;
-        renderer.material = GameData.Instance.ColorDataSO.GetColorMaterial(ColorType.NONE);
+        renderer.sharedMaterial = GameData.Instance.ColorDataSO.GetColorMaterial(ColorType.NONE);
     }
 
     public void SetBridge(Bridge _bridge)
@@ -81,7 +81,7 @@ public class Stair : GameUnit
 
             yield return null;
         }
-        renderer.material.color = targetColor;
+        renderer.sharedMaterial.color = targetColor;
     }
 
     public bool IsThisLastStair()
@@ -112,7 +112,7 @@ public class Stair : GameUnit
 
     public void TakeStair(Character character)
     {
-        character.CharacterChecker.SetCharacterOnStair(true);
+        
         if (character.CharacterIsGoingDown() || character.CharacterState.IsInactive)
         {
             return;
