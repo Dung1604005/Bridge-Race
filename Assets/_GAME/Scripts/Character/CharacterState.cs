@@ -4,43 +4,67 @@ using UnityEngine;
 [Serializable]
 public class CharacterState
 {
-    public bool IsInactive;
-    public bool IsOnGround;
-    public bool IsOnStair;
-    public bool BlockForward;
-    public bool BlockDown;
+    [SerializeField]private bool isInactive;
+    [SerializeField]private bool isOnGround;
+    [SerializeField]private bool isOnStair;
+    [SerializeField]private bool blockForward;
+    [SerializeField]private bool blockDown;
 
     public CharacterState()
     {
-        IsInactive = false;
-        IsOnGround = true;
-        IsOnStair = false;
-        BlockForward = false;
-        BlockDown = false;
+        isInactive = false;
+        isOnGround = true;
+        isOnStair = false;
+        blockForward = false;
+        blockDown = false;
     }
 
     public void SetIsInActive(bool isInActive)
     {
-        IsInactive = isInActive;
+        this.isInactive = isInActive;
+    }
+    public bool GetIsInActive()
+    {
+        return isInactive;
     }
 
     public void SetIsOnGround(bool isOnGround)
     {
-        IsOnGround = isOnGround;
+        this.isOnGround = isOnGround;
+    }
+
+    public bool GetIsOnGround()
+    {
+        return isOnGround;
     }
 
     public void SetIsOnStair(bool isOnStair)
     {
-        IsOnStair = isOnStair;
+        this.isOnStair = isOnStair;
+    }
+
+    public bool GetIsOnStair()
+    {
+        return isOnStair;
     }
 
     public void SetBlockForward(bool blockForward)
     {
-        BlockForward = blockForward;
+        this.blockForward = blockForward;
+    }
+
+    public bool GetBlockForward()
+    {
+        return blockForward;
     }
 
     public void SetBlockDown(bool blockDown)
     {
-        BlockDown = blockDown;
+        this.blockDown = blockDown;
+    }
+
+    public bool GetBlockDown()
+    {
+        return blockDown;
     }
 }

@@ -36,7 +36,7 @@ public class BuildState : IState
             {
 
 
-                if (bestBridge.OwnerStage.IsLastStage)
+                if (bestBridge.OwnerStage.IsLastStage())
                 {
 
                     enemy.ChangeState(new WiningChaseState());

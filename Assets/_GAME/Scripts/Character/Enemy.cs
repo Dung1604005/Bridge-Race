@@ -22,11 +22,6 @@ public class Enemy : Character
         base.OnWin();
     }
 
-    public override void OnInit()
-    {
-        base.OnInit();
-    }
-
     public override void OnDespawn()
     {
         base.OnDespawn();
@@ -114,7 +109,7 @@ public class Enemy : Character
     protected override void Update()
     {
         base.Update();
-        if (!characterState.IsOnGround)
+        if (!characterState.GetIsOnGround())
         {
             EventBus<OnCharacterInActive>.Raise(new OnCharacterInActive
             {

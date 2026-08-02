@@ -33,7 +33,7 @@ public class GateCtrl : GameUnit
         }
         else
         {
-            data.NextStageNumber = nextStage.StageNumber;
+            data.NextStageNumber = nextStage.GetStageNumber();
         }
         
 
@@ -88,8 +88,8 @@ public class GateCtrl : GameUnit
     {
         if (nextStage == null) return true;
 
-        if (character.CharacterState.IsInactive || character.CharacterIsGoingDown() ||
-        (character.CurrentStage.StageNumber >= nextStage.StageNumber && !character.IsBot))
+        if (character.CharacterState.GetIsInActive() || character.CharacterIsGoingDown() ||
+        (character.CompareCurrentStage(nextStage) == 1 && !character.IsBot))
         {
             return false;
         }

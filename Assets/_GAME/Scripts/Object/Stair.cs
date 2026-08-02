@@ -113,7 +113,7 @@ public class Stair : GameUnit
     public void TakeStair(Character character)
     {
         
-        if (character.CharacterIsGoingDown() || character.CharacterState.IsInactive)
+        if (character.CharacterIsGoingDown() || character.CharacterState.GetIsInActive())
         {
             return;
         }

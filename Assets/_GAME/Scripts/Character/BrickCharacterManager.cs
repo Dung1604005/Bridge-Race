@@ -13,8 +13,6 @@ public class BrickCharacterManager : MonoBehaviour
 
     [SerializeField] private int visualBrickId = 0;
 
-    public int VisualBrickId => visualBrickId;
-
     public void SetBrickRoot(Transform tf)
     {
         brickRoot = tf;
@@ -24,6 +22,11 @@ public class BrickCharacterManager : MonoBehaviour
         int assignedIndex = visualBrickId;
         visualBrickId += 1;
         return assignedIndex;
+    }
+
+    public int GetVisualBrickId()
+    {
+        return visualBrickId;
     }
 
     public void RemoveBrickIndex()
@@ -53,14 +56,10 @@ public class BrickCharacterManager : MonoBehaviour
         Brick brick = SimplePool.Spawn<Brick>(PoolType.BrickPool, Vector3.zero, Quaternion.identity);
 
         brick.OnInit();
-
         brick.SetLocal(localPos, Quaternion.identity, brickRoot);
         brick.SetColor(character.ColorType);
         brick.SetActiveTrail(false);
-
         characterBricks.Add(brick);
-
-
         BrickEffect brickEffect = SimplePool.Spawn<BrickEffect>(PoolType.BrickEffectPool, Vector3.zero, Quaternion.identity);
         brickEffect.SetColor(character.ColorType);
         brickEffect.SetLocal(localPos, Quaternion.identity, brickRoot);

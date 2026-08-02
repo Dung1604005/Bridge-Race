@@ -11,9 +11,9 @@ public class Stage : GameUnit
 {
 
     [SerializeField] private StageDataSO stageDataSO;
-    public int StageNumber;
+    [SerializeField] private int stageNumber;
 
-    public bool IsLastStage;
+    [SerializeField]private bool isLastStage;
     [SerializeField] private float scaleX;
 
     [SerializeField] private float scaleY;
@@ -44,9 +44,9 @@ public class Stage : GameUnit
 
         Debug.Log(stageData.TFData.EulerAngles);
 
-        stageData.StageNumber = StageNumber;
+        stageData.StageNumber = stageNumber;
 
-        stageData.IsLastStage = IsLastStage;
+        stageData.IsLastStage = isLastStage;
         stageData.ScaleX=scaleX;
         stageData.ScaleY = scaleY;
         stageData.ScaleZ = scaleZ;
@@ -72,9 +72,9 @@ public class Stage : GameUnit
     {
         Helper.LoadTransformData(tf, stageDataSO.StageData.TFData);
 
-        IsLastStage = stageDataSO.StageData.IsLastStage;
+        isLastStage = stageDataSO.StageData.IsLastStage;
 
-        StageNumber = stageDataSO.StageData.StageNumber;
+        stageNumber = stageDataSO.StageData.StageNumber;
 
         scaleX = stageDataSO.StageData.ScaleX;
         scaleY = stageDataSO.StageData.ScaleY;
@@ -133,6 +133,16 @@ public class Stage : GameUnit
                 brick.OnWin();
             }
         }
+    }
+
+    public int GetStageNumber()
+    {
+        return stageNumber;
+    }
+
+    public bool IsLastStage()
+    {
+        return isLastStage;
     }
 
     public Vector3 GetSpawnPosCharacter(Character character)
@@ -412,7 +422,7 @@ public class Stage : GameUnit
         for (int i = 0; i < characters.Count; i++)
         {
             Character character = characters[i];
-            if(character.CharacterState.IsInactive)continue;
+            if(character.CharacterState.GetIsInActive())continue;
             foreach (Brick brick in bricks[character.ColorType])
             {
                 if (brick.gameObject.activeSelf)

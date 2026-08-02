@@ -36,7 +36,7 @@ public class RankManager : MonoBehaviour
         bool newRankAdded = false;
         for (int i = 0; i < rankedCharacters.Count; i++)
         {
-            if (onCharacterUpStage.Stage <= rankedCharacters[i].CurrentStage.StageNumber &&
+            if (onCharacterUpStage.Stage <= rankedCharacters[i].CurrentStage.GetStageNumber() &&
             onCharacterUpStage.Character.CharacterId != rankedCharacters[i].CharacterId)
             {
                 newRank.Add(rankedCharacters[i]);

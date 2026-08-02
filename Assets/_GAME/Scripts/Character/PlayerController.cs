@@ -65,13 +65,6 @@ public class PlayerController : Character
     public void Move()
     {
         
-        // float moveY = rb.linearVelocity.y;
-        // if (moveY > 0.01f)
-        // {
-        //     moveY = 0f;
-        // }
-
-        
         if (new Vector3(moveX, 0f, moveZ).sqrMagnitude <= 0.00001)
         {
             ChangeAnim(GameData.Instance.ANIM_IDLE);
@@ -81,7 +74,7 @@ public class PlayerController : Character
             ChangeAnim(GameData.Instance.ANIM_RUN);
             ChangeRotation();
         }
-        if (characterState.BlockDown)
+        if (characterState.GetBlockDown())
         {
             if (moveZ < -0.001f)
             {
@@ -90,7 +83,7 @@ public class PlayerController : Character
             }
         }
 
-        if (characterState.BlockForward)
+        if (characterState.GetBlockForward())
         {
             if (moveZ > 0.001f)
             {
@@ -121,7 +114,7 @@ public class PlayerController : Character
         {
             return;
         }
-        if (characterState.IsInactive)
+        if (characterState.GetIsInActive())
         {
             return;
         }
@@ -132,10 +125,10 @@ public class PlayerController : Character
     protected override void Update()
     {
         base.Update();
-        if (!characterState.IsInactive)
+        if (!characterState.GetIsInActive())
         {
 
-            if (!characterState.IsOnGround)
+            if (!characterState.GetIsOnGround())
             {
                 EventBus<OnCharacterInActive>.Raise(new OnCharacterInActive
                 {
@@ -148,10 +141,6 @@ public class PlayerController : Character
             
            
             CharacterChecker.CheckForward();
-            
-            
-            
-
         }
 
     }

@@ -17,10 +17,6 @@ public class Brick : GameUnit
 
     [SerializeField] private float rotationSpeed;
 
-    [SerializeField] private float maxAngleShake;
-
-    [SerializeField] private float speedShake;
-
     [SerializeField] private Vector3 spawnPos;
 
     [Header("REFERENCE")]
@@ -190,7 +186,7 @@ public class Brick : GameUnit
         {
             return;
         }
-        if (character.CharacterState.IsInactive)
+        if (character.CharacterState.GetIsInActive())
         {
             EndFlying();
             OnInit();
@@ -220,11 +216,8 @@ public class Brick : GameUnit
                 SetActive(false);
                 EndFlying();
                 character.BrickCharacterManager.AddBrick();
-                
-
+    
             }
-
-
         }
     }
     void Awake()

@@ -55,7 +55,7 @@ public class StageManager : MonoBehaviour
     {
         for(int i = 0; i < stages.Count; i++)
         {
-            if(stages[i].StageNumber == stageNumber)
+            if(stages[i].GetStageNumber() == stageNumber)
             {
                 return stages[i];
             }

@@ -7,21 +7,14 @@ using UnityEngine.SocialPlatforms;
 
 public class Character : MonoBehaviour
 {
-    //Thong so
-
     [Header("THONG SO")]
-
     [SerializeField] protected int characterId;
 
     [SerializeField] protected string characterName;
 
     [SerializeField] protected float speed;
     [SerializeField] private ColorType colorType;
-
-
     public bool IsBot;
-
-
     [Header("REFERENCE")]
 
     [SerializeField] protected TextMeshProUGUI textName;
@@ -38,7 +31,7 @@ public class Character : MonoBehaviour
 
     [SerializeField] protected CharacterChecker characterChecker;
 
-    [SerializeField] private Renderer renderer;
+    [SerializeField] protected Renderer renderer;
 
     [SerializeField] protected Transform tf;
 
@@ -46,10 +39,9 @@ public class Character : MonoBehaviour
 
     [SerializeField] protected CharacterState characterState;
 
-    [SerializeField] private SkinController skinPrefab;
+    [SerializeField] protected SkinController skinPrefab;
 
-
-    private String currentAnim = "";
+    protected String currentAnim = "";
 
     public BrickCharacterManager BrickCharacterManager => brickCharacterManager;
 
@@ -128,7 +120,7 @@ public class Character : MonoBehaviour
     public virtual void OnContinue()
     {
         rb.useGravity = true;
-        characterState.IsInactive = false;
+        characterState.SetIsInActive(false);
     }
 
     public void SetName(String characterName)
@@ -144,7 +136,7 @@ public class Character : MonoBehaviour
             Debug.Log("New stage dont exist");
             return;
         }
-        if (currentStage != null && newStage.StageNumber <= currentStage.StageNumber)
+        if (currentStage != null && CompareCurrentStage(newStage) == 1)
         {
             return;
         }
@@ -160,7 +152,7 @@ public class Character : MonoBehaviour
             EventBus<OnCharacterUpStage>.Raise(new OnCharacterUpStage
             {
                 Character = this,
-                Stage = currentStage.StageNumber
+                Stage = currentStage.GetStageNumber()
             });
         }
 
@@ -177,6 +169,25 @@ public class Character : MonoBehaviour
         else
         {
             Debug.LogError("DONT HAVE COLOR MATERIAL");
+        }
+    }
+    //So sanh stage hien tai va other.
+    //Neu stage hien tai = other => 0
+    //.................. > ..... => 1
+    //.................. < ..... => -1
+    public int CompareCurrentStage(Stage other)
+    {
+        if(other.GetStageNumber() == currentStage.GetStageNumber())
+        {
+            return 0;
+        }
+        else if(currentStage.GetStageNumber() > other.GetStageNumber())
+        {
+            return 1;
+        }
+        else
+        {
+            return -1;
         }
     }
 
@@ -213,7 +224,7 @@ public class Character : MonoBehaviour
 
     public void SetInActive(float duration = 0f)
     {
-        characterState.IsInactive = true;
+        characterState.SetIsInActive(true);
         rb.linearVelocity = Vector3.zero;
 
         if (duration > 0.01f)
@@ -226,7 +237,7 @@ public class Character : MonoBehaviour
     {
         yield return new WaitForSeconds(duration);
 
-        characterState.IsInactive = false;
+        characterState.SetIsInActive(false);
 
     }
 
@@ -261,7 +272,7 @@ public class Character : MonoBehaviour
         {
             return;
         }
-        if (characterState.IsInactive)
+        if (characterState.GetIsInActive())
         {
             return;
         }

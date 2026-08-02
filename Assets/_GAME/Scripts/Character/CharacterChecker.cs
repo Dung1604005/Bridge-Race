@@ -59,7 +59,8 @@ public class CharacterChecker : MonoBehaviour
             Collider col = hitGate.collider;
             GateCtrl gate = ColliderCache<GateCtrl>.GetComponent(col);
 
-            if (gate.NextStage == character.CurrentStage || gate.NextStage == null)
+            //Cho di qua cong neu stage hien tai = stage tiep theo cua gate
+            if (character.CompareCurrentStage(gate.NextStage) == 0 || gate.NextStage == null)
             {
                 character.CharacterState.SetBlockDown(true);
 
@@ -92,8 +93,10 @@ public class CharacterChecker : MonoBehaviour
 
 
             stair.TakeStair(character);
-            if (stair.Bridge.OwnerStage == character.CurrentStage)
+            // Neu current stage bang voi stage owener cua stair thi kiem tra
+            if (character.CompareCurrentStage(stair.Bridge.OwnerStage) == 0)
             {
+                // Cung mau thi pass khac thi nhot
                 if (stair.ColorType == character.ColorType)
                 {
                     character.CharacterState.SetBlockForward(false);

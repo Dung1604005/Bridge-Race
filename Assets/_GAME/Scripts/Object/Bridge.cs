@@ -30,7 +30,7 @@ public class Bridge : GameUnit
     {
         BridgeData data = new BridgeData();
 
-        data.OwnerStageNumber = ownerStage.StageNumber;
+        data.OwnerStageNumber = ownerStage.GetStageNumber();
 
         if(nextStage == null)
         {
@@ -38,7 +38,7 @@ public class Bridge : GameUnit
         }
         else
         {
-            data.NextStageNumber = nextStage.StageNumber;
+            data.NextStageNumber = nextStage.GetStageNumber();
         }
 
         data.TFPlane = Helper.CreateDataFromTransform(plane);

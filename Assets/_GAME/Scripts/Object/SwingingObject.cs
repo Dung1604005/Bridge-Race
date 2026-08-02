@@ -48,7 +48,7 @@ public class SwingingObject : MonoBehaviour
 
             Character character = ColliderCache<Character>.GetComponent(collider);
 
-            if (character.CharacterState.IsInactive) return;
+            if (character.CharacterState.GetIsInActive()) return;
 
             Vector3 impactPoint = collision.GetContact(0).point;
             
@@ -59,10 +59,6 @@ public class SwingingObject : MonoBehaviour
             
             character.Knockback(knockbackDir);
                 
-                
-                
-           
-
         }
     }
 
