@@ -136,7 +136,7 @@ public class Character : MonoBehaviour
             Debug.Log("New stage dont exist");
             return;
         }
-        if (currentStage != null && CompareCurrentStage(newStage) == 1)
+        if (currentStage != null && CompareCurrentStage(newStage) >= 0)
         {
             return;
         }
