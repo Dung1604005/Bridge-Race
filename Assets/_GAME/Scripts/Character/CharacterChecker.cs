@@ -60,7 +60,7 @@ public class CharacterChecker : MonoBehaviour
             GateCtrl gate = ColliderCache<GateCtrl>.GetComponent(col);
 
             //Cho di qua cong neu stage hien tai = stage tiep theo cua gate
-            if (character.CompareCurrentStage(gate.NextStage) == 0 || gate.NextStage == null)
+            if (gate.NextStage == null || character.CompareCurrentStage(gate.NextStage) == 0)
             {
                 character.CharacterState.SetBlockDown(true);
 
