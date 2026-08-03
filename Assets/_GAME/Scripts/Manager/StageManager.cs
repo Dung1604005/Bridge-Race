@@ -5,12 +5,7 @@ using UnityEngine;
 public class StageManager : MonoBehaviour
 {
     [SerializeField] private List<Stage> stages = new List<Stage>();
-
-    [SerializeField] private Transform stageRoot;
-
     [SerializeField] private NavMeshSurface navMeshSurface;
-
-    public List<Stage> Stages => stages;
 
     public void OnInit()
     {
@@ -62,5 +57,10 @@ public class StageManager : MonoBehaviour
         }
         Debug.Log("STAGE " + stageNumber + " DONT EXIST IN STAGE MANAGER");
         return null;
+    }
+
+    public List<Stage> GetAllStage()
+    {
+        return stages;
     }
 }

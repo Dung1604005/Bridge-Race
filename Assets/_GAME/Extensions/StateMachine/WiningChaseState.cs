@@ -5,9 +5,9 @@ public class WiningChaseState : IState
     public void OnEnter(Enemy t)
     {
         t.ChangeAnim(GameData.Instance.ANIM_RUN);
-        if (t.Agent.enabled)
+        if (t.IsAgentValid())
         {
-            t.Agent.SetDestination(LevelManager.Instance.GetWinAreaPosition());
+            t.SetDestination(LevelManager.Instance.GetWinAreaPosition());
         }
         
     }

@@ -6,18 +6,13 @@ public class BuildState : IState
 {
 
     private Bridge bestBridge;
-
-    private int stairId = -1;
-
-    private bool canReachLastStair;
-
     private Enemy enemy;
 
     public void ReCaculate(OnStairChange onStairChange)
     {
         if(enemy.CharacterId == onStairChange.CharacterId)
         {
-           stairId = onStairChange.StairId;
+           enemy.SetStairId(onStairChange.StairId);
 
            CaculateDestination();
 
@@ -27,24 +22,20 @@ public class BuildState : IState
     public void CaculateDestination()
     {
         int amountBrick = enemy.BrickCharacterManager.GetAmountVisualBrick();
-        StairInfo stairInfo = bestBridge.GetFarthestStairPossible(stairId, enemy.ColorType, amountBrick);
+        StairInfo stairInfo = bestBridge.GetFarthestStairPossible(enemy.GetStairId(), enemy.ColorType, amountBrick);
 
-        if (stairId == stairInfo.stairId)
+        if (enemy.GetStairId() == stairInfo.stairId)
         {
             OnExit(enemy);
             if (stairInfo.isLastStair)
             {
-
-
                 if (bestBridge.OwnerStage.IsLastStage())
                 {
-
                     enemy.ChangeState(new WiningChaseState());
                     return;
                 }
                 else
                 {
-                    
                     enemy.ChangeStage(bestBridge.NextStage);
                 }
             }
@@ -53,10 +44,10 @@ public class BuildState : IState
         }
         if (amountBrick > 0)
         {
-            stairId = stairInfo.stairId;
-            if (enemy.Agent.enabled && enemy.Agent.isOnNavMesh)
+            enemy.SetStairId(stairInfo.stairId);
+            if (enemy.IsAgentValid())
             {
-                enemy.Agent.SetDestination(stairInfo.position);
+                enemy.SetDestination(stairInfo.position);
             }
         }
         else
@@ -70,6 +61,7 @@ public class BuildState : IState
 
     public void OnEnter(Enemy t)
     {
+        t.SetStairId(-1);
         EventBus<OnStairChange>.Subcribe(ReCaculate);
         enemy = t;
         bestBridge = t.CurrentStage.GetBestBridge(t.ColorType);

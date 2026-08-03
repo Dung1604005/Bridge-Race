@@ -131,6 +131,8 @@ public class Stair : GameUnit
             lastPaintTime = Time.time;
             SetColor(character.ColorType);
             character.BrickCharacterManager.RemoveBrick();
+
+            
             EventBus<OnStairChange>.Raise(new OnStairChange
             {
                 CharacterId = character.CharacterId,

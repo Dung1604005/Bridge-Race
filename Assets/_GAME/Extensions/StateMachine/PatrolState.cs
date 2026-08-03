@@ -16,7 +16,7 @@ public class PatrolState : IState
 
     public void SetDestination(Enemy t)
     {
-        if(t.Agent.enabled == false)
+        if(!t.IsAgentValid())
         {
             return;
         }
@@ -27,9 +27,9 @@ public class PatrolState : IState
             return;
         }
         numbTargetBrick -= 1;
-        if (t.Agent.isOnNavMesh && t.Agent.enabled)
+        if (t.IsAgentValid())
         {
-            t.Agent.SetDestination(t.CurrentStage.GetNearestBrick(t.ColorType, t.TF.position));
+            t.SetDestination(t.CurrentStage.GetNearestBrick(t.ColorType, t.TF.position));
         }
         
     }
@@ -61,9 +61,9 @@ public class PatrolState : IState
             else
             {
                 numbTargetBrick -= 1;
-                if(t.Agent.enabled == true)
+                if(t.IsAgentValid())
                 {
-                    t.Agent.SetDestination(t.CurrentStage.GetNearestBrick(t.ColorType, t.TF.position));
+                    t.SetDestination(t.CurrentStage.GetNearestBrick(t.ColorType, t.TF.position));
                 }
             }
         }

@@ -52,14 +52,19 @@ public class GameManager :Singleton<GameManager>
         UIManager.Instance.CloseAllDirectly();
         UIManager.Instance.OpenUI<CanvasVictory>();
     }
-    void Awake()
+
+    public void OnInit()
     {
-       QualitySettings.vSyncCount = 0;
+         QualitySettings.vSyncCount = 0;
 
     
         Application.targetFrameRate = 60;
         GameData.Instance.LoadPlayerData();
         GameData.Instance.LoadLevelData();
+    }
+    void Awake()
+    {
+       OnInit();
     }
 
     void Start()

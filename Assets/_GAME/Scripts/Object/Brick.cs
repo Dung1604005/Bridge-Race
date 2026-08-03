@@ -205,6 +205,7 @@ public class Brick : GameUnit
 
         tf.position = Vector3.MoveTowards(tf.position, targetPosition, (moveSpeed + accelerate * flyTimer) * Time.deltaTime);
 
+        // Neu bay den dich thi tat active va add brick
         if ((tf.position - targetPosition).sqrMagnitude <= 0.01f)
         {
             if (!reachBehind)

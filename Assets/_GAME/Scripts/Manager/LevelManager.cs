@@ -223,7 +223,7 @@ public class LevelManager : Singleton<LevelManager>
             character.OnWin();
         }
 
-        foreach (Stage stage in stageManager.Stages)
+        foreach (Stage stage in stageManager.GetAllStage())
         {
             stage.OnWin();
         }

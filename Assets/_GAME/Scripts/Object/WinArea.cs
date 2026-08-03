@@ -33,7 +33,7 @@ public class WinArea : MonoBehaviour
 
     public void OnWin()
     {
-        for(int i = 0; i < 4; i++)
+        for (int i = 0; i < 4; i++)
         {
             LevelManager.Instance.RankManager.GetCharacterRank(i + 1).SetSpawn(rankPositions[i].position);
         }
@@ -43,30 +43,35 @@ public class WinArea : MonoBehaviour
         }
     }
 
+    public void OnCollisionCharacter(Collider collider)
+    {
+        Character character = ColliderCache<Character>.GetComponent(collider);
+        EventBus<OnCharacterUpStage>.Raise(new OnCharacterUpStage
+        {
+            Character = character,
+            Stage = 10
+        });
+        LevelManager.Instance.OnWin();
+        OnWin();
+        GameManager.Instance.ChangeGameState(GameState.VICTORY);
+        int expectStar = LevelManager.Instance.RankManager.CaculateStarPlayer();
+
+        if (expectStar > 0)
+        {
+            SoundManager.Instance.PlayWinMusic();
+        }
+        else
+        {
+            SoundManager.Instance.PlayFailMusic();
+        }
+    }
+
 
     public void OnTriggerEnter(Collider collider)
     {
         if (collider.CompareTag(GameData.Instance.CHARACTER_TAG))
         {
-            Character character = ColliderCache<Character>.GetComponent(collider);
-            EventBus<OnCharacterUpStage>.Raise(new OnCharacterUpStage
-            {
-                Character = character,
-                Stage = 10
-            });
-            LevelManager.Instance.OnWin();
-            OnWin();            
-            GameManager.Instance.ChangeGameState(GameState.VICTORY);
-            int expectStar = LevelManager.Instance.RankManager.CaculateStarPlayer();
-
-            if(expectStar > 0)
-            {
-                SoundManager.Instance.PlayWinMusic();
-            }
-            else
-            {
-                SoundManager.Instance.PlayFailMusic();
-            }
+            OnCollisionCharacter(collider);
 
         }
     }

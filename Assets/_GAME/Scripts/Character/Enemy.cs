@@ -5,9 +5,9 @@ using UnityEngine.AI;
 public class Enemy : Character
 {
     [SerializeField] private NavMeshAgent agent;
-    private IState currentState;
 
-    public NavMeshAgent Agent => agent;
+    private int stairId = -1;
+    private IState currentState;
 
     public override void OnStart()
     {
@@ -46,10 +46,21 @@ public class Enemy : Character
         agent.speed = speed;
     }
 
+    public void SetStairId(int stairId)
+    {
+        this.stairId = stairId;
+    }
+
+    public int GetStairId()
+    {
+        return stairId;
+    }
+
     public void ChangeState(IState newState)
     {
+        currentState?.OnExit(this);
         currentState = newState;
-        currentState.OnEnter(this);
+        currentState?.OnEnter(this);
     }
 
 
@@ -104,6 +115,11 @@ public class Enemy : Character
         rb.isKinematic = true;
         
         agent.enabled = true;
+    }
+
+    public void SetDestination(Vector3 destination)
+    {
+        agent.SetDestination(destination);
     }
 
     protected override void Update()
