@@ -66,7 +66,7 @@ public class LevelUI : UIElement
 
     public void OnClick(float durationEffect)
     {
-        SoundManager.Instance.PlaySFXClick();
+        
         isSelected = true;
         selectEffect.SetActive(true);
         EventBus<OnLevelSelect>.Raise(new OnLevelSelect{LevelId = levelIndex});

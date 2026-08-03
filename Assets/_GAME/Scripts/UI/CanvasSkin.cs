@@ -44,7 +44,7 @@ public class CanvasSkin : UICanvas
     }
     public void OnBackButton()
     {
-        SoundManager.Instance.PlaySFXClick();
+        
         UIManager.Instance.CloseUIDirectly<CanvasSkin>();
 
         UIManager.Instance.OpenUI<CanvasMainMenu>();

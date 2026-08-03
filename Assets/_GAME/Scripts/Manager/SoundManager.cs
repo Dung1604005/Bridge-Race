@@ -1,98 +1,86 @@
-using UnityEditor.Timeline.Actions;
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
+
+
+public enum SoundID
+{
+    BG_1 = 0,
+}
+
+public enum FxID
+{
+    Button = 0,
+    SummonItem = 1,
+}
+
 
 public class SoundManager : Singleton<SoundManager>
 {
+    [SerializeField] PlayerData userData;
 
-    [Header("Audio Source")]
+    private AudioSource soundSource;
+    private AudioSource[] fxSource = new AudioSource[Utilities.GetEnumCount<FxID>()];
 
-    [SerializeField] private AudioSource musicSource;
+    [SerializeField] private AudioClip[] soundAus;
+    [SerializeField] private AudioClip[] fxAus;
 
-    [SerializeField] private AudioSource sfxSource;
+    private bool isLoaded = false;
+    private int indexSound;
 
-
-    [Header("Audio Clip")]
-
-    [SerializeField] private AudioClip bgmGame;
-
-    [SerializeField] private AudioClip bgmWin;
-
-    [SerializeField] private AudioClip bgmFail;
-
-    [SerializeField] private AudioClip buttonClick;
-
-    [SerializeField] private AudioClip impact;
-
-    [SerializeField] private AudioClip collectBrick;
-
-    [SerializeField] private AudioClip buildBridge;
-
-    [SerializeField] private AudioClip buyButton;
-
-    [SerializeField] private AudioClip changeCoin;
-
-
-    public void PlayMusic(AudioClip audioClip)
+    public void Awake()
     {
-        if(musicSource == null) return;
+        DontDestroyOnLoad(gameObject);
 
-        musicSource.clip = audioClip;
-        musicSource.loop = true;
-        musicSource.Play();
+        soundSource = gameObject.AddComponent<AudioSource>();
+        soundSource.loop = true;
     }
 
-    public void PlaySfx(AudioClip audioClip)
+    private void Start()
     {
-        if(sfxSource == null) return;
-
-        sfxSource.PlayOneShot(audioClip);
+        Invoke(nameof(OnLoad), 1);
     }
 
-    public void PlayBG()
+    private void OnLoad()
     {
-        PlayMusic(bgmGame);
-    }
+        if (soundAus.Length > 0)
+        {
+            isLoaded = true;
 
-    public void PlayWinMusic()
-    {
-        PlayMusic(bgmWin);
-    }
-
-    public void PlayFailMusic()
-    {
-        PlayMusic(bgmFail);
-    }
-
-    public void PlaySFXClick()
-    {
-        PlaySfx(buttonClick);
-    }
-    public void PlaySFXImpact()
-    {
-        PlaySfx(impact);
-    }
-
-    public void PlaySFXCollectBrick()
-    {
-        PlaySfx(collectBrick);
-    }
-
-    public void PlaySFXBuildBridge()
-    {
-        PlaySfx(buildBridge);
-    }
-
-    public void PlaySFXEarnCoin()
-    {
-        PlaySfx(changeCoin);
-    }
-
-    public void PlaySFXBuy()
-    {
-        PlaySfx(buyButton);
+            indexSound = Random.Range(0, soundAus.Length);
+            PlaySound((SoundID)indexSound);
+        }
     }
 
 
+    public void PlaySound(SoundID ID)
+    {
+        soundSource.clip = soundAus[(int)ID];
+        soundSource.Play();
+    }
 
+    public void PlayFx(FxID ID)
+    {
+        //if (DataManager.GameJsonData.information.IsAmbientsSounds && isLoaded)
+        if(true)
+        {
+            if (fxSource[(int)ID] == null)
+            {
+                fxSource[(int)ID] = new GameObject().AddComponent<AudioSource>();
+                fxSource[(int)ID].clip = fxAus[(int)ID];
+                fxSource[(int)ID].loop = false;
+                fxSource[(int)ID].transform.SetParent(transform);
+            }
+            fxSource[(int)ID].PlayOneShot(fxAus[(int)ID]);
+
+            //Debug.Log(ID);
+        }
+    }
+
+    public void ChangeSound(SoundID ID, float time)
+    {
+        
+    }
 
 }

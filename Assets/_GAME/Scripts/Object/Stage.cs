@@ -60,9 +60,9 @@ public class Stage : GameUnit
 
         stageData.SpawnPos = SpawnPos;
 
-        stageDataSO.StageData = stageData;
+        stageDataSO.SetStageData(stageData);
 
-         EditorUtility.SetDirty(stageDataSO);
+        EditorUtility.SetDirty(stageDataSO);
         AssetDatabase.SaveAssets();
 
         

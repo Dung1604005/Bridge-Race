@@ -78,7 +78,7 @@ public class CanvasLevelSelect : UICanvas
 
     public void OnCloseButton()
     {
-        SoundManager.Instance.PlaySFXClick();
+        
         UIManager.Instance.CloseUI<CanvasLevelSelect>(0f);
 
 

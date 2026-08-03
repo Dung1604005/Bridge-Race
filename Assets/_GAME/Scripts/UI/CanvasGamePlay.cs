@@ -78,7 +78,7 @@ public class CanvasGamePlay : UICanvas
 
     public void OnSettingButton()
     {
-        SoundManager.Instance.PlaySFXClick();
+        
         UIManager.Instance.OpenUI<CanvasSettings>();
     }
 

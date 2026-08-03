@@ -73,7 +73,7 @@ public class GameManager :Singleton<GameManager>
     void Start()
     {
         UIManager.Instance.OpenUI<CanvasMainMenu>();
-        SoundManager.Instance.PlayBG();
+      
     }
 }
 

@@ -58,11 +58,11 @@ public class WinArea : MonoBehaviour
 
         if (expectStar > 0)
         {
-            SoundManager.Instance.PlayWinMusic();
+            
         }
         else
         {
-            SoundManager.Instance.PlayFailMusic();
+            
         }
     }
 

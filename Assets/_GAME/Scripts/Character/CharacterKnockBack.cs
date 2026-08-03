@@ -11,7 +11,7 @@ public class CharacterKnockBack : MonoBehaviour
 
     public void Knockback(Vector3 knockbackDirection)
     {
-        SoundManager.Instance.PlaySFXImpact();
+        
 
         character.SetInActive();
         character.Rb.AddForce(knockbackDirection * knockForce, ForceMode.Impulse);

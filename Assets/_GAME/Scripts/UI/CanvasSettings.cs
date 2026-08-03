@@ -29,7 +29,7 @@ public class CanvasSettings : UICanvas
 
     public void OnHomeButton()
     {
-        SoundManager.Instance.PlaySFXClick();
+        
         LevelManager.Instance.DeSpawnLevel();
 
         UIManager.Instance.CloseUI<CanvasSettings>(0f);
@@ -40,7 +40,7 @@ public class CanvasSettings : UICanvas
 
     public void OnRetry()
     {
-        SoundManager.Instance.PlaySFXClick();
+        
         LevelManager.Instance.DeSpawnLevel();
         LevelManager.Instance.InitLevel();
         UIManager.Instance.CloseUI<CanvasSettings>(0f);
@@ -51,7 +51,7 @@ public class CanvasSettings : UICanvas
     }
     public void OnContinue()
     {
-        SoundManager.Instance.PlaySFXClick();
+       
         GameManager.Instance.ChangeGameState(GameState.PLAYING);
         UIManager.Instance.CloseUI<CanvasSettings>(0f);
     }
