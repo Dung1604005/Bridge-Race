@@ -93,6 +93,7 @@ public class CharacterChecker : MonoBehaviour
 
 
             stair.TakeStair(character);
+            SetCharacterOnStair(true);
             // Neu current stage bang voi stage owener cua stair thi kiem tra
             if (character.CompareCurrentStage(stair.Bridge.OwnerStage) == 0)
             {
@@ -110,7 +111,7 @@ public class CharacterChecker : MonoBehaviour
         else
         {
             collider.enabled = true;
-            character.CharacterState.SetIsOnStair(false);
+            SetCharacterOnStair(false);
             character.CharacterState.SetBlockForward(false);
         }
     }
