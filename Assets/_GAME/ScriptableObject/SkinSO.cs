@@ -4,13 +4,25 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "SkinSO", menuName = "Scriptable Objects/SkinSO")]
 public class SkinSO : ScriptableObject
 {
-    public int IdSkin;
-    public String NameSkin;
-    public SkinController SkinPrefab;
 
-    public GameObject ModelPrefab;
-    public Sprite SkinPortrait;
+    [SerializeField] private int idSkin;
 
-    public int Price;
+    [SerializeField] private String nameSkin;
+
+    [SerializeField] private SkinController skinPrefab;
+
+    [SerializeField] private GameObject modelPrefab;
+
+    [SerializeField] private Sprite skinPortrait;
+
+    [SerializeField] private int price;
+    public int IdSkin => idSkin;
+    public String NameSkin => nameSkin;
+    public SkinController SkinPrefab => skinPrefab;
+
+    public GameObject ModelPrefab => modelPrefab;
+    public Sprite SkinPortrait => skinPortrait;
+
+    public int Price => price;
 
 }

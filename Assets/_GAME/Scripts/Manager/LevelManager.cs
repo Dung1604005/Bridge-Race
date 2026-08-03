@@ -56,10 +56,10 @@ public class LevelManager : Singleton<LevelManager>
             decorObjectDatas.Add(decorData);            
         }
 
-        levelDataSO.decorObjectDatas = decorObjectDatas;
+        levelDataSO.SetDecorObjectDatas(decorObjectDatas);
 
         TransformData winAreaTFData = Helper.CreateDataFromTransform(winArea.TF);
-        levelDataSO.WinAreaTF = winAreaTFData;
+        levelDataSO.SetWinAreaTF(winAreaTFData);
         EditorUtility.SetDirty(levelDataSO);
         AssetDatabase.SaveAssets();
     }
@@ -92,7 +92,7 @@ public class LevelManager : Singleton<LevelManager>
         InitColor();
         rankManager.LoadRankedList(listCharacter);
         stageManager.OnInit();
-        stageManager.LoadStage(levelDataSO.stageDatas);
+        stageManager.LoadStage(levelDataSO.StageDataSOs);
         InitDecorObject();
         InitGate();
         InitWinArea();
@@ -125,13 +125,13 @@ public class LevelManager : Singleton<LevelManager>
     public void InitGate()
     {
         listGateCtrl.Clear();
-        for (int i = 0; i < levelDataSO.gateDatas.Count; i++)
+        for (int i = 0; i < levelDataSO.GateDatas.Count; i++)
         {
             GateCtrl gate = SimplePool.Spawn<GateCtrl>(PoolType.GatePool, Vector3.zero, Quaternion.identity);
 
             gate.TF.SetParent(gateRoot, true);
             gate.OnInit();
-            gate.LoadData(levelDataSO.gateDatas[i]);
+            gate.LoadData(levelDataSO.GateDatas[i]);
 
             listGateCtrl.Add(gate);
         }
@@ -178,9 +178,9 @@ public class LevelManager : Singleton<LevelManager>
 
     public void InitDecorObject(){
 
-        for(int i = 0; i < levelDataSO.decorObjectDatas.Count; i++)
+        for(int i = 0; i < levelDataSO.DecorObjectDatas.Count; i++)
         {
-            DecorData decorData = levelDataSO.decorObjectDatas[i];
+            DecorData decorData = levelDataSO.DecorObjectDatas[i];
             GameObject decor = Instantiate(GameData.Instance.listDecorObject[decorData.DecorId]);
 
             decor.transform.SetParent(decorRoot, true);

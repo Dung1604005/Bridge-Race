@@ -37,7 +37,7 @@ public class GateCtrl : GameUnit
         }
         
 
-        levelDataSO.gateDatas.Add(data);
+        levelDataSO.AddGateData(data);
          EditorUtility.SetDirty(levelDataSO);
         AssetDatabase.SaveAssets();
     }

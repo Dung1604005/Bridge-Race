@@ -6,13 +6,20 @@ public class StageDataSO : ScriptableObject
 {
     [SerializeField] private StageData stageData;
 
+    [SerializeField] private List<BridgeData> bridgeDatas = new List<BridgeData>();
+
     public StageData StageData => stageData;
 
-    public List<BridgeData> BridgeDatas = new List<BridgeData>();
+    public List<BridgeData> BridgeDatas => bridgeDatas;
 
     public void SetStageData(StageData stageData)
     {
         this.stageData = stageData;
+    }
+
+    public void AddBridgeData(BridgeData bridgeData)
+    {
+        bridgeDatas.Add(bridgeData);
     }
 
 }

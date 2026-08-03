@@ -42,7 +42,7 @@ public class StageManager : MonoBehaviour
 
     public void BakeNavMeshSurface(LevelDataSO levelDataSO)
     {
-        navMeshSurface.navMeshData = levelDataSO.navMeshData;   
+        navMeshSurface.navMeshData = levelDataSO.NavMeshData;   
         navMeshSurface.AddData();
     }
 

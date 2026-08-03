@@ -60,7 +60,7 @@ public class Bridge : GameUnit
 
         data.stairDataArr = stairDataArr;
 
-        dataSO.BridgeDatas.Add(data);
+        dataSO.AddBridgeData(data);
 
 
         EditorUtility.SetDirty(dataSO);

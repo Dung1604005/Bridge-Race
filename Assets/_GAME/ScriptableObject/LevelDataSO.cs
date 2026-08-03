@@ -6,22 +6,56 @@ using UnityEngine.AI;
 [CreateAssetMenu(fileName = "LevelDataSO", menuName = "Scriptable Objects/LevelDataSO")]
 public class LevelDataSO : ScriptableObject
 {
-    public int LevelId;
-    public List<StageDataSO> stageDatas;
+    [SerializeField] private int levelId;
 
-    public TransformData WinAreaTF;
+    [SerializeField] private List<StageDataSO> stageDataSOs = new List<StageDataSO>();
 
-    public List<GateData> gateDatas = new List<GateData>();
+    [SerializeField] private TransformData winAreaTF;
 
-    public List<DecorData> decorObjectDatas = new List<DecorData>();
+    [SerializeField] private List<GateData> gateDatas = new List<GateData>();
 
-    public NavMeshData navMeshData;
+    [SerializeField] private List<DecorData> decorObjectDatas = new List<DecorData>();
 
-    public float SpeedBot;
+    [SerializeField] private NavMeshData navMeshData;
 
-    public float SpeedPlayer;
+    [SerializeField] private float speedBot;
 
-    public int GoldPerStar;
+    [SerializeField] private float speedPlayer;
 
-    public LevelDataSO NextLevelData;
+    [SerializeField] private int goldPerStar;
+
+    [SerializeField] private LevelDataSO nextLevelData;
+    public int LevelId => levelId;
+    public List<StageDataSO> StageDataSOs => stageDataSOs;
+
+    public TransformData WinAreaTF => winAreaTF;
+
+    public List<GateData> GateDatas => gateDatas;
+
+    public List<DecorData> DecorObjectDatas => decorObjectDatas;
+
+    public NavMeshData NavMeshData => navMeshData;
+
+    public float SpeedBot => speedBot;
+
+    public float SpeedPlayer => speedPlayer;
+
+    public int GoldPerStar => goldPerStar;
+
+    public LevelDataSO NextLevelData => nextLevelData;
+
+    public void SetDecorObjectDatas(List<DecorData> decorDatas)
+    {
+        decorObjectDatas = decorDatas;
+    }
+
+    public void SetWinAreaTF(TransformData winDataTF)
+    {
+        winAreaTF = winDataTF;
+    }
+
+    public void AddGateData(GateData gateData)
+    {
+        gateDatas.Add(gateData);
+    }
 }
