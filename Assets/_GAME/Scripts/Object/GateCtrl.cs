@@ -69,7 +69,7 @@ public class GateCtrl : GameUnit
     public void OnTriggerEnter(Collider collider)
     {
 
-        if (collider.CompareTag(GameData.Instance.CHARACTER_TAG))
+        if (collider.CompareTag(GameConfig.CHARACTER_TAG))
         {
             Character character = ColliderCache<Character>.GetComponent(collider);
             ColorType charColor = character.ColorType;

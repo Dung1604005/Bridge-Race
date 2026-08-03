@@ -43,7 +43,7 @@ public class SwingingObject : MonoBehaviour
         }
 
         Collider collider = collision.collider;
-        if (collider.CompareTag(GameData.Instance.CHARACTER_TAG))
+        if (collider.CompareTag(GameConfig.CHARACTER_TAG))
         {
 
             Character character = ColliderCache<Character>.GetComponent(collider);

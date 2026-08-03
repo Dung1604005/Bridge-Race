@@ -301,8 +301,8 @@ public class Stage : GameUnit
     [ContextMenu("CHECK VALID STAGE")]
     public void CheckValidSize()
     {
-         int numbCollumn = (int)((sizeStage.x - distanceBrick.x) / (GameData.Instance.BRICK_SIZE.x + distanceBrick.x));
-        int numbRow = (int)((sizeStage.z - distanceBrick.z) / (GameData.Instance.BRICK_SIZE.z + distanceBrick.z));
+         int numbCollumn = (int)((sizeStage.x - distanceBrick.x) / (GameConfig.BRICK_SIZE.x + distanceBrick.x));
+        int numbRow = (int)((sizeStage.z - distanceBrick.z) / (GameConfig.BRICK_SIZE.z + distanceBrick.z));
         int numbBrick = numbCollumn * numbRow;
 
         if(numbBrick % 4 == 0)
@@ -322,8 +322,8 @@ public class Stage : GameUnit
             Debug.LogError("STAGE DONT HAVE ENOUGH COLOR");
             return;
         }
-        int numbCollumn = (int)((sizeStage.x - distanceBrick.x) / (GameData.Instance.BRICK_SIZE.x + distanceBrick.x));
-        int numbRow = (int)((sizeStage.z - distanceBrick.z) / (GameData.Instance.BRICK_SIZE.z + distanceBrick.z));
+        int numbCollumn = (int)((sizeStage.x - distanceBrick.x) / (GameConfig.BRICK_SIZE.x + distanceBrick.x));
+        int numbRow = (int)((sizeStage.z - distanceBrick.z) / (GameConfig.BRICK_SIZE.z + distanceBrick.z));
         int numbBrick = numbCollumn * numbRow;
 
         //Moi stage se co 4 mau va spawn so luong brick cua tung loai mau giong nhau
@@ -341,9 +341,9 @@ public class Stage : GameUnit
         {
             for (int z = 0; z < numbRow; z += 1)
             {
-                Vector3 pos = new Vector3((x + 1) * distanceBrick.x + x * GameData.Instance.BRICK_SIZE.x + leftBottomPos.x + GameData.Instance.BRICK_SIZE.x / 2,
-                tf.position.y + sizeStage.y + GameData.Instance.BRICK_SIZE.y / 2,
-                (z + 1) * distanceBrick.z + z * GameData.Instance.BRICK_SIZE.z + leftBottomPos.z + GameData.Instance.BRICK_SIZE.z / 2);
+                Vector3 pos = new Vector3((x + 1) * distanceBrick.x + x * GameConfig.BRICK_SIZE.x + leftBottomPos.x + GameConfig.BRICK_SIZE.x / 2,
+                tf.position.y + sizeStage.y + GameConfig.BRICK_SIZE.y / 2,
+                (z + 1) * distanceBrick.z + z * GameConfig.BRICK_SIZE.z + leftBottomPos.z + GameConfig.BRICK_SIZE.z / 2);
                 Brick brick = SimplePool.Spawn<Brick>(PoolType.BrickPool, pos, Quaternion.identity);
                 brick.SetInfor(this, pos);
                 brick.OnInit();

@@ -67,11 +67,11 @@ public class PlayerController : Character
         
         if (new Vector3(moveX, 0f, moveZ).sqrMagnitude <= 0.00001)
         {
-            ChangeAnim(GameData.Instance.ANIM_IDLE);
+            ChangeAnim(GameConfig.ANIM_IDLE);
         }
         else
         {
-            ChangeAnim(GameData.Instance.ANIM_RUN);
+            ChangeAnim(GameConfig.ANIM_RUN);
             ChangeRotation();
         }
         if (characterState.GetBlockDown())

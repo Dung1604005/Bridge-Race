@@ -6,7 +6,6 @@ public class BuildState : IState
 {
 
     private Bridge bestBridge;
-    private Enemy enemy;
 
     public void CaculateDestination(Enemy enemy)
     {
@@ -51,8 +50,6 @@ public class BuildState : IState
     public void OnEnter(Enemy t)
     {
         t.SetStairId(-1);
-        
-        enemy = t;
         bestBridge = t.CurrentStage.GetBestBridge(t.ColorType);
         CaculateDestination(t);
     }

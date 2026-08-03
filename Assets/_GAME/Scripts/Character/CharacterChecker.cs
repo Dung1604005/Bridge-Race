@@ -9,6 +9,8 @@ public class CharacterChecker : MonoBehaviour
 
     [SerializeField] protected float rangeDetect;
 
+    [SerializeField] protected float rangeDetectGround;
+
     private int layerGround;
 
     private int layerStair;
@@ -19,10 +21,10 @@ public class CharacterChecker : MonoBehaviour
 
     public void OnInit()
     {
-        layerGround = LayerMask.GetMask("Ground", "Stair");
-        layerStair = LayerMask.GetMask("Stair");
-        layerGate = LayerMask.GetMask("Gate");
-        layerStairGround = LayerMask.GetMask("StairGround");
+        layerGround = LayerMask.GetMask(GameConfig.LAYER_GROUND, GameConfig.LAYER_STAIR);
+        layerStair = LayerMask.GetMask(GameConfig.LAYER_STAIR);
+        layerGate = LayerMask.GetMask(GameConfig.LAYER_GATE);
+        layerStairGround = LayerMask.GetMask(GameConfig.LAYER_STAIRGROUND);
     }
     public bool CharacterIsGoingDown()
     {
@@ -37,7 +39,8 @@ public class CharacterChecker : MonoBehaviour
     public virtual bool CharacterIsFalling()
     {
 
-        if (character.Rb.linearVelocity.y < -5f && !Physics.Raycast(character.TF.position, -character.TF.up, 10f, layerGround | layerStairGround))
+        if (character.Rb.linearVelocity.y < -5f && !Physics.Raycast(character.TF.position, -character.TF.up, rangeDetectGround,
+         layerGround | layerStairGround))
         {
             character.CharacterState.SetIsOnGround(false);
 

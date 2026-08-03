@@ -75,7 +75,7 @@ public class Character : MonoBehaviour
         Quaternion targetRotation = Quaternion.Euler(new Vector3(0f, 180f, 0f));
         tf.rotation = targetRotation;
         brickCharacterManager.ClearBrick();
-        ChangeAnim(GameData.Instance.ANIM_IDLE);
+        ChangeAnim(GameConfig.ANIM_IDLE);
 
     }
     public void SetSpawn(Vector3 pos)

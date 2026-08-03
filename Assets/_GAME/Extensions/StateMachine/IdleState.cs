@@ -6,7 +6,7 @@ public class IdleState : IState
 {
     public void OnEnter(Enemy t)
     {
-        t.ChangeAnim(GameData.Instance.ANIM_IDLE);
+        t.ChangeAnim(GameConfig.ANIM_IDLE);
         
     }
 

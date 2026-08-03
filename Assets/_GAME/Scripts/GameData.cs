@@ -7,43 +7,32 @@ public class GameData : Singleton<GameData>
     [SerializeField] private AllLevelDataSave allLevelSaveData;
 
     [SerializeField] private PlayerData playerData;
-    public String ANIM_RUN = "Run";
-
-    public String ANIM_IDLE = "Idle";
-
-    public String ANIM_KNOCKBACK = "KnockBack";
-
-    public String ANIM_WIN = "Win";
-
-    public Vector3 BRICK_SIZE = new Vector3(1, 0.2f, 0.5f);
-
-    public String CHARACTER_TAG = "Character";
 
     public List<GameObject> listDecorObject = new List<GameObject>();
-   public ColorDataSO ColorDataSO ;
-   public List<LevelDataSO> LevelDatas = new List<LevelDataSO>();
+    public ColorDataSO ColorDataSO;
+    public List<LevelDataSO> LevelDatas = new List<LevelDataSO>();
 
-   public List<SkinSO> SkinDatas = new List<SkinSO>();
+    public List<SkinSO> SkinDatas = new List<SkinSO>();
 
-   public AllLevelDataSave AllLevelSaveData => allLevelSaveData;
+    public AllLevelDataSave AllLevelSaveData => allLevelSaveData;
 
-   public PlayerData PlayerData => playerData;
+    public PlayerData PlayerData => playerData;
 
-  
 
-   public void SaveLevel(LevelDataSave levelData)
+
+    public void SaveLevel(LevelDataSave levelData)
     {
         bool levelExist = false;
-        for(int i = 0; i < allLevelSaveData.LevelDatas.Count; i++)
+        for (int i = 0; i < allLevelSaveData.LevelDatas.Count; i++)
         {
-            if(allLevelSaveData.LevelDatas[i].LevelId == levelData.LevelId)
+            if (allLevelSaveData.LevelDatas[i].LevelId == levelData.LevelId)
             {
                 levelExist = true;
-                if(allLevelSaveData.LevelDatas[i].TotalStar < levelData.TotalStar)
+                if (allLevelSaveData.LevelDatas[i].TotalStar < levelData.TotalStar)
                 {
                     allLevelSaveData.LevelDatas[i] = levelData;
                 }
-                
+
             }
         }
         if (!levelExist)
@@ -52,7 +41,7 @@ public class GameData : Singleton<GameData>
         }
         SaveAllLevel();
     }
-    
+
 
     public void SaveAllLevel()
     {
@@ -83,12 +72,13 @@ public class GameData : Singleton<GameData>
 
         if (!string.IsNullOrEmpty(jsonPlayerData))
         {
-            
+
         }
         else
         {
             SavePlayerData(new PlayerData
             {
+                PlayerName = "Player1",
                 collectedSkin = new List<int>(0),
                 CurrentSkinId = 0
             });
@@ -97,12 +87,12 @@ public class GameData : Singleton<GameData>
 
         this.playerData = JsonUtility.FromJson<PlayerData>(jsonPlayerData);
         GameManager.Instance.GetPlayer().SetName(playerData.PlayerName);
-        if(playerData.CurrentSkinId > -1 && playerData.CurrentSkinId  < SkinDatas.Count )
+        if (playerData.CurrentSkinId > -1 && playerData.CurrentSkinId < SkinDatas.Count)
         {
             GameManager.Instance.GetPlayer().SetSkin(SkinDatas[playerData.CurrentSkinId].SkinPrefab);
         }
-       
-        
+
+
     }
 
     [ContextMenu("CLEAR LEVELDATA")]
@@ -131,12 +121,12 @@ public class GameData : Singleton<GameData>
         {
             allLevelSaveData = new AllLevelDataSave();
             allLevelSaveData.LevelDatas = new List<LevelDataSave>();
-            for(int i = 0; i < LevelDatas.Count; i++)
+            for (int i = 0; i < LevelDatas.Count; i++)
             {
                 allLevelSaveData.LevelDatas.Add(new LevelDataSave
                 {
-                   LevelId = LevelDatas[i].LevelId,
-                   TotalStar = 0 
+                    LevelId = LevelDatas[i].LevelId,
+                    TotalStar = 0
                 });
             }
             SaveAllLevel();

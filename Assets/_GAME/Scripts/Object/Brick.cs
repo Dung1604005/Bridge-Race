@@ -83,7 +83,7 @@ public class Brick : GameUnit
 
     public void OnInit()
     {
-        
+        tf = this.transform;
         targetCharacter = null;
         SetActive(true);
         tf.parent= null;

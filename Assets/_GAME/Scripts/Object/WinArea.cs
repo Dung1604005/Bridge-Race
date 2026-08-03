@@ -69,7 +69,7 @@ public class WinArea : MonoBehaviour
 
     public void OnTriggerEnter(Collider collider)
     {
-        if (collider.CompareTag(GameData.Instance.CHARACTER_TAG))
+        if (collider.CompareTag(GameConfig.CHARACTER_TAG))
         {
             OnCollisionCharacter(collider);
 

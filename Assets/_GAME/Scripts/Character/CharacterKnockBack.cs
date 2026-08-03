@@ -22,7 +22,7 @@ public class CharacterKnockBack : MonoBehaviour
             breakBrickEffect.Play();
         }
         character.BrickCharacterManager.ClearBrick();
-        character.ChangeAnim(GameData.Instance.ANIM_KNOCKBACK);
+        character.ChangeAnim(GameConfig.ANIM_KNOCKBACK);
 
         EventBus<OnCharacterInActive>.Raise(new OnCharacterInActive
         {
@@ -84,7 +84,7 @@ public class CharacterKnockBack : MonoBehaviour
         }
 
         Collider collider = collision.collider;
-        if (collider.CompareTag(GameData.Instance.CHARACTER_TAG))
+        if (collider.CompareTag(GameConfig.CHARACTER_TAG))
         {
 
            OnCollisionPlayer(collider);
