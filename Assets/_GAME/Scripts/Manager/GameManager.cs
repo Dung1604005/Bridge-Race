@@ -7,10 +7,13 @@ public class GameManager :Singleton<GameManager>
     [SerializeField] private PlayerController player;
     [SerializeField]private GameState gameState;
 
+    [SerializeField] private CharacterModelUI characterModelUI;
+
     public GameState GameState => gameState;
 
-    public PlayerController Player => player;
+    public PlayerController GetPlayer() {return player;}
 
+    public CharacterModelUI GetCharacterModelUI() {return characterModelUI;}
 
     public void ChangeGameState(GameState newGameState)
     {

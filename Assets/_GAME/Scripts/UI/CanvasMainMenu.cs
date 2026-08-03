@@ -12,12 +12,19 @@ public class CanvasMainMenu : UICanvas
     public override void SetUp()
     {
         base.SetUp();
+        GameManager.Instance.GetCharacterModelUI().SetActiveCameraModel(true);
         EventBus<OnLoadSkinModel>.Raise(new OnLoadSkinModel
         {
             SkinId = GameData.Instance.PlayerData.CurrentSkinId
         });
-        SetNameInputField(GameManager.Instance.Player.CharacterName);
+        SetNameInputField(GameManager.Instance.GetPlayer().CharacterName);
         SetGoldText(GameData.Instance.PlayerData.Gold);
+    }
+
+    public override void CloseDirectly()
+    {
+        base.CloseDirectly();
+        GameManager.Instance.GetCharacterModelUI().SetActiveCameraModel(false);
     }
    public void SettingButton()
     {
@@ -54,7 +61,7 @@ public class CanvasMainMenu : UICanvas
 
     public void OnNameInputFieldChange(String namePlayer)
     {
-        GameManager.Instance.Player.SetName(namePlayer);
+        GameManager.Instance.GetPlayer().SetName(namePlayer);
         PlayerData playerData = GameData.Instance.PlayerData;
         playerData.PlayerName = namePlayer;
         GameData.Instance.SavePlayerData(playerData);

@@ -132,12 +132,13 @@ public class Stair : GameUnit
             SetColor(character.ColorType);
             character.BrickCharacterManager.RemoveBrick();
 
-            
-            EventBus<OnStairChange>.Raise(new OnStairChange
+            if (character.IsBot)
             {
-                CharacterId = character.CharacterId,
-                StairId = GetStarId()
-            });
+                Enemy enemy = character as Enemy;
+                enemy.SetStairId(GetStarId());
+                enemy.CaculateDestination();
+            }
+            
         }
     }
 }

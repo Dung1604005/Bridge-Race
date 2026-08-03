@@ -1537,7 +1537,7 @@ MonoBehaviour:
     m_Bits: 1
   m_VolumeTrigger: {fileID: 0}
   m_VolumeFrameworkUpdateModeOption: 2
-  m_RenderPostProcessing: 1
+  m_RenderPostProcessing: 0
   m_Antialiasing: 0
   m_AntialiasingQuality: 2
   m_StopNaN: 0
@@ -1967,11 +1967,11 @@ MonoBehaviour:
   tf: {fileID: 409400427}
   tfVisual: {fileID: 2106937355}
   characterState:
-    IsInactive: 0
-    IsOnGround: 1
-    IsOnStair: 0
-    BlockForward: 0
-    BlockDown: 0
+    isInactive: 0
+    isOnGround: 1
+    isOnStair: 0
+    blockForward: 0
+    blockDown: 0
   skinPrefab: {fileID: 0}
   agent: {fileID: 409400424}
 --- !u!136 &409400426
@@ -2874,11 +2874,11 @@ MonoBehaviour:
   tf: {fileID: 737381557}
   tfVisual: {fileID: 1069653728}
   characterState:
-    IsInactive: 0
-    IsOnGround: 1
-    IsOnStair: 0
-    BlockForward: 0
-    BlockDown: 0
+    isInactive: 0
+    isOnGround: 1
+    isOnStair: 0
+    blockForward: 0
+    blockDown: 0
   skinPrefab: {fileID: 0}
   agent: {fileID: 737381554}
 --- !u!136 &737381556
@@ -3725,11 +3725,11 @@ MonoBehaviour:
   tf: {fileID: 917712441}
   tfVisual: {fileID: 356736487}
   characterState:
-    IsInactive: 0
-    IsOnGround: 1
-    IsOnStair: 0
-    BlockForward: 0
-    BlockDown: 0
+    isInactive: 0
+    isOnGround: 1
+    isOnStair: 0
+    blockForward: 0
+    blockDown: 0
   skinPrefab: {fileID: 0}
   rotationSpeed: 5
 --- !u!54 &917712443
@@ -4352,6 +4352,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::GameManager
   player: {fileID: 917712442}
   gameState: 0
+  characterModelUI: {fileID: 1680302048}
 --- !u!4 &1151793074
 Transform:
   m_ObjectHideFlags: 0
@@ -6324,6 +6325,7 @@ MonoBehaviour:
   tf: {fileID: 1680302047}
   spawnPos: {x: 0.05000305, y: -1.32, z: -1.673}
   skinModel: {fileID: 1045292976}
+  cameraModel: {fileID: 929775546}
 --- !u!1001 &1698607893
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6747,11 +6749,11 @@ MonoBehaviour:
   tf: {fileID: 1760249472}
   tfVisual: {fileID: 130116922}
   characterState:
-    IsInactive: 0
-    IsOnGround: 1
-    IsOnStair: 0
-    BlockForward: 0
-    BlockDown: 0
+    isInactive: 0
+    isOnGround: 1
+    isOnStair: 0
+    blockForward: 0
+    blockDown: 0
   skinPrefab: {fileID: 0}
   agent: {fileID: 1760249468}
 --- !u!136 &1760249470
@@ -7934,7 +7936,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::StageManager
   stages: []
-  stageRoot: {fileID: 543450653538175952}
   navMeshSurface: {fileID: 195406911}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:

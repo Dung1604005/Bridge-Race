@@ -96,10 +96,10 @@ public class GameData : Singleton<GameData>
         }
 
         this.playerData = JsonUtility.FromJson<PlayerData>(jsonPlayerData);
-        GameManager.Instance.Player.SetName(playerData.PlayerName);
+        GameManager.Instance.GetPlayer().SetName(playerData.PlayerName);
         if(playerData.CurrentSkinId > -1 && playerData.CurrentSkinId  < SkinDatas.Count )
         {
-            GameManager.Instance.Player.SetSkin(SkinDatas[playerData.CurrentSkinId].SkinPrefab);
+            GameManager.Instance.GetPlayer().SetSkin(SkinDatas[playerData.CurrentSkinId].SkinPrefab);
         }
        
         

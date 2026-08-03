@@ -7,6 +7,8 @@ public class CharacterModelUI : MonoBehaviour
 
    [SerializeField] private GameObject skinModel;
 
+   [SerializeField] private GameObject cameraModel;
+
 
    public void OnEnable()
     {
@@ -22,6 +24,12 @@ public class CharacterModelUI : MonoBehaviour
     {
         Debug.Log(onLoadSkinModel.SkinId);
         SetSkin(GameData.Instance.SkinDatas[onLoadSkinModel.SkinId].ModelPrefab);
+    }
+
+    public void SetActiveCameraModel(bool active)
+    {
+        
+        cameraModel.SetActive(active);
     }
    public void SetSkin(GameObject skinPrefab)
     {

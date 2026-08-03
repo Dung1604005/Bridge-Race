@@ -121,6 +121,14 @@ public class Enemy : Character
     {
         agent.SetDestination(destination);
     }
+    public void CaculateDestination()
+    {
+        if(currentState is BuildState)
+        {
+            BuildState buildState = currentState as BuildState;
+            buildState.CaculateDestination(this);
+        }
+    }
 
     protected override void Update()
     {

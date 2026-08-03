@@ -11,7 +11,7 @@ public class CanvasSkin : UICanvas
     public override void SetUp()
     {
         base.SetUp();
-
+        GameManager.Instance.GetCharacterModelUI().SetActiveCameraModel(true);
         List<int> collectedSkin = new List<int>();
         List<SkinSO> listSkinSO = GameData.Instance.SkinDatas;
         PlayerData playerData = GameData.Instance.PlayerData;
@@ -36,6 +36,11 @@ public class CanvasSkin : UICanvas
         }
 
         
+    }
+    public override void CloseDirectly()
+    {
+        base.CloseDirectly();
+        GameManager.Instance.GetCharacterModelUI().SetActiveCameraModel(false);
     }
     public void OnBackButton()
     {

@@ -8,18 +8,7 @@ public class BuildState : IState
     private Bridge bestBridge;
     private Enemy enemy;
 
-    public void ReCaculate(OnStairChange onStairChange)
-    {
-        if(enemy.CharacterId == onStairChange.CharacterId)
-        {
-           enemy.SetStairId(onStairChange.StairId);
-
-           CaculateDestination();
-
-        }
-    }
-
-    public void CaculateDestination()
+    public void CaculateDestination(Enemy enemy)
     {
         int amountBrick = enemy.BrickCharacterManager.GetAmountVisualBrick();
         StairInfo stairInfo = bestBridge.GetFarthestStairPossible(enemy.GetStairId(), enemy.ColorType, amountBrick);
@@ -62,10 +51,10 @@ public class BuildState : IState
     public void OnEnter(Enemy t)
     {
         t.SetStairId(-1);
-        EventBus<OnStairChange>.Subcribe(ReCaculate);
+        
         enemy = t;
         bestBridge = t.CurrentStage.GetBestBridge(t.ColorType);
-        CaculateDestination();
+        CaculateDestination(t);
     }
 
 
@@ -73,14 +62,13 @@ public class BuildState : IState
     {
 
         if (t.IsAgentStop())
-            CaculateDestination();
+            CaculateDestination(t);
 
 
     }
 
     public void OnExit(Enemy t)
     {
-        EventBus<OnStairChange>.UnSubcribe(ReCaculate);
 
     }
 

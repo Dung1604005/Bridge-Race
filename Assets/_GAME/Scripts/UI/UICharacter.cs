@@ -98,7 +98,7 @@ public class UICharacter : MonoBehaviour
 
         GameData.Instance.SavePlayerData(playerData);
 
-        GameManager.Instance.Player.SetSkin(skinSO.SkinPrefab);
+        GameManager.Instance.GetPlayer().SetSkin(skinSO.SkinPrefab);
     }
 
     
