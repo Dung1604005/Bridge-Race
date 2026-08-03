@@ -9,7 +9,7 @@ public class PatrolState : IState
 
     public void CaculateAmountBrick(Enemy t)
     {
-        int maxActiveBrick = t.CurrentStage.GetAmountActiveBrick(t.ColorType);
+        int maxActiveBrick = t.CurrentStage.StageBrickManager.GetAmountActiveBrick(t.ColorType);
         
         numbTargetBrick = UnityEngine.Random.Range(Mathf.Min(3, maxActiveBrick), maxActiveBrick + 1);
     }
@@ -29,7 +29,7 @@ public class PatrolState : IState
         numbTargetBrick -= 1;
         if (t.IsAgentValid())
         {
-            t.SetDestination(t.CurrentStage.GetNearestBrick(t.ColorType, t.TF.position));
+            t.SetDestination(t.CurrentStage.StageBrickManager.GetNearestBrick(t.ColorType, t.TF.position));
         }
         
     }
@@ -63,7 +63,7 @@ public class PatrolState : IState
                 numbTargetBrick -= 1;
                 if(t.IsAgentValid())
                 {
-                    t.SetDestination(t.CurrentStage.GetNearestBrick(t.ColorType, t.TF.position));
+                    t.SetDestination(t.CurrentStage.StageBrickManager.GetNearestBrick(t.ColorType, t.TF.position));
                 }
             }
         }

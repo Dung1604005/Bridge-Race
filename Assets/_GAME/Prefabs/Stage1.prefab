@@ -222,6 +222,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 087e373a2eb82c74d9601c1b36716d7e, type: 3}
       insertIndex: -1
       addedObject: {fileID: 6146876005843604006}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 087e373a2eb82c74d9601c1b36716d7e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7673571064237907715}
   m_SourcePrefab: {fileID: 100100000, guid: 087e373a2eb82c74d9601c1b36716d7e, type: 3}
 --- !u!1 &8557265318351923899 stripped
 GameObject:
@@ -264,13 +267,9 @@ MonoBehaviour:
   PoolType: 4
   tf: {fileID: 9046135003327672321}
   stageDataSO: {fileID: 11400000, guid: f554761f30eba994986dac01480aa777, type: 2}
-  StageNumber: 1
-  IsLastStage: 0
-  scaleX: 16
-  scaleY: 1
-  scaleZ: 16
-  sizeStage: {x: 0, y: 0, z: 0}
-  distanceBrick: {x: 2, y: 0, z: 2}
+  stageNumber: 0
+  isLastStage: 0
+  stageBrickManager: {fileID: 7673571064237907715}
   spawnPos:
   - {fileID: 4371678008919083885}
   - {fileID: 3987301044193640840}
@@ -282,6 +281,23 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   bridges: []
+--- !u!114 &7673571064237907715
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8557265318351923899}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d4f061721754ef47b346069ea0e556b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::StageBrickManager
+  stage: {fileID: 6146876005843604006}
+  scaleX: 0
+  scaleY: 0
+  scaleZ: 0
+  distanceBrick: {x: 0, y: 0, z: 0}
 --- !u!4 &9046135003327672321 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 087e373a2eb82c74d9601c1b36716d7e, type: 3}

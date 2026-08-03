@@ -75,7 +75,7 @@ public class BrickCharacterManager : MonoBehaviour
         }
         Brick brick = characterBricks[characterBricks.Count - 1];
         characterBricks.RemoveAt(characterBricks.Count - 1);
-        character.CurrentStage.ReSpawnBrick(brick.ColorType);
+        character.CurrentStage.StageBrickManager.ReSpawnBrick(brick.ColorType);
         visualBrickId -= 1;
         brick.OnDespawn();
     }

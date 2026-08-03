@@ -59,7 +59,7 @@ public class Brick : GameUnit
     {
         if (stage != null)
         {
-            stage.RemoveFlyingBrick(this);
+            stage.StageBrickManager.RemoveFlyingBrick(this);
         }
         flyTimer = 0f;
     }
