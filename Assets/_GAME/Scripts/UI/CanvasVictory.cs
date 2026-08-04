@@ -60,6 +60,12 @@ public class CanvasVictory : UICanvas
         }
 
     }
+
+    public override void Close(float time)
+    {
+        base.Close(time);
+        SoundManager.Instance.PlayMusicSound(AudioClipType.BGM_GAMEPLAY);
+    }
      public void OnHomeButton()
     {
        

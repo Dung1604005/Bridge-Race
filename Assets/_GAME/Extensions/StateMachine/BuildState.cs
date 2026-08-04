@@ -4,27 +4,24 @@ using UnityEngine;
 
 public class BuildState : IState
 {
-
-    private Bridge bestBridge;
-
     public void CaculateDestination(Enemy enemy)
     {
         int amountBrick = enemy.BrickCharacterManager.GetAmountVisualBrick();
-        StairInfo stairInfo = bestBridge.GetFarthestStairPossible(enemy.GetStairId(), enemy.ColorType, amountBrick);
+        StairInfo stairInfo = enemy.GetBestBridge().GetFarthestStairPossible(enemy.GetStairId(), enemy.ColorType, amountBrick);
 
         if (enemy.GetStairId() == stairInfo.stairId)
         {
             OnExit(enemy);
             if (stairInfo.isLastStair)
             {
-                if (bestBridge.OwnerStage.IsLastStage())
+                if (enemy.GetBestBridge().OwnerStage.IsLastStage())
                 {
                     enemy.ChangeState(new WiningChaseState());
                     return;
                 }
                 else
                 {
-                    enemy.ChangeStage(bestBridge.NextStage);
+                    enemy.ChangeStage(enemy.GetBestBridge().NextStage);
                 }
             }
             enemy.ChangeState(new PatrolState());
@@ -40,17 +37,16 @@ public class BuildState : IState
         }
         else
         {
-
             OnExit(enemy);
             enemy.ChangeState(new PatrolState());
-
         }
     }
 
     public void OnEnter(Enemy t)
     {
         t.SetStairId(-1);
-        bestBridge = t.CurrentStage.GetBestBridge(t.ColorType);
+        Bridge bestBridge = t.CurrentStage.GetBestBridge(t.ColorType);
+        t.SetBestBridge(bestBridge);
         CaculateDestination(t);
     }
 

@@ -46,7 +46,6 @@ public class CanvasLevelSelect : UICanvas
             {
                 levelUI.SetUp(new LevelDataSave{}, levelDatas[i]);
             }
-
             listLevelUI.Add(levelUI);
             
         }
@@ -73,6 +72,11 @@ public class CanvasLevelSelect : UICanvas
 
     public void OnChangeLevelSelect(OnLevelSelect onLevelSelect)
     {
+        if(selectedLevelId == onLevelSelect.LevelId)return;
+        if(selectedLevelId >= 0 && selectedLevelId < listLevelUI.Count)
+        {
+            listLevelUI[selectedLevelId].OnDeSelect();
+        }
         selectedLevelId = onLevelSelect.LevelId;
     }
 

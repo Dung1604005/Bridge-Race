@@ -82,19 +82,11 @@ public class CharacterChecker : MonoBehaviour
 
     public void CheckStair()
     {
-
         if (character.CharacterIsGoingDown()) return;
-
-        Debug.DrawRay(character.TF.position, character.TF.forward * rangeDetect);
         if (Physics.Raycast(character.TF.position, character.TF.forward, out RaycastHit hit, rangeDetect, layerStair))
         {
-
             Collider col = hit.collider;
-
-
             Stair stair = ColliderCache<Stair>.GetComponent(col);
-
-
             stair.TakeStair(character);
             SetCharacterOnStair(true);
             // Neu current stage bang voi stage owener cua stair thi kiem tra

@@ -37,6 +37,9 @@ public class CharacterKnockBack : MonoBehaviour
         character.CharacterState.SetBlockForward(false);
 
         character.CharacterState.SetBlockDown(false);
+
+
+        character.ReSetXRotation();
     }
 
     public void OnCollisionPlayer(Collider collider)

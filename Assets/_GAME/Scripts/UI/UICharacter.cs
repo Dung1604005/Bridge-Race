@@ -30,12 +30,18 @@ public class UICharacter : MonoBehaviour
         nameSkin.text = _skinSO.NameSkin;
 
         SetActiveSkin(collected);
+        effectFocus.SetActive(false);
+
+        if(GameData.Instance.PlayerData.CurrentSkinId == skinSO.IdSkin)
+        {
+            effectFocus.SetActive(true);
+        }
     }
 
     public void SetActiveSkin(bool collected)
     {
         canvasSkin = UIManager.Instance.GetUI<CanvasSkin>();
-         buyButton.gameObject.SetActive(false);
+        buyButton.gameObject.SetActive(false);
 
         selectButton.gameObject.SetActive(false);
 

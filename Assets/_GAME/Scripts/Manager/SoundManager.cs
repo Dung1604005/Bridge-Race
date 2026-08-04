@@ -57,12 +57,4 @@ public class SoundManager : Singleton<SoundManager>
 
         sfxSource.PlayOneShot(soundAus[(int)audioClipType]);
     }
-
-   
-
-
-    
-
-    
-
 }

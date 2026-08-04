@@ -7,6 +7,11 @@ public class Enemy : Character
     [SerializeField] private NavMeshAgent agent;
 
     private int stairId = -1;
+
+    private int numbTargetBrick = 0;
+
+    private Bridge bestBridge;
+
     private IState currentState;
 
     public override void OnStart()
@@ -31,13 +36,13 @@ public class Enemy : Character
     public override void OnPause()
     {
         base.OnPause();
-       agent.enabled = false;
+        agent.enabled = false;
 
     }
     public override void OnContinue()
     {
         base.OnContinue();
-       agent.enabled = true;
+        agent.enabled = true;
     }
 
     public override void SetSpeed(float speed)
@@ -54,6 +59,26 @@ public class Enemy : Character
     public int GetStairId()
     {
         return stairId;
+    }
+
+    public void SetNumbTargetBrick(int numbTargetBrick)
+    {
+        this.numbTargetBrick = numbTargetBrick;
+    }
+
+    public int GetNumbTargetBrick()
+    {
+        return numbTargetBrick;
+    }
+
+    public void SetBestBridge(Bridge bridge)
+    {
+        this.bestBridge = bridge;
+    }
+
+    public Bridge GetBestBridge()
+    {
+        return bestBridge;
     }
 
     public void ChangeState(IState newState)
@@ -113,7 +138,7 @@ public class Enemy : Character
     public void TurnOnAgent()
     {
         rb.isKinematic = true;
-        
+
         agent.enabled = true;
     }
 
@@ -123,16 +148,15 @@ public class Enemy : Character
     }
     public void CaculateDestination()
     {
-        if(currentState is BuildState)
+        if (currentState is BuildState)
         {
             BuildState buildState = currentState as BuildState;
             buildState.CaculateDestination(this);
         }
     }
 
-    protected override void Update()
+    public void UpdateEnemy()
     {
-        base.Update();
         if (!characterState.GetIsOnGround())
         {
             EventBus<OnCharacterInActive>.Raise(new OnCharacterInActive
@@ -146,10 +170,16 @@ public class Enemy : Character
         }
         if (!IsAgentValid()) return;
         CharacterChecker.CheckForward();
-        if(currentState != null)
+        if (currentState != null)
         {
             currentState.OnExecute(this);
         }
+    }
+
+    protected override void Update()
+    {
+        base.Update();
+        UpdateEnemy();
     }
 
 

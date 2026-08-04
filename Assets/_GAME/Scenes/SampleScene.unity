@@ -3597,10 +3597,14 @@ MonoBehaviour:
   musicSource: {fileID: 295938030}
   sfxSource: {fileID: 407421242}
   soundAus:
-  - {fileID: 8300000, guid: 906b7099cbd39be4fbbe822bb68cb689, type: 3}
-  - {fileID: 8300000, guid: 089796e0719363b4f8a12d774a293201, type: 3}
-  - {fileID: 8300000, guid: 0aa6067381089f0469a48c993033be11, type: 3}
   - {fileID: 8300000, guid: 72c5b792384bde54aa5ab653d3f27fb8, type: 3}
+  - {fileID: 8300000, guid: 089796e0719363b4f8a12d774a293201, type: 3}
+  - {fileID: 8300000, guid: 906b7099cbd39be4fbbe822bb68cb689, type: 3}
+  - {fileID: 8300000, guid: 114ab42ea77192f488a976c3aa8ae981, type: 3}
+  - {fileID: 8300000, guid: 8b50a4b7ff9d65d4f924a2ebeaf468fa, type: 3}
+  - {fileID: 8300000, guid: 0644ce7a8880d35458a13b91311d1c6b, type: 3}
+  - {fileID: 8300000, guid: 32574e6aa1346c743a9dcdb9be7558f2, type: 3}
+  - {fileID: 8300000, guid: d91129f806bcb8e409f667b485a3241b, type: 3}
 --- !u!1001 &1406904689
 PrefabInstance:
   m_ObjectHideFlags: 0

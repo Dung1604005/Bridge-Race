@@ -5,13 +5,13 @@ using UnityEngine;
 
 public class PatrolState : IState
 {
-    private int numbTargetBrick = 0;
 
     public void CaculateAmountBrick(Enemy t)
     {
         int maxActiveBrick = t.CurrentStage.StageBrickManager.GetAmountActiveBrick(t.ColorType);
+        int numbTargetBrick = UnityEngine.Random.Range(Mathf.Min(3, maxActiveBrick), maxActiveBrick + 1);
         
-        numbTargetBrick = UnityEngine.Random.Range(Mathf.Min(3, maxActiveBrick), maxActiveBrick + 1);
+        t.SetNumbTargetBrick(numbTargetBrick);
     }
 
     public void SetDestination(Enemy t)
@@ -21,12 +21,12 @@ public class PatrolState : IState
             return;
         }
          CaculateAmountBrick(t);
-        if(numbTargetBrick == 0)
+        if(t.GetNumbTargetBrick() == 0)
         {
             t.ChangeState(new IdleState());
             return;
         }
-        numbTargetBrick -= 1;
+        t.SetNumbTargetBrick(t.GetNumbTargetBrick() - 1);
         if (t.IsAgentValid())
         {
             t.SetDestination(t.CurrentStage.StageBrickManager.GetNearestBrick(t.ColorType, t.TF.position));
@@ -35,6 +35,7 @@ public class PatrolState : IState
     }
     public void OnEnter(Enemy t)
     {
+        t.SetNumbTargetBrick(0);
         t.ChangeAnim(GameConfig.ANIM_RUN);
         SetDestination(t);
 
@@ -45,7 +46,7 @@ public class PatrolState : IState
         if (t.IsAgentStop() )
         {
             
-            if(numbTargetBrick == 0)
+            if(t.GetNumbTargetBrick()  == 0)
             {
                OnExit(t);
 
@@ -60,7 +61,7 @@ public class PatrolState : IState
             }
             else
             {
-                numbTargetBrick -= 1;
+                t.SetNumbTargetBrick(t.GetNumbTargetBrick() - 1);
                 if(t.IsAgentValid())
                 {
                     t.SetDestination(t.CurrentStage.StageBrickManager.GetNearestBrick(t.ColorType, t.TF.position));

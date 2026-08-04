@@ -11,7 +11,7 @@ public class LevelUI : UIElement
 
     [SerializeField] private List<Image> imageStars = new List<Image>();
 
-    [SerializeField] private GameObject selectEffect;
+    [SerializeField] private GameObject[] selectEffects;
 
     [SerializeField] private float durationEffect;
 
@@ -29,7 +29,10 @@ public class LevelUI : UIElement
     public override void SetUp()
     {
         base.SetUp();
-        selectEffect.gameObject.SetActive(false);
+        foreach(GameObject gameObject in selectEffects)
+        {
+            gameObject.SetActive(false);
+        }
         button.interactable = false;
         isSelected = false;
         isUnlocked = false;
@@ -61,14 +64,21 @@ public class LevelUI : UIElement
     public void OnDeSelect()
     {
         isSelected = false;
-        selectEffect.SetActive(false);
+        foreach(GameObject gameObject in selectEffects)
+        {
+            gameObject.SetActive(false);
+        }
+        
     }
 
     public void OnClick(float durationEffect)
     {
-        SoundManager.Instance.PlaySfx(AudioClipType.SFX_BUTTON_CLICK);
+        
         isSelected = true;
-        selectEffect.SetActive(true);
+        foreach(GameObject gameObject in selectEffects)
+        {
+            gameObject.SetActive(true);
+        }
         EventBus<OnLevelSelect>.Raise(new OnLevelSelect{LevelId = levelIndex});
         StartCoroutine(IEPlayEffectClick(durationEffect));
     }

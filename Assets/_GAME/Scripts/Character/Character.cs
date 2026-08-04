@@ -142,7 +142,6 @@ public class Character : MonoBehaviour
         }
         if (currentStage != null)
         {
-
             currentStage.RemoveCharacter(this);
         }
         newStage.AddCharacter(this);
@@ -202,8 +201,13 @@ public class Character : MonoBehaviour
         renderer = skinPrefab.SkinRenderer;
         anim = skinPrefab.Anim;
         brickCharacterManager.SetBrickRoot(skinPrefab.BrickRoot);
+    }
 
-
+    public void ReSetXRotation()
+    {
+        Vector3 angle = tf.eulerAngles;
+        angle.x = 0;
+        tf.rotation = Quaternion.Euler(angle);
     }
 
     public virtual void SetSpeed(float speed)
