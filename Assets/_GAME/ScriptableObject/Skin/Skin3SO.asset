@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7444afa287a55574486b15d54bff55e3, type: 3}
   m_Name: Skin3SO
   m_EditorClassIdentifier: Assembly-CSharp::SkinSO
-  IdSkin: 2
-  NameSkin: Warrior
-  SkinPrefab: {fileID: 5225650714836829863, guid: 9499a8a288e91c04085760e020e3b6e2, type: 3}
-  ModelPrefab: {fileID: 6510250577363920721, guid: d49eaa939593a8249b1a5355dbcf69fe, type: 3}
-  SkinPortrait: {fileID: 21300000, guid: a93eb28c02068324fa1405eea61a0a88, type: 3}
-  Price: 200
+  idSkin: 2
+  nameSkin: Samurai
+  skinPrefab: {fileID: 71564182502882926, guid: 328ae4cc5c3fb1247ac3d854c9f86684, type: 3}
+  modelPrefab: {fileID: 8169672986537548784, guid: 1f109b7a42f81c741a44746e3d2ac6f9, type: 3}
+  skinPortrait: {fileID: 21300000, guid: a93eb28c02068324fa1405eea61a0a88, type: 3}
+  price: 400

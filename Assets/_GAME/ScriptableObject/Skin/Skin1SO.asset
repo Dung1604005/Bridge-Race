@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7444afa287a55574486b15d54bff55e3, type: 3}
   m_Name: Skin1SO
   m_EditorClassIdentifier: Assembly-CSharp::SkinSO
-  IdSkin: 0
-  NameSkin: Chill Guy
-  SkinPrefab: {fileID: 4898537371197798584, guid: 6e44c5502a8b6dd438f0f141b663a187, type: 3}
-  ModelPrefab: {fileID: 6809842374286309076, guid: 27d966c140a97c8428da094102b5db8b, type: 3}
-  SkinPortrait: {fileID: 21300000, guid: b8ba521eea6f752418a55ba3eb1f647b, type: 3}
-  Price: 100
+  idSkin: 0
+  nameSkin: Farmer
+  skinPrefab: {fileID: 4898537371197798584, guid: 6e44c5502a8b6dd438f0f141b663a187, type: 3}
+  modelPrefab: {fileID: 6809842374286309076, guid: 27d966c140a97c8428da094102b5db8b, type: 3}
+  skinPortrait: {fileID: 21300000, guid: b8ba521eea6f752418a55ba3eb1f647b, type: 3}
+  price: 200
