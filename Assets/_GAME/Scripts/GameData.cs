@@ -79,7 +79,7 @@ public class GameData : Singleton<GameData>
             SavePlayerData(new PlayerData
             {
                 PlayerName = "Player1",
-                collectedSkin = new List<int>(0),
+                collectedSkin = new List<int>(){0},
                 CurrentSkinId = 0
             });
             jsonPlayerData = PlayerPrefs.GetString("playerData");

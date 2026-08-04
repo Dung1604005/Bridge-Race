@@ -37,7 +37,7 @@ MonoBehaviour:
       Scale: {x: 17.5, y: 1, z: 16}
   bridgeDatas:
   - OwnerStageNumber: 1
-    NextStageNumber: 0
+    NextStageNumber: 2
     bridgeTFData:
       Position: {x: 11.33, y: 9.88, z: 17.4}
       EulerAngles: {x: -0, y: 0, z: 0}
@@ -111,7 +111,7 @@ MonoBehaviour:
         EulerAngles: {x: -0, y: 0, z: 0}
         Scale: {x: 2, y: 0.5, z: 1}
   - OwnerStageNumber: 1
-    NextStageNumber: 0
+    NextStageNumber: 2
     bridgeTFData:
       Position: {x: 19.54, y: 9.88, z: 17.4}
       EulerAngles: {x: -0, y: 0, z: 0}
@@ -185,7 +185,7 @@ MonoBehaviour:
         EulerAngles: {x: -0, y: 0, z: 0}
         Scale: {x: 2, y: 0.5, z: 1}
   - OwnerStageNumber: 1
-    NextStageNumber: 0
+    NextStageNumber: 2
     bridgeTFData:
       Position: {x: -5.63, y: 9.88, z: 17.4}
       EulerAngles: {x: -0, y: 0, z: 0}
@@ -259,7 +259,7 @@ MonoBehaviour:
         EulerAngles: {x: -0, y: 0, z: 0}
         Scale: {x: 2, y: 0.5, z: 1}
   - OwnerStageNumber: 1
-    NextStageNumber: 0
+    NextStageNumber: 2
     bridgeTFData:
       Position: {x: 3.2999997, y: 9.59, z: 17.45}
       EulerAngles: {x: -0, y: 0, z: 0}

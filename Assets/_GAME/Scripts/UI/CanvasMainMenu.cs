@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class CanvasMainMenu : UICanvas
 {
-   [SerializeField] private TextMeshProUGUI goldText;
+    [SerializeField] private TextMeshProUGUI goldText;
 
-   [SerializeField] private TMP_InputField nameInputField;
+    [SerializeField] private TMP_InputField nameInputField;
 
 
     public override void SetUp()
@@ -21,35 +21,35 @@ public class CanvasMainMenu : UICanvas
         SetGoldText(GameData.Instance.PlayerData.Gold);
     }
 
-    public override void CloseDirectly()
+    public override void Close(float time)
     {
-        base.CloseDirectly();
+        base.Close(time);
         GameManager.Instance.GetCharacterModelUI().SetActiveCameraModel(false);
     }
-   public void SettingButton()
+    public void SettingButton()
     {
-        
+
         UIManager.Instance.CloseAll();
         UIManager.Instance.OpenUI<CanvasSettings>();
     }
 
     public void SkinButton()
     {
-        
+
         UIManager.Instance.CloseAll();
         UIManager.Instance.OpenUI<CanvasSkin>();
     }
 
     public void ShopButton()
     {
-        
+
         UIManager.Instance.CloseAll();
         UIManager.Instance.OpenUI<CanvasSkin>();
     }
 
     public void SelectLevelButton()
     {
-      
+
         UIManager.Instance.OpenUI<CanvasLevelSelect>();
     }
 

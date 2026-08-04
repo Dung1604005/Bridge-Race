@@ -36,7 +36,7 @@ MonoBehaviour:
       EulerAngles: {x: 0.000009334668, y: -0, z: -0}
       Scale: {x: 11.5, y: 1, z: 6}
   bridgeDatas:
-  - OwnerStageNumber: 0
+  - OwnerStageNumber: 3
     NextStageNumber: -1
     bridgeTFData:
       Position: {x: 7.29, y: 27.01, z: 82.22}

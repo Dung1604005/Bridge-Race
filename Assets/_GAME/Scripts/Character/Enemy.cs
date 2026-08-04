@@ -140,7 +140,7 @@ public class Enemy : Character
                 CharacterId = CharacterId
             });
             ChangeState(new IdleState());
-            //OnDespawn();
+            OnDespawn();
             Invoke(nameof(ReSpawn), 0.5f);
 
             

@@ -18,7 +18,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: cf0030110451db845b412e4446ef8ef2, type: 2}
   - {fileID: 11400000, guid: fa74571ba2a36ed4c9e27e41153d5319, type: 2}
   winAreaTF:
-    Position: {x: 4.1, y: 30.57, z: 99.53}
+    Position: {x: 5.1, y: 30.57, z: 99.53}
     EulerAngles: {x: -0, y: 0, z: 0}
     Scale: {x: 1, y: 1, z: 1}
   gateDatas:

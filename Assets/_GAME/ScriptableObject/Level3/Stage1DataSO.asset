@@ -36,8 +36,8 @@ MonoBehaviour:
       EulerAngles: {x: -0, y: 0, z: 0}
       Scale: {x: 27.5, y: 1, z: 18}
   bridgeDatas:
-  - OwnerStageNumber: 0
-    NextStageNumber: 0
+  - OwnerStageNumber: 1
+    NextStageNumber: 2
     bridgeTFData:
       Position: {x: 26.360003, y: 9.61, z: 15.37}
       EulerAngles: {x: -0, y: 0, z: 0}
@@ -146,8 +146,8 @@ MonoBehaviour:
         Position: {x: -2.25, y: 8.94, z: 22.125}
         EulerAngles: {x: -0, y: 0, z: 0}
         Scale: {x: 2, y: 0.5, z: 1}
-  - OwnerStageNumber: 0
-    NextStageNumber: 0
+  - OwnerStageNumber: 1
+    NextStageNumber: 2
     bridgeTFData:
       Position: {x: -6.8599987, y: 9.61, z: 15.37}
       EulerAngles: {x: -0, y: 0, z: 0}
@@ -256,8 +256,8 @@ MonoBehaviour:
         Position: {x: -2.25, y: 8.94, z: 22.125}
         EulerAngles: {x: -0, y: 0, z: 0}
         Scale: {x: 2, y: 0.5, z: 1}
-  - OwnerStageNumber: 0
-    NextStageNumber: 0
+  - OwnerStageNumber: 1
+    NextStageNumber: 2
     bridgeTFData:
       Position: {x: 20.62, y: 9.61, z: 15.37}
       EulerAngles: {x: -0, y: 0, z: 0}
@@ -366,8 +366,8 @@ MonoBehaviour:
         Position: {x: -2.25, y: 8.94, z: 22.125}
         EulerAngles: {x: -0, y: 0, z: 0}
         Scale: {x: 2, y: 0.5, z: 1}
-  - OwnerStageNumber: 0
-    NextStageNumber: 0
+  - OwnerStageNumber: 1
+    NextStageNumber: 2
     bridgeTFData:
       Position: {x: -12.6, y: 9.61, z: 15.37}
       EulerAngles: {x: -0, y: 0, z: 0}
