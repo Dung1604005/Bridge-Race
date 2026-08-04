@@ -22,4 +22,6 @@ public static class GameConfig
 
 
     public static Vector3 BRICK_SIZE = new Vector3(1, 0.2f, 0.5f);
+
+    public static Vector3 DISTANCE_BRICK = new Vector3(2, 0, 2);
 }

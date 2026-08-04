@@ -37,7 +37,7 @@ public class BrickCharacterManager : MonoBehaviour
     public Vector3 GetBrickPosition(int index)
     {
 
-        return startCharacterBrickPos + new Vector3(0f, index * (GameConfig.BRICK_SIZE.y / 2 + 0.05f), 0f) + brickRoot.position;
+        return startCharacterBrickPos + new Vector3(0f, index * (GameConfig.BRICK_SIZE.y / 2 + 0.15f), 0f) + brickRoot.position;
     }
     public int GetAmountVisualBrick()
     {
@@ -52,7 +52,7 @@ public class BrickCharacterManager : MonoBehaviour
     public void AddBrick()
     {
         
-        Vector3 localPos = startCharacterBrickPos + new Vector3(0f, characterBricks.Count * (GameConfig.BRICK_SIZE.y / 2 + 0.05f), 0f);
+        Vector3 localPos = startCharacterBrickPos + new Vector3(0f, characterBricks.Count * (GameConfig.BRICK_SIZE.y / 2 + 0.15f), 0f);
         Brick brick = SimplePool.Spawn<Brick>(PoolType.BrickPool, Vector3.zero, Quaternion.identity);
 
         brick.OnInit();

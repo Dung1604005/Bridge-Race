@@ -10,8 +10,6 @@ public class StageBrickManager : MonoBehaviour
 
     [SerializeField] private float scaleZ;
 
-    [SerializeField] private Vector3 distanceBrick;
-
     private Dictionary<ColorType, List<Brick>> bricks = new Dictionary<ColorType, List<Brick>>();
 
     private Dictionary<Brick, int> flyingBricks = new Dictionary<Brick, int>();
@@ -153,6 +151,7 @@ public class StageBrickManager : MonoBehaviour
     [ContextMenu("CHECK VALID STAGE")]
     public void CheckValidSize()
     {
+        Vector3 distanceBrick = GameConfig.DISTANCE_BRICK;
         int numbCollumn = (int)((scaleX * 2 - distanceBrick.x) / (GameConfig.BRICK_SIZE.x + distanceBrick.x));
         int numbRow = (int)((scaleZ * 2 - distanceBrick.z) / (GameConfig.BRICK_SIZE.z + distanceBrick.z));
         int numbBrick = numbCollumn * numbRow;
@@ -205,8 +204,9 @@ public class StageBrickManager : MonoBehaviour
 
     public Brick SpawnBrickObject(List<int> numbColorBrick, List<ColorType> colorTypes, Vector3 leftBottomPos, int x, int z)
     {
+        Vector3 distanceBrick = GameConfig.DISTANCE_BRICK;
         Vector3 pos = new Vector3((x + 1) * distanceBrick.x + x * GameConfig.BRICK_SIZE.x + leftBottomPos.x + GameConfig.BRICK_SIZE.x / 2,
-               stage.TF.position.y + scaleY + GameConfig.BRICK_SIZE.y / 2,
+               stage.TF.position.y + scaleY*2 + GameConfig.BRICK_SIZE.y / 2,
                (z + 1) * distanceBrick.z + z * GameConfig.BRICK_SIZE.z + leftBottomPos.z + GameConfig.BRICK_SIZE.z / 2);
         Brick brick = SimplePool.Spawn<Brick>(PoolType.BrickPool, pos, Quaternion.identity);
         brick.SetInfor(stage, pos);
@@ -241,6 +241,7 @@ public class StageBrickManager : MonoBehaviour
             Debug.LogError("STAGE DONT HAVE ENOUGH COLOR");
             return;
         }
+        Vector3 distanceBrick = GameConfig.DISTANCE_BRICK;
         int numbCollumn = (int)((scaleX * 2 - distanceBrick.x) / (GameConfig.BRICK_SIZE.x + distanceBrick.x));
         int numbRow = (int)((scaleZ * 2 - distanceBrick.z) / (GameConfig.BRICK_SIZE.z + distanceBrick.z));
         int numbBrick = numbCollumn * numbRow;
