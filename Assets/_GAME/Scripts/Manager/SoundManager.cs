@@ -4,83 +4,65 @@ using UnityEngine;
 using UnityEngine.Events;
 
 
-public enum SoundID
+public enum AudioClipType
 {
-    BG_1 = 0,
+    BGM_GAMEPLAY = 0,
+    BGM_WIN = 1,
+    BGM_LOSE = 2,
+    SFX_BUTTON_CLICK = 3,
+
+    SFX_BRICK_DROP = 4,
+
+    SFX_BRICK_IMPACT = 5,
+
+    SFX_BRICK_TAKE = 6,
+
+    SFX_BUILD_BRIDGE = 7
+
 }
 
-public enum FxID
+public enum AudioSourceType
 {
-    Button = 0,
-    SummonItem = 1,
+    MUSIC = 0,
+    SFX = 1
 }
-
 
 public class SoundManager : Singleton<SoundManager>
 {
-    [SerializeField] PlayerData userData;
 
-    private AudioSource soundSource;
-    private AudioSource[] fxSource = new AudioSource[Utilities.GetEnumCount<FxID>()];
+    [SerializeField] private AudioSource musicSource;
 
+    [SerializeField] private AudioSource sfxSource;
     [SerializeField] private AudioClip[] soundAus;
-    [SerializeField] private AudioClip[] fxAus;
 
-    private bool isLoaded = false;
-    private int indexSound;
 
     public void Awake()
     {
         DontDestroyOnLoad(gameObject);
 
-        soundSource = gameObject.AddComponent<AudioSource>();
-        soundSource.loop = true;
     }
 
-    private void Start()
+    public void PlayMusicSound(AudioClipType audioClipType)
     {
-        Invoke(nameof(OnLoad), 1);
+        if(musicSource == null|| GameData.Instance.PlayerData.IsMute) return;
+
+        musicSource.clip = soundAus[(int)audioClipType];
+        musicSource.loop = true;
+        musicSource.Play();
     }
 
-    private void OnLoad()
+    public void PlaySfx(AudioClipType audioClipType)
     {
-        if (soundAus.Length > 0)
-        {
-            isLoaded = true;
+        if(sfxSource == null || GameData.Instance.PlayerData.IsMute) return;
 
-            indexSound = Random.Range(0, soundAus.Length);
-            PlaySound((SoundID)indexSound);
-        }
+        sfxSource.PlayOneShot(soundAus[(int)audioClipType]);
     }
 
+   
 
-    public void PlaySound(SoundID ID)
-    {
-        soundSource.clip = soundAus[(int)ID];
-        soundSource.Play();
-    }
 
-    public void PlayFx(FxID ID)
-    {
-        //if (DataManager.GameJsonData.information.IsAmbientsSounds && isLoaded)
-        if(true)
-        {
-            if (fxSource[(int)ID] == null)
-            {
-                fxSource[(int)ID] = new GameObject().AddComponent<AudioSource>();
-                fxSource[(int)ID].clip = fxAus[(int)ID];
-                fxSource[(int)ID].loop = false;
-                fxSource[(int)ID].transform.SetParent(transform);
-            }
-            fxSource[(int)ID].PlayOneShot(fxAus[(int)ID]);
+    
 
-            //Debug.Log(ID);
-        }
-    }
-
-    public void ChangeSound(SoundID ID, float time)
-    {
-        
-    }
+    
 
 }

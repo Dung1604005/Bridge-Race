@@ -51,7 +51,7 @@ public class BrickCharacterManager : MonoBehaviour
 
     public void AddBrick()
     {
-        
+        SoundManager.Instance.PlaySfx(AudioClipType.SFX_BRICK_TAKE);
         Vector3 localPos = startCharacterBrickPos + new Vector3(0f, characterBricks.Count * (GameConfig.BRICK_SIZE.y / 2 + 0.15f), 0f);
         Brick brick = SimplePool.Spawn<Brick>(PoolType.BrickPool, Vector3.zero, Quaternion.identity);
 
@@ -60,6 +60,7 @@ public class BrickCharacterManager : MonoBehaviour
         brick.SetColor(character.ColorType);
         brick.SetActiveTrail(false);
         characterBricks.Add(brick);
+
         BrickEffect brickEffect = SimplePool.Spawn<BrickEffect>(PoolType.BrickEffectPool, Vector3.zero, Quaternion.identity);
         brickEffect.SetColor(character.ColorType);
         brickEffect.SetLocal(localPos, Quaternion.identity, brickRoot);

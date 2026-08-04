@@ -33,7 +33,7 @@ public class DynamicJoyStick : OnScreenControl, IPointerDownHandler, IDragHandle
     {
         joystick.gameObject.SetActive(true);
 
-        joystick.position = pointerEventData.position;
+        
         handle.anchoredPosition = Vector2.zero;
 
         SendValueToControl(Vector2.zero);

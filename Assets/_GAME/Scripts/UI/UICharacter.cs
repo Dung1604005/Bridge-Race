@@ -60,7 +60,7 @@ public class UICharacter : MonoBehaviour
 
     public void OnBuyButton()
     {
-        
+        SoundManager.Instance.PlaySfx(AudioClipType.SFX_BUTTON_CLICK);
         PlayerData playerData = GameData.Instance.PlayerData;
 
         if(playerData.Gold < skinSO.Price)
@@ -83,7 +83,7 @@ public class UICharacter : MonoBehaviour
 
     public void OnSelectButton()
     {
-        
+        SoundManager.Instance.PlaySfx(AudioClipType.SFX_BUTTON_CLICK);
         EventBus<OnLoadSkinModel>.Raise(new OnLoadSkinModel
         {
             SkinId = skinSO.IdSkin

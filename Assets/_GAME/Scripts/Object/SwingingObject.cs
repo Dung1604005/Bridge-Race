@@ -18,21 +18,43 @@ public class SwingingObject : MonoBehaviour
         tf = this.transform;
     }
 
-    void Update()
+    public void UpdateRotation()
     {
-        if(GameManager.Instance.GameState != GameState.PLAYING)
-        {
-            return;
-        }
-        timePassed += Time.deltaTime*swingSpeed;
+        timePassed += Time.deltaTime * swingSpeed;
 
         float currentAngle = Mathf.Sin(timePassed) * swingRange;
         tf.localRotation = Quaternion.Euler(tf.localEulerAngles.x, tf.localEulerAngles.y, currentAngle);
-        
-        if(Mathf.Abs(Mathf.Abs(tf.eulerAngles.z) - Mathf.Abs(swingRange)) <= 0.01f)
+
+        if (Mathf.Abs(Mathf.Abs(tf.eulerAngles.z) - Mathf.Abs(swingRange)) <= 0.01f)
         {
             directionMulti *= -1;
         }
+    }
+
+    public void OnColliderPlayer(Collision collision)
+    {
+        Collider collider = collision.collider;
+        Character character = ColliderCache<Character>.GetComponent(collider);
+
+        if (character.CharacterState.GetIsInActive()) return;
+
+        Vector3 impactPoint = collision.GetContact(0).point;
+
+        Vector3 knockbackDir = (-character.TF.position + impactPoint);
+        knockbackDir.y += 1.5f;
+
+
+
+        character.Knockback(knockbackDir);
+    }
+
+    void Update()
+    {
+        if (GameManager.Instance.GameState != GameState.PLAYING)
+        {
+            return;
+        }
+        UpdateRotation();
     }
 
     public void OnCollisionEnter(Collision collision)
@@ -45,23 +67,11 @@ public class SwingingObject : MonoBehaviour
         Collider collider = collision.collider;
         if (collider.CompareTag(GameConfig.CHARACTER_TAG))
         {
+            OnColliderPlayer(collision);
 
-            Character character = ColliderCache<Character>.GetComponent(collider);
-
-            if (character.CharacterState.GetIsInActive()) return;
-
-            Vector3 impactPoint = collision.GetContact(0).point;
-            
-            Vector3 knockbackDir = (-character.TF.position + impactPoint);
-            knockbackDir.y += 1.5f;
-            
-            
-            
-            character.Knockback(knockbackDir);
-                
         }
     }
 
-    
+
 
 }

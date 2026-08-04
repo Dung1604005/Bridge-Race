@@ -13,7 +13,10 @@ MonoBehaviour:
   m_Name: Level3DataSO
   m_EditorClassIdentifier: Assembly-CSharp::LevelDataSO
   levelId: 2
-  stageDataSOs: []
+  stageDataSOs:
+  - {fileID: 11400000, guid: 8929295bd8b8b434d991dc3db1bdabe9, type: 2}
+  - {fileID: 11400000, guid: ffe1b99454e23b344b08924e20054962, type: 2}
+  - {fileID: 11400000, guid: 45c3fe54bbd82564ead013700bbdf61e, type: 2}
   winAreaTF:
     Position: {x: 4.93, y: 34.92, z: 117.89}
     EulerAngles: {x: -0, y: 0, z: 0}

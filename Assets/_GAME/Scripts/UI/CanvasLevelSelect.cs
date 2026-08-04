@@ -78,11 +78,9 @@ public class CanvasLevelSelect : UICanvas
 
     public void OnCloseButton()
     {
-        
+        SoundManager.Instance.PlaySfx(AudioClipType.SFX_BUTTON_CLICK);
         UIManager.Instance.CloseUI<CanvasLevelSelect>(0f);
-
-
-        
+  
     }
 
     public void PlayGame()
@@ -91,6 +89,7 @@ public class CanvasLevelSelect : UICanvas
         {
             return;
         }
+        SoundManager.Instance.PlaySfx(AudioClipType.SFX_BUTTON_CLICK);
         LevelManager.Instance.LoadData(GameData.Instance.LevelDatas[selectedLevelId]);
         LevelManager.Instance.InitLevel();
 

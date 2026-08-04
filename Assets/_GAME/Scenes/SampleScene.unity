@@ -3594,13 +3594,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9195eaa0394b6f043a60c092ea884048, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SoundManager
-  userData:
-    PlayerName: 
-    Gold: 0
-    collectedSkin: 
-    CurrentSkinId: 0
-  soundAus: []
-  fxAus: []
+  musicSource: {fileID: 295938030}
+  sfxSource: {fileID: 407421242}
+  soundAus:
+  - {fileID: 8300000, guid: 906b7099cbd39be4fbbe822bb68cb689, type: 3}
+  - {fileID: 8300000, guid: 089796e0719363b4f8a12d774a293201, type: 3}
+  - {fileID: 8300000, guid: 0aa6067381089f0469a48c993033be11, type: 3}
+  - {fileID: 8300000, guid: 72c5b792384bde54aa5ab653d3f27fb8, type: 3}
 --- !u!1001 &1406904689
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4880,6 +4880,7 @@ MonoBehaviour:
     LevelDatas: []
   playerData:
     PlayerName: 
+    IsMute: 0
     Gold: 0
     collectedSkin: 
     CurrentSkinId: 0

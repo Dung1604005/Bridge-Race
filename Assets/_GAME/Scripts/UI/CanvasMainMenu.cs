@@ -28,28 +28,28 @@ public class CanvasMainMenu : UICanvas
     }
     public void SettingButton()
     {
-
+        SoundManager.Instance.PlaySfx(AudioClipType.SFX_BUTTON_CLICK);
         UIManager.Instance.CloseAll();
         UIManager.Instance.OpenUI<CanvasSettings>();
     }
 
     public void SkinButton()
     {
-
+        SoundManager.Instance.PlaySfx(AudioClipType.SFX_BUTTON_CLICK);
         UIManager.Instance.CloseAll();
         UIManager.Instance.OpenUI<CanvasSkin>();
     }
 
     public void ShopButton()
     {
-
+        SoundManager.Instance.PlaySfx(AudioClipType.SFX_BUTTON_CLICK);
         UIManager.Instance.CloseAll();
         UIManager.Instance.OpenUI<CanvasSkin>();
     }
 
     public void SelectLevelButton()
     {
-
+        SoundManager.Instance.PlaySfx(AudioClipType.SFX_BUTTON_CLICK);
         UIManager.Instance.OpenUI<CanvasLevelSelect>();
     }
 

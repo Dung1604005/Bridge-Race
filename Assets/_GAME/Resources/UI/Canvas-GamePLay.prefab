@@ -1247,7 +1247,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::DynamicJoyStick
   joystick: {fileID: 1994286134011477972}
   handle: {fileID: 7852305663762027173}
-  moveRanger: 120
+  moveRanger: 170
   controlPath: <Gamepad>/leftStick
 --- !u!1 &5982681062111132965
 GameObject:
@@ -2571,11 +2571,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1768774549314335986, guid: 0631f7431de004f0bb2a1c15cb16e7d7, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -29.200012
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1768774549314335986, guid: 0631f7431de004f0bb2a1c15cb16e7d7, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -162.19995
+      value: -699
       objectReference: {fileID: 0}
     - target: {fileID: 1768774549314335986, guid: 0631f7431de004f0bb2a1c15cb16e7d7, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x

@@ -64,6 +64,7 @@ public class GameManager :Singleton<GameManager>
         Application.targetFrameRate = 60;
         GameData.Instance.LoadPlayerData();
         GameData.Instance.LoadLevelData();
+        SoundManager.Instance.PlayMusicSound(AudioClipType.BGM_GAMEPLAY);
     }
     void Awake()
     {

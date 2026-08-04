@@ -22,6 +22,7 @@ public class GameData : Singleton<GameData>
 
     public void SaveLevel(LevelDataSave levelData)
     {
+        
         bool levelExist = false;
         for (int i = 0; i < allLevelSaveData.LevelDatas.Count; i++)
         {

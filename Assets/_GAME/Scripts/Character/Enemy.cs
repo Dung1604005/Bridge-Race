@@ -142,21 +142,14 @@ public class Enemy : Character
             ChangeState(new IdleState());
             OnDespawn();
             Invoke(nameof(ReSpawn), 0.5f);
-
-            
             return;
         }
         if (!IsAgentValid()) return;
-
-        
-
         CharacterChecker.CheckForward();
-            
         if(currentState != null)
         {
             currentState.OnExecute(this);
         }
-
     }
 
 

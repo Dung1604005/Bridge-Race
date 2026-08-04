@@ -19,10 +19,20 @@ public class CanvasSettings : UICanvas
 
         if (isSoundOn)
         {
+            PlayerData playerData = GameData.Instance.PlayerData;
+
+            playerData.IsMute = false;
+
+            GameData.Instance.SavePlayerData(playerData);
             toggleSoundOn.gameObject.SetActive(true);
         }
         else
         {
+            PlayerData playerData = GameData.Instance.PlayerData;
+
+            playerData.IsMute = true;
+
+            GameData.Instance.SavePlayerData(playerData);
             toggleSoundOff.gameObject.SetActive(true);
         }
     }

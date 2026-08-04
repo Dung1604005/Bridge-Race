@@ -11,8 +11,7 @@ public class CharacterKnockBack : MonoBehaviour
 
     public void Knockback(Vector3 knockbackDirection)
     {
-        
-
+        SoundManager.Instance.PlaySfx(AudioClipType.SFX_BRICK_IMPACT);
         character.SetInActive();
         character.Rb.AddForce(knockbackDirection * knockForce, ForceMode.Impulse);
         character.TF.rotation = Quaternion.LookRotation(-knockbackDirection);
