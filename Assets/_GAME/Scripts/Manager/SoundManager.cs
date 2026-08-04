@@ -42,9 +42,24 @@ public class SoundManager : Singleton<SoundManager>
 
     }
 
+    public void SetMuteSound(bool isMute)
+    {
+        if (isMute)
+        {
+            musicSource.volume = 0f;
+            sfxSource.volume = 0f;
+        }
+        else
+        {
+            musicSource.volume = 1f;
+            sfxSource.volume = 1f;
+        }
+
+    }
+
     public void PlayMusicSound(AudioClipType audioClipType)
     {
-        if(musicSource == null|| GameData.Instance.PlayerData.IsMute) return;
+        if(musicSource == null) return;
 
         musicSource.clip = soundAus[(int)audioClipType];
         musicSource.loop = true;
@@ -53,7 +68,7 @@ public class SoundManager : Singleton<SoundManager>
 
     public void PlaySfx(AudioClipType audioClipType)
     {
-        if(sfxSource == null || GameData.Instance.PlayerData.IsMute) return;
+        if(sfxSource == null ) return;
 
         sfxSource.PlayOneShot(soundAus[(int)audioClipType]);
     }

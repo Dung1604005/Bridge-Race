@@ -2158,6 +2158,8 @@ MonoBehaviour:
   IsDestroyOnClose: 0
   toggleSoundOn: {fileID: 1540625683522747621}
   toggleSoundOff: {fileID: 2105655697590214373}
+  homeButton: {fileID: 7669095556254058658}
+  retryButton: {fileID: 1672986821382814011}
 --- !u!1 &8586664432905188460
 GameObject:
   m_ObjectHideFlags: 0

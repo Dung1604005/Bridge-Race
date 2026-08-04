@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class CanvasSettings : UICanvas
 {
@@ -7,10 +8,34 @@ public class CanvasSettings : UICanvas
 
     [SerializeField] private GameObject toggleSoundOff;
 
-    public override void Open()
+    [SerializeField] private Transform homeButton;
+
+    [SerializeField] private Transform retryButton;
+
+    private UICanvas parentCanvas;
+
+    public override void Open(UICanvas uICanvas)
     {
-        base.Open();
-        GameManager.Instance.ChangeGameState(GameState.PAUSED);
+        base.Open(uICanvas);
+
+        parentCanvas = uICanvas;
+        if(GameManager.Instance.GameState == GameState.PLAYING)
+        {
+            GameManager.Instance.ChangeGameState(GameState.PAUSED);
+        }
+        ChangeValueSound(!GameData.Instance.PlayerData.IsMute);
+
+        if(parentCanvas is CanvasMainMenu)
+        {
+            homeButton.gameObject.SetActive(false);
+            retryButton.gameObject.SetActive(false);
+        }
+        else
+        {
+            homeButton.gameObject.SetActive(true);
+            retryButton.gameObject.SetActive(true);
+        }
+
     }
     public void ChangeValueSound(bool isSoundOn)
     {
@@ -20,18 +45,16 @@ public class CanvasSettings : UICanvas
         if (isSoundOn)
         {
             PlayerData playerData = GameData.Instance.PlayerData;
-
             playerData.IsMute = false;
-
+            SoundManager.Instance.SetMuteSound(false);
             GameData.Instance.SavePlayerData(playerData);
             toggleSoundOn.gameObject.SetActive(true);
         }
         else
         {
             PlayerData playerData = GameData.Instance.PlayerData;
-
             playerData.IsMute = true;
-
+            SoundManager.Instance.SetMuteSound(true);
             GameData.Instance.SavePlayerData(playerData);
             toggleSoundOff.gameObject.SetActive(true);
         }
@@ -61,8 +84,11 @@ public class CanvasSettings : UICanvas
     }
     public void OnContinue()
     {
-       
-        GameManager.Instance.ChangeGameState(GameState.PLAYING);
+        
+        if(GameManager.Instance.GameState == GameState.PAUSED)
+        {
+            GameManager.Instance.ChangeGameState(GameState.PLAYING);
+        }
         UIManager.Instance.CloseUI<CanvasSettings>(0f);
     }
 }

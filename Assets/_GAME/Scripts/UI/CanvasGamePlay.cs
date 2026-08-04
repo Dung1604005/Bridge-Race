@@ -79,7 +79,7 @@ public class CanvasGamePlay : UICanvas
     public void OnSettingButton()
     {
         SoundManager.Instance.PlaySfx(AudioClipType.SFX_BUTTON_CLICK);
-        UIManager.Instance.OpenUI<CanvasSettings>();
+        UIManager.Instance.OpenUI<CanvasSettings>(this);
     }
 
     private IEnumerator IECountDown()

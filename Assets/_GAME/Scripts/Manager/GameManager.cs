@@ -65,6 +65,7 @@ public class GameManager :Singleton<GameManager>
         GameData.Instance.LoadPlayerData();
         GameData.Instance.LoadLevelData();
         SoundManager.Instance.PlayMusicSound(AudioClipType.BGM_GAMEPLAY);
+        SoundManager.Instance.SetMuteSound(GameData.Instance.PlayerData.IsMute);
     }
     void Awake()
     {

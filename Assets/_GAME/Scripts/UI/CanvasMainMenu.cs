@@ -29,8 +29,7 @@ public class CanvasMainMenu : UICanvas
     public void SettingButton()
     {
         SoundManager.Instance.PlaySfx(AudioClipType.SFX_BUTTON_CLICK);
-        UIManager.Instance.CloseAll();
-        UIManager.Instance.OpenUI<CanvasSettings>();
+        UIManager.Instance.OpenUI<CanvasSettings>(this);
     }
 
     public void SkinButton()
