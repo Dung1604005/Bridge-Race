@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 24994e44271fb974ebbf48f5eb6f6636, type: 3}
   m_Name: Stage2DataSO
   m_EditorClassIdentifier: Assembly-CSharp::StageDataSO
-  StageData:
+  stageData:
     StageNumber: 2
     IsLastStage: 0
     ScaleX: 16.5
@@ -20,31 +20,31 @@ MonoBehaviour:
     ScaleZ: 9
     SpawnPos:
     - Position: {x: -0.626, y: 2.81, z: -0.665}
-      EulerAngles: {x: 0.000009334668, y: -0, z: -0}
+      EulerAngles: {x: 0.000018669336, y: -0, z: -0}
       Scale: {x: 1, y: 1, z: 1}
     - Position: {x: -0.182, y: 2.81, z: -0.665}
-      EulerAngles: {x: 0.000009334668, y: -0, z: -0}
+      EulerAngles: {x: 0.000018669336, y: -0, z: -0}
       Scale: {x: 1, y: 1, z: 1}
     - Position: {x: 0.37, y: 2.81, z: -0.665}
-      EulerAngles: {x: 0.000009334668, y: -0, z: -0}
+      EulerAngles: {x: 0.000018669336, y: -0, z: -0}
       Scale: {x: 1, y: 1, z: 1}
     - Position: {x: 0.811, y: 2.81, z: -0.665}
-      EulerAngles: {x: 0.000009334668, y: -0, z: -0}
+      EulerAngles: {x: 0.000018669336, y: -0, z: -0}
       Scale: {x: 1, y: 1, z: 1}
     TFData:
       Position: {x: 0, y: 6.54, z: 39.062305}
       EulerAngles: {x: 0.000009334668, y: -0, z: -0}
       Scale: {x: 16.500002, y: 1, z: 9}
-  BridgeDatas:
-  - OwnerStageNumber: 2
-    NextStageNumber: 3
+  bridgeDatas:
+  - OwnerStageNumber: 0
+    NextStageNumber: 0
     bridgeTFData:
       Position: {x: 15.33, y: 16.64, z: 49.27}
       EulerAngles: {x: -0, y: 0, z: 0}
       Scale: {x: 1, y: 1, z: 1}
     TFPlane:
       Position: {x: -2.27, y: 2.5599, z: 10.1201}
-      EulerAngles: {x: -26, y: 0, z: 0}
+      EulerAngles: {x: 334, y: 0, z: 0}
       Scale: {x: 1.8, y: 1, z: 23.94812}
     BanisterTFDataArr:
     - Position: {x: -3.38, y: 3.4071, z: 10.156}
@@ -138,15 +138,15 @@ MonoBehaviour:
         Position: {x: -2.25, y: 7.9220004, z: 20.113998}
         EulerAngles: {x: -0, y: 0, z: 0}
         Scale: {x: 2, y: 0.5, z: 1}
-  - OwnerStageNumber: 2
-    NextStageNumber: 3
+  - OwnerStageNumber: 0
+    NextStageNumber: 0
     bridgeTFData:
       Position: {x: -1.33, y: 16.64, z: 49.27}
       EulerAngles: {x: -0, y: 0, z: 0}
       Scale: {x: 1, y: 1, z: 1}
     TFPlane:
       Position: {x: -2.27, y: 2.5599, z: 10.1201}
-      EulerAngles: {x: -26, y: 0, z: 0}
+      EulerAngles: {x: 334, y: 0, z: 0}
       Scale: {x: 1.8, y: 1, z: 23.94812}
     BanisterTFDataArr:
     - Position: {x: -3.38, y: 3.3554, z: 10.05}

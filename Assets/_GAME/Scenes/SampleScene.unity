@@ -2501,6 +2501,39 @@ MonoBehaviour:
   m_ShadowLayerMask: 1
   m_RenderingLayers: 1
   m_ShadowRenderingLayers: 1
+--- !u!114 &425991315 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8610016021678523173, guid: ec87b4677f999184da9a82fc94358ff0, type: 3}
+  m_PrefabInstance: {fileID: 1007623127}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 425991316}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d7633cfa47f6c294088581430cf96e63, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Stage
+--- !u!1 &425991316 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1149430262605268338, guid: ec87b4677f999184da9a82fc94358ff0, type: 3}
+  m_PrefabInstance: {fileID: 1007623127}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &425991317
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 425991316}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d4f061721754ef47b346069ea0e556b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::StageBrickManager
+  stage: {fileID: 425991315}
+  scaleX: 11.5
+  scaleY: 1
+  scaleZ: 6
+  distanceBrick: {x: 0, y: 0, z: 0}
 --- !u!1 &458904481
 GameObject:
   m_ObjectHideFlags: 0
@@ -4878,6 +4911,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1541826009823255750, guid: ec87b4677f999184da9a82fc94358ff0, type: 3}
+      propertyPath: dataSO
+      value: 
+      objectReference: {fileID: 11400000, guid: f554761f30eba994986dac01480aa777, type: 2}
     - target: {fileID: 1697213463411756894, guid: ec87b4677f999184da9a82fc94358ff0, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 0
@@ -4890,6 +4927,18 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1771493117659010939, guid: ec87b4677f999184da9a82fc94358ff0, type: 3}
+      propertyPath: stageDataSO
+      value: 
+      objectReference: {fileID: 11400000, guid: cf0030110451db845b412e4446ef8ef2, type: 2}
+    - target: {fileID: 1771493117659010939, guid: ec87b4677f999184da9a82fc94358ff0, type: 3}
+      propertyPath: stageNumber
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1771493117659010939, guid: ec87b4677f999184da9a82fc94358ff0, type: 3}
+      propertyPath: stageBrickManager
+      value: 
+      objectReference: {fileID: 1771724705}
     - target: {fileID: 1927624905027581252, guid: ec87b4677f999184da9a82fc94358ff0, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 0
@@ -4914,6 +4963,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2061745048827776648, guid: ec87b4677f999184da9a82fc94358ff0, type: 3}
+      propertyPath: dataSO
+      value: 
+      objectReference: {fileID: 11400000, guid: cf0030110451db845b412e4446ef8ef2, type: 2}
     - target: {fileID: 2319381190565078721, guid: ec87b4677f999184da9a82fc94358ff0, type: 3}
       propertyPath: m_Layer
       value: 0
@@ -4970,6 +5023,10 @@ PrefabInstance:
       propertyPath: m_StaticEditorFlags
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5181584312383002344, guid: ec87b4677f999184da9a82fc94358ff0, type: 3}
+      propertyPath: dataSO
+      value: 
+      objectReference: {fileID: 11400000, guid: f554761f30eba994986dac01480aa777, type: 2}
     - target: {fileID: 5291382473318446768, guid: ec87b4677f999184da9a82fc94358ff0, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 0
@@ -4982,6 +5039,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5863809494977111897, guid: ec87b4677f999184da9a82fc94358ff0, type: 3}
+      propertyPath: dataSO
+      value: 
+      objectReference: {fileID: 11400000, guid: f554761f30eba994986dac01480aa777, type: 2}
     - target: {fileID: 5928404870631429452, guid: ec87b4677f999184da9a82fc94358ff0, type: 3}
       propertyPath: m_Layer
       value: 0
@@ -4998,6 +5059,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6766520193922794127, guid: ec87b4677f999184da9a82fc94358ff0, type: 3}
+      propertyPath: dataSO
+      value: 
+      objectReference: {fileID: 11400000, guid: f554761f30eba994986dac01480aa777, type: 2}
     - target: {fileID: 6788938989222238464, guid: ec87b4677f999184da9a82fc94358ff0, type: 3}
       propertyPath: m_Layer
       value: 0
@@ -5022,6 +5087,18 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8610016021678523173, guid: ec87b4677f999184da9a82fc94358ff0, type: 3}
+      propertyPath: stageDataSO
+      value: 
+      objectReference: {fileID: 11400000, guid: fa74571ba2a36ed4c9e27e41153d5319, type: 2}
+    - target: {fileID: 8610016021678523173, guid: ec87b4677f999184da9a82fc94358ff0, type: 3}
+      propertyPath: stageNumber
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8610016021678523173, guid: ec87b4677f999184da9a82fc94358ff0, type: 3}
+      propertyPath: stageBrickManager
+      value: 
+      objectReference: {fileID: 425991317}
     - target: {fileID: 8614735992327376728, guid: ec87b4677f999184da9a82fc94358ff0, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 0
@@ -5034,10 +5111,18 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8765315640061463605, guid: ec87b4677f999184da9a82fc94358ff0, type: 3}
+      propertyPath: dataSO
+      value: 
+      objectReference: {fileID: 11400000, guid: fa74571ba2a36ed4c9e27e41153d5319, type: 2}
     - target: {fileID: 8841726261358196054, guid: ec87b4677f999184da9a82fc94358ff0, type: 3}
       propertyPath: m_Layer
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9079557384004801392, guid: ec87b4677f999184da9a82fc94358ff0, type: 3}
+      propertyPath: dataSO
+      value: 
+      objectReference: {fileID: 11400000, guid: cf0030110451db845b412e4446ef8ef2, type: 2}
     m_RemovedComponents:
     - {fileID: 2570039153929873770, guid: ec87b4677f999184da9a82fc94358ff0, type: 3}
     - {fileID: 4159233787204631693, guid: ec87b4677f999184da9a82fc94358ff0, type: 3}
@@ -5124,6 +5209,12 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 1676494322903507997, guid: ec87b4677f999184da9a82fc94358ff0, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1177672428}
+    - targetCorrespondingSourceObject: {fileID: 7685723586355098923, guid: ec87b4677f999184da9a82fc94358ff0, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1771724705}
+    - targetCorrespondingSourceObject: {fileID: 1149430262605268338, guid: ec87b4677f999184da9a82fc94358ff0, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 425991317}
     - targetCorrespondingSourceObject: {fileID: 8192122409661439393, guid: ec87b4677f999184da9a82fc94358ff0, type: 3}
       insertIndex: -1
       addedObject: {fileID: 354044058}
@@ -5911,10 +6002,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d4f061721754ef47b346069ea0e556b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::StageBrickManager
-  stage: {fileID: 0}
-  scaleX: 0
-  scaleY: 0
-  scaleZ: 0
+  stage: {fileID: 1771724704}
+  scaleX: 16
+  scaleY: 1
+  scaleZ: 16
   distanceBrick: {x: 0, y: 0, z: 0}
 --- !u!1001 &1217423308
 PrefabInstance:
@@ -8845,6 +8936,50 @@ MeshRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &1771724702 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1771493117659010939, guid: ec87b4677f999184da9a82fc94358ff0, type: 3}
+  m_PrefabInstance: {fileID: 1007623127}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1771724703}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d7633cfa47f6c294088581430cf96e63, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Stage
+--- !u!1 &1771724703 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7685723586355098923, guid: ec87b4677f999184da9a82fc94358ff0, type: 3}
+  m_PrefabInstance: {fileID: 1007623127}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1771724704 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1357558702371055054, guid: ec87b4677f999184da9a82fc94358ff0, type: 3}
+  m_PrefabInstance: {fileID: 1007623127}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1177672427}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d7633cfa47f6c294088581430cf96e63, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Stage
+--- !u!114 &1771724705
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1771724703}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d4f061721754ef47b346069ea0e556b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::StageBrickManager
+  stage: {fileID: 1771724702}
+  scaleX: 16.5
+  scaleY: 1
+  scaleZ: 9
+  distanceBrick: {x: 0, y: 0, z: 0}
 --- !u!1001 &1796059487
 PrefabInstance:
   m_ObjectHideFlags: 0
