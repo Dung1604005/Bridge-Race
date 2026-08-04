@@ -711,7 +711,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::GateCtrl
   PoolType: 5
   tf: {fileID: 1239656236556573436}
-  levelDataSO: {fileID: 0}
+  levelDataSO: {fileID: 11400000, guid: b8bfff2f9cdc78049985a50f0caa3bb4, type: 2}
   gateObjRenderers:
   - {fileID: 4104139058867601235}
   - {fileID: 346476395809983991}
@@ -4207,6 +4207,7 @@ GameObject:
   - component: {fileID: 1686767715403733328}
   - component: {fileID: 5688175541921528623}
   - component: {fileID: 8585390380452187837}
+  - component: {fileID: 3410348762947793826}
   m_Layer: 7
   m_Name: Stage3
   m_TagString: Untagged
@@ -4326,13 +4327,9 @@ MonoBehaviour:
   PoolType: 4
   tf: {fileID: 2851450270560546300}
   stageDataSO: {fileID: 11400000, guid: 45c3fe54bbd82564ead013700bbdf61e, type: 2}
-  StageNumber: 3
-  IsLastStage: 1
-  scaleX: 11.5
-  scaleY: 1
-  scaleZ: 11.5
-  sizeStage: {x: 23, y: 2, z: 23}
-  distanceBrick: {x: 2, y: 0, z: 2}
+  stageNumber: 0
+  isLastStage: 0
+  stageBrickManager: {fileID: 3410348762947793826}
   spawnPos:
   - {fileID: 1776936996224965126}
   - {fileID: 899938973532094233}
@@ -4341,6 +4338,23 @@ MonoBehaviour:
   characters: []
   bridges:
   - {fileID: 4212380297494331470}
+--- !u!114 &3410348762947793826
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1389160416233426225}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d4f061721754ef47b346069ea0e556b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::StageBrickManager
+  stage: {fileID: 8585390380452187837}
+  scaleX: 11.5
+  scaleY: 1
+  scaleZ: 11.5
+  distanceBrick: {x: 0, y: 0, z: 0}
 --- !u!1 &1390376958514549612
 GameObject:
   m_ObjectHideFlags: 0
@@ -5412,7 +5426,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::GateCtrl
   PoolType: 5
   tf: {fileID: 5388135198470137498}
-  levelDataSO: {fileID: 0}
+  levelDataSO: {fileID: 11400000, guid: b8bfff2f9cdc78049985a50f0caa3bb4, type: 2}
   gateObjRenderers:
   - {fileID: 8116264387506463188}
   - {fileID: 1407567116066727352}
@@ -6433,7 +6447,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::GateCtrl
   PoolType: 5
   tf: {fileID: 8350961588069669688}
-  levelDataSO: {fileID: 0}
+  levelDataSO: {fileID: 11400000, guid: b8bfff2f9cdc78049985a50f0caa3bb4, type: 2}
   gateObjRenderers:
   - {fileID: 2825890146279274477}
   - {fileID: 8350944540534291963}
@@ -10671,7 +10685,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::GateCtrl
   PoolType: 5
   tf: {fileID: 4729173707679506551}
-  levelDataSO: {fileID: 0}
+  levelDataSO: {fileID: 11400000, guid: b8bfff2f9cdc78049985a50f0caa3bb4, type: 2}
   gateObjRenderers:
   - {fileID: 7891819868056620794}
   - {fileID: 7214777751721567475}
@@ -13399,6 +13413,7 @@ GameObject:
   - component: {fileID: 8538023932045687852}
   - component: {fileID: 7722179053111588897}
   - component: {fileID: 5184748919174841826}
+  - component: {fileID: 2458041632273157972}
   m_Layer: 7
   m_Name: Stage2
   m_TagString: Untagged
@@ -13518,13 +13533,9 @@ MonoBehaviour:
   PoolType: 4
   tf: {fileID: 6835077756080947926}
   stageDataSO: {fileID: 11400000, guid: ffe1b99454e23b344b08924e20054962, type: 2}
-  StageNumber: 2
-  IsLastStage: 0
-  scaleX: 22
-  scaleY: 1
-  scaleZ: 9
-  sizeStage: {x: 44, y: 2, z: 18}
-  distanceBrick: {x: 2, y: 0, z: 2}
+  stageNumber: 0
+  isLastStage: 0
+  stageBrickManager: {fileID: 2458041632273157972}
   spawnPos:
   - {fileID: 6488958079804414088}
   - {fileID: 1706303864027162871}
@@ -13534,6 +13545,23 @@ MonoBehaviour:
   bridges:
   - {fileID: 3371090289051535116}
   - {fileID: 7210028508527092248}
+--- !u!114 &2458041632273157972
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3991694633190076274}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d4f061721754ef47b346069ea0e556b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::StageBrickManager
+  stage: {fileID: 5184748919174841826}
+  scaleX: 22
+  scaleY: 1
+  scaleZ: 9
+  distanceBrick: {x: 0, y: 0, z: 0}
 --- !u!1 &4050900974701885490
 GameObject:
   m_ObjectHideFlags: 0
@@ -22085,7 +22113,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::GateCtrl
   PoolType: 5
   tf: {fileID: 868081824822353976}
-  levelDataSO: {fileID: 0}
+  levelDataSO: {fileID: 11400000, guid: b8bfff2f9cdc78049985a50f0caa3bb4, type: 2}
   gateObjRenderers:
   - {fileID: 60927668611462374}
   - {fileID: 1435885527274817645}
@@ -22782,7 +22810,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::GateCtrl
   PoolType: 5
   tf: {fileID: 1418385800097031382}
-  levelDataSO: {fileID: 0}
+  levelDataSO: {fileID: 11400000, guid: b8bfff2f9cdc78049985a50f0caa3bb4, type: 2}
   gateObjRenderers:
   - {fileID: 194231461097370531}
   - {fileID: 6532475893018512830}
@@ -25227,7 +25255,7 @@ MonoBehaviour:
   m_LayerMask:
     serializedVersion: 2
     m_Bits: 751
-  m_UseGeometry: 0
+  m_UseGeometry: 1
   m_DefaultArea: 0
   m_GenerateLinks: 0
   m_IgnoreNavMeshAgent: 1
@@ -25237,7 +25265,7 @@ MonoBehaviour:
   m_OverrideVoxelSize: 0
   m_VoxelSize: 0.16666667
   m_MinRegionArea: 2
-  m_NavMeshData: {fileID: 23800000, guid: f95a4d1022b618544aac59f3b304767e, type: 2}
+  m_NavMeshData: {fileID: 23800000, guid: fe66355c4675a2e4daa22578baf15a74, type: 2}
   m_BuildHeightMesh: 0
 --- !u!114 &1029985409188467785
 MonoBehaviour:
@@ -25255,7 +25283,6 @@ MonoBehaviour:
   - {fileID: 7871199624163480203}
   - {fileID: 5184748919174841826}
   - {fileID: 8585390380452187837}
-  stageRoot: {fileID: 1933621429825952622}
   navMeshSurface: {fileID: 1114271825002181938}
 --- !u!1 &8230710148103732758
 GameObject:
@@ -27835,7 +27862,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::GateCtrl
   PoolType: 5
   tf: {fileID: 5861092723320187667}
-  levelDataSO: {fileID: 0}
+  levelDataSO: {fileID: 11400000, guid: b8bfff2f9cdc78049985a50f0caa3bb4, type: 2}
   gateObjRenderers:
   - {fileID: 4423027326619256991}
   - {fileID: 4235141622879455849}
@@ -27898,6 +27925,7 @@ GameObject:
   - component: {fileID: 2656183192775166279}
   - component: {fileID: 5940602675692661668}
   - component: {fileID: 7871199624163480203}
+  - component: {fileID: 486085255154797024}
   m_Layer: 7
   m_Name: Stage1(Clone)
   m_TagString: Untagged
@@ -28017,13 +28045,9 @@ MonoBehaviour:
   PoolType: 4
   tf: {fileID: 5336937121186543838}
   stageDataSO: {fileID: 11400000, guid: 8929295bd8b8b434d991dc3db1bdabe9, type: 2}
-  StageNumber: 1
-  IsLastStage: 0
-  scaleX: 27
-  scaleY: 1
-  scaleZ: 17
-  sizeStage: {x: 54, y: 2, z: 34}
-  distanceBrick: {x: 2, y: 0, z: 2}
+  stageNumber: 0
+  isLastStage: 0
+  stageBrickManager: {fileID: 486085255154797024}
   spawnPos:
   - {fileID: 50610399096647924}
   - {fileID: 3318108211748983795}
@@ -28039,6 +28063,23 @@ MonoBehaviour:
   - {fileID: 7543603201337687425}
   - {fileID: 2253197926974679460}
   - {fileID: 1102349824024907559}
+--- !u!114 &486085255154797024
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8992941799919984869}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d4f061721754ef47b346069ea0e556b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::StageBrickManager
+  stage: {fileID: 7871199624163480203}
+  scaleX: 27
+  scaleY: 1
+  scaleZ: 18
+  distanceBrick: {x: 0, y: 0, z: 0}
 --- !u!1 &9091525078884726559
 GameObject:
   m_ObjectHideFlags: 0

@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::StageDataSO
   stageData:
     StageNumber: 3
-    IsLastStage: 0
+    IsLastStage: 1
     ScaleX: 11.5
     ScaleY: 1
     ScaleZ: 6

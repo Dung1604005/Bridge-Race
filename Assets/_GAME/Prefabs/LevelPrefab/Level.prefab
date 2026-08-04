@@ -130,6 +130,7 @@ MonoBehaviour:
   bridge: {fileID: 8765315640061463605}
   renderer: {fileID: 2603568265713652989}
   colorType: 0
+  paintCooldown: 0
 --- !u!1 &68845524607868652
 GameObject:
   m_ObjectHideFlags: 0
@@ -161,96 +162,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 4086837632587895248}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &92642231241971943
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 4611384590936511251}
-  - component: {fileID: 4140648036198091034}
-  - component: {fileID: 2402997838906869118}
-  m_Layer: 0
-  m_Name: obstacle_4_002
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &4611384590936511251
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 92642231241971943}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 4629558041735166266}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!33 &4140648036198091034
-MeshFilter:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 92642231241971943}
-  m_Mesh: {fileID: 8097410528231800854, guid: 1a76021742d50c8439b99fce9bb789c6, type: 3}
---- !u!23 &2402997838906869118
-MeshRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 92642231241971943}
-  m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 2
-  m_RayTraceProcedural: 0
-  m_RayTracingAccelStructBuildFlagsOverride: 0
-  m_RayTracingAccelStructBuildFlags: 1
-  m_SmallMeshCulling: 1
-  m_ForceMeshLod: -1
-  m_MeshLodSelectionBias: 0
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 2100000, guid: 475df77cde3394a4390cb95e536a2fe3, type: 2}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 3
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_GlobalIlluminationMeshLod: 0
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_MaskInteraction: 0
-  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!1 &121544595427303268
 GameObject:
   m_ObjectHideFlags: 0
@@ -427,6 +338,7 @@ MonoBehaviour:
   bridge: {fileID: 5863809494977111897}
   renderer: {fileID: 7453406414795309261}
   colorType: 0
+  paintCooldown: 0
 --- !u!1 &173971105207349686
 GameObject:
   m_ObjectHideFlags: 0
@@ -647,6 +559,7 @@ MonoBehaviour:
   bridge: {fileID: 2061745048827776648}
   renderer: {fileID: 4033003515272220708}
   colorType: 0
+  paintCooldown: 0
 --- !u!1 &235769156048343429
 GameObject:
   m_ObjectHideFlags: 0
@@ -710,7 +623,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Bridge
   PoolType: 2
   tf: {fileID: 286089900723925227}
-  dataSO: {fileID: 0}
+  dataSO: {fileID: 11400000, guid: f554761f30eba994986dac01480aa777, type: 2}
   stairs:
   - {fileID: 3942820779741180426}
   - {fileID: 148452463690333602}
@@ -895,6 +808,7 @@ MonoBehaviour:
   bridge: {fileID: 5863809494977111897}
   renderer: {fileID: 7082413968864030687}
   colorType: 0
+  paintCooldown: 0
 --- !u!1 &308359429119710851
 GameObject:
   m_ObjectHideFlags: 0
@@ -1154,6 +1068,7 @@ MonoBehaviour:
   bridge: {fileID: 2061745048827776648}
   renderer: {fileID: 5810178590580449191}
   colorType: 0
+  paintCooldown: 0
 --- !u!1 &324450593457937890
 GameObject:
   m_ObjectHideFlags: 0
@@ -1284,6 +1199,7 @@ MonoBehaviour:
   bridge: {fileID: 8765315640061463605}
   renderer: {fileID: 2095035894154515405}
   colorType: 0
+  paintCooldown: 0
 --- !u!1 &329783633223504212
 GameObject:
   m_ObjectHideFlags: 0
@@ -1766,6 +1682,7 @@ MonoBehaviour:
   bridge: {fileID: 8765315640061463605}
   renderer: {fileID: 6790985557137614440}
   colorType: 0
+  paintCooldown: 0
 --- !u!1 &377616143017872063
 GameObject:
   m_ObjectHideFlags: 0
@@ -2028,6 +1945,7 @@ MonoBehaviour:
   bridge: {fileID: 6766520193922794127}
   renderer: {fileID: 1994649224087556840}
   colorType: 0
+  paintCooldown: 0
 --- !u!1 &382156410737940934
 GameObject:
   m_ObjectHideFlags: 0
@@ -2040,8 +1958,7 @@ GameObject:
   - component: {fileID: 8524386860604760521}
   - component: {fileID: 6231153039036037568}
   - component: {fileID: 6605801783273927660}
-  - component: {fileID: 1642035083616193941}
-  - component: {fileID: 6058128835597542697}
+  - component: {fileID: 2203382535526589994}
   m_Layer: 0
   m_Name: wall_007(Clone)
   m_TagString: Untagged
@@ -2160,27 +2077,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DecorObject
   decorId: 9
---- !u!114 &1642035083616193941
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 382156410737940934}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Unity.AI.Navigation::Unity.AI.Navigation.NavMeshModifier
-  m_SerializedVersion: 0
-  m_OverrideArea: 1
-  m_Area: 1
-  m_OverrideGenerateLinks: 0
-  m_GenerateLinks: 0
-  m_IgnoreFromBuild: 0
-  m_ApplyToChildren: 1
-  m_AffectedAgents: ffffffff
---- !u!65 &6058128835597542697
+--- !u!65 &2203382535526589994
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2199,8 +2096,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 6.091701, y: 1.6456518, z: 0.65928227}
-  m_Center: {x: 0, y: 0.77881503, z: -0.00000005960466}
+  m_Size: {x: 6.0916996, y: 1.6456518, z: 0.6592821}
+  m_Center: {x: 0, y: 0.77881503, z: -0.000000059604645}
 --- !u!1 &398054722219445646
 GameObject:
   m_ObjectHideFlags: 0
@@ -2297,7 +2194,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 2147483647
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!224 &8341642694448185185
 RectTransform:
@@ -2474,8 +2371,7 @@ GameObject:
   - component: {fileID: 4848137849162177470}
   - component: {fileID: 7602992819862372256}
   - component: {fileID: 8226817900581211995}
-  - component: {fileID: 8109426793235405309}
-  - component: {fileID: 4677844403981355234}
+  - component: {fileID: 7868495547150460102}
   m_Layer: 0
   m_Name: wall_007(Clone)
   m_TagString: Untagged
@@ -2594,27 +2490,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DecorObject
   decorId: 9
---- !u!114 &8109426793235405309
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 423501440529060474}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Unity.AI.Navigation::Unity.AI.Navigation.NavMeshModifier
-  m_SerializedVersion: 0
-  m_OverrideArea: 1
-  m_Area: 1
-  m_OverrideGenerateLinks: 0
-  m_GenerateLinks: 0
-  m_IgnoreFromBuild: 0
-  m_ApplyToChildren: 1
-  m_AffectedAgents: ffffffff
---- !u!65 &4677844403981355234
+--- !u!65 &7868495547150460102
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2633,8 +2509,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 6.091701, y: 1.6456518, z: 0.65928227}
-  m_Center: {x: 0, y: 0.77881503, z: -0.00000005960466}
+  m_Size: {x: 6.0916996, y: 1.6456518, z: 0.6592821}
+  m_Center: {x: 0, y: 0.77881503, z: -0.000000059604645}
 --- !u!1 &427469436658500396
 GameObject:
   m_ObjectHideFlags: 0
@@ -2765,6 +2641,7 @@ MonoBehaviour:
   bridge: {fileID: 5181584312383002344}
   renderer: {fileID: 6208321468789142103}
   colorType: 0
+  paintCooldown: 0
 --- !u!1 &442676054610011648
 GameObject:
   m_ObjectHideFlags: 0
@@ -2895,6 +2772,7 @@ MonoBehaviour:
   bridge: {fileID: 2061745048827776648}
   renderer: {fileID: 4188929102269876002}
   colorType: 0
+  paintCooldown: 0
 --- !u!1 &445526415528516020
 GameObject:
   m_ObjectHideFlags: 0
@@ -3035,8 +2913,7 @@ GameObject:
   - component: {fileID: 2203178085473050998}
   - component: {fileID: 6361305326879382430}
   - component: {fileID: 4103786144189470200}
-  - component: {fileID: 4115796767752875276}
-  - component: {fileID: 3590927895697764530}
+  - component: {fileID: 5290065251223790013}
   m_Layer: 0
   m_Name: wall_007(Clone)
   m_TagString: Untagged
@@ -3155,27 +3032,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DecorObject
   decorId: 9
---- !u!114 &4115796767752875276
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 471973626036391904}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Unity.AI.Navigation::Unity.AI.Navigation.NavMeshModifier
-  m_SerializedVersion: 0
-  m_OverrideArea: 1
-  m_Area: 1
-  m_OverrideGenerateLinks: 0
-  m_GenerateLinks: 0
-  m_IgnoreFromBuild: 0
-  m_ApplyToChildren: 1
-  m_AffectedAgents: ffffffff
---- !u!65 &3590927895697764530
+--- !u!65 &5290065251223790013
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -3194,8 +3051,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 6.091701, y: 1.6456518, z: 0.65928227}
-  m_Center: {x: 0, y: 0.77881503, z: -0.00000005960466}
+  m_Size: {x: 6.0916996, y: 1.6456518, z: 0.6592821}
+  m_Center: {x: 0, y: 0.77881503, z: -0.000000059604645}
 --- !u!1 &483334333559284086
 GameObject:
   m_ObjectHideFlags: 0
@@ -3326,6 +3183,7 @@ MonoBehaviour:
   bridge: {fileID: 2061745048827776648}
   renderer: {fileID: 5679160141372018807}
   colorType: 0
+  paintCooldown: 0
 --- !u!1 &579768271803582324
 GameObject:
   m_ObjectHideFlags: 0
@@ -3338,8 +3196,7 @@ GameObject:
   - component: {fileID: 8809790161305001954}
   - component: {fileID: 5952426537632023690}
   - component: {fileID: 6938971116351471955}
-  - component: {fileID: 6405111922205689561}
-  - component: {fileID: 330491811984651413}
+  - component: {fileID: 7945923954805624934}
   m_Layer: 0
   m_Name: wall_007(Clone)
   m_TagString: Untagged
@@ -3458,27 +3315,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DecorObject
   decorId: 9
---- !u!114 &6405111922205689561
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 579768271803582324}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Unity.AI.Navigation::Unity.AI.Navigation.NavMeshModifier
-  m_SerializedVersion: 0
-  m_OverrideArea: 1
-  m_Area: 1
-  m_OverrideGenerateLinks: 0
-  m_GenerateLinks: 0
-  m_IgnoreFromBuild: 0
-  m_ApplyToChildren: 1
-  m_AffectedAgents: ffffffff
---- !u!65 &330491811984651413
+--- !u!65 &7945923954805624934
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -3498,7 +3335,7 @@ BoxCollider:
   m_Enabled: 1
   serializedVersion: 3
   m_Size: {x: 6.091701, y: 1.6456518, z: 0.65928227}
-  m_Center: {x: 0, y: 0.77881503, z: -0.00000005960466}
+  m_Center: {x: 0, y: 0.77881503, z: 0.0000008940697}
 --- !u!1 &677738250841280581
 GameObject:
   m_ObjectHideFlags: 0
@@ -3687,8 +3524,7 @@ GameObject:
   - component: {fileID: 1644883916012166689}
   - component: {fileID: 2027682401671117776}
   - component: {fileID: 4348289298314027560}
-  - component: {fileID: 2031413069504469825}
-  - component: {fileID: 149540397551474427}
+  - component: {fileID: 1067330549056023786}
   m_Layer: 0
   m_Name: wall_007(Clone)
   m_TagString: Untagged
@@ -3807,27 +3643,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DecorObject
   decorId: 9
---- !u!114 &2031413069504469825
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 763566027020657285}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Unity.AI.Navigation::Unity.AI.Navigation.NavMeshModifier
-  m_SerializedVersion: 0
-  m_OverrideArea: 1
-  m_Area: 1
-  m_OverrideGenerateLinks: 0
-  m_GenerateLinks: 0
-  m_IgnoreFromBuild: 0
-  m_ApplyToChildren: 1
-  m_AffectedAgents: ffffffff
---- !u!65 &149540397551474427
+--- !u!65 &1067330549056023786
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -3978,6 +3794,7 @@ MonoBehaviour:
   bridge: {fileID: 5863809494977111897}
   renderer: {fileID: 3509820161610740520}
   colorType: 0
+  paintCooldown: 0
 --- !u!1 &769659352574191474
 GameObject:
   m_ObjectHideFlags: 0
@@ -4108,6 +3925,7 @@ MonoBehaviour:
   bridge: {fileID: 6766520193922794127}
   renderer: {fileID: 2156954450899408174}
   colorType: 0
+  paintCooldown: 0
 --- !u!1 &797043958636770563
 GameObject:
   m_ObjectHideFlags: 0
@@ -4152,6 +3970,7 @@ GameObject:
   - component: {fileID: 725163928977555667}
   - component: {fileID: 4895790916363683132}
   - component: {fileID: 5228458983939855012}
+  - component: {fileID: 3005576331830094672}
   m_Layer: 0
   m_Name: flag_B_yellow(Clone)
   m_TagString: Untagged
@@ -4264,6 +4083,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DecorObject
   decorId: 4
+--- !u!65 &3005576331830094672
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 825326691139634015}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.60000014, y: 3.0642197, z: 1.6231469}
+  m_Center: {x: 0.0000038146973, y: 1.5321099, z: -0.5115726}
 --- !u!1 &841849537633983057
 GameObject:
   m_ObjectHideFlags: 0
@@ -4366,8 +4206,7 @@ GameObject:
   - component: {fileID: 3575152132215901789}
   - component: {fileID: 8139626173383424410}
   - component: {fileID: 6221115904867200005}
-  - component: {fileID: 4474405576625358618}
-  - component: {fileID: 2835738758569891274}
+  - component: {fileID: 3136263512595315298}
   m_Layer: 0
   m_Name: wall_007(Clone)
   m_TagString: Untagged
@@ -4486,27 +4325,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DecorObject
   decorId: 9
---- !u!114 &4474405576625358618
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 848913401436460660}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Unity.AI.Navigation::Unity.AI.Navigation.NavMeshModifier
-  m_SerializedVersion: 0
-  m_OverrideArea: 1
-  m_Area: 1
-  m_OverrideGenerateLinks: 0
-  m_GenerateLinks: 0
-  m_IgnoreFromBuild: 0
-  m_ApplyToChildren: 1
-  m_AffectedAgents: ffffffff
---- !u!65 &2835738758569891274
+--- !u!65 &3136263512595315298
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -4525,8 +4344,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 6.091701, y: 1.6456518, z: 0.65928227}
-  m_Center: {x: 0, y: 0.77881503, z: -0.00000005960466}
+  m_Size: {x: 6.0916996, y: 1.6456518, z: 0.6592821}
+  m_Center: {x: -0.00000047683716, y: 0.77881503, z: -0.000000059604645}
 --- !u!1 &872753352634035147
 GameObject:
   m_ObjectHideFlags: 0
@@ -4657,6 +4476,7 @@ MonoBehaviour:
   bridge: {fileID: 6766520193922794127}
   renderer: {fileID: 7695467886220967790}
   colorType: 0
+  paintCooldown: 0
 --- !u!1 &917093466979268515
 GameObject:
   m_ObjectHideFlags: 0
@@ -4787,6 +4607,7 @@ MonoBehaviour:
   bridge: {fileID: 1541826009823255750}
   renderer: {fileID: 4105853942711714275}
   colorType: 0
+  paintCooldown: 0
 --- !u!1 &939627571590493035
 GameObject:
   m_ObjectHideFlags: 0
@@ -5007,6 +4828,7 @@ MonoBehaviour:
   bridge: {fileID: 5181584312383002344}
   renderer: {fileID: 1325996611581300920}
   colorType: 0
+  paintCooldown: 0
 --- !u!1 &946726292540671979
 GameObject:
   m_ObjectHideFlags: 0
@@ -5161,7 +4983,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Bridge
   PoolType: 2
   tf: {fileID: 7672726047373335729}
-  dataSO: {fileID: 0}
+  dataSO: {fileID: 11400000, guid: f554761f30eba994986dac01480aa777, type: 2}
   stairs:
   - {fileID: 8491935600411355740}
   - {fileID: 6178852010389129605}
@@ -5313,6 +5135,7 @@ MonoBehaviour:
   bridge: {fileID: 6766520193922794127}
   renderer: {fileID: 5025351008027963708}
   colorType: 0
+  paintCooldown: 0
 --- !u!1 &970123891616246112
 GameObject:
   m_ObjectHideFlags: 0
@@ -5443,6 +5266,7 @@ MonoBehaviour:
   bridge: {fileID: 1541826009823255750}
   renderer: {fileID: 2594160262560235544}
   colorType: 0
+  paintCooldown: 0
 --- !u!1 &988315424765889299
 GameObject:
   m_ObjectHideFlags: 0
@@ -5455,8 +5279,7 @@ GameObject:
   - component: {fileID: 5633698657629297809}
   - component: {fileID: 7650757757369271408}
   - component: {fileID: 3440886446206965955}
-  - component: {fileID: 1090771534213241790}
-  - component: {fileID: 5751311917976245198}
+  - component: {fileID: 8734082001727843403}
   m_Layer: 0
   m_Name: wall_007(Clone)
   m_TagString: Untagged
@@ -5575,27 +5398,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DecorObject
   decorId: 9
---- !u!114 &1090771534213241790
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 988315424765889299}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Unity.AI.Navigation::Unity.AI.Navigation.NavMeshModifier
-  m_SerializedVersion: 0
-  m_OverrideArea: 1
-  m_Area: 1
-  m_OverrideGenerateLinks: 0
-  m_GenerateLinks: 0
-  m_IgnoreFromBuild: 0
-  m_ApplyToChildren: 1
-  m_AffectedAgents: ffffffff
---- !u!65 &5751311917976245198
+--- !u!65 &8734082001727843403
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -5614,8 +5417,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 6.091701, y: 1.6456518, z: 0.65928227}
-  m_Center: {x: 0, y: 0.77881503, z: -0.00000005960466}
+  m_Size: {x: 6.0916996, y: 1.6456518, z: 0.6592821}
+  m_Center: {x: -0.0000009536743, y: 0.77881503, z: -0.000000059604645}
 --- !u!1 &991965852835177227
 GameObject:
   m_ObjectHideFlags: 0
@@ -5746,6 +5549,7 @@ MonoBehaviour:
   bridge: {fileID: 5181584312383002344}
   renderer: {fileID: 896927089125568559}
   colorType: 0
+  paintCooldown: 0
 --- !u!1 &1000208742977713832
 GameObject:
   m_ObjectHideFlags: 0
@@ -10770,6 +10574,7 @@ MonoBehaviour:
   bridge: {fileID: 2061745048827776648}
   renderer: {fileID: 8952782903859177980}
   colorType: 0
+  paintCooldown: 0
 --- !u!1 &1130984878447100805
 GameObject:
   m_ObjectHideFlags: 0
@@ -10900,6 +10705,7 @@ MonoBehaviour:
   bridge: {fileID: 2061745048827776648}
   renderer: {fileID: 7956706665678150576}
   colorType: 0
+  paintCooldown: 0
 --- !u!1 &1140567344689834374
 GameObject:
   m_ObjectHideFlags: 0
@@ -11030,6 +10836,7 @@ MonoBehaviour:
   bridge: {fileID: 2061745048827776648}
   renderer: {fileID: 3418760393715217883}
   colorType: 0
+  paintCooldown: 0
 --- !u!1 &1149430262605268338
 GameObject:
   m_ObjectHideFlags: 0
@@ -11043,6 +10850,7 @@ GameObject:
   - component: {fileID: 3377232401830036963}
   - component: {fileID: 1654485984421153274}
   - component: {fileID: 8610016021678523173}
+  - component: {fileID: 4673731419528128964}
   m_Layer: 7
   m_Name: Stage1(Clone)
   m_TagString: Untagged
@@ -11161,14 +10969,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Stage
   PoolType: 4
   tf: {fileID: 4086837632587895248}
-  stageDataSO: {fileID: 11400000, guid: f554761f30eba994986dac01480aa777, type: 2}
-  StageNumber: 3
-  IsLastStage: 1
-  scaleX: 11.5
-  scaleY: 1
-  scaleZ: 6
-  sizeStage: {x: 23, y: 2, z: 12}
-  distanceBrick: {x: 2, y: 0, z: 2}
+  stageDataSO: {fileID: 11400000, guid: fa74571ba2a36ed4c9e27e41153d5319, type: 2}
+  stageNumber: 3
+  isLastStage: 0
+  stageBrickManager: {fileID: 4673731419528128964}
   spawnPos:
   - {fileID: 8707992047513026484}
   - {fileID: 2866170285819996387}
@@ -11177,6 +10981,23 @@ MonoBehaviour:
   characters: []
   bridges:
   - {fileID: 8765315640061463605}
+--- !u!114 &4673731419528128964
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1149430262605268338}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d4f061721754ef47b346069ea0e556b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::StageBrickManager
+  stage: {fileID: 8610016021678523173}
+  scaleX: 11.5
+  scaleY: 1
+  scaleZ: 6
+  distanceBrick: {x: 0, y: 0, z: 0}
 --- !u!1 &1155204879745634317
 GameObject:
   m_ObjectHideFlags: 0
@@ -11307,6 +11128,7 @@ MonoBehaviour:
   bridge: {fileID: 1541826009823255750}
   renderer: {fileID: 725028553381939806}
   colorType: 0
+  paintCooldown: 0
 --- !u!1 &1159788101585015672
 GameObject:
   m_ObjectHideFlags: 0
@@ -11688,6 +11510,7 @@ MonoBehaviour:
   bridge: {fileID: 9079557384004801392}
   renderer: {fileID: 4325670659714152774}
   colorType: 0
+  paintCooldown: 0
 --- !u!1 &1209037009237376727
 GameObject:
   m_ObjectHideFlags: 0
@@ -11700,8 +11523,7 @@ GameObject:
   - component: {fileID: 385686010947727192}
   - component: {fileID: 3422519128224928850}
   - component: {fileID: 6811183444554584422}
-  - component: {fileID: 2793106227274742494}
-  - component: {fileID: 6861154507689702541}
+  - component: {fileID: 2649545981908604674}
   m_Layer: 0
   m_Name: wall_007(Clone)
   m_TagString: Untagged
@@ -11820,27 +11642,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DecorObject
   decorId: 9
---- !u!114 &2793106227274742494
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1209037009237376727}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Unity.AI.Navigation::Unity.AI.Navigation.NavMeshModifier
-  m_SerializedVersion: 0
-  m_OverrideArea: 1
-  m_Area: 1
-  m_OverrideGenerateLinks: 0
-  m_GenerateLinks: 0
-  m_IgnoreFromBuild: 0
-  m_ApplyToChildren: 1
-  m_AffectedAgents: ffffffff
---- !u!65 &6861154507689702541
+--- !u!65 &2649545981908604674
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -11859,8 +11661,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 6.091701, y: 1.6456518, z: 0.65928227}
-  m_Center: {x: 0, y: 0.77881503, z: -0.00000005960466}
+  m_Size: {x: 6.0916996, y: 1.6456518, z: 0.6592821}
+  m_Center: {x: 0.00000047683716, y: 0.77881503, z: -0.000000059604645}
 --- !u!1 &1223161577535428266
 GameObject:
   m_ObjectHideFlags: 0
@@ -11991,6 +11793,7 @@ MonoBehaviour:
   bridge: {fileID: 5863809494977111897}
   renderer: {fileID: 5649150604995521734}
   colorType: 0
+  paintCooldown: 0
 --- !u!1 &1304277134569153210
 GameObject:
   m_ObjectHideFlags: 0
@@ -12693,6 +12496,7 @@ MonoBehaviour:
   bridge: {fileID: 8765315640061463605}
   renderer: {fileID: 2319215690504952819}
   colorType: 0
+  paintCooldown: 0
 --- !u!1 &1413010419429491218
 GameObject:
   m_ObjectHideFlags: 0
@@ -12823,6 +12627,7 @@ MonoBehaviour:
   bridge: {fileID: 6766520193922794127}
   renderer: {fileID: 7941760584282359426}
   colorType: 0
+  paintCooldown: 0
 --- !u!1 &1416216869614374620
 GameObject:
   m_ObjectHideFlags: 0
@@ -12953,6 +12758,7 @@ MonoBehaviour:
   bridge: {fileID: 9079557384004801392}
   renderer: {fileID: 2514724006626277796}
   colorType: 0
+  paintCooldown: 0
 --- !u!1 &1431435454403886939
 GameObject:
   m_ObjectHideFlags: 0
@@ -12965,8 +12771,7 @@ GameObject:
   - component: {fileID: 7451439871536783556}
   - component: {fileID: 4441276370328320107}
   - component: {fileID: 5990028691184821819}
-  - component: {fileID: 385399623858127882}
-  - component: {fileID: 2994316262788124722}
+  - component: {fileID: 5175593186608489740}
   m_Layer: 0
   m_Name: wall_007(Clone)
   m_TagString: Untagged
@@ -13085,27 +12890,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DecorObject
   decorId: 9
---- !u!114 &385399623858127882
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1431435454403886939}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Unity.AI.Navigation::Unity.AI.Navigation.NavMeshModifier
-  m_SerializedVersion: 0
-  m_OverrideArea: 1
-  m_Area: 1
-  m_OverrideGenerateLinks: 0
-  m_GenerateLinks: 0
-  m_IgnoreFromBuild: 0
-  m_ApplyToChildren: 1
-  m_AffectedAgents: ffffffff
---- !u!65 &2994316262788124722
+--- !u!65 &5175593186608489740
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -13256,6 +13041,7 @@ MonoBehaviour:
   bridge: {fileID: 2061745048827776648}
   renderer: {fileID: 2537250462548451994}
   colorType: 0
+  paintCooldown: 0
 --- !u!1 &1526643035421232402
 GameObject:
   m_ObjectHideFlags: 0
@@ -13386,6 +13172,7 @@ MonoBehaviour:
   bridge: {fileID: 9079557384004801392}
   renderer: {fileID: 972357126001497348}
   colorType: 0
+  paintCooldown: 0
 --- !u!1 &1565559808366633956
 GameObject:
   m_ObjectHideFlags: 0
@@ -13399,6 +13186,7 @@ GameObject:
   - component: {fileID: 8293636545339370845}
   - component: {fileID: 2504466788136683503}
   - component: {fileID: 9104545439557206277}
+  - component: {fileID: 3459360326800171952}
   m_Layer: 0
   m_Name: flag_B_blue(Clone)
   m_TagString: Untagged
@@ -13511,6 +13299,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DecorObject
   decorId: 2
+--- !u!65 &3459360326800171952
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1565559808366633956}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.60000014, y: 3.0642197, z: 1.6231469}
+  m_Center: {x: 0.0000019073486, y: 1.5321099, z: -0.5115726}
 --- !u!1 &1596159859323374287
 GameObject:
   m_ObjectHideFlags: 0
@@ -13641,6 +13450,7 @@ MonoBehaviour:
   bridge: {fileID: 1541826009823255750}
   renderer: {fileID: 6532060869248437346}
   colorType: 0
+  paintCooldown: 0
 --- !u!1 &1627744268075430233
 GameObject:
   m_ObjectHideFlags: 0
@@ -13771,6 +13581,7 @@ MonoBehaviour:
   bridge: {fileID: 1541826009823255750}
   renderer: {fileID: 7511762726755224838}
   colorType: 0
+  paintCooldown: 0
 --- !u!1 &1665409832968124593
 GameObject:
   m_ObjectHideFlags: 0
@@ -13901,6 +13712,7 @@ MonoBehaviour:
   bridge: {fileID: 1541826009823255750}
   renderer: {fileID: 5761469821887138364}
   colorType: 0
+  paintCooldown: 0
 --- !u!1 &1676494322903507997
 GameObject:
   m_ObjectHideFlags: 0
@@ -13914,6 +13726,7 @@ GameObject:
   - component: {fileID: 5430067556710307705}
   - component: {fileID: 5589154795464268685}
   - component: {fileID: 1357558702371055054}
+  - component: {fileID: 7969456432496667291}
   m_Layer: 7
   m_Name: Stage1(Clone)
   m_TagString: Untagged
@@ -14033,13 +13846,9 @@ MonoBehaviour:
   PoolType: 4
   tf: {fileID: 5680800406869184606}
   stageDataSO: {fileID: 11400000, guid: f554761f30eba994986dac01480aa777, type: 2}
-  StageNumber: 1
-  IsLastStage: 0
-  scaleX: 16
-  scaleY: 1
-  scaleZ: 16
-  sizeStage: {x: 32, y: 2, z: 32}
-  distanceBrick: {x: 2, y: 0, z: 2}
+  stageNumber: 1
+  isLastStage: 0
+  stageBrickManager: {fileID: 7969456432496667291}
   spawnPos:
   - {fileID: 1459512569144267489}
   - {fileID: 7913170219136345570}
@@ -14055,6 +13864,23 @@ MonoBehaviour:
   - {fileID: 1541826009823255750}
   - {fileID: 6766520193922794127}
   - {fileID: 5863809494977111897}
+--- !u!114 &7969456432496667291
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1676494322903507997}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d4f061721754ef47b346069ea0e556b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::StageBrickManager
+  stage: {fileID: 1357558702371055054}
+  scaleX: 16
+  scaleY: 1
+  scaleZ: 16
+  distanceBrick: {x: 0, y: 0, z: 0}
 --- !u!1 &1697213463411756894
 GameObject:
   m_ObjectHideFlags: 0
@@ -14072,7 +13898,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 2147483647
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &3711067043987866731
 Transform:
@@ -14182,8 +14008,7 @@ GameObject:
   - component: {fileID: 2731223291929520030}
   - component: {fileID: 7687387233909812254}
   - component: {fileID: 3450175852446775645}
-  - component: {fileID: 7181774804698164117}
-  - component: {fileID: 9097931354980656217}
+  - component: {fileID: 8670190608806161632}
   m_Layer: 0
   m_Name: wall_007(Clone)
   m_TagString: Untagged
@@ -14302,27 +14127,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DecorObject
   decorId: 9
---- !u!114 &7181774804698164117
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1710870348092626529}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Unity.AI.Navigation::Unity.AI.Navigation.NavMeshModifier
-  m_SerializedVersion: 0
-  m_OverrideArea: 1
-  m_Area: 1
-  m_OverrideGenerateLinks: 0
-  m_GenerateLinks: 0
-  m_IgnoreFromBuild: 0
-  m_ApplyToChildren: 1
-  m_AffectedAgents: ffffffff
---- !u!65 &9097931354980656217
+--- !u!65 &8670190608806161632
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -14342,7 +14147,7 @@ BoxCollider:
   m_Enabled: 1
   serializedVersion: 3
   m_Size: {x: 6.091701, y: 1.6456518, z: 0.65928227}
-  m_Center: {x: 0, y: 0.77881503, z: -0.00000005960466}
+  m_Center: {x: 0.0000076293945, y: 0.77881503, z: -0.00000005960466}
 --- !u!1 &1763397242675788977
 GameObject:
   m_ObjectHideFlags: 0
@@ -14355,8 +14160,7 @@ GameObject:
   - component: {fileID: 2498196525916713489}
   - component: {fileID: 4857147330548180553}
   - component: {fileID: 3628046155708462433}
-  - component: {fileID: 2358886476323206512}
-  - component: {fileID: 8057458735195073249}
+  - component: {fileID: 1274863866729875772}
   m_Layer: 0
   m_Name: wall_007(Clone)
   m_TagString: Untagged
@@ -14475,27 +14279,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DecorObject
   decorId: 9
---- !u!114 &2358886476323206512
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1763397242675788977}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Unity.AI.Navigation::Unity.AI.Navigation.NavMeshModifier
-  m_SerializedVersion: 0
-  m_OverrideArea: 1
-  m_Area: 1
-  m_OverrideGenerateLinks: 0
-  m_GenerateLinks: 0
-  m_IgnoreFromBuild: 0
-  m_ApplyToChildren: 1
-  m_AffectedAgents: ffffffff
---- !u!65 &8057458735195073249
+--- !u!65 &1274863866729875772
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -14515,7 +14299,7 @@ BoxCollider:
   m_Enabled: 1
   serializedVersion: 3
   m_Size: {x: 6.091701, y: 1.6456518, z: 0.65928227}
-  m_Center: {x: 0, y: 0.77881503, z: -0.00000005960466}
+  m_Center: {x: 0, y: 0.77881503, z: 0.0000008940697}
 --- !u!1 &1766983009916659528
 GameObject:
   m_ObjectHideFlags: 0
@@ -14528,6 +14312,7 @@ GameObject:
   - component: {fileID: 741916034357864277}
   - component: {fileID: 7361413042462588556}
   - component: {fileID: 3815222242585986606}
+  - component: {fileID: 5379085216775200945}
   m_Layer: 0
   m_Name: signage_arrow_stand_blue(Clone)
   m_TagString: Untagged
@@ -14620,6 +14405,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DecorObject
   decorId: 3
+--- !u!65 &5379085216775200945
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1766983009916659528}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 2, z: 0.39999858}
+  m_Center: {x: 0.00000047683716, y: 1, z: 0.07500605}
 --- !u!1 &1814136204338589210
 GameObject:
   m_ObjectHideFlags: 0
@@ -14891,7 +14697,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 2147483647
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &1643089725302245839
 Transform:
@@ -14977,8 +14783,7 @@ GameObject:
   - component: {fileID: 4330168939154705487}
   - component: {fileID: 8362098982879112231}
   - component: {fileID: 8787235935196294787}
-  - component: {fileID: 3445522556364373579}
-  - component: {fileID: 7560031686888063851}
+  - component: {fileID: 7554450478280166928}
   m_Layer: 0
   m_Name: wall_007(Clone)
   m_TagString: Untagged
@@ -15097,27 +14902,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DecorObject
   decorId: 9
---- !u!114 &3445522556364373579
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1929122393704580501}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Unity.AI.Navigation::Unity.AI.Navigation.NavMeshModifier
-  m_SerializedVersion: 0
-  m_OverrideArea: 1
-  m_Area: 1
-  m_OverrideGenerateLinks: 0
-  m_GenerateLinks: 0
-  m_IgnoreFromBuild: 0
-  m_ApplyToChildren: 1
-  m_AffectedAgents: ffffffff
---- !u!65 &7560031686888063851
+--- !u!65 &7554450478280166928
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -15136,8 +14921,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 6.091701, y: 1.6456518, z: 0.65928227}
-  m_Center: {x: 0, y: 0.77881503, z: -0.00000005960466}
+  m_Size: {x: 6.0916996, y: 1.6456518, z: 0.6592821}
+  m_Center: {x: 0, y: 0.77881503, z: -0.000001013279}
 --- !u!1 &1929264725675169561
 GameObject:
   m_ObjectHideFlags: 0
@@ -15150,8 +14935,7 @@ GameObject:
   - component: {fileID: 4088807747375133546}
   - component: {fileID: 2179694614538609633}
   - component: {fileID: 6409815042406561541}
-  - component: {fileID: 7414008103512200896}
-  - component: {fileID: 3665351515145755017}
+  - component: {fileID: 131015196601867498}
   m_Layer: 0
   m_Name: wall_007(Clone)
   m_TagString: Untagged
@@ -15270,27 +15054,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DecorObject
   decorId: 9
---- !u!114 &7414008103512200896
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1929264725675169561}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Unity.AI.Navigation::Unity.AI.Navigation.NavMeshModifier
-  m_SerializedVersion: 0
-  m_OverrideArea: 1
-  m_Area: 1
-  m_OverrideGenerateLinks: 0
-  m_GenerateLinks: 0
-  m_IgnoreFromBuild: 0
-  m_ApplyToChildren: 1
-  m_AffectedAgents: ffffffff
---- !u!65 &3665351515145755017
+--- !u!65 &131015196601867498
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -15310,7 +15074,7 @@ BoxCollider:
   m_Enabled: 1
   serializedVersion: 3
   m_Size: {x: 6.091701, y: 1.6456518, z: 0.65928227}
-  m_Center: {x: 0, y: 0.77881503, z: -0.00000005960466}
+  m_Center: {x: 8.4703295e-22, y: 0.77881503, z: 0.0000008940697}
 --- !u!1 &2004785615643102337
 GameObject:
   m_ObjectHideFlags: 0
@@ -15435,8 +15199,7 @@ GameObject:
   - component: {fileID: 1464724846117378667}
   - component: {fileID: 7291548432741925597}
   - component: {fileID: 6738070564180502051}
-  - component: {fileID: 1362415021381191892}
-  - component: {fileID: 1450798253035071050}
+  - component: {fileID: 2691979581368292472}
   m_Layer: 0
   m_Name: wall_007(Clone)
   m_TagString: Untagged
@@ -15555,27 +15318,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DecorObject
   decorId: 9
---- !u!114 &1362415021381191892
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2009882485793382684}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Unity.AI.Navigation::Unity.AI.Navigation.NavMeshModifier
-  m_SerializedVersion: 0
-  m_OverrideArea: 1
-  m_Area: 1
-  m_OverrideGenerateLinks: 0
-  m_GenerateLinks: 0
-  m_IgnoreFromBuild: 0
-  m_ApplyToChildren: 1
-  m_AffectedAgents: ffffffff
---- !u!65 &1450798253035071050
+--- !u!65 &2691979581368292472
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -15594,8 +15337,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 6.091701, y: 1.6456518, z: 0.65928227}
-  m_Center: {x: 0, y: 0.77881503, z: -0.00000005960466}
+  m_Size: {x: 6.0916996, y: 1.6456518, z: 0.6592821}
+  m_Center: {x: 0, y: 0.77881503, z: -0.000000059604645}
 --- !u!1 &2010587143295192017
 GameObject:
   m_ObjectHideFlags: 0
@@ -15608,8 +15351,7 @@ GameObject:
   - component: {fileID: 8822497896324587208}
   - component: {fileID: 21956261863902912}
   - component: {fileID: 1183668521305200740}
-  - component: {fileID: 4612769766030772007}
-  - component: {fileID: 6852326896218459902}
+  - component: {fileID: 4298875591879396998}
   m_Layer: 0
   m_Name: wall_007(Clone)
   m_TagString: Untagged
@@ -15728,27 +15470,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DecorObject
   decorId: 9
---- !u!114 &4612769766030772007
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2010587143295192017}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Unity.AI.Navigation::Unity.AI.Navigation.NavMeshModifier
-  m_SerializedVersion: 0
-  m_OverrideArea: 1
-  m_Area: 1
-  m_OverrideGenerateLinks: 0
-  m_GenerateLinks: 0
-  m_IgnoreFromBuild: 0
-  m_ApplyToChildren: 1
-  m_AffectedAgents: ffffffff
---- !u!65 &6852326896218459902
+--- !u!65 &4298875591879396998
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -15767,8 +15489,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 6.091701, y: 1.6456518, z: 0.65928227}
-  m_Center: {x: 0, y: 0.77881503, z: -0.00000005960466}
+  m_Size: {x: 6.0916996, y: 1.6456518, z: 0.6592821}
+  m_Center: {x: 0.00000059604645, y: 0.77881503, z: -0.000000059604645}
 --- !u!1 &2014663161239450539
 GameObject:
   m_ObjectHideFlags: 0
@@ -15781,8 +15503,7 @@ GameObject:
   - component: {fileID: 7119936761703062618}
   - component: {fileID: 6168193856133463057}
   - component: {fileID: 3352898315319055942}
-  - component: {fileID: 5154038476204788282}
-  - component: {fileID: 5038874895968283608}
+  - component: {fileID: 7642157835618005157}
   m_Layer: 0
   m_Name: wall_007(Clone)
   m_TagString: Untagged
@@ -15901,27 +15622,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DecorObject
   decorId: 9
---- !u!114 &5154038476204788282
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2014663161239450539}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Unity.AI.Navigation::Unity.AI.Navigation.NavMeshModifier
-  m_SerializedVersion: 0
-  m_OverrideArea: 1
-  m_Area: 1
-  m_OverrideGenerateLinks: 0
-  m_GenerateLinks: 0
-  m_IgnoreFromBuild: 0
-  m_ApplyToChildren: 1
-  m_AffectedAgents: ffffffff
---- !u!65 &5038874895968283608
+--- !u!65 &7642157835618005157
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -15940,8 +15641,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 6.091701, y: 1.6456518, z: 0.65928227}
-  m_Center: {x: 0, y: 0.77881503, z: -0.00000005960466}
+  m_Size: {x: 6.091699, y: 1.6456518, z: 0.6592821}
+  m_Center: {x: 0, y: 0.77881503, z: -0.000001013279}
 --- !u!1 &2025436967142509514
 GameObject:
   m_ObjectHideFlags: 0
@@ -15954,6 +15655,7 @@ GameObject:
   - component: {fileID: 1086587821944502510}
   - component: {fileID: 1711057825002471983}
   - component: {fileID: 1512033419597663003}
+  - component: {fileID: 981458015247646604}
   m_Layer: 0
   m_Name: signage_arrow_stand_red(Clone)
   m_TagString: Untagged
@@ -16046,6 +15748,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DecorObject
   decorId: 1
+--- !u!65 &981458015247646604
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2025436967142509514}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 2, z: 0.39999858}
+  m_Center: {x: 0.00000047683716, y: 1, z: 0.0750051}
 --- !u!1 &2044114885823797959
 GameObject:
   m_ObjectHideFlags: 0
@@ -16059,6 +15782,7 @@ GameObject:
   - component: {fileID: 7042573462828277023}
   - component: {fileID: 8955809741773343952}
   - component: {fileID: 2171973495891083421}
+  - component: {fileID: 8840330047059417296}
   m_Layer: 0
   m_Name: flag_B_blue(Clone)
   m_TagString: Untagged
@@ -16171,6 +15895,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DecorObject
   decorId: 2
+--- !u!65 &8840330047059417296
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2044114885823797959}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.60000014, y: 3.0642197, z: 1.6231469}
+  m_Center: {x: 0.0000019073486, y: 1.5321099, z: -0.5115733}
 --- !u!1 &2081567629240382113
 GameObject:
   m_ObjectHideFlags: 0
@@ -16392,6 +16137,7 @@ MonoBehaviour:
   bridge: {fileID: 1541826009823255750}
   renderer: {fileID: 7587888969303286606}
   colorType: 0
+  paintCooldown: 0
 --- !u!1 &2202095759913124612
 GameObject:
   m_ObjectHideFlags: 0
@@ -16522,6 +16268,7 @@ MonoBehaviour:
   bridge: {fileID: 6766520193922794127}
   renderer: {fileID: 4449244528014788034}
   colorType: 0
+  paintCooldown: 0
 --- !u!1 &2221301378542686103
 GameObject:
   m_ObjectHideFlags: 0
@@ -16652,6 +16399,7 @@ MonoBehaviour:
   bridge: {fileID: 6766520193922794127}
   renderer: {fileID: 5747374111086796404}
   colorType: 0
+  paintCooldown: 0
 --- !u!1 &2316906925316424377
 GameObject:
   m_ObjectHideFlags: 0
@@ -16910,6 +16658,7 @@ MonoBehaviour:
   bridge: {fileID: 5181584312383002344}
   renderer: {fileID: 7735640649888303736}
   colorType: 0
+  paintCooldown: 0
 --- !u!1 &2319381190565078721
 GameObject:
   m_ObjectHideFlags: 0
@@ -16922,8 +16671,7 @@ GameObject:
   - component: {fileID: 3922805648633581141}
   - component: {fileID: 3955225421147533772}
   - component: {fileID: 2919035422078160355}
-  - component: {fileID: 238593212132077431}
-  - component: {fileID: 2103370789258937734}
+  - component: {fileID: 1952221451278432685}
   m_Layer: 0
   m_Name: wall_007(Clone)
   m_TagString: Untagged
@@ -17042,27 +16790,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DecorObject
   decorId: 9
---- !u!114 &238593212132077431
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2319381190565078721}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Unity.AI.Navigation::Unity.AI.Navigation.NavMeshModifier
-  m_SerializedVersion: 0
-  m_OverrideArea: 1
-  m_Area: 1
-  m_OverrideGenerateLinks: 0
-  m_GenerateLinks: 0
-  m_IgnoreFromBuild: 0
-  m_ApplyToChildren: 1
-  m_AffectedAgents: ffffffff
---- !u!65 &2103370789258937734
+--- !u!65 &1952221451278432685
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -17081,8 +16809,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 6.091701, y: 1.6456518, z: 0.65928227}
-  m_Center: {x: 0, y: 0.77881503, z: -0.00000005960466}
+  m_Size: {x: 6.0916996, y: 1.6456518, z: 0.6592821}
+  m_Center: {x: -0.0000009536743, y: 0.77881503, z: -0.000001013279}
 --- !u!1 &2338988992382729387
 GameObject:
   m_ObjectHideFlags: 0
@@ -17095,8 +16823,7 @@ GameObject:
   - component: {fileID: 7277277854196129206}
   - component: {fileID: 8025502819803703494}
   - component: {fileID: 4218988345414508934}
-  - component: {fileID: 7673583163536347946}
-  - component: {fileID: 5011515988587925467}
+  - component: {fileID: 5982826745474329923}
   m_Layer: 0
   m_Name: wall_007(Clone)
   m_TagString: Untagged
@@ -17215,27 +16942,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DecorObject
   decorId: 9
---- !u!114 &7673583163536347946
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2338988992382729387}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Unity.AI.Navigation::Unity.AI.Navigation.NavMeshModifier
-  m_SerializedVersion: 0
-  m_OverrideArea: 1
-  m_Area: 1
-  m_OverrideGenerateLinks: 0
-  m_GenerateLinks: 0
-  m_IgnoreFromBuild: 0
-  m_ApplyToChildren: 1
-  m_AffectedAgents: ffffffff
---- !u!65 &5011515988587925467
+--- !u!65 &5982826745474329923
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -17255,7 +16962,7 @@ BoxCollider:
   m_Enabled: 1
   serializedVersion: 3
   m_Size: {x: 6.091701, y: 1.6456518, z: 0.65928227}
-  m_Center: {x: 0, y: 0.77881503, z: -0.00000005960466}
+  m_Center: {x: 0.0000009536743, y: 0.77881503, z: 0.0000008940697}
 --- !u!1 &2395432977272384693
 GameObject:
   m_ObjectHideFlags: 0
@@ -17386,6 +17093,7 @@ MonoBehaviour:
   bridge: {fileID: 8765315640061463605}
   renderer: {fileID: 8412953400207977732}
   colorType: 0
+  paintCooldown: 0
 --- !u!1 &2437348503359632035
 GameObject:
   m_ObjectHideFlags: 0
@@ -17398,8 +17106,7 @@ GameObject:
   - component: {fileID: 1166793997403677178}
   - component: {fileID: 8986775662616568108}
   - component: {fileID: 8975229809534572463}
-  - component: {fileID: 4159233787204631693}
-  - component: {fileID: 5187152536427131776}
+  - component: {fileID: 2981291175895918872}
   m_Layer: 0
   m_Name: wall_007(Clone)
   m_TagString: Untagged
@@ -17518,27 +17225,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DecorObject
   decorId: 9
---- !u!114 &4159233787204631693
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2437348503359632035}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Unity.AI.Navigation::Unity.AI.Navigation.NavMeshModifier
-  m_SerializedVersion: 0
-  m_OverrideArea: 1
-  m_Area: 1
-  m_OverrideGenerateLinks: 0
-  m_GenerateLinks: 0
-  m_IgnoreFromBuild: 0
-  m_ApplyToChildren: 1
-  m_AffectedAgents: ffffffff
---- !u!65 &5187152536427131776
+--- !u!65 &2981291175895918872
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -17557,94 +17244,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 6.091701, y: 1.6456518, z: 0.65928227}
-  m_Center: {x: 0, y: 0.77881503, z: -0.00000005960466}
---- !u!1 &2472690915277639822
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2665464595818269852}
-  - component: {fileID: 6903457727739005101}
-  - component: {fileID: 7418614343464206878}
-  - component: {fileID: 3800295431487926485}
-  m_Layer: 0
-  m_Name: Hammer(Clone)
-  m_TagString: Untagged
-  m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &2665464595818269852
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2472690915277639822}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: 0.48826748, w: -0.8726941}
-  m_LocalPosition: {x: 6.2186995, y: -1.6400003, z: -26.581581}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 849844824210915049}
-  m_Father: {fileID: 8917859990859010594}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &6903457727739005101
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2472690915277639822}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1c7e275ed3751c64c93c221a733e4493, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::SwingingObject
-  swingRange: 67
-  swingSpeed: 100
-  tf: {fileID: 2665464595818269852}
---- !u!114 &7418614343464206878
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2472690915277639822}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 36532776fc2814b45a1deaa988d1a20a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::DecorObject
-  decorId: 11
---- !u!136 &3800295431487926485
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2472690915277639822}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 1.1424906
-  m_Height: 2.2849815
-  m_Direction: 1
-  m_Center: {x: -0.005908966, y: -3.9737267, z: 0}
+  m_Size: {x: 6.0916996, y: 1.6456518, z: 0.6592821}
+  m_Center: {x: 0, y: 0.77881503, z: -0.000000059604645}
 --- !u!1 &2509348461553369241
 GameObject:
   m_ObjectHideFlags: 0
@@ -17775,6 +17376,7 @@ MonoBehaviour:
   bridge: {fileID: 5181584312383002344}
   renderer: {fileID: 5996589433008600407}
   colorType: 0
+  paintCooldown: 0
 --- !u!1 &2534203560547440377
 GameObject:
   m_ObjectHideFlags: 0
@@ -17905,6 +17507,7 @@ MonoBehaviour:
   bridge: {fileID: 1541826009823255750}
   renderer: {fileID: 1815370234503536708}
   colorType: 0
+  paintCooldown: 0
 --- !u!1 &2539407548946146658
 GameObject:
   m_ObjectHideFlags: 0
@@ -17972,97 +17575,6 @@ MeshRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 4921cacf604204045abe52100fa9ae0d, type: 2}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 3
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_GlobalIlluminationMeshLod: 0
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_MaskInteraction: 0
-  m_AdditionalVertexStreams: {fileID: 0}
---- !u!1 &2621180194564351583
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 849844824210915049}
-  - component: {fileID: 5433044891115234407}
-  - component: {fileID: 3331770262049819838}
-  m_Layer: 0
-  m_Name: obstacle_4_001
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &849844824210915049
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2621180194564351583}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 3979929190751544230}
-  m_Father: {fileID: 2665464595818269852}
-  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
---- !u!33 &5433044891115234407
-MeshFilter:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2621180194564351583}
-  m_Mesh: {fileID: -8356501929360443574, guid: 0e467647ea29ace47a8f225650d36681, type: 3}
---- !u!23 &3331770262049819838
-MeshRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2621180194564351583}
-  m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 2
-  m_RayTraceProcedural: 0
-  m_RayTracingAccelStructBuildFlagsOverride: 0
-  m_RayTracingAccelStructBuildFlags: 1
-  m_SmallMeshCulling: 1
-  m_ForceMeshLod: -1
-  m_MeshLodSelectionBias: 0
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 2100000, guid: 475df77cde3394a4390cb95e536a2fe3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -18399,7 +17911,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 2147483647
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &7249422656278301829
 Transform:
@@ -18428,8 +17940,7 @@ GameObject:
   - component: {fileID: 1232892905912698988}
   - component: {fileID: 4147546490344611623}
   - component: {fileID: 2299632862251405726}
-  - component: {fileID: 4457990659238184921}
-  - component: {fileID: 5161287991979015902}
+  - component: {fileID: 8948646229868773189}
   m_Layer: 0
   m_Name: wall_007(Clone)
   m_TagString: Untagged
@@ -18548,27 +18059,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DecorObject
   decorId: 9
---- !u!114 &4457990659238184921
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2834265803782945540}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Unity.AI.Navigation::Unity.AI.Navigation.NavMeshModifier
-  m_SerializedVersion: 0
-  m_OverrideArea: 1
-  m_Area: 1
-  m_OverrideGenerateLinks: 0
-  m_GenerateLinks: 0
-  m_IgnoreFromBuild: 0
-  m_ApplyToChildren: 1
-  m_AffectedAgents: ffffffff
---- !u!65 &5161287991979015902
+--- !u!65 &8948646229868773189
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -18588,7 +18079,7 @@ BoxCollider:
   m_Enabled: 1
   serializedVersion: 3
   m_Size: {x: 6.091701, y: 1.6456518, z: 0.65928227}
-  m_Center: {x: 0, y: 0.77881503, z: -0.00000005960466}
+  m_Center: {x: 0.0000076293945, y: 0.77881503, z: -0.000001013279}
 --- !u!1 &2899258108201454040
 GameObject:
   m_ObjectHideFlags: 0
@@ -18719,6 +18210,7 @@ MonoBehaviour:
   bridge: {fileID: 5863809494977111897}
   renderer: {fileID: 313164307374103012}
   colorType: 0
+  paintCooldown: 0
 --- !u!1 &2899386483866771852
 GameObject:
   m_ObjectHideFlags: 0
@@ -18849,6 +18341,7 @@ MonoBehaviour:
   bridge: {fileID: 5863809494977111897}
   renderer: {fileID: 7396832602999864858}
   colorType: 0
+  paintCooldown: 0
 --- !u!1 &2911202546231066143
 GameObject:
   m_ObjectHideFlags: 0
@@ -18979,6 +18472,7 @@ MonoBehaviour:
   bridge: {fileID: 9079557384004801392}
   renderer: {fileID: 5876038108033867394}
   colorType: 0
+  paintCooldown: 0
 --- !u!1 &2980952815364650149
 GameObject:
   m_ObjectHideFlags: 0
@@ -19727,6 +19221,7 @@ MonoBehaviour:
   bridge: {fileID: 5863809494977111897}
   renderer: {fileID: 1826558795229753198}
   colorType: 0
+  paintCooldown: 0
 --- !u!1 &3284772006677542450
 GameObject:
   m_ObjectHideFlags: 0
@@ -19835,7 +19330,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 2147483647
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &2085701681295752696
 Transform:
@@ -20198,6 +19693,7 @@ GameObject:
   - component: {fileID: 8602079982131164547}
   - component: {fileID: 7727769112916199205}
   - component: {fileID: 7194578328491173386}
+  - component: {fileID: 3248833853763158650}
   m_Layer: 0
   m_Name: flag_B_blue(Clone)
   m_TagString: Untagged
@@ -20310,6 +19806,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DecorObject
   decorId: 2
+--- !u!65 &3248833853763158650
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3408409354916845635}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.60000014, y: 3.0642197, z: 1.6231469}
+  m_Center: {x: 0.0000009536743, y: 1.5321099, z: -0.51157284}
 --- !u!1 &3423156783320315478
 GameObject:
   m_ObjectHideFlags: 0
@@ -20492,8 +20009,7 @@ GameObject:
   - component: {fileID: 1398851197271770407}
   - component: {fileID: 160992501898711281}
   - component: {fileID: 659190634467327197}
-  - component: {fileID: 7744100866833005619}
-  - component: {fileID: 9092965208830475809}
+  - component: {fileID: 2786388384153411215}
   m_Layer: 0
   m_Name: wall_007(Clone)
   m_TagString: Untagged
@@ -20612,27 +20128,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DecorObject
   decorId: 9
---- !u!114 &7744100866833005619
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3519132707425483504}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Unity.AI.Navigation::Unity.AI.Navigation.NavMeshModifier
-  m_SerializedVersion: 0
-  m_OverrideArea: 1
-  m_Area: 1
-  m_OverrideGenerateLinks: 0
-  m_GenerateLinks: 0
-  m_IgnoreFromBuild: 0
-  m_ApplyToChildren: 1
-  m_AffectedAgents: ffffffff
---- !u!65 &9092965208830475809
+--- !u!65 &2786388384153411215
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -20652,7 +20148,7 @@ BoxCollider:
   m_Enabled: 1
   serializedVersion: 3
   m_Size: {x: 6.091701, y: 1.6456518, z: 0.65928227}
-  m_Center: {x: 0, y: 0.77881503, z: -0.00000005960466}
+  m_Center: {x: 0.0000019073486, y: 0.77881503, z: -0.00000005960466}
 --- !u!1 &3674967886287119100
 GameObject:
   m_ObjectHideFlags: 0
@@ -20895,6 +20391,7 @@ MonoBehaviour:
   bridge: {fileID: 6766520193922794127}
   renderer: {fileID: 8334108466968880170}
   colorType: 0
+  paintCooldown: 0
 --- !u!1 &3725797210726997565
 GameObject:
   m_ObjectHideFlags: 0
@@ -21081,8 +20578,8 @@ GameObject:
   - component: {fileID: 6804043352605188197}
   - component: {fileID: 6097071221994246448}
   - component: {fileID: 4460374729125380158}
-  - component: {fileID: 2570039153929873770}
-  - component: {fileID: 7080904121771947150}
+  - component: {fileID: 3720847949213259253}
+  - component: {fileID: 2339448918616824282}
   m_Layer: 0
   m_Name: wall_007(Clone)
   m_TagString: Untagged
@@ -21201,7 +20698,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DecorObject
   decorId: 9
---- !u!114 &2570039153929873770
+--- !u!114 &3720847949213259253
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -21221,7 +20718,7 @@ MonoBehaviour:
   m_IgnoreFromBuild: 0
   m_ApplyToChildren: 1
   m_AffectedAgents: ffffffff
---- !u!65 &7080904121771947150
+--- !u!65 &2339448918616824282
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -21240,8 +20737,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 6.091701, y: 1.6456518, z: 0.65928227}
-  m_Center: {x: 0, y: 0.77881503, z: -0.00000005960466}
+  m_Size: {x: 6.0916996, y: 1.6456518, z: 0.6592821}
+  m_Center: {x: 0, y: 0.77881503, z: -0.000000059604645}
 --- !u!1 &3814278472979322928
 GameObject:
   m_ObjectHideFlags: 0
@@ -21403,6 +20900,7 @@ MonoBehaviour:
   bridge: {fileID: 9079557384004801392}
   renderer: {fileID: 5898176910630337960}
   colorType: 0
+  paintCooldown: 0
 --- !u!1 &3888703858531356332
 GameObject:
   m_ObjectHideFlags: 0
@@ -21938,6 +21436,7 @@ MonoBehaviour:
   bridge: {fileID: 9079557384004801392}
   renderer: {fileID: 5863871341839531682}
   colorType: 0
+  paintCooldown: 0
 --- !u!1 &3961266095145370745
 GameObject:
   m_ObjectHideFlags: 0
@@ -21950,8 +21449,7 @@ GameObject:
   - component: {fileID: 3766631545604512274}
   - component: {fileID: 5984625452566940037}
   - component: {fileID: 4343555339136351233}
-  - component: {fileID: 7278937139787995207}
-  - component: {fileID: 6373421236583225059}
+  - component: {fileID: 1306730009596627255}
   m_Layer: 0
   m_Name: wall_007(Clone)
   m_TagString: Untagged
@@ -22070,27 +21568,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DecorObject
   decorId: 9
---- !u!114 &7278937139787995207
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3961266095145370745}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Unity.AI.Navigation::Unity.AI.Navigation.NavMeshModifier
-  m_SerializedVersion: 0
-  m_OverrideArea: 1
-  m_Area: 1
-  m_OverrideGenerateLinks: 0
-  m_GenerateLinks: 0
-  m_IgnoreFromBuild: 0
-  m_ApplyToChildren: 1
-  m_AffectedAgents: ffffffff
---- !u!65 &6373421236583225059
+--- !u!65 &1306730009596627255
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -22110,7 +21588,7 @@ BoxCollider:
   m_Enabled: 1
   serializedVersion: 3
   m_Size: {x: 6.091701, y: 1.6456518, z: 0.65928227}
-  m_Center: {x: 0, y: 0.77881503, z: -0.00000005960466}
+  m_Center: {x: 0.0000007748604, y: 0.77881503, z: -0.00000005960466}
 --- !u!1 &3988713805258004467
 GameObject:
   m_ObjectHideFlags: 0
@@ -22241,6 +21719,7 @@ MonoBehaviour:
   bridge: {fileID: 5863809494977111897}
   renderer: {fileID: 2054760084197664418}
   colorType: 0
+  paintCooldown: 0
 --- !u!1 &3989143476013530629
 GameObject:
   m_ObjectHideFlags: 0
@@ -22371,6 +21850,7 @@ MonoBehaviour:
   bridge: {fileID: 9079557384004801392}
   renderer: {fileID: 6259623798143736721}
   colorType: 0
+  paintCooldown: 0
 --- !u!1 &4002133457976226215
 GameObject:
   m_ObjectHideFlags: 0
@@ -22501,6 +21981,7 @@ MonoBehaviour:
   bridge: {fileID: 5181584312383002344}
   renderer: {fileID: 3031171614251234852}
   colorType: 0
+  paintCooldown: 0
 --- !u!1 &4044805544997014061
 GameObject:
   m_ObjectHideFlags: 0
@@ -22744,6 +22225,7 @@ MonoBehaviour:
   bridge: {fileID: 1541826009823255750}
   renderer: {fileID: 8969587410129489894}
   colorType: 0
+  paintCooldown: 0
 --- !u!1 &4096799245989689903
 GameObject:
   m_ObjectHideFlags: 0
@@ -22874,6 +22356,7 @@ MonoBehaviour:
   bridge: {fileID: 6766520193922794127}
   renderer: {fileID: 3304940962471109570}
   colorType: 0
+  paintCooldown: 0
 --- !u!1 &4109021200809901525
 GameObject:
   m_ObjectHideFlags: 0
@@ -23000,7 +22483,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 4162164826716764455, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 2147483647
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &8983173887698387457
 Transform:
@@ -23259,6 +22742,7 @@ MonoBehaviour:
   bridge: {fileID: 5181584312383002344}
   renderer: {fileID: 6470013996569860381}
   colorType: 0
+  paintCooldown: 0
 --- !u!1 &4175187065452247530
 GameObject:
   m_ObjectHideFlags: 0
@@ -23271,8 +22755,7 @@ GameObject:
   - component: {fileID: 3329872181479710814}
   - component: {fileID: 4934453853381019158}
   - component: {fileID: 6725296644440185102}
-  - component: {fileID: 7894126871246347457}
-  - component: {fileID: 8164016389755895080}
+  - component: {fileID: 7736141184634670156}
   m_Layer: 0
   m_Name: wall_007(Clone)
   m_TagString: Untagged
@@ -23391,27 +22874,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DecorObject
   decorId: 9
---- !u!114 &7894126871246347457
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4175187065452247530}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Unity.AI.Navigation::Unity.AI.Navigation.NavMeshModifier
-  m_SerializedVersion: 0
-  m_OverrideArea: 1
-  m_Area: 1
-  m_OverrideGenerateLinks: 0
-  m_GenerateLinks: 0
-  m_IgnoreFromBuild: 0
-  m_ApplyToChildren: 1
-  m_AffectedAgents: ffffffff
---- !u!65 &8164016389755895080
+--- !u!65 &7736141184634670156
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -23430,8 +22893,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 6.091701, y: 1.6456518, z: 0.65928227}
-  m_Center: {x: 0, y: 0.77881503, z: -0.00000005960466}
+  m_Size: {x: 6.0916996, y: 1.6456518, z: 0.6592821}
+  m_Center: {x: -0.0000009536743, y: 0.77881503, z: -0.000000059604645}
 --- !u!1 &4188811944160567977
 GameObject:
   m_ObjectHideFlags: 0
@@ -23593,6 +23056,7 @@ MonoBehaviour:
   bridge: {fileID: 9079557384004801392}
   renderer: {fileID: 214177628129159884}
   colorType: 0
+  paintCooldown: 0
 --- !u!1 &4302232758060451532
 GameObject:
   m_ObjectHideFlags: 0
@@ -23605,6 +23069,7 @@ GameObject:
   - component: {fileID: 3308094928225422808}
   - component: {fileID: 4886905270348426786}
   - component: {fileID: 8839629697955522016}
+  - component: {fileID: 9196322569910121986}
   m_Layer: 0
   m_Name: signage_arrow_stand_blue(Clone)
   m_TagString: Untagged
@@ -23697,6 +23162,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DecorObject
   decorId: 3
+--- !u!65 &9196322569910121986
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4302232758060451532}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 2, z: 0.39999858}
+  m_Center: {x: 0, y: 1, z: 0.07500605}
 --- !u!1 &4377798159469543000
 GameObject:
   m_ObjectHideFlags: 0
@@ -23961,6 +23447,7 @@ MonoBehaviour:
   bridge: {fileID: 8765315640061463605}
   renderer: {fileID: 4251294481952197608}
   colorType: 0
+  paintCooldown: 0
 --- !u!1 &4437989131271872316
 GameObject:
   m_ObjectHideFlags: 0
@@ -24091,6 +23578,7 @@ MonoBehaviour:
   bridge: {fileID: 9079557384004801392}
   renderer: {fileID: 4239953277495210461}
   colorType: 0
+  paintCooldown: 0
 --- !u!1 &4445158521692367315
 GameObject:
   m_ObjectHideFlags: 0
@@ -24584,6 +24072,7 @@ MonoBehaviour:
   bridge: {fileID: 9079557384004801392}
   renderer: {fileID: 5875694839292698697}
   colorType: 0
+  paintCooldown: 0
 --- !u!1 &4493146328470970990
 GameObject:
   m_ObjectHideFlags: 0
@@ -24804,6 +24293,7 @@ MonoBehaviour:
   bridge: {fileID: 9079557384004801392}
   renderer: {fileID: 1585698662489335659}
   colorType: 0
+  paintCooldown: 0
 --- !u!1 &4571195705630244808
 GameObject:
   m_ObjectHideFlags: 0
@@ -24929,9 +24419,6 @@ Transform:
   - {fileID: 5366253841384283483}
   - {fileID: 4031700106237931671}
   - {fileID: 4390856248922223811}
-  - {fileID: 2665464595818269852}
-  - {fileID: 3446205318969851129}
-  - {fileID: 3659804566737764869}
   m_Father: {fileID: 987538683435418545}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4643869712406302417
@@ -25100,8 +24587,7 @@ GameObject:
   - component: {fileID: 8010083607598504459}
   - component: {fileID: 2290499064470818653}
   - component: {fileID: 6623657725120080431}
-  - component: {fileID: 3456142150570333053}
-  - component: {fileID: 9024288916357048302}
+  - component: {fileID: 6682559674885044273}
   m_Layer: 0
   m_Name: wall_007(Clone)
   m_TagString: Untagged
@@ -25220,27 +24706,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DecorObject
   decorId: 9
---- !u!114 &3456142150570333053
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4681721456807719871}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Unity.AI.Navigation::Unity.AI.Navigation.NavMeshModifier
-  m_SerializedVersion: 0
-  m_OverrideArea: 1
-  m_Area: 1
-  m_OverrideGenerateLinks: 0
-  m_GenerateLinks: 0
-  m_IgnoreFromBuild: 0
-  m_ApplyToChildren: 1
-  m_AffectedAgents: ffffffff
---- !u!65 &9024288916357048302
+--- !u!65 &6682559674885044273
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -25391,6 +24857,7 @@ MonoBehaviour:
   bridge: {fileID: 2061745048827776648}
   renderer: {fileID: 9111736559860420735}
   colorType: 0
+  paintCooldown: 0
 --- !u!1 &4711295052019451689
 GameObject:
   m_ObjectHideFlags: 0
@@ -25521,6 +24988,7 @@ MonoBehaviour:
   bridge: {fileID: 2061745048827776648}
   renderer: {fileID: 5570741143303894821}
   colorType: 0
+  paintCooldown: 0
 --- !u!1 &4754499818964903162
 GameObject:
   m_ObjectHideFlags: 0
@@ -25741,6 +25209,7 @@ MonoBehaviour:
   bridge: {fileID: 5863809494977111897}
   renderer: {fileID: 6133938249088476277}
   colorType: 0
+  paintCooldown: 0
 --- !u!1 &4814604549335971842
 GameObject:
   m_ObjectHideFlags: 0
@@ -25871,6 +25340,7 @@ MonoBehaviour:
   bridge: {fileID: 2061745048827776648}
   renderer: {fileID: 4799518207272701680}
   colorType: 0
+  paintCooldown: 0
 --- !u!1 &4826235060528828853
 GameObject:
   m_ObjectHideFlags: 0
@@ -26337,8 +25807,7 @@ GameObject:
   - component: {fileID: 551549193698151061}
   - component: {fileID: 7012459801501930282}
   - component: {fileID: 1358184979938628199}
-  - component: {fileID: 9160623960616365560}
-  - component: {fileID: 6776266223179289590}
+  - component: {fileID: 3715044466731106683}
   m_Layer: 0
   m_Name: wall_007(Clone)
   m_TagString: Untagged
@@ -26457,27 +25926,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DecorObject
   decorId: 9
---- !u!114 &9160623960616365560
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4954771746679280507}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Unity.AI.Navigation::Unity.AI.Navigation.NavMeshModifier
-  m_SerializedVersion: 0
-  m_OverrideArea: 1
-  m_Area: 1
-  m_OverrideGenerateLinks: 0
-  m_GenerateLinks: 0
-  m_IgnoreFromBuild: 0
-  m_ApplyToChildren: 1
-  m_AffectedAgents: ffffffff
---- !u!65 &6776266223179289590
+--- !u!65 &3715044466731106683
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -26497,7 +25946,7 @@ BoxCollider:
   m_Enabled: 1
   serializedVersion: 3
   m_Size: {x: 6.091701, y: 1.6456518, z: 0.65928227}
-  m_Center: {x: 0, y: 0.77881503, z: -0.00000005960466}
+  m_Center: {x: 0, y: 0.77881503, z: 0.000001847744}
 --- !u!1 &4968319725621206329
 GameObject:
   m_ObjectHideFlags: 0
@@ -26702,6 +26151,7 @@ GameObject:
   - component: {fileID: 7081702488598226771}
   - component: {fileID: 4347222282759675119}
   - component: {fileID: 7747783558548309252}
+  - component: {fileID: 3943121736217817541}
   m_Layer: 0
   m_Name: flag_B_yellow(Clone)
   m_TagString: Untagged
@@ -26814,6 +26264,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DecorObject
   decorId: 4
+--- !u!65 &3943121736217817541
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5001364656216395740}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.60000014, y: 3.0642197, z: 1.6231469}
+  m_Center: {x: 0.0000076293945, y: 1.5321099, z: -0.5115714}
 --- !u!1 &5119295082331503443
 GameObject:
   m_ObjectHideFlags: 0
@@ -26830,7 +26301,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 2147483647
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &7770776320664489682
 Transform:
@@ -27472,6 +26943,7 @@ MonoBehaviour:
   bridge: {fileID: 2061745048827776648}
   renderer: {fileID: 9190093861957614508}
   colorType: 0
+  paintCooldown: 0
 --- !u!1 &5224612150709333441
 GameObject:
   m_ObjectHideFlags: 0
@@ -27602,6 +27074,7 @@ MonoBehaviour:
   bridge: {fileID: 6766520193922794127}
   renderer: {fileID: 7984724976240545806}
   colorType: 0
+  paintCooldown: 0
 --- !u!1 &5233049543825508699
 GameObject:
   m_ObjectHideFlags: 0
@@ -27976,6 +27449,7 @@ MonoBehaviour:
   bridge: {fileID: 5181584312383002344}
   renderer: {fileID: 135119122007350766}
   colorType: 0
+  paintCooldown: 0
 --- !u!1 &5291382473318446768
 GameObject:
   m_ObjectHideFlags: 0
@@ -27992,7 +27466,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 2147483647
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!224 &5799874405418539447
 RectTransform:
@@ -28287,6 +27761,7 @@ MonoBehaviour:
   bridge: {fileID: 6766520193922794127}
   renderer: {fileID: 5958420443460101787}
   colorType: 0
+  paintCooldown: 0
 --- !u!1 &5322211965498807038
 GameObject:
   m_ObjectHideFlags: 0
@@ -28299,8 +27774,7 @@ GameObject:
   - component: {fileID: 7648696487879764854}
   - component: {fileID: 5185034272088537590}
   - component: {fileID: 4032364107538237977}
-  - component: {fileID: 8811016766746090534}
-  - component: {fileID: 1309284242243180938}
+  - component: {fileID: 2438757892817155238}
   m_Layer: 0
   m_Name: wall_007(Clone)
   m_TagString: Untagged
@@ -28419,27 +27893,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DecorObject
   decorId: 9
---- !u!114 &8811016766746090534
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5322211965498807038}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Unity.AI.Navigation::Unity.AI.Navigation.NavMeshModifier
-  m_SerializedVersion: 0
-  m_OverrideArea: 1
-  m_Area: 1
-  m_OverrideGenerateLinks: 0
-  m_GenerateLinks: 0
-  m_IgnoreFromBuild: 0
-  m_ApplyToChildren: 1
-  m_AffectedAgents: ffffffff
---- !u!65 &1309284242243180938
+--- !u!65 &2438757892817155238
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -28458,8 +27912,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 6.091701, y: 1.6456518, z: 0.65928227}
-  m_Center: {x: 0, y: 0.77881503, z: -0.00000005960466}
+  m_Size: {x: 6.0916996, y: 1.6456518, z: 0.6592821}
+  m_Center: {x: 0, y: 0.77881503, z: -0.000001013279}
 --- !u!1 &5325908860542480072
 GameObject:
   m_ObjectHideFlags: 0
@@ -28590,6 +28044,7 @@ MonoBehaviour:
   bridge: {fileID: 8765315640061463605}
   renderer: {fileID: 5417284401069623584}
   colorType: 0
+  paintCooldown: 0
 --- !u!1 &5385629970201452507
 GameObject:
   m_ObjectHideFlags: 0
@@ -28602,8 +28057,7 @@ GameObject:
   - component: {fileID: 5263086551033414504}
   - component: {fileID: 3677710670822947959}
   - component: {fileID: 3596366835586197763}
-  - component: {fileID: 6393595057305641136}
-  - component: {fileID: 260670968036074460}
+  - component: {fileID: 1728846208603090357}
   m_Layer: 0
   m_Name: wall_007(Clone)
   m_TagString: Untagged
@@ -28722,27 +28176,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DecorObject
   decorId: 9
---- !u!114 &6393595057305641136
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5385629970201452507}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Unity.AI.Navigation::Unity.AI.Navigation.NavMeshModifier
-  m_SerializedVersion: 0
-  m_OverrideArea: 1
-  m_Area: 1
-  m_OverrideGenerateLinks: 0
-  m_GenerateLinks: 0
-  m_IgnoreFromBuild: 0
-  m_ApplyToChildren: 1
-  m_AffectedAgents: ffffffff
---- !u!65 &260670968036074460
+--- !u!65 &1728846208603090357
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -28761,8 +28195,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 6.091701, y: 1.6456518, z: 0.65928227}
-  m_Center: {x: 0, y: 0.77881503, z: -0.00000005960466}
+  m_Size: {x: 6.0916996, y: 1.6456518, z: 0.6592821}
+  m_Center: {x: -0.00000047683716, y: 0.77881503, z: -0.000001013279}
 --- !u!1 &5403887348094923597
 GameObject:
   m_ObjectHideFlags: 0
@@ -28875,92 +28309,6 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
---- !u!1 &5446615165544637854
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 3659804566737764869}
-  - component: {fileID: 1311400216275412865}
-  - component: {fileID: 1312968272421625863}
-  - component: {fileID: 9009967881786027330}
-  m_Layer: 0
-  m_Name: Hammer(Clone)
-  m_TagString: Untagged
-  m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &3659804566737764869
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5446615165544637854}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: 0.48826748, w: -0.8726941}
-  m_LocalPosition: {x: 22.3387, y: -1.3199997, z: -26.581581}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 4629558041735166266}
-  m_Father: {fileID: 8917859990859010594}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1311400216275412865
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5446615165544637854}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1c7e275ed3751c64c93c221a733e4493, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::SwingingObject
-  swingRange: 67
-  swingSpeed: 100
-  tf: {fileID: 3659804566737764869}
---- !u!114 &1312968272421625863
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5446615165544637854}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 36532776fc2814b45a1deaa988d1a20a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::DecorObject
-  decorId: 11
---- !u!136 &9009967881786027330
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5446615165544637854}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 1.1424906
-  m_Height: 2.2849815
-  m_Direction: 1
-  m_Center: {x: -0.005908966, y: -3.9737267, z: 0}
 --- !u!1 &5457611263525742902
 GameObject:
   m_ObjectHideFlags: 0
@@ -29091,6 +28439,7 @@ MonoBehaviour:
   bridge: {fileID: 9079557384004801392}
   renderer: {fileID: 8726078011253605881}
   colorType: 0
+  paintCooldown: 0
 --- !u!1 &5500031649525632548
 GameObject:
   m_ObjectHideFlags: 0
@@ -29104,6 +28453,7 @@ GameObject:
   - component: {fileID: 2574960913969479536}
   - component: {fileID: 7375846944579196606}
   - component: {fileID: 6556707454775181152}
+  - component: {fileID: 6902972996190764703}
   m_Layer: 0
   m_Name: flag_B_red(Clone)
   m_TagString: Untagged
@@ -29216,6 +28566,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DecorObject
   decorId: 5
+--- !u!65 &6902972996190764703
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5500031649525632548}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.60000014, y: 3.0642197, z: 1.6231469}
+  m_Center: {x: 0, y: 1.5321099, z: -0.51157236}
 --- !u!1 &5542005213940072909
 GameObject:
   m_ObjectHideFlags: 0
@@ -29346,6 +28717,7 @@ MonoBehaviour:
   bridge: {fileID: 8765315640061463605}
   renderer: {fileID: 8132897795452980491}
   colorType: 0
+  paintCooldown: 0
 --- !u!1 &5556489233727561535
 GameObject:
   m_ObjectHideFlags: 0
@@ -29582,6 +28954,7 @@ GameObject:
   - component: {fileID: 3458238489126716784}
   - component: {fileID: 4564468847282916437}
   - component: {fileID: 8651102199659686185}
+  - component: {fileID: 8837479027794494043}
   m_Layer: 0
   m_Name: signage_arrow_stand_blue(Clone)
   m_TagString: Untagged
@@ -29674,6 +29047,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DecorObject
   decorId: 3
+--- !u!65 &8837479027794494043
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5582682504839702421}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 2, z: 0.39999858}
+  m_Center: {x: 0, y: 1, z: 0.07500605}
 --- !u!1 &5609843842026100966
 GameObject:
   m_ObjectHideFlags: 0
@@ -30085,6 +29479,7 @@ MonoBehaviour:
   bridge: {fileID: 2061745048827776648}
   renderer: {fileID: 3287192746308246190}
   colorType: 0
+  paintCooldown: 0
 --- !u!1 &5780986134211889948
 GameObject:
   m_ObjectHideFlags: 0
@@ -30148,7 +29543,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Bridge
   PoolType: 2
   tf: {fileID: 4065871624570540477}
-  dataSO: {fileID: 0}
+  dataSO: {fileID: 11400000, guid: f554761f30eba994986dac01480aa777, type: 2}
   stairs:
   - {fileID: 6261121196163877032}
   - {fileID: 3842545210567577990}
@@ -30300,6 +29695,7 @@ MonoBehaviour:
   bridge: {fileID: 2061745048827776648}
   renderer: {fileID: 5256242780036893109}
   colorType: 0
+  paintCooldown: 0
 --- !u!1 &5858524116912529963
 GameObject:
   m_ObjectHideFlags: 0
@@ -30430,6 +29826,7 @@ MonoBehaviour:
   bridge: {fileID: 5181584312383002344}
   renderer: {fileID: 2684863611680947414}
   colorType: 0
+  paintCooldown: 0
 --- !u!1 &5902191642826010199
 GameObject:
   m_ObjectHideFlags: 0
@@ -30532,8 +29929,7 @@ GameObject:
   - component: {fileID: 1002930282237919171}
   - component: {fileID: 389864469510353668}
   - component: {fileID: 753730693506697080}
-  - component: {fileID: 5728342057205026808}
-  - component: {fileID: 1991636965831216655}
+  - component: {fileID: 4004613626305887935}
   m_Layer: 0
   m_Name: wall_007(Clone)
   m_TagString: Untagged
@@ -30652,27 +30048,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DecorObject
   decorId: 9
---- !u!114 &5728342057205026808
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5928404870631429452}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Unity.AI.Navigation::Unity.AI.Navigation.NavMeshModifier
-  m_SerializedVersion: 0
-  m_OverrideArea: 1
-  m_Area: 1
-  m_OverrideGenerateLinks: 0
-  m_GenerateLinks: 0
-  m_IgnoreFromBuild: 0
-  m_ApplyToChildren: 1
-  m_AffectedAgents: ffffffff
---- !u!65 &1991636965831216655
+--- !u!65 &4004613626305887935
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -30691,8 +30067,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 6.091701, y: 1.6456518, z: 0.65928227}
-  m_Center: {x: 0, y: 0.77881503, z: -0.00000005960466}
+  m_Size: {x: 6.091699, y: 1.6456518, z: 0.6592821}
+  m_Center: {x: 0, y: 0.77881503, z: -0.000000059604645}
 --- !u!1 &5969021039655690626
 GameObject:
   m_ObjectHideFlags: 0
@@ -30935,6 +30311,7 @@ MonoBehaviour:
   bridge: {fileID: 5181584312383002344}
   renderer: {fileID: 7741582510821201295}
   colorType: 0
+  paintCooldown: 0
 --- !u!1 &6044039989571810821
 GameObject:
   m_ObjectHideFlags: 0
@@ -31188,8 +30565,7 @@ GameObject:
   - component: {fileID: 9077114967864080230}
   - component: {fileID: 8105727139613991453}
   - component: {fileID: 915954877434242732}
-  - component: {fileID: 3547036043067783628}
-  - component: {fileID: 4973284874498736756}
+  - component: {fileID: 8523758680478861435}
   m_Layer: 0
   m_Name: wall_007(Clone)
   m_TagString: Untagged
@@ -31308,27 +30684,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DecorObject
   decorId: 9
---- !u!114 &3547036043067783628
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6093778493204285736}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Unity.AI.Navigation::Unity.AI.Navigation.NavMeshModifier
-  m_SerializedVersion: 0
-  m_OverrideArea: 1
-  m_Area: 1
-  m_OverrideGenerateLinks: 0
-  m_GenerateLinks: 0
-  m_IgnoreFromBuild: 0
-  m_ApplyToChildren: 1
-  m_AffectedAgents: ffffffff
---- !u!65 &4973284874498736756
+--- !u!65 &8523758680478861435
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -31348,7 +30704,7 @@ BoxCollider:
   m_Enabled: 1
   serializedVersion: 3
   m_Size: {x: 6.091701, y: 1.6456518, z: 0.65928227}
-  m_Center: {x: 0, y: 0.77881503, z: -0.00000005960466}
+  m_Center: {x: 0.0000019073486, y: 0.77881503, z: -0.00000005960466}
 --- !u!1 &6119999514892127365
 GameObject:
   m_ObjectHideFlags: 0
@@ -31479,6 +30835,7 @@ MonoBehaviour:
   bridge: {fileID: 8765315640061463605}
   renderer: {fileID: 3994461037499765667}
   colorType: 0
+  paintCooldown: 0
 --- !u!1 &6133533514839393748
 GameObject:
   m_ObjectHideFlags: 0
@@ -31495,7 +30852,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 2147483647
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!224 &3238321019352851796
 RectTransform:
@@ -31790,6 +31147,7 @@ MonoBehaviour:
   bridge: {fileID: 2061745048827776648}
   renderer: {fileID: 7026104687362587602}
   colorType: 0
+  paintCooldown: 0
 --- !u!1 &6218644507990385796
 GameObject:
   m_ObjectHideFlags: 0
@@ -31920,6 +31278,7 @@ MonoBehaviour:
   bridge: {fileID: 5181584312383002344}
   renderer: {fileID: 3927264072354216222}
   colorType: 0
+  paintCooldown: 0
 --- !u!1 &6228906274871709255
 GameObject:
   m_ObjectHideFlags: 0
@@ -32060,6 +31419,7 @@ GameObject:
   - component: {fileID: 8599554687510395159}
   - component: {fileID: 6788374127439427390}
   - component: {fileID: 4426841028081457230}
+  - component: {fileID: 7666815139516676990}
   m_Layer: 0
   m_Name: signage_arrow_stand_yellow(Clone)
   m_TagString: Untagged
@@ -32152,6 +31512,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DecorObject
   decorId: 0
+--- !u!65 &7666815139516676990
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6237165357650903883}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 2, z: 0.39999858}
+  m_Center: {x: 0.0000009536743, y: 1, z: 0.075008914}
 --- !u!1 &6263860638111360544
 GameObject:
   m_ObjectHideFlags: 0
@@ -32411,6 +31792,7 @@ MonoBehaviour:
   bridge: {fileID: 6766520193922794127}
   renderer: {fileID: 2696124722841392871}
   colorType: 0
+  paintCooldown: 0
 --- !u!1 &6287440391968970082
 GameObject:
   m_ObjectHideFlags: 0
@@ -32524,8 +31906,7 @@ GameObject:
   - component: {fileID: 1806277194575045308}
   - component: {fileID: 2388409337365225358}
   - component: {fileID: 4835844675096205505}
-  - component: {fileID: 6598080411162980094}
-  - component: {fileID: 2526648067722212724}
+  - component: {fileID: 8515455830330823878}
   m_Layer: 0
   m_Name: wall_007(Clone)
   m_TagString: Untagged
@@ -32644,27 +32025,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DecorObject
   decorId: 9
---- !u!114 &6598080411162980094
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6288347297482863245}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Unity.AI.Navigation::Unity.AI.Navigation.NavMeshModifier
-  m_SerializedVersion: 0
-  m_OverrideArea: 1
-  m_Area: 1
-  m_OverrideGenerateLinks: 0
-  m_GenerateLinks: 0
-  m_IgnoreFromBuild: 0
-  m_ApplyToChildren: 1
-  m_AffectedAgents: ffffffff
---- !u!65 &2526648067722212724
+--- !u!65 &8515455830330823878
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -32684,7 +32045,7 @@ BoxCollider:
   m_Enabled: 1
   serializedVersion: 3
   m_Size: {x: 6.091701, y: 1.6456518, z: 0.65928227}
-  m_Center: {x: 0, y: 0.77881503, z: -0.00000005960466}
+  m_Center: {x: 0.0000015497208, y: 0.77881503, z: -0.00000005960466}
 --- !u!1 &6298944390056878718
 GameObject:
   m_ObjectHideFlags: 0
@@ -32893,7 +32254,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Bridge
   PoolType: 2
   tf: {fileID: 6502423840743192796}
-  dataSO: {fileID: 0}
+  dataSO: {fileID: 11400000, guid: f554761f30eba994986dac01480aa777, type: 2}
   stairs:
   - {fileID: 7232081287934696769}
   - {fileID: 6627700594267990528}
@@ -32915,96 +32276,6 @@ MonoBehaviour:
   banisters:
   - {fileID: 8449286474529976134}
   - {fileID: 878714170764643177}
---- !u!1 &6503933831507307433
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 5762153891272649274}
-  - component: {fileID: 1735633898676091741}
-  - component: {fileID: 3744575779204725418}
-  m_Layer: 0
-  m_Name: obstacle_4_002
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &5762153891272649274
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6503933831507307433}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 2474521108847965363}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!33 &1735633898676091741
-MeshFilter:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6503933831507307433}
-  m_Mesh: {fileID: 8097410528231800854, guid: 1a76021742d50c8439b99fce9bb789c6, type: 3}
---- !u!23 &3744575779204725418
-MeshRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6503933831507307433}
-  m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 2
-  m_RayTraceProcedural: 0
-  m_RayTracingAccelStructBuildFlagsOverride: 0
-  m_RayTracingAccelStructBuildFlags: 1
-  m_SmallMeshCulling: 1
-  m_ForceMeshLod: -1
-  m_MeshLodSelectionBias: 0
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 2100000, guid: 475df77cde3394a4390cb95e536a2fe3, type: 2}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 3
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_GlobalIlluminationMeshLod: 0
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_MaskInteraction: 0
-  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!1 &6546722041960966785
 GameObject:
   m_ObjectHideFlags: 0
@@ -33065,7 +32336,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Bridge
   PoolType: 2
   tf: {fileID: 7171594137089201502}
-  dataSO: {fileID: 0}
+  dataSO: {fileID: 11400000, guid: fa74571ba2a36ed4c9e27e41153d5319, type: 2}
   stairs:
   - {fileID: 447893542474253954}
   - {fileID: 7672532128014215632}
@@ -33470,6 +32741,7 @@ MonoBehaviour:
   bridge: {fileID: 8765315640061463605}
   renderer: {fileID: 7111082251531422869}
   colorType: 0
+  paintCooldown: 0
 --- !u!1 &6738635682663831443
 GameObject:
   m_ObjectHideFlags: 0
@@ -33600,6 +32872,7 @@ MonoBehaviour:
   bridge: {fileID: 1541826009823255750}
   renderer: {fileID: 8296119853432818400}
   colorType: 0
+  paintCooldown: 0
 --- !u!1 &6740779343126287106
 GameObject:
   m_ObjectHideFlags: 0
@@ -33730,6 +33003,7 @@ MonoBehaviour:
   bridge: {fileID: 5863809494977111897}
   renderer: {fileID: 131598569968258884}
   colorType: 0
+  paintCooldown: 0
 --- !u!1 &6756249986692693155
 GameObject:
   m_ObjectHideFlags: 0
@@ -33972,6 +33246,7 @@ MonoBehaviour:
   bridge: {fileID: 9079557384004801392}
   renderer: {fileID: 7299646344246811028}
   colorType: 0
+  paintCooldown: 0
 --- !u!1 &6778259068138068932
 GameObject:
   m_ObjectHideFlags: 0
@@ -34085,8 +33360,7 @@ GameObject:
   - component: {fileID: 5219452901142140118}
   - component: {fileID: 6996247163398001181}
   - component: {fileID: 447146168971260454}
-  - component: {fileID: 626945257641610386}
-  - component: {fileID: 9072095102527961014}
+  - component: {fileID: 6832936482917230139}
   m_Layer: 0
   m_Name: wall_007(Clone)
   m_TagString: Untagged
@@ -34205,27 +33479,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DecorObject
   decorId: 9
---- !u!114 &626945257641610386
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6788938989222238464}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Unity.AI.Navigation::Unity.AI.Navigation.NavMeshModifier
-  m_SerializedVersion: 0
-  m_OverrideArea: 1
-  m_Area: 1
-  m_OverrideGenerateLinks: 0
-  m_GenerateLinks: 0
-  m_IgnoreFromBuild: 0
-  m_ApplyToChildren: 1
-  m_AffectedAgents: ffffffff
---- !u!65 &9072095102527961014
+--- !u!65 &6832936482917230139
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -34244,8 +33498,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 6.091701, y: 1.6456518, z: 0.65928227}
-  m_Center: {x: 0, y: 0.77881503, z: -0.00000005960466}
+  m_Size: {x: 6.0916996, y: 1.6456518, z: 0.6592821}
+  m_Center: {x: 0.00000017881393, y: 0.77881503, z: -0.000000059604645}
 --- !u!1 &6807313732581624170
 GameObject:
   m_ObjectHideFlags: 0
@@ -34521,6 +33775,7 @@ MonoBehaviour:
   bridge: {fileID: 9079557384004801392}
   renderer: {fileID: 4422473627365523872}
   colorType: 0
+  paintCooldown: 0
 --- !u!1 &6874522265261813558
 GameObject:
   m_ObjectHideFlags: 0
@@ -34591,7 +33846,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Bridge
   PoolType: 2
   tf: {fileID: 2441107139334349658}
-  dataSO: {fileID: 0}
+  dataSO: {fileID: 11400000, guid: cf0030110451db845b412e4446ef8ef2, type: 2}
   stairs:
   - {fileID: 6827766713864446177}
   - {fileID: 8452787134277707808}
@@ -34750,6 +34005,7 @@ MonoBehaviour:
   bridge: {fileID: 2061745048827776648}
   renderer: {fileID: 3667871595451854339}
   colorType: 0
+  paintCooldown: 0
 --- !u!1 &6923464278412347056
 GameObject:
   m_ObjectHideFlags: 0
@@ -39656,8 +38912,7 @@ GameObject:
   - component: {fileID: 7318312271626686756}
   - component: {fileID: 5149133665590484609}
   - component: {fileID: 388379749962286378}
-  - component: {fileID: 5098768022078392911}
-  - component: {fileID: 8577347155081485396}
+  - component: {fileID: 2637647161881030417}
   m_Layer: 0
   m_Name: wall_007(Clone)
   m_TagString: Untagged
@@ -39776,27 +39031,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DecorObject
   decorId: 9
---- !u!114 &5098768022078392911
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6929551336437786825}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Unity.AI.Navigation::Unity.AI.Navigation.NavMeshModifier
-  m_SerializedVersion: 0
-  m_OverrideArea: 1
-  m_Area: 1
-  m_OverrideGenerateLinks: 0
-  m_GenerateLinks: 0
-  m_IgnoreFromBuild: 0
-  m_ApplyToChildren: 1
-  m_AffectedAgents: ffffffff
---- !u!65 &8577347155081485396
+--- !u!65 &2637647161881030417
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -39816,7 +39051,7 @@ BoxCollider:
   m_Enabled: 1
   serializedVersion: 3
   m_Size: {x: 6.091701, y: 1.6456518, z: 0.65928227}
-  m_Center: {x: 0, y: 0.77881503, z: -0.00000005960466}
+  m_Center: {x: 0.0000019073486, y: 0.77881503, z: -0.00000005960466}
 --- !u!1 &6934440621670746509
 GameObject:
   m_ObjectHideFlags: 0
@@ -39947,6 +39182,7 @@ MonoBehaviour:
   bridge: {fileID: 5863809494977111897}
   renderer: {fileID: 6263740185974514822}
   colorType: 0
+  paintCooldown: 0
 --- !u!1 &7008437221390075020
 GameObject:
   m_ObjectHideFlags: 0
@@ -40081,97 +39317,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   titleAnim: Drone_Animation
---- !u!1 &7038000306721224535
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 4629558041735166266}
-  - component: {fileID: 1028840268089027989}
-  - component: {fileID: 7917559846430245524}
-  m_Layer: 0
-  m_Name: obstacle_4_001
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &4629558041735166266
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7038000306721224535}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 4611384590936511251}
-  m_Father: {fileID: 3659804566737764869}
-  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
---- !u!33 &1028840268089027989
-MeshFilter:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7038000306721224535}
-  m_Mesh: {fileID: -8356501929360443574, guid: 0e467647ea29ace47a8f225650d36681, type: 3}
---- !u!23 &7917559846430245524
-MeshRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7038000306721224535}
-  m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 2
-  m_RayTraceProcedural: 0
-  m_RayTracingAccelStructBuildFlagsOverride: 0
-  m_RayTracingAccelStructBuildFlags: 1
-  m_SmallMeshCulling: 1
-  m_ForceMeshLod: -1
-  m_MeshLodSelectionBias: 0
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 2100000, guid: 475df77cde3394a4390cb95e536a2fe3, type: 2}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 3
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_GlobalIlluminationMeshLod: 0
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_MaskInteraction: 0
-  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!1 &7059911993509350555
 GameObject:
   m_ObjectHideFlags: 0
@@ -40414,6 +39559,7 @@ MonoBehaviour:
   bridge: {fileID: 1541826009823255750}
   renderer: {fileID: 875727261637525105}
   colorType: 0
+  paintCooldown: 0
 --- !u!1 &7073186765489417719
 GameObject:
   m_ObjectHideFlags: 0
@@ -40515,92 +39661,6 @@ MonoBehaviour:
   m_IgnoreFromBuild: 0
   m_ApplyToChildren: 1
   m_AffectedAgents: ffffffff
---- !u!1 &7092396427303022485
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 3446205318969851129}
-  - component: {fileID: 2026773766107136470}
-  - component: {fileID: 3785829647974658013}
-  - component: {fileID: 3130904596956113581}
-  m_Layer: 0
-  m_Name: Hammer(Clone)
-  m_TagString: Untagged
-  m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &3446205318969851129
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7092396427303022485}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: 0.48826748, w: -0.8726941}
-  m_LocalPosition: {x: 14.418699, y: -1.3199997, z: -26.581581}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 2474521108847965363}
-  m_Father: {fileID: 8917859990859010594}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2026773766107136470
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7092396427303022485}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1c7e275ed3751c64c93c221a733e4493, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::SwingingObject
-  swingRange: 67
-  swingSpeed: 100
-  tf: {fileID: 3446205318969851129}
---- !u!114 &3785829647974658013
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7092396427303022485}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 36532776fc2814b45a1deaa988d1a20a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::DecorObject
-  decorId: 11
---- !u!136 &3130904596956113581
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7092396427303022485}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 1.1424906
-  m_Height: 2.2849815
-  m_Direction: 1
-  m_Center: {x: -0.005908966, y: -3.9737267, z: 0}
 --- !u!1 &7126091595976812744
 GameObject:
   m_ObjectHideFlags: 0
@@ -40649,7 +39709,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 2147483647
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &6752983848029917968
 Transform:
@@ -40877,6 +39937,7 @@ MonoBehaviour:
   bridge: {fileID: 2061745048827776648}
   renderer: {fileID: 6705160563238156230}
   colorType: 0
+  paintCooldown: 0
 --- !u!1 &7189669521724609045
 GameObject:
   m_ObjectHideFlags: 0
@@ -41069,8 +40130,7 @@ GameObject:
   - component: {fileID: 9156725245005373626}
   - component: {fileID: 3982139452229541222}
   - component: {fileID: 3353183364525581210}
-  - component: {fileID: 2418760889632624015}
-  - component: {fileID: 3349630311745529443}
+  - component: {fileID: 8259314355526817264}
   m_Layer: 0
   m_Name: wall_007(Clone)
   m_TagString: Untagged
@@ -41189,27 +40249,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DecorObject
   decorId: 9
---- !u!114 &2418760889632624015
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7246750040118102465}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Unity.AI.Navigation::Unity.AI.Navigation.NavMeshModifier
-  m_SerializedVersion: 0
-  m_OverrideArea: 1
-  m_Area: 1
-  m_OverrideGenerateLinks: 0
-  m_GenerateLinks: 0
-  m_IgnoreFromBuild: 0
-  m_ApplyToChildren: 1
-  m_AffectedAgents: ffffffff
---- !u!65 &3349630311745529443
+--- !u!65 &8259314355526817264
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -41229,7 +40269,7 @@ BoxCollider:
   m_Enabled: 1
   serializedVersion: 3
   m_Size: {x: 6.091701, y: 1.6456518, z: 0.65928227}
-  m_Center: {x: 0, y: 0.77881503, z: -0.00000005960466}
+  m_Center: {x: 0.0000009536743, y: 0.77881503, z: 0.0000008940697}
 --- !u!1 &7291213535876182295
 GameObject:
   m_ObjectHideFlags: 0
@@ -41360,6 +40400,7 @@ MonoBehaviour:
   bridge: {fileID: 8765315640061463605}
   renderer: {fileID: 5975626151547197487}
   colorType: 0
+  paintCooldown: 0
 --- !u!1 &7327175171451483983
 GameObject:
   m_ObjectHideFlags: 0
@@ -41490,6 +40531,7 @@ MonoBehaviour:
   bridge: {fileID: 2061745048827776648}
   renderer: {fileID: 752854535572632890}
   colorType: 0
+  paintCooldown: 0
 --- !u!1 &7329652785732548294
 GameObject:
   m_ObjectHideFlags: 0
@@ -41602,96 +40644,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!1 &7332362393144838140
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 3979929190751544230}
-  - component: {fileID: 5087821381814011551}
-  - component: {fileID: 8367000352267463243}
-  m_Layer: 0
-  m_Name: obstacle_4_002
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &3979929190751544230
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7332362393144838140}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 849844824210915049}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!33 &5087821381814011551
-MeshFilter:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7332362393144838140}
-  m_Mesh: {fileID: 8097410528231800854, guid: 1a76021742d50c8439b99fce9bb789c6, type: 3}
---- !u!23 &8367000352267463243
-MeshRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7332362393144838140}
-  m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 2
-  m_RayTraceProcedural: 0
-  m_RayTracingAccelStructBuildFlagsOverride: 0
-  m_RayTracingAccelStructBuildFlags: 1
-  m_SmallMeshCulling: 1
-  m_ForceMeshLod: -1
-  m_MeshLodSelectionBias: 0
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 2100000, guid: 475df77cde3394a4390cb95e536a2fe3, type: 2}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 3
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_GlobalIlluminationMeshLod: 0
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_MaskInteraction: 0
-  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!1 &7340074346784517333
 GameObject:
   m_ObjectHideFlags: 0
@@ -41940,6 +40892,7 @@ MonoBehaviour:
   bridge: {fileID: 2061745048827776648}
   renderer: {fileID: 4023151486734451985}
   colorType: 0
+  paintCooldown: 0
 --- !u!1 &7386011955540264625
 GameObject:
   m_ObjectHideFlags: 0
@@ -42070,6 +41023,7 @@ MonoBehaviour:
   bridge: {fileID: 5863809494977111897}
   renderer: {fileID: 5348021007970508269}
   colorType: 0
+  paintCooldown: 0
 --- !u!1 &7441063614747621444
 GameObject:
   m_ObjectHideFlags: 0
@@ -42200,6 +41154,7 @@ MonoBehaviour:
   bridge: {fileID: 5181584312383002344}
   renderer: {fileID: 6178720232193678327}
   colorType: 0
+  paintCooldown: 0
 --- !u!1 &7446446047115033196
 GameObject:
   m_ObjectHideFlags: 0
@@ -42555,6 +41510,7 @@ MonoBehaviour:
   bridge: {fileID: 2061745048827776648}
   renderer: {fileID: 5038394676698687805}
   colorType: 0
+  paintCooldown: 0
 --- !u!1 &7606816909672305557
 GameObject:
   m_ObjectHideFlags: 0
@@ -42614,6 +41570,7 @@ GameObject:
   - component: {fileID: 3952476923283337084}
   - component: {fileID: 8816368149744053261}
   - component: {fileID: 1771493117659010939}
+  - component: {fileID: 8673421995543722364}
   m_Layer: 7
   m_Name: Stage1(Clone)
   m_TagString: Untagged
@@ -42732,14 +41689,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Stage
   PoolType: 4
   tf: {fileID: 3251981301020510684}
-  stageDataSO: {fileID: 11400000, guid: f554761f30eba994986dac01480aa777, type: 2}
-  StageNumber: 2
-  IsLastStage: 0
-  scaleX: 16.5
-  scaleY: 1
-  scaleZ: 9
-  sizeStage: {x: 33, y: 2, z: 18}
-  distanceBrick: {x: 2, y: 0, z: 2}
+  stageDataSO: {fileID: 11400000, guid: cf0030110451db845b412e4446ef8ef2, type: 2}
+  stageNumber: 2
+  isLastStage: 0
+  stageBrickManager: {fileID: 8673421995543722364}
   spawnPos:
   - {fileID: 5746266483489695464}
   - {fileID: 4479022582667877317}
@@ -42749,6 +41702,23 @@ MonoBehaviour:
   bridges:
   - {fileID: 2061745048827776648}
   - {fileID: 9079557384004801392}
+--- !u!114 &8673421995543722364
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7685723586355098923}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d4f061721754ef47b346069ea0e556b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::StageBrickManager
+  stage: {fileID: 1771493117659010939}
+  scaleX: 16.5
+  scaleY: 1
+  scaleZ: 9
+  distanceBrick: {x: 0, y: 0, z: 0}
 --- !u!1 &7736475636223549674
 GameObject:
   m_ObjectHideFlags: 0
@@ -43428,6 +42398,7 @@ MonoBehaviour:
   bridge: {fileID: 5863809494977111897}
   renderer: {fileID: 9121643717915110270}
   colorType: 0
+  paintCooldown: 0
 --- !u!1 &7890925756534948119
 GameObject:
   m_ObjectHideFlags: 0
@@ -43558,6 +42529,7 @@ MonoBehaviour:
   bridge: {fileID: 9079557384004801392}
   renderer: {fileID: 3378011622934420905}
   colorType: 0
+  paintCooldown: 0
 --- !u!1 &7904938043304220202
 GameObject:
   m_ObjectHideFlags: 0
@@ -43688,6 +42660,7 @@ MonoBehaviour:
   bridge: {fileID: 2061745048827776648}
   renderer: {fileID: 7156648408778603373}
   colorType: 0
+  paintCooldown: 0
 --- !u!1 &7943878153095767505
 GameObject:
   m_ObjectHideFlags: 0
@@ -43818,6 +42791,7 @@ MonoBehaviour:
   bridge: {fileID: 9079557384004801392}
   renderer: {fileID: 8311044185693532437}
   colorType: 0
+  paintCooldown: 0
 --- !u!1 &7962872054545862218
 GameObject:
   m_ObjectHideFlags: 0
@@ -43948,6 +42922,7 @@ MonoBehaviour:
   bridge: {fileID: 9079557384004801392}
   renderer: {fileID: 7727899250279507189}
   colorType: 0
+  paintCooldown: 0
 --- !u!1 &7988468925395403817
 GameObject:
   m_ObjectHideFlags: 0
@@ -44018,7 +42993,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Bridge
   PoolType: 2
   tf: {fileID: 6902240537318249518}
-  dataSO: {fileID: 0}
+  dataSO: {fileID: 11400000, guid: cf0030110451db845b412e4446ef8ef2, type: 2}
   stairs:
   - {fileID: 1468932622879680496}
   - {fileID: 2163768513771862454}
@@ -44063,7 +43038,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 2147483647
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &5153413951180067959
 Transform:
@@ -44379,6 +43354,7 @@ MonoBehaviour:
   bridge: {fileID: 9079557384004801392}
   renderer: {fileID: 3000638704190131825}
   colorType: 0
+  paintCooldown: 0
 --- !u!1 &8124383304342761178
 GameObject:
   m_ObjectHideFlags: 0
@@ -44755,6 +43731,7 @@ MonoBehaviour:
   bridge: {fileID: 1541826009823255750}
   renderer: {fileID: 2674268747449036694}
   colorType: 0
+  paintCooldown: 0
 --- !u!1 &8182581312321099124
 GameObject:
   m_ObjectHideFlags: 0
@@ -44767,6 +43744,7 @@ GameObject:
   - component: {fileID: 2104561263647087670}
   - component: {fileID: 131798653289050486}
   - component: {fileID: 9052051279186031044}
+  - component: {fileID: 3494807197711082681}
   m_Layer: 0
   m_Name: signage_arrow_stand_blue(Clone)
   m_TagString: Untagged
@@ -44859,6 +43837,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DecorObject
   decorId: 3
+--- !u!65 &3494807197711082681
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8182581312321099124}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 2, z: 0.39999858}
+  m_Center: {x: 0.0000004172325, y: 1, z: 0.0750051}
 --- !u!1 &8187730715429913069
 GameObject:
   m_ObjectHideFlags: 0
@@ -45000,6 +43999,7 @@ GameObject:
   - component: {fileID: 3828285206180024332}
   - component: {fileID: 3193860012845975076}
   - component: {fileID: 4285511590164343622}
+  - component: {fileID: 2712222420025313466}
   m_Layer: 0
   m_Name: signage_arrow_stand_yellow(Clone)
   m_TagString: Untagged
@@ -45092,6 +44092,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DecorObject
   decorId: 0
+--- !u!65 &2712222420025313466
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8192122409661439393}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 2, z: 0.39999858}
+  m_Center: {x: 0.00000047683716, y: 1, z: 0.0750051}
 --- !u!1 &8194815870314105399
 GameObject:
   m_ObjectHideFlags: 0
@@ -45222,6 +44243,7 @@ MonoBehaviour:
   bridge: {fileID: 5181584312383002344}
   renderer: {fileID: 1174622587358925644}
   colorType: 0
+  paintCooldown: 0
 --- !u!1 &8195462467632131569
 GameObject:
   m_ObjectHideFlags: 0
@@ -45326,6 +44348,7 @@ GameObject:
   - component: {fileID: 4602856732097813790}
   - component: {fileID: 2930762762433478788}
   - component: {fileID: 7322426846743777707}
+  - component: {fileID: 1865556191567076076}
   m_Layer: 0
   m_Name: flag_B_blue(Clone)
   m_TagString: Untagged
@@ -45438,6 +44461,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DecorObject
   decorId: 2
+--- !u!65 &1865556191567076076
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8206040186871008830}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.60000014, y: 3.0642197, z: 1.6231469}
+  m_Center: {x: 0.0000009536743, y: 1.5321099, z: -0.51157236}
 --- !u!1 &8220435895931763537
 GameObject:
   m_ObjectHideFlags: 0
@@ -45680,6 +44724,7 @@ MonoBehaviour:
   bridge: {fileID: 6766520193922794127}
   renderer: {fileID: 41745677926555414}
   colorType: 0
+  paintCooldown: 0
 --- !u!1 &8268581320405589751
 GameObject:
   m_ObjectHideFlags: 0
@@ -46121,8 +45166,7 @@ GameObject:
   - component: {fileID: 2960266369723886638}
   - component: {fileID: 3249623878892516747}
   - component: {fileID: 6182707973544345262}
-  - component: {fileID: 7726585265817470749}
-  - component: {fileID: 1226090216336232078}
+  - component: {fileID: 2330055243035228291}
   m_Layer: 0
   m_Name: wall_007(Clone)
   m_TagString: Untagged
@@ -46241,27 +45285,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DecorObject
   decorId: 9
---- !u!114 &7726585265817470749
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8353928063029628020}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Unity.AI.Navigation::Unity.AI.Navigation.NavMeshModifier
-  m_SerializedVersion: 0
-  m_OverrideArea: 1
-  m_Area: 1
-  m_OverrideGenerateLinks: 0
-  m_GenerateLinks: 0
-  m_IgnoreFromBuild: 0
-  m_ApplyToChildren: 1
-  m_AffectedAgents: ffffffff
---- !u!65 &1226090216336232078
+--- !u!65 &2330055243035228291
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -46412,6 +45436,7 @@ MonoBehaviour:
   bridge: {fileID: 5181584312383002344}
   renderer: {fileID: 4388047908966685018}
   colorType: 0
+  paintCooldown: 0
 --- !u!1 &8418813180367734941
 GameObject:
   m_ObjectHideFlags: 0
@@ -46518,7 +45543,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 8418204508859773708, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 2147483647
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &6147463170015961898
 Transform:
@@ -46718,8 +45743,8 @@ MonoBehaviour:
   m_Center: {x: 0, y: 2, z: 0}
   m_LayerMask:
     serializedVersion: 2
-    m_Bits: 751
-  m_UseGeometry: 0
+    m_Bits: 743
+  m_UseGeometry: 1
   m_DefaultArea: 0
   m_GenerateLinks: 0
   m_IgnoreNavMeshAgent: 1
@@ -46729,7 +45754,7 @@ MonoBehaviour:
   m_OverrideVoxelSize: 0
   m_VoxelSize: 0.16666667
   m_MinRegionArea: 2
-  m_NavMeshData: {fileID: 23800000, guid: a1c2139112ec1194191a2870dfd6aeb4, type: 2}
+  m_NavMeshData: {fileID: 23800000, guid: e23bd9a9411838d4094f7e86c35c5f5d, type: 2}
   m_BuildHeightMesh: 0
 --- !u!114 &3843385993135480429
 MonoBehaviour:
@@ -46747,7 +45772,6 @@ MonoBehaviour:
   - {fileID: 1357558702371055054}
   - {fileID: 1771493117659010939}
   - {fileID: 8610016021678523173}
-  stageRoot: {fileID: 963151530379995815}
   navMeshSurface: {fileID: 391997023689191609}
 --- !u!1 &8720945771865359700
 GameObject:
@@ -46761,8 +45785,7 @@ GameObject:
   - component: {fileID: 4461963483155474089}
   - component: {fileID: 3711519166094898819}
   - component: {fileID: 4410021972902078719}
-  - component: {fileID: 5114692125720799441}
-  - component: {fileID: 1791705971503481314}
+  - component: {fileID: 7986640685730670949}
   m_Layer: 0
   m_Name: wall_007(Clone)
   m_TagString: Untagged
@@ -46881,27 +45904,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DecorObject
   decorId: 9
---- !u!114 &5114692125720799441
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8720945771865359700}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Unity.AI.Navigation::Unity.AI.Navigation.NavMeshModifier
-  m_SerializedVersion: 0
-  m_OverrideArea: 1
-  m_Area: 1
-  m_OverrideGenerateLinks: 0
-  m_GenerateLinks: 0
-  m_IgnoreFromBuild: 0
-  m_ApplyToChildren: 1
-  m_AffectedAgents: ffffffff
---- !u!65 &1791705971503481314
+--- !u!65 &7986640685730670949
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -46920,8 +45923,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 6.091701, y: 1.6456518, z: 0.65928227}
-  m_Center: {x: 0, y: 0.77881503, z: -0.00000005960466}
+  m_Size: {x: 6.0916996, y: 1.6456518, z: 0.6592821}
+  m_Center: {x: 0, y: 0.77881503, z: -0.000000059604645}
 --- !u!1 &8722180322407342797
 GameObject:
   m_ObjectHideFlags: 0
@@ -47052,6 +46055,7 @@ MonoBehaviour:
   bridge: {fileID: 1541826009823255750}
   renderer: {fileID: 7406034669254003540}
   colorType: 0
+  paintCooldown: 0
 --- !u!1 &8740515119718202958
 GameObject:
   m_ObjectHideFlags: 0
@@ -47064,8 +46068,7 @@ GameObject:
   - component: {fileID: 1737868886662509128}
   - component: {fileID: 1533482699156296982}
   - component: {fileID: 659880623161398321}
-  - component: {fileID: 7826330891137310042}
-  - component: {fileID: 2299981537159373205}
+  - component: {fileID: 9057867203080121883}
   m_Layer: 0
   m_Name: wall_007(Clone)
   m_TagString: Untagged
@@ -47184,27 +46187,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DecorObject
   decorId: 9
---- !u!114 &7826330891137310042
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8740515119718202958}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Unity.AI.Navigation::Unity.AI.Navigation.NavMeshModifier
-  m_SerializedVersion: 0
-  m_OverrideArea: 1
-  m_Area: 1
-  m_OverrideGenerateLinks: 0
-  m_GenerateLinks: 0
-  m_IgnoreFromBuild: 0
-  m_ApplyToChildren: 1
-  m_AffectedAgents: ffffffff
---- !u!65 &2299981537159373205
+--- !u!65 &9057867203080121883
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -47224,7 +46207,7 @@ BoxCollider:
   m_Enabled: 1
   serializedVersion: 3
   m_Size: {x: 6.091701, y: 1.6456518, z: 0.65928227}
-  m_Center: {x: 0, y: 0.77881503, z: -0.00000005960466}
+  m_Center: {x: 0, y: 0.77881503, z: -0.0000005364418}
 --- !u!1 &8755298866884717623
 GameObject:
   m_ObjectHideFlags: 0
@@ -47355,6 +46338,7 @@ MonoBehaviour:
   bridge: {fileID: 6766520193922794127}
   renderer: {fileID: 5958113503528105653}
   colorType: 0
+  paintCooldown: 0
 --- !u!1 &8763702713634522847
 GameObject:
   m_ObjectHideFlags: 0
@@ -47783,8 +46767,7 @@ GameObject:
   - component: {fileID: 8483154379952962002}
   - component: {fileID: 4020232613190074887}
   - component: {fileID: 6017687073039746697}
-  - component: {fileID: 7436589605838984835}
-  - component: {fileID: 5753770200606601791}
+  - component: {fileID: 8842124892265594926}
   m_Layer: 0
   m_Name: wall_007(Clone)
   m_TagString: Untagged
@@ -47903,27 +46886,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DecorObject
   decorId: 9
---- !u!114 &7436589605838984835
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8841726261358196054}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Unity.AI.Navigation::Unity.AI.Navigation.NavMeshModifier
-  m_SerializedVersion: 0
-  m_OverrideArea: 1
-  m_Area: 1
-  m_OverrideGenerateLinks: 0
-  m_GenerateLinks: 0
-  m_IgnoreFromBuild: 0
-  m_ApplyToChildren: 1
-  m_AffectedAgents: ffffffff
---- !u!65 &5753770200606601791
+--- !u!65 &8842124892265594926
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -47942,8 +46905,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 6.091701, y: 1.6456518, z: 0.65928227}
-  m_Center: {x: 0, y: 0.77881503, z: -0.00000005960466}
+  m_Size: {x: 6.0916996, y: 1.6456518, z: 0.6592821}
+  m_Center: {x: 0, y: 0.77881503, z: -0.000000059604645}
 --- !u!1 &8865205805542348368
 GameObject:
   m_ObjectHideFlags: 0
@@ -48186,6 +47149,7 @@ MonoBehaviour:
   bridge: {fileID: 1541826009823255750}
   renderer: {fileID: 3615031836766215531}
   colorType: 0
+  paintCooldown: 0
 --- !u!1 &8922363725196755010
 GameObject:
   m_ObjectHideFlags: 0
@@ -48253,97 +47217,6 @@ MeshRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 4921cacf604204045abe52100fa9ae0d, type: 2}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 3
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_GlobalIlluminationMeshLod: 0
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_MaskInteraction: 0
-  m_AdditionalVertexStreams: {fileID: 0}
---- !u!1 &8936904976978906848
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2474521108847965363}
-  - component: {fileID: 5531314076256822062}
-  - component: {fileID: 4050509609737307550}
-  m_Layer: 0
-  m_Name: obstacle_4_001
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &2474521108847965363
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8936904976978906848}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 5762153891272649274}
-  m_Father: {fileID: 3446205318969851129}
-  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
---- !u!33 &5531314076256822062
-MeshFilter:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8936904976978906848}
-  m_Mesh: {fileID: -8356501929360443574, guid: 0e467647ea29ace47a8f225650d36681, type: 3}
---- !u!23 &4050509609737307550
-MeshRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8936904976978906848}
-  m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 2
-  m_RayTraceProcedural: 0
-  m_RayTracingAccelStructBuildFlagsOverride: 0
-  m_RayTracingAccelStructBuildFlags: 1
-  m_SmallMeshCulling: 1
-  m_ForceMeshLod: -1
-  m_MeshLodSelectionBias: 0
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 2100000, guid: 475df77cde3394a4390cb95e536a2fe3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -48497,6 +47370,7 @@ MonoBehaviour:
   bridge: {fileID: 5863809494977111897}
   renderer: {fileID: 7894381428615852720}
   colorType: 0
+  paintCooldown: 0
 --- !u!1 &9068251510570388599
 GameObject:
   m_ObjectHideFlags: 0
@@ -48781,6 +47655,7 @@ MonoBehaviour:
   bridge: {fileID: 9079557384004801392}
   renderer: {fileID: 4169635588301998217}
   colorType: 0
+  paintCooldown: 0
 --- !u!1 &9130624945014596836
 GameObject:
   m_ObjectHideFlags: 0
@@ -49115,6 +47990,7 @@ MonoBehaviour:
   bridge: {fileID: 9079557384004801392}
   renderer: {fileID: 6673882850921600467}
   colorType: 0
+  paintCooldown: 0
 --- !u!1 &9179476489631498789
 GameObject:
   m_ObjectHideFlags: 0
@@ -49245,6 +48121,7 @@ MonoBehaviour:
   bridge: {fileID: 9079557384004801392}
   renderer: {fileID: 3333596168896791381}
   colorType: 0
+  paintCooldown: 0
 --- !u!1 &9183793177097659765
 GameObject:
   m_ObjectHideFlags: 0

@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 24994e44271fb974ebbf48f5eb6f6636, type: 3}
   m_Name: Stage2DataSO
   m_EditorClassIdentifier: Assembly-CSharp::StageDataSO
-  StageData:
+  stageData:
     StageNumber: 2
     IsLastStage: 0
     ScaleX: 22
@@ -35,11 +35,11 @@ MonoBehaviour:
       Position: {x: 0, y: 11.11, z: 46.45}
       EulerAngles: {x: 0.000009334668, y: -0, z: -0}
       Scale: {x: 22.5, y: 1, z: 9}
-  BridgeDatas:
-  - OwnerStageNumber: 2
-    NextStageNumber: 3
+  bridgeDatas:
+  - OwnerStageNumber: 0
+    NextStageNumber: 0
     bridgeTFData:
-      Position: {x: 15.33, y: 20.92, z: 56.61}
+      Position: {x: -1.33, y: 20.92, z: 56.61}
       EulerAngles: {x: -0, y: 0, z: 0}
       Scale: {x: 1, y: 1, z: 1}
     TFPlane:
@@ -47,12 +47,12 @@ MonoBehaviour:
       EulerAngles: {x: 334, y: 0, z: 0}
       Scale: {x: 1.8, y: 1, z: 23.94812}
     BanisterTFDataArr:
-    - Position: {x: -3.38, y: 3.4071, z: 10.156}
+    - Position: {x: -3.38, y: 3.3554, z: 10.05}
       EulerAngles: {x: 334, y: 0, z: 0}
-      Scale: {x: 0.2, y: 0.2, z: 24.255594}
-    - Position: {x: -1.1, y: 3.4071, z: 10.156}
+      Scale: {x: 0.2, y: 0.2, z: 24.021397}
+    - Position: {x: -1.1, y: 3.3511, z: 10.0411}
       EulerAngles: {x: 334, y: 0, z: 0}
-      Scale: {x: 0.2, y: 0.2, z: 24.255594}
+      Scale: {x: 0.2, y: 0.2, z: 24.00098}
     stairDataArr:
     - TFData:
         Position: {x: -2.25, y: -2.0219994, z: 0.14000034}
@@ -138,10 +138,10 @@ MonoBehaviour:
         Position: {x: -2.25, y: 7.9220004, z: 20.113998}
         EulerAngles: {x: -0, y: 0, z: 0}
         Scale: {x: 2, y: 0.5, z: 1}
-  - OwnerStageNumber: 2
-    NextStageNumber: 3
+  - OwnerStageNumber: 0
+    NextStageNumber: 0
     bridgeTFData:
-      Position: {x: -1.33, y: 20.92, z: 56.61}
+      Position: {x: 15.33, y: 20.92, z: 56.61}
       EulerAngles: {x: -0, y: 0, z: 0}
       Scale: {x: 1, y: 1, z: 1}
     TFPlane:
@@ -149,12 +149,12 @@ MonoBehaviour:
       EulerAngles: {x: 334, y: 0, z: 0}
       Scale: {x: 1.8, y: 1, z: 23.94812}
     BanisterTFDataArr:
-    - Position: {x: -3.38, y: 3.3554, z: 10.05}
+    - Position: {x: -3.38, y: 3.4071, z: 10.156}
       EulerAngles: {x: 334, y: 0, z: 0}
-      Scale: {x: 0.2, y: 0.2, z: 24.021397}
-    - Position: {x: -1.1, y: 3.3511, z: 10.0411}
+      Scale: {x: 0.2, y: 0.2, z: 24.255594}
+    - Position: {x: -1.1, y: 3.4071, z: 10.156}
       EulerAngles: {x: 334, y: 0, z: 0}
-      Scale: {x: 0.2, y: 0.2, z: 24.00098}
+      Scale: {x: 0.2, y: 0.2, z: 24.255594}
     stairDataArr:
     - TFData:
         Position: {x: -2.25, y: -2.0219994, z: 0.14000034}

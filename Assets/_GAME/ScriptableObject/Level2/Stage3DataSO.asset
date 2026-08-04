@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 24994e44271fb974ebbf48f5eb6f6636, type: 3}
   m_Name: Stage3DataSO
   m_EditorClassIdentifier: Assembly-CSharp::StageDataSO
-  StageData:
+  stageData:
     StageNumber: 3
     IsLastStage: 1
     ScaleX: 11.5
@@ -20,23 +20,23 @@ MonoBehaviour:
     ScaleZ: 6
     SpawnPos:
     - Position: {x: -0.736, y: 2.48, z: -0.594}
-      EulerAngles: {x: 0.000009334668, y: -0, z: -0}
+      EulerAngles: {x: 0.000018669336, y: -0, z: -0}
       Scale: {x: 1, y: 1, z: 1}
     - Position: {x: -0.186, y: 2.48, z: -0.594}
-      EulerAngles: {x: 0.000009334668, y: -0, z: -0}
+      EulerAngles: {x: 0.000018669336, y: -0, z: -0}
       Scale: {x: 1, y: 1, z: 1}
     - Position: {x: 0.279, y: 2.48, z: -0.594}
-      EulerAngles: {x: 0.000009334668, y: -0, z: -0}
+      EulerAngles: {x: 0.000018669336, y: -0, z: -0}
       Scale: {x: 1, y: 1, z: 1}
     - Position: {x: 0.794, y: 2.48, z: -0.594}
-      EulerAngles: {x: 0.000009334668, y: -0, z: -0}
+      EulerAngles: {x: 0.000018669336, y: -0, z: -0}
       Scale: {x: 1, y: 1, z: 1}
     TFData:
       Position: {x: 0, y: 16.89, z: 75.02}
       EulerAngles: {x: 0.000009334668, y: -0, z: -0}
       Scale: {x: 11.5, y: 1, z: 6}
-  BridgeDatas:
-  - OwnerStageNumber: 3
+  bridgeDatas:
+  - OwnerStageNumber: 0
     NextStageNumber: -1
     bridgeTFData:
       Position: {x: 7.29, y: 27.01, z: 82.22}
@@ -44,7 +44,7 @@ MonoBehaviour:
       Scale: {x: 1, y: 1, z: 1}
     TFPlane:
       Position: {x: -2.27, y: 0.1171, z: 5.1129}
-      EulerAngles: {x: -26, y: 0, z: 0}
+      EulerAngles: {x: 334, y: 0, z: 0}
       Scale: {x: 1.8, y: 1, z: 12.80495}
     BanisterTFDataArr:
     - Position: {x: -3.38, y: 0.8756, z: 4.9371}

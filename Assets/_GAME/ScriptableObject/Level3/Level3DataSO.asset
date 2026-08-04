@@ -15,10 +15,45 @@ MonoBehaviour:
   levelId: 2
   stageDataSOs: []
   winAreaTF:
-    Position: {x: 0, y: 0, z: 0}
-    EulerAngles: {x: 0, y: 0, z: 0}
-    Scale: {x: 0, y: 0, z: 0}
-  gateDatas: []
+    Position: {x: 4.93, y: 34.92, z: 117.89}
+    EulerAngles: {x: -0, y: 0, z: 0}
+    Scale: {x: 1, y: 1, z: 1}
+  gateDatas:
+  - TFData:
+      Position: {x: -15.935451, y: 14.73, z: 36.08}
+      EulerAngles: {x: -0, y: 0, z: 0}
+      Scale: {x: 1, y: 1, z: 1}
+    NextStageNumber: 0
+  - TFData:
+      Position: {x: -7.3054504, y: 20.16, z: 70.06}
+      EulerAngles: {x: -0, y: 0, z: 0}
+      Scale: {x: 1, y: 1, z: 1}
+    NextStageNumber: -1
+  - TFData:
+      Position: {x: 11.760002, y: 4.39, z: -2.79}
+      EulerAngles: {x: -0, y: 0, z: 0}
+      Scale: {x: 1, y: 1, z: 1}
+    NextStageNumber: 0
+  - TFData:
+      Position: {x: -21.46, y: 4.39, z: -2.79}
+      EulerAngles: {x: -0, y: 0, z: 0}
+      Scale: {x: 1, y: 1, z: 1}
+    NextStageNumber: 0
+  - TFData:
+      Position: {x: 6.02, y: 4.39, z: -2.79}
+      EulerAngles: {x: -0, y: 0, z: 0}
+      Scale: {x: 1, y: 1, z: 1}
+    NextStageNumber: 0
+  - TFData:
+      Position: {x: -27.2, y: 4.39, z: -2.79}
+      EulerAngles: {x: -0, y: 0, z: 0}
+      Scale: {x: 1, y: 1, z: 1}
+    NextStageNumber: 0
+  - TFData:
+      Position: {x: 0.7, y: 14.73, z: 36.08}
+      EulerAngles: {x: -0, y: 0, z: 0}
+      Scale: {x: 1, y: 1, z: 1}
+    NextStageNumber: 0
   decorObjectDatas:
   - TFData:
       Position: {x: -7.76, y: 4.53, z: 5.56}
@@ -76,12 +111,12 @@ MonoBehaviour:
       Scale: {x: 1.5, y: 1.5, z: 1.5000002}
     DecorId: 9
   - TFData:
-      Position: {x: 13.8, y: -10, z: -66.8}
+      Position: {x: 13.8, y: 2.2, z: -64.7}
       EulerAngles: {x: -0, y: 90, z: -0}
       Scale: {x: 1, y: 1, z: 1}
     DecorId: 7
   - TFData:
-      Position: {x: 13.8, y: -8.5, z: -11}
+      Position: {x: 13.8, y: 2.2, z: -11}
       EulerAngles: {x: -0, y: 90, z: -0}
       Scale: {x: 1, y: 1, z: 1}
     DecorId: 7
@@ -410,8 +445,8 @@ MonoBehaviour:
       EulerAngles: {x: -0, y: 90, z: -0}
       Scale: {x: 1, y: 1, z: 1}
     DecorId: 6
-  navMeshData: {fileID: 23800000, guid: 3a11848cef97b5043aede2814dcc9f34, type: 2}
-  speedBot: 0
-  speedPlayer: 0
-  goldPerStar: 0
+  navMeshData: {fileID: 23800000, guid: fe66355c4675a2e4daa22578baf15a74, type: 2}
+  speedBot: 5
+  speedPlayer: 6
+  goldPerStar: 130
   nextLevelData: {fileID: 0}

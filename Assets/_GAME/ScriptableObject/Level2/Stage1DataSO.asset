@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 24994e44271fb974ebbf48f5eb6f6636, type: 3}
   m_Name: Stage1DataSO
   m_EditorClassIdentifier: Assembly-CSharp::StageDataSO
-  StageData:
+  stageData:
     StageNumber: 1
     IsLastStage: 0
     ScaleX: 16
@@ -20,24 +20,24 @@ MonoBehaviour:
     ScaleZ: 16
     SpawnPos:
     - Position: {x: -0.574, y: 2.26, z: -0.752}
-      EulerAngles: {x: 0, y: -0, z: -0}
+      EulerAngles: {x: -0, y: 0, z: 0}
       Scale: {x: 1, y: 1, z: 1}
     - Position: {x: -0.141, y: 2.26, z: -0.752}
-      EulerAngles: {x: 0, y: -0, z: -0}
+      EulerAngles: {x: -0, y: 0, z: 0}
       Scale: {x: 1, y: 1, z: 1}
     - Position: {x: 0.333, y: 2.26, z: -0.752}
-      EulerAngles: {x: 0, y: -0, z: -0}
+      EulerAngles: {x: -0, y: 0, z: 0}
       Scale: {x: 1, y: 1, z: 1}
     - Position: {x: 0.679, y: 2.26, z: -0.752}
-      EulerAngles: {x: 0, y: -0, z: -0}
+      EulerAngles: {x: -0, y: 0, z: 0}
       Scale: {x: 1, y: 1, z: 1}
     TFData:
       Position: {x: 0, y: -0.38, z: 0.19}
-      EulerAngles: {x: 0, y: -0, z: -0}
+      EulerAngles: {x: -0, y: 0, z: 0}
       Scale: {x: 17.5, y: 1, z: 16}
-  BridgeDatas:
+  bridgeDatas:
   - OwnerStageNumber: 1
-    NextStageNumber: 2
+    NextStageNumber: 0
     bridgeTFData:
       Position: {x: 11.33, y: 9.88, z: 17.4}
       EulerAngles: {x: -0, y: 0, z: 0}
@@ -111,7 +111,7 @@ MonoBehaviour:
         EulerAngles: {x: -0, y: 0, z: 0}
         Scale: {x: 2, y: 0.5, z: 1}
   - OwnerStageNumber: 1
-    NextStageNumber: 2
+    NextStageNumber: 0
     bridgeTFData:
       Position: {x: 19.54, y: 9.88, z: 17.4}
       EulerAngles: {x: -0, y: 0, z: 0}
@@ -185,7 +185,7 @@ MonoBehaviour:
         EulerAngles: {x: -0, y: 0, z: 0}
         Scale: {x: 2, y: 0.5, z: 1}
   - OwnerStageNumber: 1
-    NextStageNumber: 2
+    NextStageNumber: 0
     bridgeTFData:
       Position: {x: -5.63, y: 9.88, z: 17.4}
       EulerAngles: {x: -0, y: 0, z: 0}
@@ -259,7 +259,7 @@ MonoBehaviour:
         EulerAngles: {x: -0, y: 0, z: 0}
         Scale: {x: 2, y: 0.5, z: 1}
   - OwnerStageNumber: 1
-    NextStageNumber: 2
+    NextStageNumber: 0
     bridgeTFData:
       Position: {x: 3.2999997, y: 9.59, z: 17.45}
       EulerAngles: {x: -0, y: 0, z: 0}
