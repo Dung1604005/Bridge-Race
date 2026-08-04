@@ -1403,7 +1403,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::CharacterChecker
   character: {fileID: 409400425}
   collider: {fileID: 409400426}
-  rangeDetect: 1
+  rangeDetect: 0.8
   rangeDetectGround: 7
 --- !u!1 &410087039
 GameObject:
@@ -2311,7 +2311,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::CharacterChecker
   character: {fileID: 737381555}
   collider: {fileID: 737381556}
-  rangeDetect: 1
+  rangeDetect: 0.8
   rangeDetectGround: 7
 --- !u!1001 &740508910
 PrefabInstance:
@@ -2906,7 +2906,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::CharacterChecker
   character: {fileID: 917712442}
   collider: {fileID: 917712444}
-  rangeDetect: 1
+  rangeDetect: 0.8
   rangeDetectGround: 7
 --- !u!1 &929405050
 GameObject:
@@ -4723,7 +4723,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::CharacterChecker
   character: {fileID: 1760249469}
   collider: {fileID: 1760249470}
-  rangeDetect: 1
+  rangeDetect: 0.8
   rangeDetectGround: 7
 --- !u!1001 &1796059487
 PrefabInstance:

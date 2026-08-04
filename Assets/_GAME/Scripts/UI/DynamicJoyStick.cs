@@ -54,7 +54,7 @@ public class DynamicJoyStick : OnScreenControl, IPointerDownHandler, IDragHandle
         }
 
         handle.anchoredPosition = delta;
-        SendValueToControl(delta/moveRanger);
+        SendValueToControl((delta/moveRanger).normalized);
     }
 
     public void OnPointerUp(PointerEventData pointerEventData)
