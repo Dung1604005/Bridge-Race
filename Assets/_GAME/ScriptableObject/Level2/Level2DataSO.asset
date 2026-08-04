@@ -12,15 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51b7a8665e69d7e4597033813af332fa, type: 3}
   m_Name: Level2DataSO
   m_EditorClassIdentifier: Assembly-CSharp::LevelDataSO
-  LevelId: 1
-  stageDatas:
-  - {fileID: 11400000, guid: 538b02038396f9d4a950d2ee058d3d78, type: 2}
-  - {fileID: 11400000, guid: 6a3ae26b805ffb442929fd8d41290888, type: 2}
-  - {fileID: 11400000, guid: 6ad08438c65c10349861184cdbf962e1, type: 2}
-  WinAreaTF:
-    Position: {x: 5.02, y: 30.57, z: 99.53}
-    EulerAngles: {x: -0, y: 0, z: 0}
-    Scale: {x: 1, y: 1, z: 1}
+  levelId: 1
+  stageDataSOs: []
+  winAreaTF:
+    Position: {x: 0, y: 0, z: 0}
+    EulerAngles: {x: 0, y: 0, z: 0}
+    Scale: {x: 0, y: 0, z: 0}
   gateDatas:
   - TFData:
       Position: {x: 0.75455, y: 10.350001, z: 28.665997}
@@ -449,7 +446,7 @@ MonoBehaviour:
       Scale: {x: 1, y: 1, z: 1}
     DecorId: 11
   navMeshData: {fileID: 23800000, guid: 95b55da18b756034ebe45252df8575ee, type: 2}
-  SpeedBot: 6
-  SpeedPlayer: 7
-  GoldPerStar: 120
-  NextLevelData: {fileID: 11400000, guid: b8bfff2f9cdc78049985a50f0caa3bb4, type: 2}
+  speedBot: 0
+  speedPlayer: 0
+  goldPerStar: 0
+  nextLevelData: {fileID: 0}
