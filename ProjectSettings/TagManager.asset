@@ -15,12 +15,12 @@ TagManager:
   - UI
   - Stair
   - Ground
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - Gate
+  - DeadPlayer
+  - StairGround
+  - UICharacter
+  - HitBoxCharacter
+  - Hammer
   - 
   - 
   - 
@@ -42,6 +42,9 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: UI
+    uniqueID: 907339843
     locked: 0
   m_RenderingLayers:
   - Default
