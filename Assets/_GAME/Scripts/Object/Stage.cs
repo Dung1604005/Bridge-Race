@@ -149,7 +149,7 @@ public class Stage : GameUnit
     public void AddCharacter(Character character)
     {
         characters.Add(character);
-        stageBrickManager.ActiveBrickByColor(character.ColorType);
+        stageBrickManager.SetActiveBrickByColor(character.ColorType, true);
 
     }
 
@@ -159,7 +159,7 @@ public class Stage : GameUnit
         {
             if (characters[i] == character)
             {
-                stageBrickManager.DeActiveBrickByColor(character.ColorType);
+                stageBrickManager.SetActiveBrickByColor(character.ColorType, false);
                 characters.RemoveAt(i);
                
 

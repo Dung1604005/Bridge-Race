@@ -38,39 +38,29 @@ public class StageBrickManager : MonoBehaviour
         }
     }
 
-    public void ActiveBrickByColor(ColorType colorType)
+    public void SetActiveBrickByColor(ColorType colorType, bool active)
     {
         if (bricks.ContainsKey(colorType))
         {
             foreach (Brick brick in bricks[colorType])
             {
-                brick.SetActive(true);
+                if (active)
+                {
+                    brick.SetActive(true);
+                }
+                else
+                {
+                    brick.OnDespawn();
+                }
+            }
+            if (!active)
+            {
+                bricks[colorType].Clear();
             }
         }
         else
         {
             Debug.LogError("Color brick want to be active dont have in stage!!! " + colorType);
-        }
-
-    }
-
-    public void DeActiveBrickByColor(ColorType colorType)
-    {
-        if (bricks.ContainsKey(colorType))
-        {
-            foreach (Brick brick in bricks[colorType])
-            {
-                // Khong despawn do co the dan den brick cua nhan vat dung brick cua stage => bug
-                //brick.SetActive(false);
-                brick.OnDespawn();
-            }
-
-            bricks[colorType].Clear();
-
-        }
-        else
-        {
-            Debug.LogError("Color brick want to be deactive dont have in stage!!!");
         }
 
     }

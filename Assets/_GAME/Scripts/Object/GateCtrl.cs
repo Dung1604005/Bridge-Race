@@ -16,7 +16,9 @@ public class GateCtrl : GameUnit
 
     [SerializeField] float durationEffect;
 
-    private bool opened;
+    private bool taked;
+
+    private Coroutine gateCoroutine;
 
     public Stage NextStage => nextStage;
 
@@ -27,7 +29,7 @@ public class GateCtrl : GameUnit
 
         data.TFData = Helper.CreateDataFromTransform(tf);
 
-        if(nextStage == null)
+        if (nextStage == null)
         {
             data.NextStageNumber = -1;
         }
@@ -35,10 +37,10 @@ public class GateCtrl : GameUnit
         {
             data.NextStageNumber = nextStage.GetStageNumber();
         }
-        
+
 
         levelDataSO.AddGateData(data);
-         EditorUtility.SetDirty(levelDataSO);
+        EditorUtility.SetDirty(levelDataSO);
         AssetDatabase.SaveAssets();
     }
 
@@ -51,19 +53,37 @@ public class GateCtrl : GameUnit
 
     public void OnInit()
     {
-        opened = false;
+        taked = false;
         nextStage = null;
     }
 
     public void OnDespawn()
     {
-        opened  = false;
+        taked = false;
         nextStage = null;
-        for(int i = 0; i < gateObjRenderers.Count; i++)
+        for (int i = 0; i < gateObjRenderers.Count; i++)
         {
             gateObjRenderers[i].material = GameData.Instance.ColorDataSO.GetColorMaterial(ColorType.NONE);
         }
         transformDoor.localScale = Vector3.one;
+    }
+
+    public void OnColliderCharacter(Collider collider)
+    {
+        Character character = ColliderCache<Character>.GetComponent(collider);
+        ColorType charColor = character.ColorType;
+
+        if (!CanGoThroughGate(character)) return;
+
+        character.ChangeStage(nextStage);
+
+        if (gateCoroutine == null)
+        {
+            gateCoroutine = StartCoroutine(IEChangeColor(durationEffect, GameData.Instance.ColorDataSO.GetColorMaterial(charColor).color));
+        }
+        if (taked) return;
+        taked = true;
+        StartCoroutine(IEOpenDoor(durationEffect));
     }
 
     public void OnTriggerEnter(Collider collider)
@@ -71,16 +91,7 @@ public class GateCtrl : GameUnit
 
         if (collider.CompareTag(GameConfig.CHARACTER_TAG))
         {
-            Character character = ColliderCache<Character>.GetComponent(collider);
-            ColorType charColor = character.ColorType;
-
-            if(!CanGoThroughGate(character))return;
-            
-            character.ChangeStage(nextStage);
-            if(opened)return;
-            opened = true;
-            StartCoroutine(IEOpenDoor(durationEffect));
-            StartCoroutine(IEChangeColor(durationEffect, GameData.Instance.ColorDataSO.GetColorMaterial(charColor).color));
+            OnColliderCharacter(collider);
         }
     }
 
@@ -99,15 +110,35 @@ public class GateCtrl : GameUnit
     IEnumerator IEOpenDoor(float duration)
     {
         float timer = 0f;
-        Vector3 targetScale = new Vector3(0f, tf.localScale.y, tf.localScale.z);
+        Vector3 targetScale = new Vector3(0f, transformDoor.localScale.y, transformDoor.localScale.z);
         while (timer + 0.01f < duration)
         {
             timer += Time.deltaTime;
-            transformDoor.localScale = Vector3.Lerp(tf.localScale, targetScale, timer / duration);
+            transformDoor.localScale = Vector3.Lerp(transformDoor.localScale, targetScale, timer / duration);
 
 
             yield return null;
         }
+
+        yield return new WaitForSeconds(1f);
+
+        StartCoroutine(IECloseDoor(duration));
+    }
+
+    IEnumerator IECloseDoor(float duration)
+    {
+        float timer = 0f;
+        Vector3 targetScale = new Vector3(1f, transformDoor.localScale.y, transformDoor.localScale.z);
+        while (timer + 0.01f < duration)
+        {
+            timer += Time.deltaTime;
+            transformDoor.localScale = Vector3.Lerp(transformDoor.localScale, targetScale, timer / duration);
+
+
+            yield return null;
+        }
+
+        gateCoroutine = null;
     }
     IEnumerator IEChangeColor(float duration, Color target)
     {
