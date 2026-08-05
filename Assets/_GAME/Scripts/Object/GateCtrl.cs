@@ -47,7 +47,7 @@ public class GateCtrl : GameUnit
     public void LoadData(GateData gateData)
     {
         Helper.LoadTransformData(tf, gateData.TFData);
-
+        Debug.Log(gameObject.name + " "  + gateData.NextStageNumber);
         nextStage = LevelManager.Instance.StageManager.GetStage(gateData.NextStageNumber);
     }
 
