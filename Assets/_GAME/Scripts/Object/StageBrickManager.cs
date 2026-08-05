@@ -166,7 +166,6 @@ public class StageBrickManager : MonoBehaviour
             {
                 if (brick.gameObject.activeSelf)
                 {
-
                     if (!brick.IsCollected)
                     {
                         float distance = (brick.TF.position - character.TF.position).sqrMagnitude;
@@ -181,12 +180,8 @@ public class StageBrickManager : MonoBehaviour
                     }
                     if (brick.IsCollected)
                     {
-                        
                         brick.Move(character, character.BrickCharacterManager.GetBrickPosition(flyingBricks[brick]));
-
                     }
-
-
                 }
             }
         }
@@ -232,12 +227,6 @@ public class StageBrickManager : MonoBehaviour
     }
     public void SpawnBrickStage(List<ColorType> colorTypes)
     {
-
-        if (colorTypes.Count != 4)
-        {
-            Debug.LogError("STAGE DONT HAVE ENOUGH COLOR");
-            return;
-        }
         Vector3 distanceBrick = GameConfig.DISTANCE_BRICK;
         int numbCollumn = (int)((scaleX * 2 - distanceBrick.x) / (GameConfig.BRICK_SIZE.x + distanceBrick.x));
         int numbRow = (int)((scaleZ * 2 - distanceBrick.z) / (GameConfig.BRICK_SIZE.z + distanceBrick.z));

@@ -138,8 +138,6 @@ public class PlayerController : Character
                 Invoke(nameof(ReSpawn), 0.5f);
                 return;
             }
-            
-           
             CharacterChecker.CheckForward();
         }
 

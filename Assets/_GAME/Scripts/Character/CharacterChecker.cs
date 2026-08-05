@@ -112,10 +112,7 @@ public class CharacterChecker : MonoBehaviour
 
     public void CheckForward()
     {
-
-        //Check Gate
         CheckGate();
-        //Check stair
         CheckStair();
 
     }
