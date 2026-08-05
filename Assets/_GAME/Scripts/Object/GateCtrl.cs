@@ -47,7 +47,6 @@ public class GateCtrl : GameUnit
     public void LoadData(GateData gateData)
     {
         Helper.LoadTransformData(tf, gateData.TFData);
-        Debug.Log(gameObject.name + " "  + gateData.NextStageNumber);
         nextStage = LevelManager.Instance.StageManager.GetStage(gateData.NextStageNumber);
     }
 
@@ -79,11 +78,12 @@ public class GateCtrl : GameUnit
 
         if (gateCoroutine == null)
         {
-            gateCoroutine = StartCoroutine(IEChangeColor(durationEffect, GameData.Instance.ColorDataSO.GetColorMaterial(charColor).color));
+            gateCoroutine = StartCoroutine(IEOpenDoor(durationEffect));
+            
         }
         if (taked) return;
         taked = true;
-        StartCoroutine(IEOpenDoor(durationEffect));
+        StartCoroutine(IEChangeColor(durationEffect, GameData.Instance.ColorDataSO.GetColorMaterial(charColor).color));
     }
 
     public void OnTriggerEnter(Collider collider)

@@ -192,12 +192,19 @@ public class StageBrickManager : MonoBehaviour
         }
     }
 
-    public Brick SpawnBrickObject(List<int> numbColorBrick, List<ColorType> colorTypes, Vector3 leftBottomPos, int x, int z)
+    public Vector3 CaculateBrickPos(Vector3 leftBottomPos, int x, int z)
     {
         Vector3 distanceBrick = GameConfig.DISTANCE_BRICK;
         Vector3 pos = new Vector3((x + 1) * distanceBrick.x + x * GameConfig.BRICK_SIZE.x + leftBottomPos.x + GameConfig.BRICK_SIZE.x / 2,
                stage.TF.position.y + scaleY*2 + GameConfig.BRICK_SIZE.y / 2,
                (z + 1) * distanceBrick.z + z * GameConfig.BRICK_SIZE.z + leftBottomPos.z + GameConfig.BRICK_SIZE.z / 2);
+        return pos;
+    }
+
+    public Brick SpawnBrickObject(List<int> numbColorBrick, List<ColorType> colorTypes, Vector3 leftBottomPos, int x, int z)
+    {
+        
+        Vector3 pos = CaculateBrickPos(leftBottomPos, x, z);
         Brick brick = SimplePool.Spawn<Brick>(PoolType.BrickPool, pos, Quaternion.identity);
         brick.SetInfor(stage, pos);
         brick.OnInit();

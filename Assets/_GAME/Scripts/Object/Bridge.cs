@@ -97,13 +97,10 @@ public class Bridge : GameUnit
 
             stairs.Add(stair);
         }
-
         foreach(Stair stair in stairs)
         {
             stair.SetBridge(this);
         }
-
-
     }
 
     public void OnInit()

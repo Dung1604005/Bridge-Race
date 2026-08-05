@@ -105,7 +105,6 @@ public class CharacterChecker : MonoBehaviour
         }
         else
         {
-            collider.enabled = true;
             SetCharacterOnStair(false);
             character.CharacterState.SetBlockForward(false);
         }
