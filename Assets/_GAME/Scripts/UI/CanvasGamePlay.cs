@@ -39,12 +39,15 @@ public class CanvasGamePlay : UICanvas
             {
                 leaderBoard[i].SetInfo(i + 1, characters[i].CharacterName, characters[i].CharacterId);
             }
-            EventBus<OnRankChange>.Raise(new OnRankChange
-            {
-                CharacterId = characters[i].CharacterId,
-                NewRank = i + 1
-            });
             
+            leaderBoard[i].ChangeRank(i + 1, characters[i].CharacterId);
+        }
+    }
+    public void ChangeRank(int characterId, int newRank)
+    {
+        for(int i = 0; i < leaderBoard.Count; i++)
+        {
+            leaderBoard[i].ChangeRank(newRank, characterId);
         }
     }
 

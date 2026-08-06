@@ -29,10 +29,11 @@ public class CanvasLevelSelect : UICanvas
     }
     public override void SetUp()
     {
+        OnDespawn();
         panelRoot.anchoredPosition = startPosition;
         
         base.SetUp();
-        EventBus<OnLevelSelect>.Subcribe(OnChangeLevelSelect);
+        
         List<LevelDataSave> levelDatas = GameData.Instance.AllLevelSaveData.LevelDatas;
 
         for(int i = 0; i < levelDatas.Count; i++)
@@ -60,7 +61,7 @@ public class CanvasLevelSelect : UICanvas
 
     public override void Close(float time)
     {
-        EventBus<OnLevelSelect>.UnSubcribe(OnChangeLevelSelect);
+        
         OnDespawn();
 
         StartCoroutine(Helper.IEPopUp(panelRoot,startPosition, popUpDuration, 0.05f, () =>
@@ -70,14 +71,14 @@ public class CanvasLevelSelect : UICanvas
         
     }
 
-    public void OnChangeLevelSelect(OnLevelSelect onLevelSelect)
+    public void OnChangeLevelSelect(int levelId)
     {
-        if(selectedLevelId == onLevelSelect.LevelId)return;
+        if(selectedLevelId == levelId)return;
         if(selectedLevelId >= 0 && selectedLevelId < listLevelUI.Count)
         {
             listLevelUI[selectedLevelId].OnDeSelect();
         }
-        selectedLevelId = onLevelSelect.LevelId;
+        selectedLevelId = levelId;
     }
 
     public void OnCloseButton()

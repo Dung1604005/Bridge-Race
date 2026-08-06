@@ -9,21 +9,10 @@ public class CharacterModelUI : MonoBehaviour
 
    [SerializeField] private GameObject cameraModel;
 
-
-   public void OnEnable()
+   public void OnChangeSkin(int skinId)
     {
-        EventBus<OnLoadSkinModel>.Subcribe(OnChangeSkin);
-    }
-
-    public void OnDisable()
-    {
-        EventBus<OnLoadSkinModel>.UnSubcribe(OnChangeSkin);
-    }
-
-   public void OnChangeSkin(OnLoadSkinModel onLoadSkinModel)
-    {
-        Debug.Log(onLoadSkinModel.SkinId);
-        SetSkin(GameData.Instance.SkinDatas[onLoadSkinModel.SkinId].ModelPrefab);
+        
+        SetSkin(GameData.Instance.SkinDatas[skinId].ModelPrefab);
     }
 
     public void SetActiveCameraModel(bool active)

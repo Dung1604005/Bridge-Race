@@ -8,6 +8,10 @@ public class PatrolState : IState
 
     public void CaculateAmountBrick(Enemy t)
     {
+        if(!t.IsAgentValid())
+        {
+            return;
+        }
         int maxActiveBrick = t.CurrentStage.StageBrickManager.GetAmountActiveBrick(t.ColorType);
         int numbTargetBrick = UnityEngine.Random.Range(Mathf.Min(3, maxActiveBrick), maxActiveBrick + 1);
         

@@ -86,11 +86,8 @@ public class UICharacter : MonoBehaviour
     public void OnSelectButton()
     {
         SoundManager.Instance.PlaySfx(AudioClipType.SFX_BUTTON_CLICK);
-        EventBus<OnLoadSkinModel>.Raise(new OnLoadSkinModel
-        {
-            SkinId = skinSO.IdSkin
-        });
-        
+
+        GameManager.Instance.GetCharacterModelUI().OnChangeSkin(skinSO.IdSkin);
         canvasSkin.TurnOffAllFocusEffect();
         SetActiveFocusEffect(true);
 

@@ -20,17 +20,6 @@ public class LeaderBoardEntryUI : MonoBehaviour
 
     private int characterId;
 
-
-    public void OnEnable()
-    {
-        EventBus<OnRankChange>.Subcribe(ChangeRank);
-    }
-
-    public void OnDisable()
-    {
-        EventBus<OnRankChange>.UnSubcribe(ChangeRank);
-    }
-
     public void SetRankText(int rank)
     {
         currentRank = rank;
@@ -49,14 +38,14 @@ public class LeaderBoardEntryUI : MonoBehaviour
         characterId=_characterId;
     }
 
-    public void ChangeRank(OnRankChange onRankChange)
+    public void ChangeRank(int newRank, int characterId)
     {
         
-        if(characterId == onRankChange.CharacterId)
+        if(this.characterId == characterId)
         {
-           
-            SetRankText(onRankChange.NewRank);
-            Vector3 target = lowestPos + (4 - onRankChange.NewRank)*distance;
+            Debug.Log(characterId + " " + newRank);
+            SetRankText(newRank);
+            Vector3 target = lowestPos + (4 - newRank)*distance;
            
             StartCoroutine(IEMovePosition(timeMove, target));
         }

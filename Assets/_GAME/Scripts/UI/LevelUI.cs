@@ -79,10 +79,9 @@ public class LevelUI : UIElement
         {
             gameObject.SetActive(true);
         }
-        EventBus<OnLevelSelect>.Raise(new OnLevelSelect{LevelId = levelIndex});
+        UIManager.Instance.GetUI<CanvasLevelSelect>().OnChangeLevelSelect(levelIndex);
         StartCoroutine(IEPlayEffectClick(durationEffect));
     }
-
     IEnumerator IEPlayEffectClick(float duration)
     {
         StartCoroutine(Helper.IEDoScale(this.transform, scaleMin, durationEffect/4f));

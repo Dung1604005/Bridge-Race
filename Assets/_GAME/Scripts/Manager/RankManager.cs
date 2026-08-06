@@ -64,14 +64,7 @@ public class RankManager : MonoBehaviour
 
         for (int indexNew = 0; indexNew < newRank.Count; indexNew++)
         {
-
-            EventBus<OnRankChange>.Raise(new OnRankChange
-            {
-                CharacterId = newRank[indexNew].CharacterId,
-                NewRank = indexNew + 1
-
-            });
-
+            UIManager.Instance.GetUI<CanvasGamePlay>().ChangeRank(newRank[indexNew].CharacterId, indexNew + 1);
         }
 
         rankedCharacters = newRank;

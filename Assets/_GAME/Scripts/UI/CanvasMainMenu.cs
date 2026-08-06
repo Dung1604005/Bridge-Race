@@ -14,10 +14,7 @@ public class CanvasMainMenu : UICanvas
         base.SetUp();
         GameManager.Instance.ChangeGameState(GameState.MAINMENU);
         GameManager.Instance.GetCharacterModelUI().SetActiveCameraModel(true);
-        EventBus<OnLoadSkinModel>.Raise(new OnLoadSkinModel
-        {
-            SkinId = GameData.Instance.GetCurrentSkin()
-        });
+        
         SetNameInputField(GameManager.Instance.GetPlayer().CharacterName);
         SetGoldText(GameData.Instance.GetGold());
     }
