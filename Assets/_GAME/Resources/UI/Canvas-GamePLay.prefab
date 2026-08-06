@@ -479,6 +479,7 @@ MonoBehaviour:
   - {fileID: 6661043821277821815}
   - {fileID: 985850877011806726}
   textLevel: {fileID: 6764468014868969819}
+  joyStick: {fileID: 4108879671937605723}
 --- !u!1 &2152052514931068943
 GameObject:
   m_ObjectHideFlags: 0
@@ -2575,7 +2576,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1768774549314335986, guid: 0631f7431de004f0bb2a1c15cb16e7d7, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -699
+      value: -524
       objectReference: {fileID: 0}
     - target: {fileID: 1768774549314335986, guid: 0631f7431de004f0bb2a1c15cb16e7d7, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
