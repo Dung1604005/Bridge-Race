@@ -8,6 +8,8 @@ public class SwingingObject : MonoBehaviour
 
     [SerializeField] private Transform tf;
 
+    [SerializeField] private Transform impactPoint;
+
     private float timePassed = 0f;
 
     private float directionMulti = 1f;
@@ -31,20 +33,14 @@ public class SwingingObject : MonoBehaviour
         }
     }
 
-    public void OnColliderPlayer(Collision collision)
+    public void OnColliderPlayer(Collider collider)
     {
-        Collider collider = collision.collider;
         Character character = ColliderCache<Character>.GetComponent(collider);
 
         if (character.CharacterState.GetIsInActive()) return;
 
-        Vector3 impactPoint = collision.GetContact(0).point;
-
-        Vector3 knockbackDir = (-character.TF.position + impactPoint);
-        knockbackDir.y += 1.5f;
-
-
-
+        Vector3 knockbackDir = (character.TF.position - impactPoint.position);
+        
         character.Knockback(knockbackDir);
     }
 
@@ -57,17 +53,17 @@ public class SwingingObject : MonoBehaviour
         UpdateRotation();
     }
 
-    public void OnCollisionEnter(Collision collision)
+    public void OnTriggerEnter(Collider collider)
     {
         if (GameManager.Instance.GameState != GameState.PLAYING)
         {
             return;
         }
 
-        Collider collider = collision.collider;
+        
         if (collider.CompareTag(GameConfig.CHARACTER_TAG))
         {
-            OnColliderPlayer(collision);
+            OnColliderPlayer(collider);
 
         }
     }

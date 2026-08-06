@@ -14,17 +14,16 @@ public class CanvasSkin : UICanvas
         GameManager.Instance.GetCharacterModelUI().SetActiveCameraModel(true);
         List<int> collectedSkin = new List<int>();
         List<SkinSO> listSkinSO = GameData.Instance.SkinDatas;
-        PlayerData playerData = GameData.Instance.PlayerData;
-        SetGoldText(playerData.Gold);
+        SetGoldText(GameData.Instance.GetGold());
 
-        if(playerData.collectedSkin != null)
-        {
-            collectedSkin = playerData.collectedSkin;
-        }
+        
+        
+        collectedSkin = GameData.Instance.GetCollectedSkin();
+        
         for(int i = 0; i < uiCharacters.Count; i++)
         {
             bool collected = false;
-            for(int j = 0; j < collectedSkin.Count; j++)
+            for(int j = 0; j < collectedSkin?.Count; j++)
             {
                 if(listSkinSO[i].IdSkin == collectedSkin[j])
                 {

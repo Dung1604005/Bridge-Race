@@ -51,7 +51,8 @@ public class BrickCharacterManager : MonoBehaviour
 
     public void AddBrick()
     {
-        SoundManager.Instance.PlaySfx(AudioClipType.SFX_BRICK_TAKE);
+        if(!character.IsBot)SoundManager.Instance.PlaySfx(AudioClipType.SFX_BRICK_TAKE);
+        
         Vector3 localPos = startCharacterBrickPos + new Vector3(0f, characterBricks.Count * (GameConfig.BRICK_SIZE.y / 2 + 0.15f), 0f);
         Brick brick = SimplePool.Spawn<Brick>(PoolType.BrickPool, Vector3.zero, Quaternion.identity);
 
@@ -71,7 +72,7 @@ public class BrickCharacterManager : MonoBehaviour
     {
         if (characterBricks.Count == 0)
         {
-            Debug.Log("BRICK IS EMPTY BUT TRY TO POP");
+            Debug.Log("BUG O DAY: BRICK IS EMPTY BUT TRY TO POP");
             return;
         }
         Brick brick = characterBricks[characterBricks.Count - 1];
@@ -81,7 +82,7 @@ public class BrickCharacterManager : MonoBehaviour
         brick.OnDespawn();
     }
 
-    public void ClearBrick()
+    public void RemoveAllBrick()
     {
         while (characterBricks.Count > 0)
         {

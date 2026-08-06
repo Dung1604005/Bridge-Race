@@ -154,26 +154,27 @@ public class Enemy : Character
             buildState.CaculateDestination(this);
         }
     }
+    public void OnEnemyFalling()
+    {
+        EventBus<OnCharacterInActive>.Raise(new OnCharacterInActive
+        {
+            CharacterId = CharacterId
+        });
+        ChangeState(new IdleState());
+        OnDespawn();
+        Invoke(nameof(ReSpawn), 0.5f);
+    }
 
     public void UpdateEnemy()
     {
         if (!characterState.GetIsOnGround())
         {
-            EventBus<OnCharacterInActive>.Raise(new OnCharacterInActive
-            {
-                CharacterId = CharacterId
-            });
-            ChangeState(new IdleState());
-            OnDespawn();
-            Invoke(nameof(ReSpawn), 0.5f);
+            OnEnemyFalling();
             return;
         }
         if (!IsAgentValid()) return;
         CharacterChecker.CheckForward();
-        if (currentState != null)
-        {
-            currentState.OnExecute(this);
-        }
+        currentState?.OnExecute(this);
     }
 
     protected override void Update()

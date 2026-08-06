@@ -29,7 +29,7 @@ public class CharacterChecker : MonoBehaviour
     public bool CharacterIsGoingDown()
     {
 
-        if (character.Rb.linearVelocity.z < -0.01f)
+        if (character.GetLinearVelocity().z < -0.01f)
         {
             return true;
         }
@@ -39,7 +39,7 @@ public class CharacterChecker : MonoBehaviour
     public virtual bool CharacterIsFalling()
     {
 
-        if (character.Rb.linearVelocity.y < -5f && !Physics.Raycast(character.TF.position, -character.TF.up, rangeDetectGround,
+        if (character.GetLinearVelocity().y < -5f && !Physics.Raycast(character.TF.position, -character.TF.up, rangeDetectGround,
          layerGround | layerStairGround))
         {
             character.CharacterState.SetIsOnGround(false);

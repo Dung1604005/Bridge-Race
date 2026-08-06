@@ -32,7 +32,7 @@ public class UICharacter : MonoBehaviour
         SetActiveSkin(collected);
         effectFocus.SetActive(false);
 
-        if(GameData.Instance.PlayerData.CurrentSkinId == skinSO.IdSkin)
+        if(GameData.Instance.GetCurrentSkin() == skinSO.IdSkin)
         {
             effectFocus.SetActive(true);
         }
@@ -67,22 +67,18 @@ public class UICharacter : MonoBehaviour
     public void OnBuyButton()
     {
         SoundManager.Instance.PlaySfx(AudioClipType.SFX_BUTTON_CLICK);
-        PlayerData playerData = GameData.Instance.PlayerData;
 
-        if(playerData.Gold < skinSO.Price)
+        if(GameData.Instance.GetGold() < skinSO.Price)
         {
             CanvasNotification canvas = UIManager.Instance.OpenUI<CanvasNotification>();
             canvas.SetText("Error", "You don't have enough gold to buy this skin");
         }
         else
         {
-            
-            playerData.collectedSkin.Add(skinSO.IdSkin);
-            playerData.Gold -= skinSO.Price;
-            GameData.Instance.SavePlayerData(playerData);
+            GameData.Instance.AddSkin(skinSO.IdSkin);
+            GameData.Instance.ChangeGoldPlayerData(-skinSO.Price);
             CanvasSkin canvasSkin = UIManager.Instance.GetUI<CanvasSkin>();
-            canvasSkin.SetGoldText(playerData.Gold);
-
+            canvasSkin.SetGoldText(GameData.Instance.GetGold());
             SetActiveSkin(true);
         }
     }
@@ -97,14 +93,9 @@ public class UICharacter : MonoBehaviour
         
         canvasSkin.TurnOffAllFocusEffect();
         SetActiveFocusEffect(true);
+
+        GameData.Instance.SetCurrentSkin(skinSO.IdSkin);
         
-        PlayerData playerData = GameData.Instance.PlayerData;
-
-        playerData.CurrentSkinId = skinSO.IdSkin;
-
-        GameData.Instance.SavePlayerData(playerData);
-
-        GameManager.Instance.GetPlayer().SetSkin(skinSO.SkinPrefab);
     }
 
     

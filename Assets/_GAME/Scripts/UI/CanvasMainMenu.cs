@@ -12,13 +12,14 @@ public class CanvasMainMenu : UICanvas
     public override void SetUp()
     {
         base.SetUp();
+        GameManager.Instance.ChangeGameState(GameState.MAINMENU);
         GameManager.Instance.GetCharacterModelUI().SetActiveCameraModel(true);
         EventBus<OnLoadSkinModel>.Raise(new OnLoadSkinModel
         {
-            SkinId = GameData.Instance.PlayerData.CurrentSkinId
+            SkinId = GameData.Instance.GetCurrentSkin()
         });
         SetNameInputField(GameManager.Instance.GetPlayer().CharacterName);
-        SetGoldText(GameData.Instance.PlayerData.Gold);
+        SetGoldText(GameData.Instance.GetGold());
     }
 
     public override void Close(float time)
@@ -54,16 +55,14 @@ public class CanvasMainMenu : UICanvas
 
     public void SetGoldText(int goldAmount)
     {
-        // Dua so ve dang string nhu 999,999
         goldText.text = goldAmount.ToString("N0");
     }
 
     public void OnNameInputFieldChange(String namePlayer)
     {
         GameManager.Instance.GetPlayer().SetName(namePlayer);
-        PlayerData playerData = GameData.Instance.PlayerData;
-        playerData.PlayerName = namePlayer;
-        GameData.Instance.SavePlayerData(playerData);
+        
+        GameData.Instance.SaveNamePlayerData(namePlayer);
     }
 
     public void SetNameInputField(String namePlayer)

@@ -128,7 +128,7 @@ public class Stair : GameUnit
 
         if (character.BrickCharacterManager.GetAmountVisualBrick() > 0)
         {
-            SoundManager.Instance.PlaySfx(AudioClipType.SFX_BUILD_BRIDGE);
+            if(!character.IsBot) SoundManager.Instance.PlaySfx(AudioClipType.SFX_BUILD_BRIDGE);
             lastPaintTime = Time.time;
             SetColor(character.ColorType);
             character.BrickCharacterManager.RemoveBrick();

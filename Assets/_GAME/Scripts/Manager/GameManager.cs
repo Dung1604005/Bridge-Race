@@ -20,6 +20,11 @@ public class GameManager :Singleton<GameManager>
         GameState prevState = gameState;
         gameState = newGameState;
 
+        OnGameStateChange(prevState, newGameState);
+    }
+
+    public void OnGameStateChange(GameState prevState, GameState newState)
+    {
         if(gameState == GameState.PLAYING && prevState == GameState.COUNTDOWN)
         {
             OnStart();
@@ -34,6 +39,8 @@ public class GameManager :Singleton<GameManager>
         }
         else if(gameState == GameState.VICTORY)
         {
+            CanvasGamePlay canvasGamePlay = UIManager.Instance.GetUI<CanvasGamePlay>();
+            canvasGamePlay.OnWin();
             Invoke(nameof(OnVictory), 5f);
         }
     }
@@ -65,7 +72,7 @@ public class GameManager :Singleton<GameManager>
         GameData.Instance.LoadPlayerData();
         GameData.Instance.LoadLevelData();
         SoundManager.Instance.PlayMusicSound(AudioClipType.BGM_GAMEPLAY);
-        SoundManager.Instance.SetMuteSound(GameData.Instance.PlayerData.IsMute);
+        SoundManager.Instance.SetMuteSound(GameData.Instance.GetIsMute());
     }
     void Awake()
     {

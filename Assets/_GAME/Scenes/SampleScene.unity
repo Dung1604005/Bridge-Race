@@ -977,13 +977,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 330585543}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.30070576, y: 0, z: 0, w: 0.953717}
+  m_LocalRotation: {x: 0.42261827, y: 0, z: 0, w: 0.9063079}
   m_LocalPosition: {x: 1.23, y: 13.04, z: -3.79}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 35, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 50, y: 0, z: 0}
 --- !u!114 &330585547
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1041,7 +1041,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8400698ae696dd946bc54b1c3edeaa07, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CameraFollow
-  offSetPlaying: {x: 0, y: 12, z: -13}
+  offSetPlaying: {x: 0, y: 16, z: -13}
   offSetOnWin: {x: 0, y: 5, z: 0}
   cam: {fileID: 330585545}
   tfPlayer: {fileID: 917712441}
@@ -1226,6 +1226,7 @@ GameObject:
   - component: {fileID: 409400429}
   - component: {fileID: 409400430}
   - component: {fileID: 409400431}
+  - component: {fileID: 409400432}
   m_Layer: 3
   m_Name: Bot (1)
   m_TagString: Character
@@ -1405,6 +1406,29 @@ MonoBehaviour:
   collider: {fileID: 409400426}
   rangeDetect: 0.8
   rangeDetectGround: 7
+--- !u!136 &409400432
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 409400423}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Height: 1.9517288
+  m_Direction: 1
+  m_Center: {x: 0, y: 0.73390007, z: 0}
 --- !u!1 &410087039
 GameObject:
   m_ObjectHideFlags: 0
@@ -2134,6 +2158,7 @@ GameObject:
   - component: {fileID: 737381559}
   - component: {fileID: 737381560}
   - component: {fileID: 737381561}
+  - component: {fileID: 737381562}
   m_Layer: 3
   m_Name: Bot (2)
   m_TagString: Character
@@ -2313,6 +2338,29 @@ MonoBehaviour:
   collider: {fileID: 737381556}
   rangeDetect: 0.8
   rangeDetectGround: 7
+--- !u!136 &737381562
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 737381553}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Height: 1.9517288
+  m_Direction: 1
+  m_Center: {x: 0, y: 0.73390007, z: 0}
 --- !u!1001 &740508910
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2404,11 +2452,11 @@ Transform:
   m_GameObject: {fileID: 758937507}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 9.44, y: 8.93, z: 8.82}
+  m_LocalPosition: {x: 20.57664, y: 1.2297602, z: -20.27618}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1151793074}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1818360609 &758937509
 RotationConstraint:
@@ -2477,15 +2525,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1176681271702099883, guid: bc91f8aba3da7474da2dbb393b3313f5, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 6.58022
+      value: 6.6
       objectReference: {fileID: 0}
     - target: {fileID: 1176681271702099883, guid: bc91f8aba3da7474da2dbb393b3313f5, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -76.99998
+      value: -20.2
       objectReference: {fileID: 0}
     - target: {fileID: 1176681271702099883, guid: bc91f8aba3da7474da2dbb393b3313f5, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 96.56004
+      value: 93.1
       objectReference: {fileID: 0}
     - target: {fileID: 1176681271702099883, guid: bc91f8aba3da7474da2dbb393b3313f5, type: 3}
       propertyPath: m_LocalRotation.w
@@ -2751,6 +2799,7 @@ GameObject:
   - component: {fileID: 917712445}
   - component: {fileID: 917712446}
   - component: {fileID: 917712447}
+  - component: {fileID: 917712448}
   m_Layer: 3
   m_Name: Player
   m_TagString: Character
@@ -2908,6 +2957,29 @@ MonoBehaviour:
   collider: {fileID: 917712444}
   rangeDetect: 0.8
   rangeDetectGround: 7
+--- !u!136 &917712448
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 917712440}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Height: 2.1051412
+  m_Direction: 1
+  m_Center: {x: 0, y: 0.6571939, z: 0}
 --- !u!1 &929405050
 GameObject:
   m_ObjectHideFlags: 0
@@ -3323,6 +3395,9 @@ Transform:
   - {fileID: 807517448}
   - {fileID: 2021675206}
   - {fileID: 1945958}
+  - {fileID: 758937508}
+  - {fileID: 1680302047}
+  - {fileID: 1375116550}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1303386673
@@ -3573,14 +3648,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1375116549}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 11.13664, y: -7.70024, z: -29.09618}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 295938029}
   - {fileID: 407421241}
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1151793074}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1375116551
 MonoBehaviour:
@@ -4446,13 +4521,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1658344415}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.30070576, y: 0, z: 0, w: 0.953717}
+  m_LocalRotation: {x: 0.42261827, y: 0, z: 0, w: 0.9063079}
   m_LocalPosition: {x: 1.23, y: 13.04, z: -3.79}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 35, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 50, y: 0, z: 0}
 --- !u!114 &1658344420
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4465,7 +4540,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8400698ae696dd946bc54b1c3edeaa07, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CameraFollow
-  offSetPlaying: {x: 0, y: 12, z: -13}
+  offSetPlaying: {x: 0, y: 16, z: -13}
   offSetOnWin: {x: 0, y: 5, z: 0}
   cam: {fileID: 1658344418}
   tfPlayer: {fileID: 917712441}
@@ -4499,15 +4574,15 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1680302046}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 71.95, y: 31.68, z: 54.64}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 83.08664, y: 23.97976, z: 25.54382}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 929775547}
   - {fileID: 1540046050}
   - {fileID: 1537095378}
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1151793074}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1680302048
 MonoBehaviour:
@@ -4546,6 +4621,7 @@ GameObject:
   - component: {fileID: 1760249474}
   - component: {fileID: 1760249475}
   - component: {fileID: 1760249476}
+  - component: {fileID: 1760249477}
   m_Layer: 3
   m_Name: Bot
   m_TagString: Character
@@ -4725,6 +4801,29 @@ MonoBehaviour:
   collider: {fileID: 1760249470}
   rangeDetect: 0.8
   rangeDetectGround: 7
+--- !u!136 &1760249477
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1760249467}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Height: 1.7462978
+  m_Direction: 1
+  m_Center: {x: 0, y: 0.83661556, z: 0}
 --- !u!1001 &1796059487
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5155,7 +5254,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6306519342137296766, guid: 34e8e71b4a5833542843ef8bbf80255b, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.065
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 6966577099663277584, guid: 34e8e71b4a5833542843ef8bbf80255b, type: 3}
       propertyPath: m_LocalPosition.x
@@ -5227,13 +5326,10 @@ SceneRoots:
   - {fileID: 544440287}
   - {fileID: 4921155808504638830}
   - {fileID: 683986225}
-  - {fileID: 758937508}
   - {fileID: 917712441}
   - {fileID: 1760249472}
   - {fileID: 409400427}
   - {fileID: 737381557}
   - {fileID: 783727299}
   - {fileID: 1151793074}
-  - {fileID: 1680302047}
   - {fileID: 778108899}
-  - {fileID: 1375116550}

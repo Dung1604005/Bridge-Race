@@ -23,7 +23,7 @@ public class CanvasSettings : UICanvas
         {
             GameManager.Instance.ChangeGameState(GameState.PAUSED);
         }
-        ChangeValueSound(!GameData.Instance.PlayerData.IsMute);
+        ChangeValueSound(!GameData.Instance.GetIsMute());
 
         if(parentCanvas is CanvasMainMenu)
         {
@@ -44,19 +44,14 @@ public class CanvasSettings : UICanvas
 
         if (isSoundOn)
         {
-            PlayerData playerData = GameData.Instance.PlayerData;
-            playerData.IsMute = false;
-            SoundManager.Instance.SetMuteSound(false);
-            GameData.Instance.SavePlayerData(playerData);
+
+            GameData.Instance.SetIsMute(false);
             toggleSoundOn.gameObject.SetActive(true);
         }
         else
         {
-            PlayerData playerData = GameData.Instance.PlayerData;
-            playerData.IsMute = true;
-            SoundManager.Instance.SetMuteSound(true);
-            GameData.Instance.SavePlayerData(playerData);
-            toggleSoundOff.gameObject.SetActive(true);
+           GameData.Instance.SetIsMute(true);
+            toggleSoundOn.gameObject.SetActive(false);
         }
     }
 

@@ -430,7 +430,7 @@ MonoBehaviour:
   colorType: 0
   radCollect: 8
   distanceBehind: 2
-  moveSpeed: 16
+  moveSpeed: 8
   accelerate: 5
   rotationSpeed: 15
   spawnPos: {x: 0, y: 0, z: 0}

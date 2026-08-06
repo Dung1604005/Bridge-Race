@@ -26,15 +26,11 @@ public class CanvasVictory : UICanvas
     {
         base.SetUp();
         gameObject.SetActive(true);
-        
-        PlayerData playerData = GameData.Instance.PlayerData;
-         int goldAward = LevelManager.Instance.RankManager.GetGoldAward();
-        SetGoldText(playerData.Gold + goldAward,  currentGoldText);
-        StartCoroutine(IEUpdateGoldAnim(0, goldAward, goldAwardText));
+        int goldAward = LevelManager.Instance.RankManager.GetGoldAward();
+        GameData.Instance.ChangeGoldPlayerData(goldAward);
 
-        playerData.Gold += goldAward;
-        
-        GameData.Instance.SavePlayerData(playerData);
+        SetGoldText(GameData.Instance.GetGold(),  currentGoldText);
+        StartCoroutine(IEUpdateGoldAnim(0, goldAward, goldAwardText));
         
         int star = LevelManager.Instance.RankManager.CaculateStarPlayer();
 

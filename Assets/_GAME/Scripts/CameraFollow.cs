@@ -41,7 +41,7 @@ public class CameraFollow : MonoBehaviour
         offSet = offSetPlaying;
         target = tfPlayer;
         cam.fieldOfView = 60f;
-        tf.rotation = Quaternion.Euler(new Vector3(35f, 0f, 0f));
+        tf.rotation = Quaternion.Euler(new Vector3(50f, 0f, 0f));
 
 
     }

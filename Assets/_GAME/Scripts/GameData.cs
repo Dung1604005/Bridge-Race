@@ -16,10 +16,6 @@ public class GameData : Singleton<GameData>
 
     public AllLevelDataSave AllLevelSaveData => allLevelSaveData;
 
-    public PlayerData PlayerData => playerData;
-
-
-
     public void SaveLevel(LevelDataSave levelData)
     {
         
@@ -63,8 +59,56 @@ public class GameData : Singleton<GameData>
         PlayerPrefs.SetString("playerData", jsonSave);
 
         PlayerPrefs.Save();
+    }
 
+    public void ChangeGoldPlayerData(int gold)
+    {
+        playerData.Gold += gold;
+        SavePlayerData(playerData);
+    }
 
+    public int GetGold()
+    {
+        return playerData.Gold;
+    }
+
+    public void AddSkin(int skinId)
+    {
+        playerData.collectedSkin.Add(skinId);
+        SavePlayerData(playerData);
+    }
+    public void SetCurrentSkin(int skinId)
+    {
+        playerData.CurrentSkinId = skinId;
+        GameManager.Instance.GetPlayer().SetSkin(SkinDatas[skinId].SkinPrefab);
+        SavePlayerData(playerData);
+    }
+
+    public int GetCurrentSkin()
+    {
+        return playerData.CurrentSkinId;
+    }
+
+    public List<int> GetCollectedSkin()
+    {
+        return playerData.collectedSkin;
+    }
+
+    public bool GetIsMute()
+    {
+        return playerData.IsMute;
+    }
+
+    public void SetIsMute(bool active)
+    {
+        playerData.IsMute = active;
+        SavePlayerData(playerData);
+        SoundManager.Instance.SetMuteSound(active);
+    }
+    public void SaveNamePlayerData(String name)
+    {
+        playerData.PlayerName = name;
+        SavePlayerData(playerData);
     }
 
     public void LoadPlayerData()
@@ -92,8 +136,6 @@ public class GameData : Singleton<GameData>
         {
             GameManager.Instance.GetPlayer().SetSkin(SkinDatas[playerData.CurrentSkinId].SkinPrefab);
         }
-
-
     }
 
     [ContextMenu("CLEAR LEVELDATA")]

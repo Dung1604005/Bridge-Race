@@ -13,14 +13,14 @@ public class CharacterKnockBack : MonoBehaviour
     {
         SoundManager.Instance.PlaySfx(AudioClipType.SFX_BRICK_IMPACT);
         character.SetInActive();
-        character.Rb.AddForce(knockbackDirection * knockForce, ForceMode.Impulse);
+        character.AddForce(knockbackDirection * knockForce, ForceMode.Impulse);
         character.TF.rotation = Quaternion.LookRotation(-knockbackDirection);
         if (character.BrickCharacterManager.GetAmountRealBrick() > 0)
         {
             breakBrickEffect.transform.position = character.BrickCharacterManager.GetBrickPosition(character.BrickCharacterManager.GetVisualBrickId() / 2);
             breakBrickEffect.Play();
         }
-        character.BrickCharacterManager.ClearBrick();
+        character.BrickCharacterManager.RemoveAllBrick();
         character.ChangeAnim(GameConfig.ANIM_KNOCKBACK);
 
         EventBus<OnCharacterInActive>.Raise(new OnCharacterInActive
@@ -59,14 +59,11 @@ public class CharacterKnockBack : MonoBehaviour
         {
             other.Knockback(knockbackDirBA);
             character.SetInActive(0.1f);
-
-
         }
         else if (other.BrickCharacterManager.GetAmountVisualBrick() > character.BrickCharacterManager.GetAmountVisualBrick())
         {
             character.Knockback(knockbackDirAB);
             other.SetInActive(0.1f);
-
         }
         else
         {
@@ -76,7 +73,7 @@ public class CharacterKnockBack : MonoBehaviour
     }
 
 
-    public void OnCollisionEnter(Collision collision)
+    public void OnTriggerEnter(Collider collider)
     {
         if (character.CharacterState.GetIsOnStair()) return;
 
@@ -85,7 +82,6 @@ public class CharacterKnockBack : MonoBehaviour
             return;
         }
 
-        Collider collider = collision.collider;
         if (collider.CompareTag(GameConfig.CHARACTER_TAG))
         {
 

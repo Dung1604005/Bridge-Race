@@ -50,7 +50,6 @@ public class Character : MonoBehaviour
 
     public Transform TF => tf;
 
-    public Rigidbody Rb => rb;
     public ColorType ColorType => colorType;
 
     public Stage CurrentStage => currentStage;
@@ -74,7 +73,7 @@ public class Character : MonoBehaviour
         SetInActive();
         Quaternion targetRotation = Quaternion.Euler(new Vector3(0f, 180f, 0f));
         tf.rotation = targetRotation;
-        brickCharacterManager.ClearBrick();
+        brickCharacterManager.RemoveAllBrick();
         ChangeAnim(GameConfig.ANIM_WIN);
 
     }
@@ -96,7 +95,7 @@ public class Character : MonoBehaviour
     {
         SetColor(colorType);
         characterState = new CharacterState();
-        brickCharacterManager.ClearBrick(); 
+        brickCharacterManager.RemoveAllBrick(); 
     
     }
     public virtual void OnDespawn()
@@ -106,7 +105,7 @@ public class Character : MonoBehaviour
         characterState = new CharacterState();
         rb.useGravity = false;
         SetInActive();
-        brickCharacterManager.ClearBrick();
+        brickCharacterManager.RemoveAllBrick();
         currentStage = null;
         
     }
@@ -213,6 +212,16 @@ public class Character : MonoBehaviour
     public virtual void SetSpeed(float speed)
     {
         this.speed = speed;
+    }
+
+    public Vector3 GetLinearVelocity()
+    {
+        return rb.linearVelocity;
+    }
+
+    public void AddForce(Vector3 impact, ForceMode forceMode)
+    {
+        rb.AddForce(impact, forceMode);
     }
 
     public void ChangeAnim(String newAnim)

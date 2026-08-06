@@ -26,12 +26,22 @@ public class DynamicJoyStick : OnScreenControl, IPointerDownHandler, IDragHandle
 
     void Awake()
     {
-        joystick.gameObject.SetActive(false);
+        SetActive(false);
+    }
+
+    public void SetActive(bool active)
+    {
+        joystick.gameObject.SetActive(active);
     }
 
     public void OnPointerDown(PointerEventData pointerEventData)
     {
-        joystick.gameObject.SetActive(true);
+        if(GameManager.Instance.GameState != GameState.PLAYING)
+        {
+            SetActive(false);
+            return;
+        }
+        SetActive(true);
 
         
         handle.anchoredPosition = Vector2.zero;
@@ -42,9 +52,11 @@ public class DynamicJoyStick : OnScreenControl, IPointerDownHandler, IDragHandle
 
     public void OnDrag(PointerEventData pointerEventData)
     {
-        
-        
-
+        if(GameManager.Instance.GameState != GameState.PLAYING)
+        {
+            SetActive(false);
+            return;
+        }
         Vector2 delta = (Vector2)pointerEventData.position - (Vector2)joystick.position;
 
         
@@ -59,7 +71,7 @@ public class DynamicJoyStick : OnScreenControl, IPointerDownHandler, IDragHandle
 
     public void OnPointerUp(PointerEventData pointerEventData)
     {
-        joystick.gameObject.SetActive(false);
+        SetActive(false);
 
         
         SendValueToControl(Vector2.zero);

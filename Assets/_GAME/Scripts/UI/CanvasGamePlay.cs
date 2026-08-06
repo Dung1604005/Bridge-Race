@@ -20,9 +20,14 @@ public class CanvasGamePlay : UICanvas
 
     [SerializeField] private TextMeshProUGUI textLevel;
 
+    [SerializeField] private DynamicJoyStick joyStick;
+
     private bool isSetUp = false;
 
-
+    public void OnWin()
+    {
+        joyStick.SetActive(false);
+    }
 
     public void SetRankUI(List<Character> characters)
     {
