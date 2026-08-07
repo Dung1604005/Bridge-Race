@@ -1026,6 +1026,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2859774499108417679, guid: 61be625362169d54b8903b4d1560d3fa, type: 3}
+      propertyPath: m_SortingLayer
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2859774499675314277, guid: 61be625362169d54b8903b4d1560d3fa, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -1465,6 +1469,18 @@ PrefabInstance:
       propertyPath: m_PreserveAspect
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 764835427390024145, guid: 14cf3cc59e20d3749918cebe56a267f9, type: 3}
+      propertyPath: m_SortingLayer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1746017037237805285, guid: 14cf3cc59e20d3749918cebe56a267f9, type: 3}
+      propertyPath: m_SortingLayer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2600642306282845025, guid: 14cf3cc59e20d3749918cebe56a267f9, type: 3}
+      propertyPath: m_SortingLayer
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2600642306282845025, guid: 14cf3cc59e20d3749918cebe56a267f9, type: 3}
       propertyPath: m_Materials.Array.size
       value: 1
@@ -1484,6 +1500,10 @@ PrefabInstance:
     - target: {fileID: 3046932930744366001, guid: 14cf3cc59e20d3749918cebe56a267f9, type: 3}
       propertyPath: m_PreserveAspect
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3069879391287659386, guid: 14cf3cc59e20d3749918cebe56a267f9, type: 3}
+      propertyPath: m_SortingLayer
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3069879391287659386, guid: 14cf3cc59e20d3749918cebe56a267f9, type: 3}
       propertyPath: m_Materials.Array.size
@@ -1573,6 +1593,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Star
       objectReference: {fileID: 0}
+    - target: {fileID: 5681343110237249454, guid: 14cf3cc59e20d3749918cebe56a267f9, type: 3}
+      propertyPath: m_SortingLayer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6046381435320625451, guid: 14cf3cc59e20d3749918cebe56a267f9, type: 3}
+      propertyPath: m_SortingLayer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6627731172844845161, guid: 14cf3cc59e20d3749918cebe56a267f9, type: 3}
+      propertyPath: m_SortingLayer
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6627731172844845161, guid: 14cf3cc59e20d3749918cebe56a267f9, type: 3}
       propertyPath: m_Materials.Array.size
       value: 1
@@ -1592,6 +1624,18 @@ PrefabInstance:
     - target: {fileID: 7099894065961761831, guid: 14cf3cc59e20d3749918cebe56a267f9, type: 3}
       propertyPath: m_PreserveAspect
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7167814657555413918, guid: 14cf3cc59e20d3749918cebe56a267f9, type: 3}
+      propertyPath: m_SortingLayer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7382252656556578760, guid: 14cf3cc59e20d3749918cebe56a267f9, type: 3}
+      propertyPath: m_SortingLayer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8804723364735754934, guid: 14cf3cc59e20d3749918cebe56a267f9, type: 3}
+      propertyPath: m_SortingLayer
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8804723364735754934, guid: 14cf3cc59e20d3749918cebe56a267f9, type: 3}
       propertyPath: m_Materials.Array.size

@@ -75,6 +75,11 @@ public class RankManager : MonoBehaviour
         return rankedCharacters[rank - 1];
     }
 
+    public bool IsPlayerRankFirst()
+    {
+        return !rankedCharacters[0].IsBot;
+    }
+
     public int CaculateStarPlayer()
     {
         int starExpect = 3;

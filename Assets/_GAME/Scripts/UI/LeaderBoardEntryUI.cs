@@ -43,7 +43,7 @@ public class LeaderBoardEntryUI : MonoBehaviour
         
         if(this.characterId == characterId)
         {
-            Debug.Log(characterId + " " + newRank);
+        
             SetRankText(newRank);
             Vector3 target = lowestPos + (4 - newRank)*distance;
            

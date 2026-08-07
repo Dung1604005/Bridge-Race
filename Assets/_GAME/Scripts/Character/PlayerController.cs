@@ -39,7 +39,7 @@ public class PlayerController : Character
 
     public void OnMove(InputAction.CallbackContext context)
     {
-        
+
 
         moveX = context.ReadValue<Vector2>().x;
         moveZ = context.ReadValue<Vector2>().y;
@@ -62,9 +62,9 @@ public class PlayerController : Character
         tf.rotation = Quaternion.Slerp(tf.rotation, targetRotation, rotationSpeed * Time.fixedDeltaTime);
 
     }
-    public void Move()
+
+    public void ChangeAnimMove()
     {
-        
         if (new Vector3(moveX, 0f, moveZ).sqrMagnitude <= 0.00001)
         {
             ChangeAnim(GameConfig.ANIM_IDLE);
@@ -74,6 +74,9 @@ public class PlayerController : Character
             ChangeAnim(GameConfig.ANIM_RUN);
             ChangeRotation();
         }
+    }
+    public void Move()
+    {
         if (characterState.GetBlockDown())
         {
             if (moveZ < -0.001f)
@@ -93,13 +96,38 @@ public class PlayerController : Character
 
         }
         Vector3 dir = new Vector3(moveX, 0f, moveZ);
-        if(dir.sqrMagnitude > 1)
+        if (dir.sqrMagnitude > 1)
         {
-           dir = dir.normalized; 
+            dir = dir.normalized;
         }
-        
-        tf.position = Vector3.MoveTowards(tf.position, tf.position + dir, speed*Time.fixedDeltaTime);
 
+        tf.position = Vector3.MoveTowards(tf.position, tf.position + dir, speed * Time.fixedDeltaTime);
+
+    }
+
+    public void OnFalling()
+    {
+        EventBus<OnCharacterInActive>.Raise(new OnCharacterInActive
+        {
+            CharacterId = CharacterId
+        });
+        //OnDespawn();
+        Invoke(nameof(ReSpawn), 0.5f);
+    }
+
+    public void UpdatePlayer()
+    {
+        if (!characterState.GetIsInActive())
+        {
+            if (!characterState.GetIsOnGround())
+            {
+                OnFalling();
+                return;
+            }
+            CharacterChecker.CheckForward();
+            ChangeAnimMove();
+            Move();
+        }
     }
 
     protected override void Awake()
@@ -110,7 +138,7 @@ public class PlayerController : Character
 
     void FixedUpdate()
     {
-         if(GameManager.Instance.GameState != GameState.PLAYING)
+        if (GameManager.Instance.GameState != GameState.PLAYING)
         {
             return;
         }
@@ -118,28 +146,13 @@ public class PlayerController : Character
         {
             return;
         }
-        Move();
-        
-
     }
     protected override void Update()
     {
         base.Update();
-        if (!characterState.GetIsInActive())
-        {
+        UpdatePlayer();
 
-            if (!characterState.GetIsOnGround())
-            {
-                EventBus<OnCharacterInActive>.Raise(new OnCharacterInActive
-                {
-                    CharacterId = CharacterId
-                });
-                //OnDespawn();
-                Invoke(nameof(ReSpawn), 0.5f);
-                return;
-            }
-            CharacterChecker.CheckForward();
-        }
+
 
     }
 }

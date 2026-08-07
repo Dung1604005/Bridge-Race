@@ -33,6 +33,7 @@ public class WinArea : MonoBehaviour
 
     public void OnWin()
     {
+        LevelManager.Instance.OnWin();
         for (int i = 0; i < 4; i++)
         {
             LevelManager.Instance.RankManager.GetCharacterRank(i + 1).SetSpawn(rankPositions[i].position);
@@ -40,6 +41,16 @@ public class WinArea : MonoBehaviour
         foreach (ParticleSystem particleSystem in particleSystems)
         {
             particleSystem.Play();
+        }
+        int expectStar = LevelManager.Instance.RankManager.CaculateStarPlayer();
+
+        if (expectStar > 0)
+        {
+            SoundManager.Instance.PlayMusicSound(AudioClipType.BGM_WIN);
+        }
+        else
+        {
+             SoundManager.Instance.PlayMusicSound(AudioClipType.BGM_LOSE);
         }
     }
 
@@ -51,19 +62,14 @@ public class WinArea : MonoBehaviour
             Character = character,
             Stage = 10
         });
-        LevelManager.Instance.OnWin();
-        OnWin();
         GameManager.Instance.ChangeGameState(GameState.VICTORY);
-        int expectStar = LevelManager.Instance.RankManager.CaculateStarPlayer();
 
-        if (expectStar > 0)
+        if (!LevelManager.Instance.RankManager.IsPlayerRankFirst())
         {
-            SoundManager.Instance.PlayMusicSound(AudioClipType.BGM_WIN);
+            UIManager.Instance.OpenUI<CanvasTimeUp>();
         }
-        else
-        {
-             SoundManager.Instance.PlayMusicSound(AudioClipType.BGM_LOSE);
-        }
+        Invoke(nameof(OnWin), 3f);
+        
     }
 
 

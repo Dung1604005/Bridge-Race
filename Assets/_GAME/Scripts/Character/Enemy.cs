@@ -27,6 +27,12 @@ public class Enemy : Character
         base.OnWin();
     }
 
+    public override void ReSpawn()
+    {
+        base.ReSpawn();
+        TurnOnAgent();
+    }
+
     public override void OnDespawn()
     {
         base.OnDespawn();
@@ -142,6 +148,11 @@ public class Enemy : Character
         agent.enabled = true;
     }
 
+    public void TurnOffAgent()
+    {
+        agent.enabled = false;
+    }
+
     public void SetDestination(Vector3 destination)
     {
         agent.SetDestination(destination);
@@ -161,7 +172,8 @@ public class Enemy : Character
             CharacterId = CharacterId
         });
         ChangeState(new IdleState());
-        OnDespawn();
+        TurnOffAgent();
+        //OnDespawn();
         Invoke(nameof(ReSpawn), 0.5f);
     }
 
