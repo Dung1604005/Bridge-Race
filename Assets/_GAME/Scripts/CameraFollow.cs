@@ -25,19 +25,21 @@ public class CameraFollow : MonoBehaviour
 
     private Vector3 offSet = Vector3.zero;
 
+    private bool usingLerp = false;
+
    
     public void OnWin()
     {
         target = tfWin;
         offSet = offSetOnWin;
+        usingLerp = true;
         tf.rotation = Quaternion.Euler(new Vector3(10f, 0f, 0f));
-        cam.fieldOfView = 0f;
-
-        StartCoroutine(IEZoomOut(0.5f, fieldOfView));
+    
     }
 
     public void OnInit()
     {
+        usingLerp = false;
         offSet = offSetPlaying;
         target = tfPlayer;
         cam.fieldOfView = 60f;
@@ -60,6 +62,8 @@ public class CameraFollow : MonoBehaviour
 
     }
 
+    
+
     void Awake()
     {
         tf = this.transform;
@@ -74,6 +78,13 @@ public class CameraFollow : MonoBehaviour
             return;
         }
         //TODO: Cho cam bay dan den win pos khi win
-        tf.position = offSet + target.position;
+        if (usingLerp)
+        {
+            tf.position = Vector3.Lerp(tf.position, offSet + target.position, 5f*Time.deltaTime);
+        }
+        else
+        {
+            tf.position = offSet + target.position;
+        }
     }
 }
