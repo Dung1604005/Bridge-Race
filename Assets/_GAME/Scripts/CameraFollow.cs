@@ -48,22 +48,6 @@ public class CameraFollow : MonoBehaviour
 
     }
 
-    IEnumerator IEZoomOut(float duration, float fieldView)
-    {
-        float timer = 0f;
-        float startFieldView = 0f;
-        while(timer + 0.01f < duration)
-        {
-            timer += Time.deltaTime;
-
-            cam.fieldOfView = Mathf.Lerp(startFieldView, fieldView, timer/duration );
-            yield return null;
-        }
-
-    }
-
-    
-
     void Awake()
     {
         tf = this.transform;
